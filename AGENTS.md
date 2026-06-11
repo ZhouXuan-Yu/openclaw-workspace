@@ -15,6 +15,8 @@ This checklist is MANDATORY. Every session starts here:
 2. Read `USER.md` — who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday, create if missing)
 4. **If in MAIN SESSION** (direct chat with human): Read `MEMORY.md`
+5. Read `memory/daily/今日.md` (if exists) — 今天的对话上下文
+6. Read `memory/daily/昨日.md` (if exists) — 昨天的对话上下文
 
 ### 📡 Cross-Session Context Retrieval
 If the user's first message refers to past work, a person, a decision, or a project name:
@@ -156,6 +158,18 @@ Don't ask permission. Just do it.
   "lastPatrol": "2026-06-11T09:00:00+08:00"
 }
 ```
+
+### 🗑️ 记忆删除命令
+
+当用户说「删除这条记忆」「这个记错了」「记忆删除: X」时：
+
+1. 搜索所有 topic 文件 + daily 日志，找到匹配内容
+2. 从 topic 文件中删除该条目
+3. 在 daily 日志中记录「用户删除了 X」
+4. 更新 MEMORY.md 索引（如果涉及索引条目）
+5. 确认删除：「已删除记忆：X」
+
+**格式**：用户可以直接说 `记忆删除: <要删除的内容>`
 
 ### 📝 不要"在心里记" — 写下来！
 
