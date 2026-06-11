@@ -58,28 +58,14 @@
 
 ## 进化规则（OpenSpace 模式）
 
-### 标准进化
-
 | 模式 | 触发条件 | 操作 |
 |------|---------|------|
 | FIX | Skill 失败 ≥2次 | 修复 SKILL.md |
 | DERIVED | 用户纠正方式 | 创建增强版（parent→原Skill） |
 | CAPTURED | 成功任务无Skill匹配 | 捕获为新Skill |
 
-### 元进化（Meta-Evolution）— 进化规则本身的进化
-
-标准进化是固定的规则。元进化是：**这些规则本身能否被改进？**
-
-| 元进化类型 | 触发条件 | 操作 |
-|-----------|---------|------|
-| RULE-REFINE | 同一进化模式连续失败 ≥3次 | 改进该模式的触发条件 |
-| NEW-MODE | 发现标准模式无法覆盖的进化需求 | 创建新的进化模式 |
-| MERGE | 两个进化模式功能重叠 | 合并为一个 |
-| RETIRE | 某个进化模式 >30天未触发 | 标记为 deprecated |
-
 **质量追踪**: `skills/.skill-quality.json`
 **血缘追踪**: SKILL.md frontmatter `parent`/`origin`/`generation`
-**进化日志**: `.snapshots/changelog.json` 记录所有修改
 
 ## 触发时机
 
