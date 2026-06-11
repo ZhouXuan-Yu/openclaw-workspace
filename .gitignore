@@ -1,0 +1,59 @@
+# OpenClaw workspace .gitignore
+
+# 敏感文件
+*.json
+*.env
+*.key
+*.pem
+*.token
+credentials/
+secrets/
+.clawhub/
+.openclaw/
+mem-sync/
+skills/*/config.json
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+Thumbs.db
+desktop.ini
+
+# Node modules
+node_modules/
+
+# 日志（保留结构，忽略内容）
+*.log
+
+# OS 文件
+.DS_Store
+.System*
+
+# 缓存
+.cache/
+__pycache__/
+*.pyc
+
+# 大文件（>10MB）
+*.zip
+*.tar.gz
+*.7z
+*.rar
+*.exe
+*.msi
+*.apk
+*.dmg
+
+# 但保留这些
+!.gitignore
+!memory/
+!MEMORY.md
+!AGENTS.md
+!SOUL.md
+!USER.md
+!TOOLS.md
+!IDENTITY.md
+!HEARTBEAT.md
