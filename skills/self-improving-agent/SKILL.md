@@ -1,4 +1,6 @@
 ﻿---
+.skill_id: openclaw-self-improving-agent
+
 parent: ""
 origin: "imported"
 generation: 0
@@ -666,4 +668,5 @@ Ask in chat: "Should I log this as a learning?"
 ```
 
 **Detection**: Manual review at session end
+
 

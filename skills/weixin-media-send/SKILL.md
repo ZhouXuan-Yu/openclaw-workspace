@@ -1,4 +1,6 @@
----
+﻿---
+.skill_id: openclaw-weixin-media-send
+
 name: weixin-media-send
 description: "通过微信渠道发送图片、视频、文件。当用户要求发送/分享文件，或生成的图片/文件需要交付时使用。仅当通过 openclaw-weixin 渠道通信时触发。"
 parent: ""
@@ -103,3 +105,4 @@ MEDIA:C:\Users\ZhouXuan\.openclaw\workspace\memory\daily\2026-06-11.md
 用户：帮我画个流程图
 助手：[使用 diagram-maker 生成] 流程图如下：
 MEDIA:C:\Users\ZhouXuan\.openclaw\workspace\diagrams\flow.png
+

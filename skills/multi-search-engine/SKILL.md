@@ -1,4 +1,6 @@
 ﻿---
+.skill_id: openclaw-multi-search-engine
+
 parent: ""
 origin: "imported"
 generation: 0
@@ -160,4 +162,5 @@ MIT
 - **No Personal Data**: Tool does not collect or transmit user personal information
 - **Local Execution**: All operations run locally, no external data transmission
 - **Session Isolation**: Cookies are session-specific and cleared after use
+
 
