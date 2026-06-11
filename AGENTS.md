@@ -116,6 +116,29 @@ Check `SKILL.md` when needed. Keep local notes in `TOOLS.md`.
 - **Default to built-in** — don't ask "do you want me to..." for every turn
 - **Cost-aware** — Markdown over docx. Knowledge over web search.
 
+### ⏳ 循环池（Progress Heartbeat）
+
+长时间任务时定期汇报进度，让用户知道"我还在工作"：
+
+| 预估耗时 | 策略 | 汇报频率 |
+|---------|------|----------|
+| <30秒 | 直接执行 | 不需要 |
+| 30秒-2分钟 | 分步汇报 | 每完成 1 步 |
+| >2分钟 | 子代理+轮询 | 每 60 秒 |
+
+**汇报格式**：
+```
+⏳ [步骤N/总计] 正在: [当前操作]
+```
+
+**触发规则**：
+- 步骤切换时立即汇报
+- 遇到阻塞时立即汇报
+- 用户问"还在吗"立即回复当前状态
+- 用户说"安静"停止汇报
+
+详见 `agents/progress-heartbeat.md`
+
 ## 💓 Heartbeats
 
 See `HEARTBEAT.md` for full checklist.
