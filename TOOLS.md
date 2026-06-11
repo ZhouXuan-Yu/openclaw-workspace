@@ -20,3 +20,6 @@ search-memory.ps1 "关键词" → 按需读 topic/daily
 | memory-reflection | 23:30 | 反思+进化 |
 | security-check | 10:00 | 安全态势 |
 | task-heartbeat | 按需 | 长任务保活（默认禁用） |
+
+## Git 提交规范
+feat/fix/refactor/docs/security/evolution/meta/snapshot
