@@ -138,6 +138,25 @@ Don't ask permission. Just do it.
 - 有变更则 commit，有 remote 则 push
 - 手动执行：`powershell -File memory/sync-memory.ps1`
 
+### 🛡️ 巡检补跑（cron 每天 09:00 CST）
+
+解决的问题：凌晨 2 点电脑关机，cron 任务不会执行。
+
+机制：
+- 每个凌晨任务执行后，写入 `memory/memory-state.json` 的对应时间戳
+- 09:00 巡检任务读取状态文件，检查 lastConsolidation / lastHealthCheck 是否为今天
+- 日期 ≠ 今天 → 自动补跑对应任务的完整步骤
+- 补跑后更新状态文件 + Git 同步
+
+状态文件：
+```json
+{
+  "lastConsolidation": "2026-06-11T02:00:00+08:00",
+  "lastHealthCheck": "2026-06-11T02:15:00+08:00",
+  "lastPatrol": "2026-06-11T09:00:00+08:00"
+}
+```
+
 ### 📝 不要"在心里记" — 写下来！
 
 - 记忆不跨 session，文件才跨。

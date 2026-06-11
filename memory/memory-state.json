@@ -1,0 +1,7 @@
+# memory-state.json — 记忆系统运行状态
+# 由 cron 任务自动更新，巡检任务读取判断是否需要补跑
+{
+  "lastConsolidation": null,
+  "lastHealthCheck": null,
+  "lastPatrol": null
+}

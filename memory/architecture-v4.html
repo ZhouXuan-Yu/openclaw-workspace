@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GGOB 记忆架构 v4 — 完整架构图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0e1a; color: #e0e0e0; min-height: 100vh; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+  h1 { text-align: center; font-size: 2.2em; margin-bottom: 8px; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { text-align: center; color: #888; font-size: 0.95em; margin-bottom: 50px; }
+  .diagram { position: relative; min-height: 900px; }
+
+  /* ─── Layer boxes ─── */
+  .layer { border-radius: 16px; padding: 24px 28px; margin-bottom: 24px; position: relative; }
+  .layer-label { font-size: 0.7em; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .layer-label span.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  /* L0 */
+  .l0 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 1px solid #2d3a5c; }
+  .l0 .layer-label { color: #60a5fa; }
+  .l0 .dot { background: #60a5fa; }
+  .l0-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .l0-card { background: rgba(96,165,250,0.06); border: 1px solid rgba(96,165,250,0.15); border-radius: 10px; padding: 16px; text-align: center; }
+  .l0-card .icon { font-size: 2em; margin-bottom: 6px; }
+  .l0-card .name { font-weight: 600; font-size: 0.95em; color: #60a5fa; }
+  .l0-card .desc { font-size: 0.78em; color: #888; margin-top: 4px; }
+
+  /* L1 */
+  .l1 { background: linear-gradient(135deg, #1a2e1a 0%, #162e21 100%); border: 1px solid #2d5c3a; }
+  .l1 .layer-label { color: #34d399; }
+  .l1 .dot { background: #34d399; }
+  .l1-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .l1-card { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.15); border-radius: 10px; padding: 14px; text-align: center; }
+  .l1-card .icon { font-size: 1.8em; margin-bottom: 4px; }
+  .l1-card .name { font-weight: 600; font-size: 0.85em; color: #34d399; }
+  .l1-card .desc { font-size: 0.72em; color: #888; margin-top: 4px; }
+  .l1-card .tag { font-size: 0.65em; background: rgba(52,211,153,0.12); color: #34d399; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-top: 6px; }
+
+  /* L2 */
+  .l2 { background: linear-gradient(135deg, #2e1a2e 0%, #2e213e 100%); border: 1px solid #5c2d5c; }
+  .l2 .layer-label { color: #c084fc; }
+  .l2 .dot { background: #c084fc; }
+  .l2-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .l2-card { background: rgba(192,132,252,0.06); border: 1px solid rgba(192,132,252,0.15); border-radius: 10px; padding: 14px; text-align: center; }
+  .l2-card .icon { font-size: 1.8em; margin-bottom: 4px; }
+  .l2-card .name { font-weight: 600; font-size: 0.85em; color: #c084fc; }
+  .l2-card .desc { font-size: 0.72em; color: #888; margin-top: 4px; }
+  .l2-card .tag { font-size: 0.65em; background: rgba(192,132,252,0.12); color: #c084fc; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-top: 6px; }
+
+  /* L3 */
+  .l3 { background: linear-gradient(135deg, #2e2a1a 0%, #3e2e16 100%); border: 1px solid #5c4a2d; }
+  .l3 .layer-label { color: #fbbf24; }
+  .l3 .dot { background: #fbbf24; }
+  .l3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .l3-card { background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.15); border-radius: 10px; padding: 14px; text-align: center; }
+  .l3-card .icon { font-size: 1.8em; margin-bottom: 4px; }
+  .l3-card .name { font-weight: 600; font-size: 0.85em; color: #fbbf24; }
+  .l3-card .desc { font-size: 0.72em; color: #888; margin-top: 4px; }
+  .l3-card .tag { font-size: 0.65em; background: rgba(251,191,36,0.12); color: #fbbf24; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-top: 6px; }
+
+  /* ─── Mechanisms section ─── */
+  .mechanisms { margin-top: 50px; }
+  .mech-title { font-size: 1.5em; font-weight: 700; margin-bottom: 24px; text-align: center; background: linear-gradient(135deg, #f472b6, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .mech-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .mech-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px; text-align: center; transition: all 0.3s; }
+  .mech-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
+  .mech-card .icon { font-size: 2.2em; margin-bottom: 8px; }
+  .mech-card .name { font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+  .mech-card .source { font-size: 0.7em; color: #888; margin-bottom: 8px; }
+  .mech-card .desc { font-size: 0.8em; color: #aaa; line-height: 1.5; }
+  .mech-card .badge { font-size: 0.65em; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-top: 10px; }
+  .badge-done { background: rgba(52,211,153,0.15); color: #34d399; }
+  .badge-auto { background: rgba(96,165,250,0.15); color: #60a5fa; }
+
+  /* ─── Flow section ─── */
+  .flow { margin-top: 50px; }
+  .flow-title { font-size: 1.5em; font-weight: 700; margin-bottom: 24px; text-align: center; background: linear-gradient(135deg, #34d399, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .flow-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .flow-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; }
+  .flow-card h3 { font-size: 1.05em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .flow-card h3 .icon { font-size: 1.3em; }
+  .flow-steps { list-style: none; }
+  .flow-steps li { padding: 6px 0; font-size: 0.85em; color: #bbb; display: flex; align-items: flex-start; gap: 8px; }
+  .flow-steps li .num { color: #60a5fa; font-weight: 700; min-width: 20px; }
+  .flow-steps li .arrow { color: #555; }
+  .flow-steps li .target { color: #34d399; font-weight: 600; }
+
+  /* ─── Cron section ─── */
+  .cron { margin-top: 50px; }
+  .cron-title { font-size: 1.5em; font-weight: 700; margin-bottom: 24px; text-align: center; background: linear-gradient(135deg, #fbbf24, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .cron-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cron-card { background: rgba(251,191,36,0.04); border: 1px solid rgba(251,191,36,0.12); border-radius: 14px; padding: 24px; }
+  .cron-card h3 { font-size: 1.05em; margin-bottom: 6px; color: #fbbf24; }
+  .cron-card .time { font-size: 0.8em; color: #888; margin-bottom: 12px; }
+  .cron-card ol { padding-left: 20px; }
+  .cron-card ol li { font-size: 0.82em; color: #aaa; padding: 3px 0; }
+
+  /* ─── Source section ─── */
+  .sources { margin-top: 50px; text-align: center; }
+  .sources h3 { font-size: 1.1em; margin-bottom: 14px; color: #888; }
+  .source-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .source-badge { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 16px; font-size: 0.78em; color: #aaa; }
+  .source-badge strong { color: #60a5fa; }
+
+  /* ─── Footer ─── */
+  .footer { margin-top: 60px; text-align: center; color: #555; font-size: 0.75em; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+  @media (max-width: 900px) {
+    .l0-grid, .l2-grid, .mech-grid { grid-template-columns: repeat(2, 1fr); }
+    .l1-grid { grid-template-columns: repeat(3, 1fr); }
+    .l3-grid, .flow-grid, .cron-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>GGOB 记忆架构 v4</h1>
+<p class="subtitle">对标世界级方案 · 4层存储 + 8大机制 + 7个Topic · 2026-06-11</p>
+
+<!-- ═══════ L0: 会话上下文 ═══════ -->
+<div class="layer l0">
+  <div class="layer-label"><span class="dot"></span>Layer 0 — 会话上下文（最热，仅当前 session）</div>
+  <div class="l0-grid">
+    <div class="l0-card">
+      <div class="icon">💬</div>
+      <div class="name">对话历史</div>
+      <div class="desc">当前 session 的所有消息<br>~200K tokens</div>
+    </div>
+    <div class="l0-card">
+      <div class="icon">🔧</div>
+      <div class="name">工具输出</div>
+      <div class="desc">Read / Write / Edit / Exec<br>的实时返回</div>
+    </div>
+    <div class="l0-card">
+      <div class="icon">📋</div>
+      <div class="name">System Prompt</div>
+      <div class="desc">SOUL.md + AGENTS.md<br>+ MEMORY.md 索引</div>
+    </div>
+    <div class="l0-card">
+      <div class="icon">⚡</div>
+      <div class="name">Working Memory</div>
+      <div class="desc">当前推理状态<br>session 结束即消失</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ L1: 固化记忆 ═══════ -->
+<div class="layer l1">
+  <div class="layer-label"><span class="dot"></span>Layer 1 — 固化记忆（每次启动必读，注入 System Prompt）</div>
+  <div class="l1-grid">
+    <div class="l1-card">
+      <div class="icon">🛡️</div>
+      <div class="name">SOUL.md</div>
+      <div class="desc">人格定义<br>极少变</div>
+      <div class="tag">~1.5KB</div>
+    </div>
+    <div class="l1-card">
+      <div class="icon">👤</div>
+      <div class="name">USER.md</div>
+      <div class="desc">用户档案<br>偏好·忌讳·背景</div>
+      <div class="tag">~1.2KB</div>
+    </div>
+    <div class="l1-card">
+      <div class="icon">📑</div>
+      <div class="name">MEMORY.md</div>
+      <div class="desc">索引文件<br>只做指针，不存内容</div>
+      <div class="tag">&lt;200行 · ~1.7KB</div>
+    </div>
+    <div class="l1-card">
+      <div class="icon">⚙️</div>
+      <div class="name">AGENTS.md</div>
+      <div class="desc">行为规则<br>读写策略·老化·反射</div>
+      <div class="tag">~8KB</div>
+    </div>
+    <div class="l1-card">
+      <div class="icon">🔧</div>
+      <div class="name">TOOLS.md</div>
+      <div class="desc">工具配置<br>路径·端口·快捷命令</div>
+      <div class="tag">~1KB</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ L2: 主题记忆 ═══════ -->
+<div class="layer l2">
+  <div class="layer-label"><span class="dot"></span>Layer 2 — 主题记忆（按需加载，仅当 L1 索引命中时读取）</div>
+  <div class="l2-grid">
+    <div class="l2-card">
+      <div class="icon">💡</div>
+      <div class="name">preferences.md</div>
+      <div class="desc">用户偏好<br>沟通风格·技术习惯</div>
+      <div class="tag">来源：Claude Code</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">📂</div>
+      <div class="name">projects.md</div>
+      <div class="desc">项目档案<br>状态·决策·进展</div>
+      <div class="tag">来源：Hermes</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">📚</div>
+      <div class="name">learnings.md</div>
+      <div class="desc">学习沉淀<br>踩坑·教训·最佳实践</div>
+      <div class="tag">来源：claude-mem</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">⚖️</div>
+      <div class="name">decisions.md</div>
+      <div class="desc">重要决策<br>选型·方向·架构选择</div>
+      <div class="tag">来源：Codex</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">👥</div>
+      <div class="name">people.md</div>
+      <div class="desc">人物关系<br>同事·导师·协作者</div>
+      <div class="tag">来源：自研</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">🔧</div>
+      <div class="name">work-tools.md</div>
+      <div class="desc">工具发现<br>API·MCP·插件技巧</div>
+      <div class="tag">来源：自研</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">💬</div>
+      <div class="name">communication.md</div>
+      <div class="desc">沟通演变<br>风格变化轨迹</div>
+      <div class="tag">来源：自研</div>
+    </div>
+    <div class="l2-card">
+      <div class="icon">📅</div>
+      <div class="name">daily/*.md</div>
+      <div class="desc">每日日志<br>原始记录·摘要·反思</div>
+      <div class="tag">来源：Claude Code /dream</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ L3: 会话历史 ═══════ -->
+<div class="layer l3">
+  <div class="layer-label"><span class="dot"></span>Layer 3 — 会话历史（最后手段，rg + jq 窄搜索）</div>
+  <div class="l3-grid">
+    <div class="l3-card">
+      <div class="icon">📜</div>
+      <div class="name">sessions/*.jsonl</div>
+      <div class="desc">全量会话日志<br>36.8MB · 26个文件</div>
+      <div class="tag">session-logs skill</div>
+    </div>
+    <div class="l3-card">
+      <div class="icon">🔍</div>
+      <div class="name">rg + jq 搜索</div>
+      <div class="desc">窄关键词搜索<br>不读整文件</div>
+      <div class="tag">仅 L1+L2 不命中时</div>
+    </div>
+    <div class="l3-card">
+      <div class="icon">🧠</div>
+      <div class="name">语义搜索（规划中）</div>
+      <div class="desc">nomic-embed-text<br>向量索引</div>
+      <div class="tag">未来升级</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 7大机制 ═══════ -->
+<div class="mechanisms">
+  <h2 class="mech-title">8 大核心机制</h2>
+  <div class="mech-grid">
+    <div class="mech-card">
+      <div class="icon">🎯</div>
+      <div class="name">写入判断树</div>
+      <div class="source">自研</div>
+      <div class="desc">纠正→首次daily二次topic<br>决策→直接入档<br>偏好→新发现/刷新时间戳<br>闲聊→不写</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🔍</div>
+      <div class="name">关键词扩展检索</div>
+      <div class="source">自研</div>
+      <div class="desc">精确grep → 同义词扩展<br>"docker" → docker/容器/部署方案<br>L1→L2→L2+→L4 渐进</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">⏳</div>
+      <div class="name">老化淘汰</div>
+      <div class="source">Claude Code /dream</div>
+      <div class="desc">7天无引用→待确认<br>30天未引用→自动删除<br>矛盾→以用户最新为准</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🔄</div>
+      <div class="name">两阶段整合</div>
+      <div class="source">Codex</div>
+      <div class="desc">Phase1: 小模型提取raw_memory<br>Phase2: 大模型编辑手册<br>git diff 用于遗忘</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🔮</div>
+      <div class="name">反射管道</div>
+      <div class="source">学术前沿</div>
+      <div class="desc">对话后3步反思：<br>①哪里做错了？<br>②什么模式在重复？<br>③学到了什么新知识？</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">📊</div>
+      <div class="name">健康监控</div>
+      <div class="source">自研</div>
+      <div class="desc">MEMORY.md行数？>150预警<br>topic条目？>50拆分<br>待确认数？>10清理<br>过期文件？>7天标记</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">📦</div>
+      <div class="name">Git 同步</div>
+      <div class="source">Codex + S3方案</div>
+      <div class="desc">自动 git add memory/<br>有变更则 commit<br>有 remote 则 push</div>
+      <div class="badge badge-auto">cron 自动</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">⚠️</div>
+      <div class="name">年龄感知读取</div>
+      <div class="source">Claude Code</div>
+      <div class="desc">读topic时检查mtime<br>>7天→⚠️可能过期<br>>30天→🚨高度可疑<br>自动提醒用户验证</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🛡️</div>
+      <div class="name">巡检补跑</div>
+      <div class="source">自研</div>
+      <div class="desc">每天09:00检查凌晨cron<br>读memory-state.json<br>未执行→自动补跑<br>确保记忆系统不断档</div>
+      <div class="badge badge-auto">cron 自动</div>
+    </div>
+  </div>
+</div>
+<div class="flow">
+  <h2 class="flow-title">数据流 — 写入 & 检索 & 整合</h2>
+  <div class="flow-grid">
+    <div class="flow-card">
+      <h3><span class="icon">📥</span> 写入流（实时）</h3>
+      <ul class="flow-steps">
+        <li><span class="num">①</span> 用户说了什么</li>
+        <li><span class="num">②</span> 判断类别：指令 / 纠正 / 决策 / 偏好 / 日常 / 废话</li>
+        <li><span class="num">③</span> 明确指令 → <span class="target">daily + MEMORY.md星标 + topic</span></li>
+        <li><span class="num">④</span> 用户纠正 → 首次 <span class="target">daily</span>，第2次 → <span class="target">topic</span></li>
+        <li><span class="num">⑤</span> 决策结论 → <span class="target">decisions.md + projects.md</span></li>
+        <li><span class="num">⑥</span> 偏好信号 → <span class="target">preferences.md</span></li>
+        <li><span class="num">⑦</span> 日常讨论 → <span class="target">daily/今日.md</span></li>
+        <li><span class="num">⑧</span> 废话 → <span class="target">不写</span></li>
+      </ul>
+    </div>
+    <div class="flow-card">
+      <h3><span class="icon">🔍</span> 检索流（按需）</h3>
+      <ul class="flow-steps">
+        <li><span class="num">L1</span> MEMORY.md 索引已加载 <span class="arrow">→</span> <span class="target">命中topic引用？读文件</span></li>
+        <li><span class="num">L2</span> search-memory.ps1 精确grep <span class="arrow">→</span> <span class="target">搜topics/</span></li>
+        <li><span class="num">L2+</span> 关键词扩展（同义词） <span class="arrow">→</span> <span class="target">搜daily/</span></li>
+        <li><span class="num">L3</span> session-logs rg+jq <span class="arrow">→</span> <span class="target">搜JSONL</span></li>
+        <li><span class="num">∅</span> "我查了记忆，没找到相关内容"</li>
+      </ul>
+    </div>
+    <div class="flow-card">
+      <h3><span class="icon">🔄</span> 整合流（cron 02:00）</h3>
+      <ul class="flow-steps">
+        <li><span class="num">①</span> 读 daily/ 最近7天日志</li>
+        <li><span class="num">②</span> 识别信号：纠正 / 强化 / 失败 / 肯定</li>
+        <li><span class="num">③</span> 单次不提权，≥2次 → <span class="target">写入topic</span></li>
+        <li><span class="num">④</span> 老化：7天无引用 → 标记待确认</li>
+        <li><span class="num">⑤</span> 矛盾检测：以用户最新陈述为准</li>
+        <li><span class="num">⑥</span> 更新 MEMORY.md 索引 <span class="arrow">→</span> <span class="target">保持&lt;200行</span></li>
+      </ul>
+    </div>
+    <div class="flow-card">
+      <h3><span class="icon">🔮</span> 反射流（对话结束时）</h3>
+      <ul class="flow-steps">
+        <li><span class="num">①</span> 这次哪里做错了？ → 检测纠正信号</li>
+        <li><span class="num">②</span> 提取教训 → <span class="target">learnings.md</span></li>
+        <li><span class="num">③</span> 同一教训第2次 → <span class="target">写入AGENTS.md</span></li>
+        <li><span class="num">④</span> 什么模式在重复？ → 连续3天同类问题</li>
+        <li><span class="num">⑤</span> 提炼规则 → <span class="target">preferences.md</span></li>
+        <li><span class="num">⑥</span> 学到新知识？ → <span class="target">对应topic文件</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ Cron 调度 ═══════ -->
+<div class="cron">
+  <h2 class="cron-title">Cron 调度 — 自动化管道</h2>
+  <div class="cron-grid">
+    <div class="cron-card">
+      <h3>memory-consolidation</h3>
+      <div class="time">每天 02:00 CST · isolated session</div>
+      <ol>
+        <li>读 MEMORY.md + topics/*.md + daily/ 最近7天</li>
+        <li>识别信号：纠正/强化/失败/肯定/记住/决策</li>
+        <li>老化处理：7天无强化→待确认，30天→删除</li>
+        <li>矛盾检测：以最近用户陈述为准</li>
+        <li>整合写入 topic 文件</li>
+        <li>维护 MEMORY.md 索引（&lt;200行）</li>
+        <li>输出整合摘要</li>
+        <li>记录 lastConsolidation 时间戳</li>
+      </ol>
+    </div>
+    <div class="cron-card">
+      <h3>memory-health-sync</h3>
+      <div class="time">每天 02:15 CST · isolated session</div>
+      <ol>
+        <li>MEMORY.md 行数检查（阈值 150）</li>
+        <li>Topic 文件条目数检查（阈值 50）</li>
+        <li>待确认标记数检查（阈值 10）</li>
+        <li>最近7天 daily 日志数量</li>
+        <li>过期文件检测（&gt;7天未更新）</li>
+        <li>输出健康度报告</li>
+        <li>git add + commit + push</li>
+        <li>记录 lastHealthCheck 时间戳</li>
+      </ol>
+    </div>
+    <div class="cron-card">
+      <h3>memory-patrol <span style="font-size:0.7em;color:#34d399;">巡检</span></h3>
+      <div class="time">每天 09:00 CST · isolated session</div>
+      <ol>
+        <li>读取 memory-state.json（凌晨任务写入的状态）</li>
+        <li>lastConsolidation ≠ 今天 → <strong>补跑整合</strong></li>
+        <li>lastHealthCheck ≠ 今天 → <strong>补跑健康检查</strong></li>
+        <li>补跑 = 完整执行对应任务的所有步骤</li>
+        <li>Git 同步（如有变更）</li>
+        <li>更新 lastPatrol 时间戳</li>
+        <li>输出巡检报告（✅已执行 / ⚠️已补跑）</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 来源 ═══════ -->
+<div class="sources">
+  <h3>研究来源</h3>
+  <div class="source-badges">
+    <div class="source-badge"><strong>Claude Code</strong> 泄露源码 · 三层架构 · 年龄感知 · 自愈</div>
+    <div class="source-badge"><strong>Codex</strong> 开源 · 两阶段管道 · git diff遗忘</div>
+    <div class="source-badge"><strong>Hermes</strong> 开源 · 双文件 · §分隔符 · 冻结快照</div>
+    <div class="source-badge"><strong>claude-mem</strong> 74.8K stars · 渐进披露 · FTS5</div>
+    <div class="source-badge"><strong>Hindsight</strong> auto-recall · auto-retain</div>
+    <div class="source-badge"><strong>学术论文</strong> CoALA · A-Mem · StructMemEval · Memori</div>
+  </div>
+</div>
+
+<div class="footer">
+  GGOB 记忆架构 v4 · 卫士在岗 · 2026-06-11<br>
+  设计原则：Markdown赢了 · 管道赢了 · 年龄感知赢了
+</div>
+
+</div>
+</body>
+</html>
