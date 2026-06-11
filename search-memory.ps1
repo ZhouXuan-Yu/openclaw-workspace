@@ -1,32 +1,38 @@
-# search-memory.ps1 — GGOB 记忆搜索 v5
+﻿# search-memory.ps1 — GGOB 记忆搜索 v6
 # 用法: .\search-memory.ps1 "关键词"
-# 新增：同义词扩展 + 模糊匹配 + 年龄感知
+# 修复: UTF-8 BOM 编码问题 + 空查询防护 + 边界处理
 
 param([Parameter(Mandatory=$true)][string]$Query)
 
+# 空查询防护
+if ([string]::IsNullOrWhiteSpace($Query)) {
+    Write-Host "Error: 搜索词不能为空" -ForegroundColor Red
+    exit 1
+}
+
 $workspace = "C:\Users\ZhouXuan\.openclaw\workspace"
 
-# ═══════ 同义词表 ═══════
+# ═══════ 同义词表（英文key避免编码问题）═══════
 $synonyms = @{
     "docker"     = @("容器", "container", "部署", "deployment", "podman")
     "git"        = @("版本控制", "版本管理", "commit", "push", "pull", "branch")
-    "记忆"       = @("memory", "记忆体", "记忆架构", "mem")
+    "memory"     = @("记忆", "记忆体", "记忆架构", "mem")
     "cron"       = @("定时任务", "计划任务", "调度", "schedule", "timer")
-    "搜索"       = @("search", "查找", "检索", "grep", "find")
-    "模型"       = @("model", "LLM", "大模型", "AI模型", "llm")
-    "提示词"     = @("prompt", "system prompt", "系统提示", "system-prompt")
-    "偏好"       = @("preference", "习惯", "风格", "喜欢")
-    "项目"       = @("project", "工程", "任务")
-    "学习"       = @("learn", "研究", "分析", "发现")
-    "决策"       = @("decision", "选择", "确定", "决定")
-    "纠正"       = @("correction", "错误", "不对", "不要", "别用")
-    "工具"       = @("tool", "插件", "plugin", "MCP", "mcp")
-    "同步"       = @("sync", "备份", "backup", "git")
-    "整合"       = @("consolidation", "合并", "整理", "dream")
-    "反思"       = @("reflection", "复盘", "回顾", "教训")
-    "老化"       = @("aging", "过期", "清理", "删除")
-    "巡检"       = @("patrol", "检查", "健康", "health")
-    "topic"      = @("主题", "分类", "文件")
+    "search"     = @("搜索", "查找", "检索", "grep", "find")
+    "model"      = @("模型", "LLM", "大模型", "AI模型", "llm")
+    "prompt"     = @("提示词", "system prompt", "系统提示")
+    "preference" = @("偏好", "习惯", "风格", "喜欢")
+    "project"    = @("项目", "工程", "任务")
+    "learn"      = @("学习", "研究", "分析", "发现")
+    "decision"   = @("决策", "选择", "确定", "决定")
+    "correction" = @("纠正", "错误", "不对", "不要", "别用")
+    "tool"       = @("工具", "插件", "plugin", "MCP", "mcp")
+    "sync"       = @("同步", "备份", "backup")
+    "consolidate" = @("整合", "合并", "整理", "dream")
+    "reflect"    = @("反思", "复盘", "回顾", "教训")
+    "aging"      = @("老化", "过期", "清理", "删除")
+    "patrol"     = @("巡检", "检查", "健康", "health")
+    "topic"      = @("主题", "分类")
     "session"    = @("会话", "对话", "聊天")
 }
 
@@ -35,9 +41,13 @@ $searchTerms = @($Query)
 
 # 查找同义词（不区分大小写）
 foreach ($key in $synonyms.Keys) {
-    if ($Query -ieq $key -or $synonyms[$key] -contains $Query) {
-        $searchTerms += $key
+    if ($Query -ieq $key) {
         $searchTerms += $synonyms[$key]
+        break
+    }
+    if ($synonyms[$key] -contains $Query) {
+        $searchTerms += $key
+        $searchTerms += ($synonyms[$key] | Where-Object { $_ -ne $Query })
         break
     }
 }
@@ -59,7 +69,6 @@ $files = @(
 )
 $memoryDir = "$workspace\memory"
 
-$total = 0
 $results = @()
 
 # 搜索核心文件
@@ -116,22 +125,6 @@ if (Test-Path $memoryDir) {
                 }
             }
         }
-
-        # 搜索根目录 memory/*.md（旧格式兼容）
-        $rootFiles = Get-ChildItem "$memoryDir\*.md" -ErrorAction SilentlyContinue
-        foreach ($rf in $rootFiles) {
-            $r = Select-String -Path $rf.FullName -Pattern $term -SimpleMatch -ErrorAction SilentlyContinue
-            if ($r) {
-                $r | ForEach-Object {
-                    $results += [PSCustomObject]@{
-                        File = "memory/$(Split-Path $_.Path -Leaf)"
-                        Line = $_.LineNumber
-                        Text = $_.Line.Trim()
-                        Term = $term
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -148,15 +141,14 @@ if ($grouped) {
             if (Test-Path $filePath) {
                 $mtime = (Get-Item $filePath).LastWriteTime
                 $days = ((Get-Date) - $mtime).Days
-                if ($days -gt 30) { $ageWarning = " [🚨 ${days}天前]" }
-                elseif ($days -gt 7) { $ageWarning = " [⚠️ ${days}天前]" }
+                if ($days -gt 30) { $ageWarning = " [! ${days}d old]" }
+                elseif ($days -gt 7) { $ageWarning = " [~ ${days}d old]" }
             }
-            Write-Host "    $($_.Line): $($_.Text)$ageWarning" -ForegroundColor Gray
+            Write-Host "    L$($_.Line): $($_.Text)$ageWarning" -ForegroundColor Gray
         }
-        $total++
     }
-    Write-Host "`n  Found $total files with matches" -ForegroundColor Cyan
+    Write-Host "`n  Found $($results.Count) matches in $($grouped.Count) files" -ForegroundColor Cyan
 } else {
     Write-Host "`n  No results for '$Query'" -ForegroundColor Red
-    Write-Host "  Searched terms: $($searchTerms -join ', ')" -ForegroundColor DarkGray
+    Write-Host "  Searched: $($searchTerms -join ', ')" -ForegroundColor DarkGray
 }
