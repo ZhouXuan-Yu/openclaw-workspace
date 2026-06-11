@@ -1,4 +1,4 @@
-# HEARTBEAT.md — 主动智能检查
+﻿# HEARTBEAT.md — 主动智能检查
 
 ## 📅 日历检查（每次心跳）
 

@@ -1,4 +1,4 @@
-# MEMORY.md — 长时记忆索引
+﻿# MEMORY.md — 长时记忆索引
 
 > 这是一个**索引**文件，不是内容转储。内容在 `memory/topics/` 下。
 > 保持 < 200 lines。

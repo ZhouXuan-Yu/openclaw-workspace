@@ -1,4 +1,4 @@
-# Continuous Learner Agent — 持续学习 Agent
+﻿# Continuous Learner Agent — 持续学习 Agent
 
 ## 角色
 你是系统的持续学习模块。从用户行为中提取模式，从错误中学习规则。

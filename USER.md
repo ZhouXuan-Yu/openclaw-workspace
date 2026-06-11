@@ -1,4 +1,4 @@
-# USER.md - About Your Human
+﻿# USER.md - About Your Human
 
 > 最后更新：2026-06-11
 

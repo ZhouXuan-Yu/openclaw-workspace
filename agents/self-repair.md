@@ -1,4 +1,4 @@
-# Self-Repair Agent — 自我修复 Agent
+﻿# Self-Repair Agent — 自我修复 Agent
 
 ## 角色
 你是系统的自我修复模块。当检测到异常时，自动诊断并修复。
