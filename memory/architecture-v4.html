@@ -90,7 +90,7 @@
   /* ─── Cron section ─── */
   .cron { margin-top: 50px; }
   .cron-title { font-size: 1.5em; font-weight: 700; margin-bottom: 24px; text-align: center; background: linear-gradient(135deg, #fbbf24, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .cron-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cron-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .cron-card { background: rgba(251,191,36,0.04); border: 1px solid rgba(251,191,36,0.12); border-radius: 14px; padding: 24px; }
   .cron-card h3 { font-size: 1.05em; margin-bottom: 6px; color: #fbbf24; }
   .cron-card .time { font-size: 0.8em; color: #888; margin-bottom: 12px; }
@@ -118,7 +118,7 @@
 <div class="container">
 
 <h1>GGOB 记忆架构 v4</h1>
-<p class="subtitle">对标世界级方案 · 4层存储 + 8大机制 + 7个Topic · 2026-06-11</p>
+<p class="subtitle">对标世界级方案 · 4层存储 + 12大机制 + 7个Topic · 2026-06-11</p>
 
 <!-- ═══════ L0: 会话上下文 ═══════ -->
 <div class="layer l0">
@@ -266,7 +266,7 @@
 
 <!-- ═══════ 7大机制 ═══════ -->
 <div class="mechanisms">
-  <h2 class="mech-title">8 大核心机制</h2>
+  <h2 class="mech-title">12 大核心机制</h2>
   <div class="mech-grid">
     <div class="mech-card">
       <div class="icon">🎯</div>
@@ -278,8 +278,8 @@
     <div class="mech-card">
       <div class="icon">🔍</div>
       <div class="name">关键词扩展检索</div>
-      <div class="source">自研</div>
-      <div class="desc">精确grep → 同义词扩展<br>"docker" → docker/容器/部署方案<br>L1→L2→L2+→L4 渐进</div>
+      <div class="source">自研 → v5 升级</div>
+      <div class="desc">精确grep → 同义词扩展<br>内置20组同义词表<br>docker→容器/container/部署<br>L1→L2→L2+→L4 渐进</div>
       <div class="badge badge-done">已实现</div>
     </div>
     <div class="mech-card">
@@ -299,8 +299,8 @@
     <div class="mech-card">
       <div class="icon">🔮</div>
       <div class="name">反射管道</div>
-      <div class="source">学术前沿</div>
-      <div class="desc">对话后3步反思：<br>①哪里做错了？<br>②什么模式在重复？<br>③学到了什么新知识？</div>
+      <div class="source">学术前沿 → v5 自动化</div>
+      <div class="desc">cron 23:30 自动触发<br>①哪里做错了？<br>②什么模式在重复？<br>③学到了什么新知识？</div>
       <div class="badge badge-done">已实现</div>
     </div>
     <div class="mech-card">
@@ -330,6 +330,34 @@
       <div class="source">自研</div>
       <div class="desc">每天09:00检查凌晨cron<br>读memory-state.json<br>未执行→自动补跑<br>确保记忆系统不断档</div>
       <div class="badge badge-auto">cron 自动</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🔄</div>
+      <div class="name">反射自动化</div>
+      <div class="source">v5 新增</div>
+      <div class="desc">cron 23:30 自动反思<br>识别纠正/强化/失败信号<br>同一教训≥2次→写入AGENTS<br>行为规则自动更新</div>
+      <div class="badge badge-auto">cron 自动</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🔍</div>
+      <div class="name">同义词扩展搜索</div>
+      <div class="source">v5 新增</div>
+      <div class="desc">内置20组同义词表<br>docker→容器/container/部署<br>自动扩展搜索词<br>年龄感知+模糊匹配</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">📝</div>
+      <div class="name">首日引导</div>
+      <div class="source">v5 新增</div>
+      <div class="desc">session启动读今日+昨日日志<br>新session不再从零开始<br>自动加载最近上下文</div>
+      <div class="badge badge-done">已实现</div>
+    </div>
+    <div class="mech-card">
+      <div class="icon">🗑️</div>
+      <div class="name">记忆删除命令</div>
+      <div class="source">v5 新增</div>
+      <div class="desc">标准格式：记忆删除: X<br>搜索所有topic+daily<br>删除→记录→更新索引</div>
+      <div class="badge badge-done">已实现</div>
     </div>
   </div>
 </div>
@@ -429,6 +457,19 @@
         <li>输出巡检报告（✅已执行 / ⚠️已补跑）</li>
       </ol>
     </div>
+    <div class="cron-card">
+      <h3>memory-reflection <span style="font-size:0.7em;color:#c084fc;">反思</span></h3>
+      <div class="time">每天 23:30 CST · isolated session</div>
+      <ol>
+        <li>读取今日 daily 日志</li>
+        <li>识别信号：纠正/强化/失败/肯定/新知识</li>
+        <li>生成反思报告（错误教训/重复模式/新知识点）</li>
+        <li>同一教训第2次 → 写入 AGENTS.md</li>
+        <li>新偏好信号 → 更新 preferences.md</li>
+        <li>记录 lastReflection 时间戳</li>
+        <li>输出反思报告</li>
+      </ol>
+    </div>
   </div>
 </div>
 
@@ -446,7 +487,7 @@
 </div>
 
 <div class="footer">
-  GGOB 记忆架构 v4 · 卫士在岗 · 2026-06-11<br>
+  GGOB 记忆架构 v5 · 卫士在岗 · 2026-06-11<br>
   设计原则：Markdown赢了 · 管道赢了 · 年龄感知赢了
 </div>
 
