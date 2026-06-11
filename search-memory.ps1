@@ -1,24 +1,23 @@
-﻿# search-memory.ps1 — GGOB 记忆搜索 v6
-# 用法: .\search-memory.ps1 "关键词"
-# 修复: UTF-8 BOM 编码问题 + 空查询防护 + 边界处理
+﻿# search-memory.ps1 — GGOB 记忆搜索 v7
+# 用法: powershell -ExecutionPolicy Bypass -File search-memory.ps1 "关键词"
+# 架构: 读一次文件 → 多 term 匹配 → 去重 → 限制输出 → 年龄感知
 
 param([Parameter(Mandatory=$false)][string]$Query)
 
-# 空查询防护
+# 输入验证
 if (-not $Query -or [string]::IsNullOrWhiteSpace($Query)) {
     Write-Host "Error: 搜索词不能为空" -ForegroundColor Red
-    exit 1
+    exit 0
 }
-
-# 最小长度防护
 if ($Query.Trim().Length -lt 2) {
     Write-Host "Error: 搜索词至少2个字符" -ForegroundColor Red
-    exit 1
+    exit 0
 }
 
 $workspace = "C:\Users\ZhouXuan\.openclaw\workspace"
+$maxResults = 50
 
-# ═══════ 同义词表（英文key避免编码问题）═══════
+# 同义词表
 $synonyms = @{
     "docker"     = @("容器", "container", "部署", "deployment", "podman")
     "git"        = @("版本控制", "版本管理", "commit", "push", "pull", "branch")
@@ -42,125 +41,133 @@ $synonyms = @{
     "session"    = @("会话", "对话", "聊天")
 }
 
-# ═══════ 构建搜索词列表 ═══════
-$searchTerms = @($Query)
+# 构建搜索词
+$searchTerms = @($Query.Trim())
+$qLower = $Query.Trim().ToLower()
 
-# 查找同义词（不区分大小写）
 foreach ($key in $synonyms.Keys) {
-    if ($Query -ieq $key) {
+    $kLower = $key.ToLower()
+    if ($qLower -eq $kLower) {
         $searchTerms += $synonyms[$key]
         break
     }
-    if ($synonyms[$key] -contains $Query) {
-        $searchTerms += $key
-        $searchTerms += ($synonyms[$key] | Where-Object { $_ -ne $Query })
-        break
+    $matched = $false
+    foreach ($syn in $synonyms[$key]) {
+        if ($qLower -eq $syn.ToLower()) {
+            $searchTerms += $key
+            $searchTerms += ($synonyms[$key] | Where-Object { $_.ToLower() -ne $qLower })
+            $matched = $true
+            break
+        }
     }
+    if ($matched) { break }
 }
 
-# 去重 + 过滤空值
-$searchTerms = $searchTerms | Where-Object { $_ -ne "" } | Select-Object -Unique
+$searchTerms = $searchTerms | Where-Object { $_ -and $_.Trim() -ne "" } | Select-Object -Unique
 
 Write-Host "Searching memory for: '$Query'" -ForegroundColor Cyan
 if ($searchTerms.Count -gt 1) {
     Write-Host "Expanded to: $($searchTerms -join ' | ')" -ForegroundColor DarkGray
 }
 
-# ═══════ 搜索文件 ═══════
-$files = @(
+# 收集所有文件
+$allFiles = [System.Collections.ArrayList]::new()
+
+$coreFiles = @(
     "$workspace\USER.md",
     "$workspace\MEMORY.md",
     "$workspace\AGENTS.md",
-    "$workspace\SOUL.md"
+    "$workspace\SOUL.md",
+    "$workspace\IDENTITY.md",
+    "$workspace\TOOLS.md",
+    "$workspace\HEARTBEAT.md"
 )
-$memoryDir = "$workspace\memory"
-
-$results = @()
-
-# 搜索核心文件
-foreach ($f in $files) {
+foreach ($f in $coreFiles) {
     if (Test-Path $f) {
+        [void]$allFiles.Add(@{Path=$f; Category="core"; Name=(Split-Path $f -Leaf)})
+    }
+}
+
+$topicDir = "$workspace\memory\topics"
+if (Test-Path $topicDir) {
+    Get-ChildItem "$topicDir\*.md" -ErrorAction SilentlyContinue | ForEach-Object {
+        [void]$allFiles.Add(@{Path=$_.FullName; Category="topics"; Name="topics/$($_.Name)"})
+    }
+}
+
+$dailyDir = "$workspace\memory\daily"
+if (Test-Path $dailyDir) {
+    Get-ChildItem "$dailyDir\*.md" -ErrorAction SilentlyContinue | ForEach-Object {
+        [void]$allFiles.Add(@{Path=$_.FullName; Category="daily"; Name="daily/$($_.Name)"})
+    }
+}
+
+$agentDir = "$workspace\agents"
+if (Test-Path $agentDir) {
+    Get-ChildItem "$agentDir\*.md" -ErrorAction SilentlyContinue | ForEach-Object {
+        [void]$allFiles.Add(@{Path=$_.FullName; Category="agents"; Name="agents/$($_.Name)"})
+    }
+}
+
+# 搜索
+$results = [System.Collections.ArrayList]::new()
+
+foreach ($fileInfo in $allFiles) {
+    $content = Get-Content $fileInfo.Path -Encoding utf8 -ErrorAction SilentlyContinue
+    if (-not $content) { continue }
+
+    $mtime = (Get-Item $fileInfo.Path).LastWriteTime
+    $ageDays = [math]::Round(((Get-Date) - $mtime).TotalDays, 1)
+    $ageTag = ""
+    if ($ageDays -gt 30) { $ageTag = " [! ${ageDays}d old]" }
+    elseif ($ageDays -gt 7) { $ageTag = " [~ ${ageDays}d old]" }
+
+    for ($lineNum = 0; $lineNum -lt $content.Count; $lineNum++) {
+        $line = $content[$lineNum]
+        if (-not $line) { continue }
+        $lineLower = $line.ToLower()
+
         foreach ($term in $searchTerms) {
-            $r = Select-String -Path $f -Pattern $term -SimpleMatch -ErrorAction SilentlyContinue
-            if ($r) {
-                $name = Split-Path $f -Leaf
-                $r | ForEach-Object {
-                    $results += [PSCustomObject]@{
-                        File = $name
-                        Line = $_.LineNumber
-                        Text = $_.Line.Trim()
-                        Term = $term
-                    }
-                }
+            if ($lineLower.Contains($term.ToLower())) {
+                [void]$results.Add(@{
+                    File     = $fileInfo.Name
+                    Category = $fileInfo.Category
+                    Line     = $lineNum + 1
+                    Text     = $line.Trim()
+                    Term     = $term
+                    Age      = $ageDays
+                    AgeTag   = $ageTag
+                })
+                break
             }
         }
     }
 }
 
-# 搜索 memory/ 目录
-if (Test-Path $memoryDir) {
-    foreach ($term in $searchTerms) {
-        # 搜索 topics/
-        $topicFiles = Get-ChildItem "$memoryDir\topics\*.md" -ErrorAction SilentlyContinue
-        foreach ($tf in $topicFiles) {
-            $r = Select-String -Path $tf.FullName -Pattern $term -SimpleMatch -ErrorAction SilentlyContinue
-            if ($r) {
-                $r | ForEach-Object {
-                    $results += [PSCustomObject]@{
-                        File = "topics/$(Split-Path $_.Path -Leaf)"
-                        Line = $_.LineNumber
-                        Text = $_.Line.Trim()
-                        Term = $term
-                    }
-                }
-            }
-        }
+# 去重 + 限制输出
+$unique = $results | Sort-Object File, Line -Unique
 
-        # 搜索 daily/
-        $dailyFiles = Get-ChildItem "$memoryDir\daily\*.md" -ErrorAction SilentlyContinue
-        foreach ($df in $dailyFiles) {
-            $r = Select-String -Path $df.FullName -Pattern $term -SimpleMatch -ErrorAction SilentlyContinue
-            if ($r) {
-                $r | ForEach-Object {
-                    $results += [PSCustomObject]@{
-                        File = "daily/$(Split-Path $_.Path -Leaf)"
-                        Line = $_.LineNumber
-                        Text = $_.Line.Trim()
-                        Term = $term
-                    }
-                }
-            }
-        }
-    }
-}
-
-# ═══════ 去重输出 ═══════
-$grouped = $results | Sort-Object File, Line -Unique | Group-Object File
-
-# 过滤：长查询（>10字符）如果无精确匹配则返回空
-if ($Query.Trim().Length -gt 10 -and $results.Count -eq 0) {
-    Write-Host "\n  No results for '$Query'" -ForegroundColor Red
+if ($unique.Count -eq 0) {
+    Write-Host "`n  No results for '$Query'" -ForegroundColor Red
+    Write-Host "  Searched: $($searchTerms -join ', ')" -ForegroundColor DarkGray
     exit 0
 }
 
-if ($grouped) {
-    foreach ($g in $grouped) {
-        Write-Host "`n  [$($g.Name)]" -ForegroundColor Green
-        $g.Group | ForEach-Object {
-            $ageWarning = ""
-            # 年龄感知：检查文件修改时间
-            $filePath = "$workspace\$($_.File)"
-            if (Test-Path $filePath) {
-                $mtime = (Get-Item $filePath).LastWriteTime
-                $days = ((Get-Date) - $mtime).Days
-                if ($days -gt 30) { $ageWarning = " [! ${days}d old]" }
-                elseif ($days -gt 7) { $ageWarning = " [~ ${days}d old]" }
-            }
-            Write-Host "    L$($_.Line): $($_.Text)$ageWarning" -ForegroundColor Gray
+$grouped = $unique | Group-Object File
+$shown = 0
+
+foreach ($g in $grouped) {
+    if ($shown -ge $maxResults) {
+        Write-Host "`n  ... (truncated, $($unique.Count) total matches)" -ForegroundColor Yellow
+        break
+    }
+    Write-Host "`n  [$($g.Name)]" -ForegroundColor Green
+    $g.Group | ForEach-Object {
+        if ($shown -lt $maxResults) {
+            Write-Host "    L$($_.Line): $($_.Text)$($_.AgeTag)" -ForegroundColor Gray
+            $shown++
         }
     }
-    Write-Host "`n  Found $($results.Count) matches in $($grouped.Count) files" -ForegroundColor Cyan
-} else {
-    Write-Host "`n  No results for '$Query'" -ForegroundColor Red
-    Write-Host "  Searched: $($searchTerms -join ', ')" -ForegroundColor DarkGray
 }
+
+Write-Host "`n  Found $($unique.Count) matches in $($grouped.Count) files" -ForegroundColor Cyan

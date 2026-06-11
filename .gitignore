@@ -13,6 +13,14 @@ secrets/
 mem-sync/
 skills/*/config.json
 
+# 空目录
+skills/
+younavi/
+
+# 临时文件
+_test_db.py
+*.tmp
+
 # 临时文件
 *.tmp
 *.temp
