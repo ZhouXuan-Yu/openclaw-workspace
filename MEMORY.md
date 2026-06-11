@@ -27,6 +27,7 @@ _Last updated: 2026-06-11_
 | 2026-06-11 | Phase 4 多智能体协作已完成验证 | `#phase4` |
 | 2026-06-11 | Phase 5 完全自主已完成验证 | `#phase5` |
 | 2026-06-11 | Obsidian Vault: `E:\Obsidian仓库\ZhouXuan私人领域` | `#obsidian-notes` |
+| 2026-06-12 | OpenSpace 自进化引擎：FIX/DERIVED/CAPTURED 三种模式 | `#skill-evolution` |
 
 ## 环境
 
@@ -45,6 +46,7 @@ _Last updated: 2026-06-11_
 | 人物关系 | `memory/topics/people.md` | 2026-06-11 |
 | 工具发现 | `memory/topics/work-tools.md` | 2026-06-11 |
 | 沟通演变 | `memory/topics/communication.md` | 2026-06-11 |
+| 自进化引擎 | `skills/evolution-engine/SKILL.md` | 2026-06-12 |
 
 ## 研究索引
 
@@ -64,6 +66,7 @@ _Last updated: 2026-06-11_
 | `#user-preference` | 用户偏好与沟通风格 |
 | `#code-analysis` | 源码/架构逆向分析 |
 | `#obsidian-notes` | Obsidian Vault 学习笔记 |
+| `#skill-evolution` | 自进化引擎（OpenSpace 模式） |
 
 ---
 

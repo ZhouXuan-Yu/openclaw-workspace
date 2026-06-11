@@ -115,10 +115,22 @@ Don't ask permission. Just do it.
 
 ### 🔮 反射管道（cron 23:30）
 
-对话后 3 步反思：
+对话后 4 步反思 + 自动进化：
 1. 哪里做错了？→ 提取教训 → learnings.md
 2. 什么模式在重复？→ 行为规则 → preferences.md / AGENTS.md
 3. 学到什么新知识？→ 对应 topic
+4. **自进化分析** → 判断任务成败 → 触发 Skill 进化
+
+#### 自进化触发（基于 OpenSpace 思路）
+
+| 模式 | 触发条件 | 操作 |
+|------|---------|------|
+| FIX | Skill 执行失败 ≥ 2次 | 原地修复 SKILL.md |
+| DERIVED | 用户纠正方式 | 创建增强版（parent 指向原 Skill） |
+| CAPTURED | 任务成功 + 无 Skill 匹配 | 捕获为新 Skill |
+
+**质量追踪**: `skills/.skill-quality.json` 记录每个 Skill 的成功/失败次数
+**血缘追踪**: SKILL.md frontmatter 加 `parent` 和 `origin` 字段
 
 ### 📊 健康监控（cron 02:15）
 
