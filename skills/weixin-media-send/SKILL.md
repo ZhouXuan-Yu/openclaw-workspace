@@ -1,11 +1,11 @@
-﻿---
+---
 .skill_id: openclaw-weixin-media-send
 
 name: weixin-media-send
 description: "通过微信渠道发送图片、视频、文件。当用户要求发送/分享文件，或生成的图片/文件需要交付时使用。仅当通过 openclaw-weixin 渠道通信时触发。"
 parent: ""
 origin: "imported"
-generation: 0
+generation: 1
 created: "2026-06-12"
 metadata: {"openclaw":{"emoji":"📤","requires":{"config":["channels.openclaw-weixin"]}}}
 ---
@@ -19,12 +19,14 @@ metadata: {"openclaw":{"emoji":"📤","requires":{"config":["channels.openclaw-w
 - 用户要求发送、展示或分享图片、视频、语音或文件
 - 生成了需要交付给用户的图片、视频、文件
 - 用户说"发给我"、"发图片"、"发文件"等
+- 回复中包含文件路径（自动检测）
 
 ## 核心原理
 
 OpenClaw-weixin 插件（v2.4.4）已内置完整的媒体发送能力：
 - `sendWeixinMediaFile` 函数自动根据 MIME 类型路由：image → 图片消息，video → 视频消息，其他 → 文件附件
 - 底层使用 iLink Bot API + CDN 上传 + AES-ECB 加密
+- 与 wechat-claude-code 使用**完全相同的 API**（ilinkai.weixin.qq.com）
 - 支持格式：png/jpg/gif/webp（图片）、mp4/mov（视频）、pdf/doc/zip 等（文件）
 
 ## 发送方式
@@ -74,6 +76,12 @@ MEDIA:memory/daily/2026-06-11.md
 ### 4. 发送网络图片
 先用 `web_fetch` 或 `exec` 下载到本地 → 附加 `MEDIA:<本地路径>`
 
+### 5. 自动检测推送（从 wechat-claude-code 学到的）
+回复中如果包含文件路径，自动检测并推送：
+- 绝对路径（C:\... 或 /Users/...）
+- 常见文件扩展名（.png/.jpg/.pdf/.md/.py 等）
+- 检测到后自动附加 MEDIA 指令
+
 ## 支持的文件类型
 
 | 类型 | 扩展名 | 发送效果 |
@@ -91,6 +99,15 @@ MEDIA:memory/daily/2026-06-11.md
 - 单文件最大 25MB
 - 不支持发送超过 25MB 的文件（需压缩后发送）
 - 图片会自动加密上传到微信 CDN
+- 发送频率限制：每 2.5 秒最多一条消息
+
+## 静默警告（从 wechat-claude-code 学到的）
+
+当处理时间超过 5 分钟时，自动发送保活消息：
+```
+我还在处理中，请稍等...
+```
+这通过 progress-heartbeat 机制实现，见 `agents/progress-heartbeat.md`。
 
 ## 示例对话
 
@@ -105,4 +122,3 @@ MEDIA:C:\Users\ZhouXuan\.openclaw\workspace\memory\daily\2026-06-11.md
 用户：帮我画个流程图
 助手：[使用 diagram-maker 生成] 流程图如下：
 MEDIA:C:\Users\ZhouXuan\.openclaw\workspace\diagrams\flow.png
-
