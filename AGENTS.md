@@ -28,10 +28,16 @@ Don't ask permission. Just do it.
 
 | 层 | 内容 | 加载时机 |
 |----|------|---------|
-| L1: 索引层 | `MEMORY.md`（<200行纯索引） | 每次 session 启动必读 |
-| L2: 主题层 | `memory/topics/`（preferences / projects / learnings） | 仅当 MEMORY.md 中有引用时按需读 |
+| L1: 索引层 | `MEMORY.md`（<200行纯索引，~50 tokens/条） | 每次 session 启动必读 |
+| L2: 主题层 | `memory/topics/`（7个主题文件） | 仅当 L1 索引命中时按需读 |
 | L3: 日志层 | `memory/daily/YYYY-MM-DD.md`（每日原始记录） | 读今日+昨日，更早的按需搜索 |
 | L4: 会话层 | `~/.openclaw/agents/*/sessions/*.jsonl`（全量历史） | 仅当 L1~L3 搜索不到时用 session-logs skill |
+
+**渐进式披露原则**（来自 claude-mem）：
+- L1 索引始终在 prompt 中，每条 ~50 tokens，不展开
+- L2 主题文件按需读取，只读命中的那个文件
+- L3 日志只在搜索时读取，不主动加载
+- L4 会话历史是最后手段，用 rg+jq 窄搜索
 
 ### 📥 读策略（优先级：L1 → L2 → L3 → L4）
 
@@ -44,6 +50,12 @@ Don't ask permission. Just do it.
 
 **关键词扩展技巧**：搜一个概念时，多想 1-2 个同义词或相关词。
 例：搜"为什么不用Docker" → 同时搜 docker / 容器 / 部署方案 / 替代方案
+
+**年龄感知读取**（来自 Claude Code）：
+读取任何 `memory/topics/*.md` 时，检查文件修改时间：
+- >7 天未更新 → 在回答中注明「⚠️ 这条记忆可能过期，请验证」
+- >30 天未更新 → 注明「🚨 高度可疑，请用户确认后再使用」
+- 读取 daily 日志时不需要年龄检查（日志本身就是时间戳）
 
 ### 📤 写策略（判断树）
 
@@ -86,6 +98,45 @@ Don't ask permission. Just do it.
 | daily 日志 | 30 天无引用 | 自动删除（topic 已有精炼版） |
 | 矛盾条目 | cron 发现两个文件冲突 | 以**最近一次用户陈述**为准删除旧的 |
 | 用户否定 | 你说「不对」「不是→」 | 立即删除旧记忆 + 写入新记忆（防止再次出现） |
+
+### 🔮 反射管道（经验记忆）
+
+每次对话自然结束时（检测到结束信号或心跳触发），自动执行 3 步反思：
+
+1. **这次哪里做错了？** — 检测用户纠正信号（"不是这样"、"错了"、"别用那个"）
+   - 提取教训 → 写入 `learnings.md`
+   - 同一教训出现第 2 次 → 写入 `AGENTS.md` 作为行为规则
+
+2. **什么模式在重复？** — 同一类问题连续 3 天出现
+   - 提炼为可复用的行为规则 → 更新 `preferences.md` 或 `AGENTS.md`
+
+3. **这次学到了什么新知识？** — 有长期价值的知识点
+   - 写入对应 topic 文件（learnings / work-tools / projects）
+
+**反射输出格式**（写入 daily 日志末尾）：
+```
+## 🔮 反思
+- 错误教训：[具体]
+- 重复模式：[具体]
+- 新知识点：[具体]
+- 行为规则更新：是/否
+```
+
+### 📊 健康度监控（cron 每天 02:15 CST）
+
+后台 agent 自动检查记忆系统健康度：
+- MEMORY.md 行数？→ >150 行触发瘦身建议
+- topic 文件条目数？→ >50 条触发拆分建议
+- 待确认标记数？→ >10 条触发清理
+- 最近 7 天 daily 日志？→ 0 条可能是写入遗漏
+- topic 文件最后修改时间？→ >7 天标记 ⚠️
+
+### 🔄 Git 同步（cron 每天 02:15 CST）
+
+记忆文件自动 commit：
+- 每天 02:15（健康检查后）自动 `git add memory/ MEMORY.md`
+- 有变更则 commit，有 remote 则 push
+- 手动执行：`powershell -File memory/sync-memory.ps1`
 
 ### 📝 不要"在心里记" — 写下来！
 
