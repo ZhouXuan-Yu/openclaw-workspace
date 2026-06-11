@@ -8,9 +8,10 @@
 ### 操作步骤
 1. Read `SOUL.md` — who you are
 2. Read `USER.md` — who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday, create if missing)
+3. Read `memory/YYYY-MM-DD.md` (today only, create if missing)
 4. **If in MAIN SESSION** (direct chat with human): Read `MEMORY.md`
 5. Read `memory/daily/今日.md` (if exists) — 今天的对话上下文
+> ⚠️ 不自动加载昨日日志 — 日志膨胀后会拖垮启动成本
 6. Read `memory/daily/昨日.md` (if exists) — 昨天的对话上下文
 
 ### 📡 Cross-Session Context Retrieval

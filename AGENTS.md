@@ -10,9 +10,11 @@ If `BOOTSTRAP.md` exists, follow it, figure out who you are, then delete it.
 
 ### 🔍 Memory Recall
 1. Read `SOUL.md` + `USER.md` + `MEMORY.md`
-2. Read `memory/YYYY-MM-DD.md` (today + yesterday)
+2. Read `memory/YYYY-MM-DD.md` (today only, create if missing)
 3. If user mentions past work → `search-memory.ps1 "<keyword>"`
 4. 详细流程见 `AGENTS-DETAILS.md`
+
+> ⚠️ **不自动加载昨日日志** — 日志可能膨胀到 3000+ tokens，只在 L1 命中时按需读
 
 ### 📋 今日摘要
 首次对话时生成（有内容才展示）：日程 + 昨日未完成 + 当前重点
