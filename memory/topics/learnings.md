@@ -17,6 +17,14 @@
 
 详见：`prompt学习提示词/Claude/Claude_Fable5_进攻端实战技巧.md`
 
+## 架构设计原则
+
+- **先测试后建设**：写完工具先跑边界测试，别等用户踩坑。Phase 2-4 一天赶完但底层工具反复出 bug 的教训
+- **Agent 文件 token 密度是硬约束**：<200 行，定期检查，发现膨胀立即瘦身
+- **自检不能留空**：cron 任务输出必须有验证步骤，时间戳全 null 是反面教材
+- **Markdown + grep > 向量数据库**：Claude Code / Codex / Hermes / claude-mem 全用 markdown 文件，不用向量 DB
+- **年龄感知 > 精确检索**：读旧记忆时自动加时间警告比提高检索精度更实用
+
 ## Memory Architecture 关键发现
 
 - agentmemory 4层管道（工作→情景→语义→程序）是 gold standard
