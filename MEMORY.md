@@ -22,6 +22,8 @@ _Last updated: 2026-06-11_
 | 日期 | 内容 | 标签 |
 |------|------|------|
 | 2026-06-11 | 记忆架构是进化的关键 | `#memory-architecture` |
+| 2026-06-11 | Phase 2 主动智能已完成验证 | `#phase2` |
+| 2026-06-11 | Phase 3 工具自动化已完成验证 | `#phase3` |
 | 2026-06-11 | Obsidian Vault: `E:\Obsidian仓库\ZhouXuan私人领域` | `#obsidian-notes` |
 
 ## 环境
