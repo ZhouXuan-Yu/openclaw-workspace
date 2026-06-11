@@ -43,15 +43,15 @@ If `BOOTSTRAP.md` exists, follow it, figure out who you are, then delete it.
 
 **核心规则**：单次不提权 · 纠正权重×5 · 低信息密度丢弃 · 对话结束写摘要
 
-### 🔄 Cron 任务
+### 🔄 Cron 任务（3 层循环架构）
 
-| 任务 | 时间 | 作用 |
-|------|------|------|
-| memory-consolidation | 02:00 | 整合日志→MEMORY.md + 老化淘汰 |
-| memory-health-sync | 02:15 | 健康检查 + Git 同步 |
-| memory-patrol | 09:00 | 巡检凌晨 cron 是否执行 |
-| memory-reflection | 23:30 | 反思 + **自进化分析**（FIX/DERIVED/CAPTURED） |
-| security-check | 10:00 | 安全检查（Defender/端口/进程/Git） |
+| 层 | 任务 | 时间 | 频率 |
+|---|------|------|------|
+| 👁️ 觉知 | memory-reflection | 23:30 | 每日（反思+进化） |
+| 👁️ 觉知 | security-check | 10:00 | 每日（安全态势） |
+| ⚡ 执行-验证 | memory-patrol | 09:00 | 每日（验证凌晨执行） |
+| 🧠 记忆 | memory-consolidation | 02:00 | 每日（整合 daily→topic） |
+| 🧠 记忆 | memory-health-sync | 02:15 | 每日（健康检查+Git） |
 
 ### 🧬 自进化引擎
 
@@ -63,6 +63,30 @@ If `BOOTSTRAP.md` exists, follow it, figure out who you are, then delete it.
 
 **质量追踪**: `skills/.skill-quality.json`
 **血缘追踪**: SKILL.md frontmatter 加 `parent` 和 `origin` 字段
+
+### 🏗️ 3 元循环架构
+
+```
+[觉知循环] 👁️ 观察一切，给出指导
+    ├── 反思 (23:30)
+    ├── 安全检查 (10:00)
+    └── 输出：指导信号
+        ↓
+[执行-验证循环] ⚡ 接收任务 → 执行 → 验证
+    ├── 用户直接指令（即时响应）
+    ├── 觉知循环指派
+    └── 输出：执行结果 + 验证报告
+        ↓
+[记忆整合循环] 🧠 记忆生命周期管理
+    ├── 写入（对话结束自动写入 daily）
+    ├── 整合 (02:00)
+    ├── 健康检查 (02:15)
+    ├── 巡检 (09:00)
+    └── 输出：整合报告 + 进化报告
+```
+
+3 个循环互相通讯，不是 3 个独立 Agent。
+每个 Cron 都归属一个循环层。
 
 ## Red Lines
 
