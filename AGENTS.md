@@ -26,6 +26,51 @@ If the user's first message refers to past work, a person, a decision, or a proj
 
 Don't ask permission. Just do it.
 
+### 📋 今日摘要（MAIN SESSION 首次启动时）
+
+在记忆加载完成后，如果这是今天的第一次对话，生成今日摘要：
+
+1. 查询今日飞书日程（feishu_calendar_event, action: list, start_time: 今日 00:00, end_time: 今日 23:59）
+2. 读取 memory/daily/昨日.md，提取未完成的待办
+3. 读取 MEMORY.md 中星标记忆的待办项
+4. 生成摘要（仅当有内容时展示）：
+
+```
+📋 今日摘要 YYYY-MM-DD
+
+📅 今日日程：
+- HH:MM - [事件名称]
+- HH:MM - [事件名称]
+
+📝 昨日未完成：
+- [待办项]
+
+🎯 当前重点：
+- [从星标记忆中提取]
+```
+
+如果没有任何日程、待办或重点，跳过摘要，直接进入对话。
+
+### 🔍 项目上下文自动加载
+
+当用户第一条消息提及特定项目、技术栈或工作领域时，自动加载相关上下文：
+
+**关键词 → Topic 映射**：
+| 关键词 | 加载的 Topic 文件 |
+|--------|------------------|
+| 记忆/memory/架构 | `topics/learnings.md` + `topics/decisions.md` |
+| prompt/提示词/CLAUDE | `topics/learnings.md` |
+| skill/插件/MCP | `topics/work-tools.md` |
+| 飞书/lark/feishu | `topics/work-tools.md` |
+| 项目名/工程名 | `topics/projects.md` |
+| 人名 | `topics/people.md` |
+
+**操作**：
+1. 检测用户消息中的关键词
+2. 命中 → 读取对应 topic 文件（仅读 1 个最相关的）
+3. 未命中 → 不加载，正常对话
+4. 不要告诉用户「我加载了XX」，静默执行
+
 ## Memory — 4层存储架构
 
 | 层 | 内容 | 加载时机 |

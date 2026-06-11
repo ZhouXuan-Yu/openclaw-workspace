@@ -1,7 +1,65 @@
-# HEARTBEAT.md Template
+# HEARTBEAT.md — 主动智能检查
 
-```markdown
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+## 📅 日历检查（每次心跳）
 
-# Add tasks below when you want the agent to check something periodically.
+检查飞书日历，发现即将到来的事件时主动提醒：
+
+### 操作步骤
+1. 读取当前时间
+2. 查询未来 2 小时内的日程（feishu_calendar_event, action: list）
+3. 如果有日程：
+   - 距离 < 30 分钟 → 立即提醒 + 加载相关上下文
+   - 距离 30-120 分钟 → 简要提醒
+4. 如果有会议，搜索 memory/topics/ 中与会议主题相关的项目信息
+5. 将相关上下文附在提醒中
+
+### 提醒格式
 ```
+📅 提醒：[会议名称] 在 XX 分钟后开始
+🕐 时间：HH:MM - HH:MM
+📍 地点：[地点]
+👥 参会人：[人数]
+📋 相关上下文：[从记忆中检索到的项目信息]
+```
+
+### 触发条件
+- 工作日 09:00 - 18:00
+- 有即将到来的日程
+- 距离 < 30 分钟
+
+---
+
+## 📋 今日摘要（每天首次心跳）
+
+如果是今天的第一次心跳，生成今日摘要：
+
+### 操作步骤
+1. 读取 memory/daily/今日.md（如果存在）
+2. 读取 memory/daily/昨日.md（如果存在）
+3. 查询今日全天日程
+4. 生成摘要
+
+### 摘要格式
+```
+📋 今日摘要 YYYY-MM-DD
+
+📅 今日日程：
+- HH:MM - [事件名称]
+- HH:MM - [事件名称]
+
+📝 昨日未完成：
+- [从昨日日志中提取的待办]
+
+🎯 今日重点：
+- [从记忆中提取的当前项目重点]
+```
+
+---
+
+## ⚡ 异常检测（低频）
+
+每隔几次心跳检查一次：
+
+- 记忆系统健康度（memory-state.json）
+- Git 同步状态
+- 最近一次对话距今时间（>24h 可能需要主动联系）
