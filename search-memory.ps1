@@ -2,11 +2,17 @@
 # 用法: .\search-memory.ps1 "关键词"
 # 修复: UTF-8 BOM 编码问题 + 空查询防护 + 边界处理
 
-param([Parameter(Mandatory=$true)][string]$Query)
+param([Parameter(Mandatory=$false)][string]$Query)
 
 # 空查询防护
-if ([string]::IsNullOrWhiteSpace($Query)) {
+if (-not $Query -or [string]::IsNullOrWhiteSpace($Query)) {
     Write-Host "Error: 搜索词不能为空" -ForegroundColor Red
+    exit 1
+}
+
+# 最小长度防护
+if ($Query.Trim().Length -lt 2) {
+    Write-Host "Error: 搜索词至少2个字符" -ForegroundColor Red
     exit 1
 }
 
@@ -130,6 +136,12 @@ if (Test-Path $memoryDir) {
 
 # ═══════ 去重输出 ═══════
 $grouped = $results | Sort-Object File, Line -Unique | Group-Object File
+
+# 过滤：长查询（>10字符）如果无精确匹配则返回空
+if ($Query.Trim().Length -gt 10 -and $results.Count -eq 0) {
+    Write-Host "\n  No results for '$Query'" -ForegroundColor Red
+    exit 0
+}
 
 if ($grouped) {
     foreach ($g in $grouped) {
