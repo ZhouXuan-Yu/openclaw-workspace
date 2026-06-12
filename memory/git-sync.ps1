@@ -1,4 +1,4 @@
-cd C:\Users\ZhouXuan\.openclaw\workspace
+Set-Location 'C:\Users\ZhouXuan\.openclaw\workspace'
 git add MEMORY.md memory/
 git diff --cached --quiet
 if ($LASTEXITCODE -ne 0) {
@@ -6,7 +6,6 @@ if ($LASTEXITCODE -ne 0) {
     git commit -m "memory: health-check + auto-sync $date"
     $remote = git remote 2>$null
     if ($remote) { git push 2>&1 }
-    Write-Output "SYNCED"
 } else {
-    Write-Output "NO_CHANGES"
+    Write-Output "no-changes"
 }
