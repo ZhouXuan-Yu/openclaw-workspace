@@ -28,6 +28,8 @@
 | 06-12 | 多平台自动化: social-auto-upload 5平台CLI验证通过 |
 | 06-12 | SkillSpector: 安全扫描集成，5个Skill扫描完成 |
 | 06-12 | OpenGAP: 14个设计模式优化架构，agent.yaml+RULES.md+workflows/ |
+| 06-13 | 智能检索升级: 先想后查+topic关联图+跨周期推理 |
+| 06-14 | 视频号上传: locator超时先检查URL重定向，不是元素不可见 |
 
 ## 主题索引
 | 主题 | 位置 |
@@ -36,15 +38,18 @@
 | 项目 | `topics/projects.md` |
 | 多平台发布 | `tools/social-auto-upload/` (见 topics/work-tools.md) |
 | 安全扫描 | `tools/SkillSpector/` (见 topics/work-tools.md) |
+| 社交内容设计 | `skills/guizang-social-card/` (Codex CLI 生成图片/视频时必用) |
 | 学习 | `topics/learnings.md` |
 | 决策 | `topics/decisions.md` |
 | 人物 | `topics/people.md` |
 | 工具 | `topics/work-tools.md` |
 | 沟通 | `topics/communication.md` |
-| 进化 | `skills/evolution-engine/SKILL.md` |
+| 进化 | `evolution/EVOLUTION-PROTOCOL.md` |
+| 智能检索 | `memory/retrieval-strategy.md` + `topics/_graph.json` |
 | OpenSpec 分析 | `topics/openspec-analysis.md` |
 | 架构增强 | `topics/openspec-arch-enhancements.md` |
 | 进化引擎 | `evolution/EVOLUTION-PROTOCOL.md` |
+| Skill 自进化 | `evolution/skill-evolution.md` + `evolution/skill-traces/` |
 | 自举协议 | `evolution/SELF-IMPROVE-PROTOCOL.md` |
 | 测试历史 | `evolution/test-history.json` |
 | OpenGAP | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\OpenGAP核心要点.md` |
@@ -56,6 +61,7 @@
 | examples | `examples/` few-shot 示例 |
 | 图片处理 | ⚠️ 收到图片→本地OCR→模型推理（见 topics/work-tools.md） |
 | Wechatsync | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Wechatsync-CLI使用手册.md` |
+| 社交自动化决策树 | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\社交自动化决策树.md` |
 | YouNavi CLI | `D:\YouNavi\resources\backend\agent-cli.exe`（见 topics/work-tools.md） |
 | YouNavi 桥梁 | `tools/younavi_bridge.py`（Python封装，解决编码问题） |
 | YouNavi Skill | `skills/younavi-integration/SKILL.md` |

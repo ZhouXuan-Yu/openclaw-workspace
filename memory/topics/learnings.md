@@ -1,6 +1,6 @@
 ﻿# 学习沉淀
 
-> 最后更新：2026-06-11
+> 最后更新：2026-06-14
 
 ---
 
@@ -24,6 +24,15 @@
 - **自检不能留空**：cron 任务输出必须有验证步骤，时间戳全 null 是反面教材
 - **Markdown + grep > 向量数据库**：Claude Code / Codex / Hermes / claude-mem 全用 markdown 文件，不用向量 DB
 - **年龄感知 > 精确检索**：读旧记忆时自动加时间警告比提高检索精度更实用
+
+## 智能检索（先想后查）
+
+- 从"先查后想"升级为"先想后查"：先读 _graph.json → 意图分类 → 定向检索相关 topic
+- `_graph.json` 存储 topic 关联图（9节点/20边），支持 keywords + connections 扩展
+- `retrieval-strategy.md` 定义三阶段流程：意图拆解→定向检索→上下文组装
+- 跨周期推理：连续检索 ≥2 个 topic → 记录关联候选 → 出现 ≥3 次写入 graph
+- 降级方案：graph 不可用时按 MEMORY.md 索引顺序遍历
+- 来源：借鉴 YouNavi 认知网络机制
 
 ## Memory Architecture 关键发现
 

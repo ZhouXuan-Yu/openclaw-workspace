@@ -1,4 +1,4 @@
-# 自我进化引擎 — 完整协议 v2
+﻿# 自我进化引擎 — 完整协议 v2
 
 **版本**: 2.0
 **日期**: 2026-06-12
@@ -64,6 +64,12 @@
 | 用户偏好 | "用户喜欢X风格" | USER.md / topics/preferences.md |
 | 技术决策 | "选X因为Y" | topics/decisions.md |
 | Skill 候选 | "这个流程值得固化" | evolution/skill-candidates.md |
+| **Topic 关联** | "X和Y经常一起被检索" | **topics/_graph.json** |
+
+**关联学习规则**：
+- 同一会话中连续检索 ≥2 个 topic 才找到答案 → 记录关联候选
+- 关联候选出现 ≥3 次 → 自动写入 `_graph.json` 的 connections
+- 用户明确说"这个跟XX有关" → 直接写入（高置信度）
 
 ### 1.4 验证层（下次会话）
 
@@ -123,22 +129,48 @@
 }
 ```
 
+### 2.3 FIX 验证门（借鉴鲁班慢刨）
+
+当 failure ≥ 2 准备修复 Skill 时，必须过验证门：
+
+1. **冻结原版**：修改前备份当前 SKILL.md 到 `.snapshots/skill-backup/{skill-name}-{date}.md`
+2. **候选修改**：生成修改方案，范围限于单步骤，不重构整个 Skill
+3. **验证条件**（全部满足才写入）：
+   - 修改后的步骤 dry_run 不报错
+   - 不引入新的外部依赖或私有路径
+   - 不让 SKILL.md 变得更长但更难用
+   - 修改范围小（单步骤/单工具替换）
+4. **保留回滚**：最近 3 个版本的快照保留
+
+详见 `memory/evolution/skill-evolution.md`
+
 ---
 
-## 3. 成功捕获协议
+## 3. 成功捕获协议（借鉴鲁班验料）
 
-### 3.1 Skill 候选识别
+### 3.1 Skill 候选识别（增加验料环节）
 
 **触发条件**：
 - 任务成功完成
 - 涉及 ≥3 个工具调用
 - 流程可复用（不是一次性任务）
 
+**验料四问**（鲁班方法论，捕获前必须回答）：
+1. **真实问题**：这个任务会被重复执行吗？（≥3 次/月才值得）
+2. **独特角度**：现有 Skill 覆盖不了吗？（检查是否可扩展现有 Skill）
+3. **安装理由**：固化后能减少多少人工干预？（>5 分钟/次才值得）
+4. **可验证性**：成功标准能明确定义吗？
+
+**验料结论**：
+- 4 问全通过 → 创建新 Skill
+- 2-3 问通过 → 考虑扩展现有 Skill
+- ≤1 问通过 → 不创建，仅记录到 patterns
+
 **捕获流程**：
-1. 记录完整工具链到 `evolution/skill-candidates.md`
+1. 验料通过后，记录完整工具链到 `evolution/skill-candidates.md`
 2. 标记为 `status: "candidate"`
 3. 下次类似任务时验证
-4. 验证 ≥2 次 → 创建正式 Skill
+4. 验证 ≥2 次 → 创建正式 Skill（通过 Skill Workshop）
 
 ### 3.2 工具链优化
 
@@ -275,11 +307,12 @@
 | 系统 | 集成方式 |
 |------|---------|
 | memory-consolidation (02:00) | **第一步**读取 evolution/evolution-log.md；整合到 topics/ |
-| memory-reflection (23:30) | 运行模式识别+提炼+时间衰减+淘汰 |
-| memory-health-sync (02:15) | 检查 evolution/ 数据健康+大小限制 |
+| memory-reflection (23:30) | 运行模式识别+提炼+时间衰减+淘汰 + **Skill 健康度分析** |
+| memory-health-sync (02:15) | 检查 evolution/ 数据健康+大小限制 + 清理过期 traces |
 | memory-patrol (09:00) | 验证昨日进化是否生效 |
 | security-check (10:00) | 检查进化是否触碰红线+SOUL.md hash |
-| Skill Workshop | skill-candidates → 正式 Skill |
+| Skill Workshop | FIX/DERIVED 通过验证门后固化 |
+| **Skill 自进化** | **详见 skill-evolution.md；每次调用记录轨迹，23:30 分析生成改进提案** |
 
 ### 8.1 降级方案
 

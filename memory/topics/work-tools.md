@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-06-12
+> 最后更新:2026-06-14
 
 ---
 
@@ -153,6 +153,25 @@ r = yn.daily_briefing()
 |------|------|------|
 | younavi-meeting-sync | 09:00/18:00 | 同步会议渠道并生成摘要 |
 | younavi-weekly-research | 周一 10:00 | 每周深度研究 |
+
+---
+
+## ⚠️ 视频号上传踩坑（必须记住）
+
+**问题**：`sau tencent upload-video` 报 `Locator.set_input_files: Timeout 30000ms exceeded`
+
+**根因**：视频号助手检测到自动化浏览器后，`/platform/post/create` 会被重定向到 dashboard (`/platform`)，页面上根本没有 `input[type="file"]`。
+
+**排查方法**：
+- Playwright locator 超时 ≠ 元素不可见，**先检查 page.url 是否是预期地址**
+- SPA 页面的 URL 重定向是常见反自动化手段
+
+**修复**：`open_upload_page` 增加重定向检测，被重定向时自动点击「发表视频」按钮
+
+**教训**：
+1. locator 找不到元素 → 先检查 URL，再检查 DOM
+2. headless/headed 模式下页面行为可能不同
+3. 视频号等平台会检测自动化浏览器并重定向
 
 ---
 
