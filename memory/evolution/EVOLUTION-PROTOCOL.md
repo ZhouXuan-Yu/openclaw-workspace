@@ -1,421 +1,358 @@
-﻿# 自我进化引擎 — 完整协议 v2
+# 自我进化引擎 — 完整协议 v3
 
-**版本**: 2.0
-**日期**: 2026-06-12
+**版本**: 3.0
+**日期**: 2026-06-14
 **触发**: memory-reflection (23:30) + 每次会话结束
-**修复**: v2 修复了 19 个漏洞/缺陷
+**参考**: A-Evolve(循环范式) / self-evolving-agent(能力状态机) / Darwin(Critic评估) / agent-seed(大小约束) / solo-founder(四步循环)
 
 ---
 
-## 1. 进化循环
+## 0. v3 核心改进（相比 v2）
+
+| 改进 | 来源 | 解决的问题 |
+|------|------|-----------|
+| 能力状态机 6 阶段 | self-evolving-agent | v2 只有 success/failure 二元判断，无法追踪"学到什么程度" |
+| 学习议程（最多3项） | self-evolving-agent | v2 没有聚焦机制，进化分散无重点 |
+| Critic 评估 | Darwin Agents | v2 只有自评，缺少外部质量校验 |
+| 大小强制约束 | agent-seed | v2 虽有大小限制但未强制执行 |
+| eval→council→evolver→retro 四步 | solo-founder-os | v2 进化循环缺少结构化步骤 |
+| 迁移检查 | self-evolving-agent | v2 固化前未验证能力是否可迁移 |
+
+---
+
+## 1. 进化循环 v3（四步结构）
 
 ```
-观察 → 分析 → 提炼 → 验证 → 用户确认 → 固化
-  │       │       │       │       │         │
-每次会话  23:30   自动    下次    必须      快照+hash
-自动记录  反思    提取    测试    用户审批   安全写入
+[Step 1: eval] 评估当前状态
+ │  读取 observations + patterns + failures
+ │  运行 Critic 评估（自评 + 模型评审）
+ │  输出：评估报告 + 识别需要进化的点
+ ▼
+[Step 2: council] 决策进化策略
+ │  读取学习议程（learning-agenda.json）
+ │  按优先级排序待进化能力
+ │  选择策略：FIX / DERIVED / CAPTURED / POOL
+ │  输出：进化计划
+ ▼
+[Step 3: evolver] 执行进化
+ │  修改 Skill / 创建新 Skill / 更新规则
+ │  验证门：dry_run + 不引入依赖 + 范围小
+ │  输出：进化结果
+ ▼
+[Step 4: retro] 回顾+固化
+ │  更新能力状态机（capability-state.json）
+ │  更新学习议程
+ │  更新 Critic 评估
+ │  写入 evolution-log.md
+ │  输出：进化报告
 ```
 
-### 1.1 观察层（每次会话自动）
+---
+
+## 2. 能力状态机
+
+### 2.1 六阶段
+
+```
+recorded → understood → practiced → passed → generalized → promoted
+  │           │           │          │           │             │
+首次观察    分析根因    主动应用   连续3次成功  不同场景验证   固化为Skill
+```
+
+### 2.2 阶段转换规则
+
+| 当前阶段 | 转换条件 | 下一阶段 |
+|---------|---------|---------|
+| recorded | 分析了失败根因 | understood |
+| understood | 主动尝试应用 ≥1 次 | practiced |
+| practiced | 连续成功 ≥3 次 | passed |
+| passed | 在 ≥2 种不同任务场景验证（迁移检查） | generalized |
+| generalized | 用户确认 + 固化为 Skill/规则 | promoted |
+
+### 2.3 降级规则
+
+- practiced 阶段连续失败 ≥2 次 → 降级到 understood
+- passed 阶段在新场景失败 → 降级到 practiced
+- 14 天未练习 → 降级一阶（衰减）
+
+### 2.4 数据结构
+
+```json
+{
+  "id": "cap-{name}",
+  "name": "能力名称",
+  "level": "recorded|understood|practiced|passed|generalized|promoted",
+  "evidence": ["证据列表"],
+  "failures": ["失败记录"],
+  "transferTested": false,
+  "lastPracticed": "YYYY-MM-DD",
+  "consecutiveSuccesses": 0,
+  "promotionEligible": false
+}
+```
+
+文件：`evolution/capability-state.json`
+
+---
+
+## 3. 学习议程
+
+### 3.1 规则
+
+- 同时最多 3 项（强制约束，防止精力分散）
+- 每项有优先级：critical > high > medium
+- 每项有目标阶段（从当前 level 晋升到哪个 level）
+- 每项有具体 actions（可执行的小步骤）
+
+### 3.2 更新时机
+
+- 23:30 反思时：检查议程进展，调整优先级
+- 新失败发生时：如果对应能力不在议程，评估是否加入
+- 能力晋升时：从议程移除，加入新能力
+
+### 3.3 数据结构
+
+```json
+{
+  "version": 1,
+  "maxItems": 3,
+  "agenda": [
+    {
+      "capability": "cap-{name}",
+      "priority": "critical|high|medium",
+      "reason": "为什么聚焦这个",
+      "startedAt": "YYYY-MM-DD",
+      "targetStage": "目标阶段",
+      "actions": ["具体行动1", "具体行动2"]
+    }
+  ],
+  "lastReviewed": "ISO-8601",
+  "nextReviewAt": "ISO-8601"
+}
+```
+
+文件：`evolution/learning-agenda.json`
+
+---
+
+## 4. Critic 评估
+
+### 4.1 三路评估
+
+| 评估类型 | 时机 | 方法 |
+|---------|------|------|
+| 自评 (selfEval) | 每次任务后 | agent 自己打分 1-10 |
+| Critic 评审 | 23:30 反思时 | 用 pro 模型评审质量 |
+| A/B 对比 | 进化提案时 | 新变体 vs 当前基线 |
+
+### 4.2 评分维度
+
+| 维度 | 权重 | 说明 |
+|------|------|------|
+| 准确性 | 30% | 结果是否正确 |
+| 效率 | 20% | 耗时/步骤是否合理 |
+| 用户满意度 | 25% | 用户反馈（正/负面） |
+| 可复用性 | 15% | 能否固化为 Skill |
+| 安全性 | 10% | 是否触碰红线 |
+
+### 4.3 数据结构
+
+```json
+{
+  "id": "eval-NNN",
+  "timestamp": "ISO-8601",
+  "target": "评估对象",
+  "type": "selfEval|criticEval|abTest",
+  "before": {"score": 0, "evidence": "改进前"},
+  "after": {"score": 0, "evidence": "改进后"},
+  "delta": 0,
+  "confidence": 0.0,
+  "notes": "备注"
+}
+```
+
+文件：`evolution/critic-evaluations.json`
+
+---
+
+## 5. 观察层（每次会话自动）
 
 **触发条件**：
-- 工具调用失败 → 记录到 `evolution/failures.json`
-- 用户纠正 → 记录到 `evolution/corrections.json`
-- 任务成功 → 记录到 `evolution/patterns.json`
-- 用户满意/不满 → 记录到 `evolution/feedback.json`
+- 工具调用失败 → `evolution/failures.json`
+- 用户纠正 → `evolution/corrections.json`（weight × 5）
+- 任务成功 → `evolution/patterns.json`
+- 用户满意/不满 → `evolution/feedback.json`
 
-**数据格式**（脱敏，不存原始用户输入）：
+**会话结束时**：写入 `evolution/observations-YYYY-MM-DD.json`
+
+**数据格式**（脱敏）：
 ```json
 {
   "timestamp": "ISO-8601 with timezone",
   "trigger": "任务类型描述（脱敏）",
   "action": "我做了什么",
   "outcome": "success/failure/partial",
-  "lesson": "学到了什么（如果有）"
+  "lesson": "学到了什么",
+  "capabilityId": "关联的能力ID（如有）"
 }
-```
-
-**会话结束时**：写入 `evolution/observations-YYYY-MM-DD.json`
-
-### 1.2 分析层（23:30 反思 cron）
-
-**模式识别算法**：
-1. 读取 `evolution/patterns.json` + `evolution/failures.json`
-2. 统计频次：同一触发条件出现 ≥3 次 → 标记为"强模式"
-3. 统计成功率：同一模式的成功/失败比
-4. 识别反模式：失败 ≥2 次的相同尝试
-5. **时间衰减**：未被验证的模式 confidence *= 0.95/周
-6. **淘汰**：confidence < 0.05 的模式自动删除
-7. **上限**：patterns 总数 ≤ 50，超出淘汰最旧+最低 confidence
-
-**输出**：
-- 更新 `patterns.json` 的 confidence 字段
-- 新发现的模式添加到 patterns
-- 反模式添加到 antiPatterns
-
-### 1.3 提炼层（自动）
-
-**从模式中提取规则**：
-
-| 模式类型 | 提取规则 | 写入位置 |
-|---------|---------|---------|
-| 成功工具链 | "遇到X时，先Y再Z" | AGENTS-DETAILS.md |
-| 失败教训 | "不要在X时做Y" | AGENTS-DETAILS.md 红线 |
-| 用户偏好 | "用户喜欢X风格" | USER.md / topics/preferences.md |
-| 技术决策 | "选X因为Y" | topics/decisions.md |
-| Skill 候选 | "这个流程值得固化" | evolution/skill-candidates.md |
-| **Topic 关联** | "X和Y经常一起被检索" | **topics/_graph.json** |
-
-**关联学习规则**：
-- 同一会话中连续检索 ≥2 个 topic 才找到答案 → 记录关联候选
-- 关联候选出现 ≥3 次 → 自动写入 `_graph.json` 的 connections
-- 用户明确说"这个跟XX有关" → 直接写入（高置信度）
-
-### 1.4 验证层（下次会话）
-
-**验证流程**：
-1. 提炼的规则标记为 `status: "proposed"`
-2. 下次遇到相同触发条件时，尝试应用规则
-3. 成功 → `status: "validated"`，confidence +0.1，validatedCount +1
-4. 失败 → `status: "rejected"` 或重新分析
-
-### 1.5 固化层（需用户确认）
-
-**固化条件**：confidence ≥ 0.8 且 validatedCount ≥ 3 次
-**固化流程**（严格顺序）：
-
-```
-1. 生成 SOUL.md hash → 与 .snapshots/SOUL.md.hash 比对
-   └─ 不匹配 → 终止，报告异常
-2. 快照: cp AGENTS.md → .snapshots/AGENTS-YYYY-MM-DD.md
-3. 快照: cp USER.md → .snapshots/USER-YYYY-MM-DD.md
-4. 请求用户确认: "准备固化规则 [X]，修改 AGENTS.md/USER.md，确认？"
-   └─ 用户拒绝 → 终止
-5. 写入 AGENTS-DETAILS.md（行为规则）/ USER.md（偏好）
-6. 创建 Skill（流程固化）
-7. 更新 MEMORY.md（知识）
-8. 更新 SOUL.md hash（如 SOUL.md 被合法修改）
 ```
 
 ---
 
-## 2. 失败分析协议
+## 6. 分析层（23:30 反思 cron）
 
-### 2.1 失败分类
+### 6.1 模式识别
 
-| 类型 | 代码 | 处理 |
-|------|------|------|
-| 工具调用失败 | TOOL_FAIL | 重试→换方案→记录 |
-| 用户纠正 | USER_CORRECT | 立即学习→记录 |
-| 理解偏差 | MISUNDERSTAND | 澄清→记录触发词 |
-| 超时/性能 | TIMEOUT | 优化路径→记录 |
-| 安全拦截 | SAFETY_BLOCK | 检查红线→不绕过 |
+1. 读取 `patterns.json` + `failures.json` + `corrections.json`
+2. 频次统计：同一触发条件 ≥3 次 → "强模式"
+3. 成功率：同一模式的成功/失败比
+4. 反模式：失败 ≥2 次的相同尝试
+5. 时间衰减：未验证 confidence *= 0.95/周
+6. 淘汰：confidence < 0.05 删除
+7. 上限：patterns ≤ 50，超出淘汰最旧+最低 confidence
 
-### 2.2 失败响应
+### 6.2 能力状态机更新
 
-```json
-{
-  "id": "fail-NNN",
-  "timestamp": "ISO-8601 with timezone",
-  "type": "TOOL_FAIL|USER_CORRECT|MISUNDERSTAND|TIMEOUT|SAFETY_BLOCK",
-  "trigger": "脱敏的任务描述",
-  "attempt": "尝试了什么",
-  "result": "失败结果",
-  "rootCause": "根因分析",
-  "fix": "修正方案",
-  "status": "proposed → validated",
-  "occurrences": 1,
-  "parentEventId": "触发此失败的事件ID（如有）"
-}
-```
+1. 检查每个能力的 evidence/failures
+2. 连续成功 ≥3 → 晋升到 passed
+3. 连续失败 ≥2 → 降级
+4. 14 天未练习 → 衰减降级
 
-### 2.3 FIX 验证门（借鉴鲁班慢刨）
+### 6.3 学习议程 review
 
-当 failure ≥ 2 准备修复 Skill 时，必须过验证门：
+1. 检查议程中各项进展
+2. 已完成的移除，加入新能力
+3. 调整优先级
 
-1. **冻结原版**：修改前备份当前 SKILL.md 到 `.snapshots/skill-backup/{skill-name}-{date}.md`
-2. **候选修改**：生成修改方案，范围限于单步骤，不重构整个 Skill
-3. **验证条件**（全部满足才写入）：
-   - 修改后的步骤 dry_run 不报错
-   - 不引入新的外部依赖或私有路径
-   - 不让 SKILL.md 变得更长但更难用
-   - 修改范围小（单步骤/单工具替换）
-4. **保留回滚**：最近 3 个版本的快照保留
+### 6.4 Critic 评估
 
-详见 `memory/evolution/skill-evolution.md`
+1. 对今日关键任务进行 Critic 评审
+2. 写入 `critic-evaluations.json`
+3. 识别需要 A/B 测试的变体
 
 ---
 
-## 3. 成功捕获协议（借鉴鲁班验料）
+## 7. 进化策略
 
-### 3.1 Skill 候选识别（增加验料环节）
+### 7.1 四种策略
 
-**触发条件**：
-- 任务成功完成
-- 涉及 ≥3 个工具调用
-- 流程可复用（不是一次性任务）
+| 策略 | 触发条件 | 动作 |
+|------|---------|------|
+| **FIX** | 失败 ≥2 次的相同尝试 | 修复现有 Skill |
+| **DERIVED** | 用户纠正（weight ≥ 3） | 创建增强版 Skill |
+| **CAPTURED** | 任务成功 + 无对应 Skill | 捕获为新 Skill |
+| **POOL** | 有多个变体候选 | A/B 测试，胜者生效 |
 
-**验料四问**（鲁班方法论，捕获前必须回答）：
-1. **真实问题**：这个任务会被重复执行吗？（≥3 次/月才值得）
-2. **独特角度**：现有 Skill 覆盖不了吗？（检查是否可扩展现有 Skill）
-3. **安装理由**：固化后能减少多少人工干预？（>5 分钟/次才值得）
+### 7.2 FIX 验证门
+
+修改 Skill 前必须过验证门：
+1. 冻结原版 → `.snapshots/skill-backup/{name}-{date}.md`
+2. 候选修改：范围限于单步骤
+3. 验证条件：dry_run 不报错 + 不引入新依赖 + 不让 SKILL.md 更难用
+4. 保留最近 3 个版本快照
+
+### 7.3 CAPTURED 验料四问
+
+捕获 Skill 前必须回答：
+1. **真实问题**：会被重复执行吗？（≥3 次/月）
+2. **独特角度**：现有 Skill 覆盖不了吗？
+3. **安装理由**：能减少多少人工干预？（>5 分钟/次）
 4. **可验证性**：成功标准能明确定义吗？
 
-**验料结论**：
-- 4 问全通过 → 创建新 Skill
-- 2-3 问通过 → 考虑扩展现有 Skill
-- ≤1 问通过 → 不创建，仅记录到 patterns
+4 问全通过 → 创建；2-3 问 → 扩展现有；≤1 问 → 仅记录
 
-**捕获流程**：
-1. 验料通过后，记录完整工具链到 `evolution/skill-candidates.md`
-2. 标记为 `status: "candidate"`
-3. 下次类似任务时验证
-4. 验证 ≥2 次 → 创建正式 Skill（通过 Skill Workshop）
+---
 
-### 3.2 工具链优化
+## 8. 固化层
 
-**记录格式**：
-```markdown
-## 工具链: [任务类型]
-**触发**: [什么时候用]
-**步骤**:
-1. [工具A] → [输出]
-2. [工具B] → [输出]
-3. [工具C] → [输出]
-**耗时**: ~Xs
-**成功率**: X%
-**替代方案**: [如果失败的备选]
+### 8.1 固化条件
+
+- 能力达到 `generalized` 阶段（迁移检查通过）
+- confidence ≥ 0.8
+- validatedCount ≥ 3
+- 用户确认
+
+### 8.2 固化流程
+
+```
+1. SOUL.md hash 校验 → 不匹配则终止
+2. 快照: cp AGENTS.md → .snapshots/AGENTS-YYYY-MM-DD.md
+3. 快照: cp USER.md → .snapshots/USER-YYYY-MM-DD.md
+4. 请求用户确认
+5. 写入 AGENTS-DETAILS.md / USER.md
+6. 创建 Skill（通过 Skill Workshop）
+7. 更新 MEMORY.md
+8. 更新 SOUL.md hash
+9. 能力状态 → promoted
 ```
 
 ---
 
-## 4. 知识差距检测
+## 9. 安全边界
 
-### 4.1 检测方法
+### 9.1 红线
 
-**每次会话自动检测**：
-1. 用户问了我不知道的 → 记录到 `evolution/knowledge-gaps.json`
-2. 搜索无结果 → 记录搜索词
-3. 工具调用失败因为参数不懂 → 记录工具+场景
-
-### 4.2 差距分类
-
-| 类型 | 优先级 | 处理 |
-|------|--------|------|
-| 高频询问 | P0 | 立即学习/创建 Skill |
-| 技术知识 | P1 | 搜索→整理→写入 topics/ |
-| 工具用法 | P2 | 读文档→记录到 work-tools.md |
-| 领域知识 | P3 | 按需学习 |
-
----
-
-## 5. 进化指标
-
-### 5.1 核心指标
-
-| 指标 | 计算方式 | 目标 |
-|------|---------|------|
-| 任务成功率 | success / total | >90% |
-| 记忆准确率 | relevantHits / retrievals | >80% |
-| 响应简洁率 | concise / (concise+verbose) | >70% |
-| 工具一次成功率 | singleShot / total | >85% |
-| 模式验证率 | validated / proposed | >60% |
-
-### 5.2 进化速度
-
-**计算**：每周新增 validated 模式数
-**目标**：≥2 个/周（初期），≥1 个/周（成熟期）
-
----
-
-## 6. 安全边界
-
-### 6.1 进化红线（技术强制）
-
-**绝不进化**：
-- 不修改 SOUL.md 核心身份 → **强制: 固化前校验 SOUL.md hash**
+- 不修改 SOUL.md 核心身份
 - 不绕过安全检查
 - 不自动扩展权限
 - 不删除觉知循环
 
-**需要确认**（强制用户审批）：
-- 修改 AGENTS.md 行为规则 → **强制: 快照 + 用户确认**
-- 修改 USER.md 用户画像 → **强制: 快照 + 用户确认**
-- 创建新 Skill
-
-**自由进化**：
-- 更新 evolution/ 数据文件
-- 更新 memory/daily/ 日志
-- 更新 memory/topics/ 知识
-- 更新 .skill-quality.json
-
-### 6.2 并发保护
-
-**写入前**：创建 `.lock` 文件（含 PID + 时间戳）
-**写入时**：原子写入（tmpfile + rename）
-**写入后**：删除 `.lock`
-**锁超时**：30 秒自动释放（防死锁）
-
-### 6.3 回滚机制
-
-**快照目录**: `.snapshots/`
-**快照时机**: 每次修改 AGENTS.md / USER.md 前（强制第一步）
-**回滚方式**: `cp .snapshots/AGENTS-YYYY-MM-DD.md ./AGENTS.md`
-**SOUL.md 校验**: 固化前比对 `.snapshots/SOUL.md.hash`
-
-### 6.4 隐私保护
-
-**记录时脱敏**：
-- trigger 字段：只记录任务类型，不存原始用户输入
-- 不记录文件路径中的用户名
-- 不记录 API key / token / 密码
-
-### 6.5 大小限制
+### 9.2 大小强制约束（agent-seed 规则）
 
 | 文件 | 上限 | 超出处理 |
 |------|------|---------|
 | patterns.json | 50 条 | 淘汰最旧+最低 confidence |
 | failures.json | 50 条 | 淘汰最旧 |
-| knowledge-gaps.json | 30 条 | 淘汰已解决+最低优先级 |
-| feedback.json | 100 条 | 淘汰最旧 |
 | corrections.json | 50 条 | 淘汰最旧 |
-| evolution-log.md | 200 条 | 归档旧条目到 evolution-log-archive.md |
+| feedback.json | 100 条 | 淘汰最旧 |
+| knowledge-gaps.json | 30 条 | 淘汰已解决+最低优先级 |
+| capability-state.json | 20 个能力 | 淘汰最旧+最低 level |
+| learning-agenda.json | 3 项 | 硬上限 |
+| critic-evaluations.json | 100 条 | 淘汰最旧 |
+| evolution-log.md | 200 条 | 归档到 evolution-log-archive.md |
+
+### 9.3 回滚
+
+- 快照目录：`.snapshots/`
+- 回滚方式：`cp .snapshots/AGENTS-YYYY-MM-DD.md ./AGENTS.md`
+- SOUL.md 校验：固化前比对 `.snapshots/SOUL.md.hash`
 
 ---
 
-## 7. 进化日志格式
+## 10. 与 Cron 集成
 
-每次进化写入 `evolution/evolution-log.md`：
-
-```markdown
-### YYYY-MM-DD HH:MM+TZ 进化事件
-
-**类型**: [PATTERN_LEARNED / FAILURE_ANALYZED / SKILL_CAPTURED / KNOWLEDGE_GAP / RULE固化]
-**触发**: [什么事件触发了这次进化]
-**内容**: [具体学到了什么]
-**动作**: [写入了哪个文件/创建了什么]
-**状态**: proposed / validated / 固化
-**因果**: parent=[父事件ID] / root=[根因事件ID]
-```
-
-**时间格式**: 统一使用 ISO-8601 with timezone (如 `2026-06-12T16:00:00+08:00`)
-
----
-
-## 8. 与现有系统的集成
-
-| 系统 | 集成方式 |
+| Cron | 进化动作 |
 |------|---------|
-| memory-consolidation (02:00) | **第一步**读取 evolution/evolution-log.md；整合到 topics/ |
-| memory-reflection (23:30) | 运行模式识别+提炼+时间衰减+淘汰 + **Skill 健康度分析** |
-| memory-health-sync (02:15) | 检查 evolution/ 数据健康+大小限制 + 清理过期 traces |
+| memory-reflection (23:30) | **完整四步循环**：eval→council→evolver→retro |
+| memory-consolidation (02:00) | 整合 evolution-log.md 到 topics/ |
+| memory-health-sync (02:15) | 检查 evolution/ 数据健康+大小限制 |
 | memory-patrol (09:00) | 验证昨日进化是否生效 |
-| security-check (10:00) | 检查进化是否触碰红线+SOUL.md hash |
-| Skill Workshop | FIX/DERIVED 通过验证门后固化 |
-| **Skill 自进化** | **详见 skill-evolution.md；每次调用记录轨迹，23:30 分析生成改进提案** |
+| security-check (10:00) | SOUL.md hash + 红线检查 |
 
-### 8.1 降级方案
+---
+
+## 11. 降级方案
 
 **memory-search 不可用时**：
-1. 使用 `rg` (ripgrep) 文件系统搜索
-2. 使用 `Select-String` PowerShell 搜索
-3. 搜索 evolution/ 目录下的 JSON/MD 文件
+1. `rg` (ripgrep) 文件系统搜索
+2. `Select-String` PowerShell 搜索
+3. 直接读取 evolution/ 目录 JSON/MD
 
 ---
 
-## 9. 进化引擎启动清单
+## 12. 数据文件清单
 
-每次会话开始时（与 AGENTS.md 启动流程并行）：
-
-1. ✅ 检查 .snapshots/ 目录存在性（不存在则创建）
-2. ✅ 读 `evolution/patterns.json` — 加载已知模式（空文件跳过）
-3. ✅ 读 `evolution/performance.json` — 加载性能指标（空文件跳过）
-4. ✅ 检查 `evolution/knowledge-gaps.json` — 待填补的差距
-5. ✅ 本次会话中：观察→记录→（不自动进化，留给 23:30）
-
-**冷启动优化**：文件大小为 0 或仅含空数组时跳过加载。
-
-会话结束时：
-1. ✅ 写入本次会话的观察到 `evolution/observations-YYYY-MM-DD.json`（脱敏）
-2. ✅ 如果有重大发现，立即写入 `evolution/patterns.json`（遵守大小限制）
-
-23:30 反思时：
-1. ✅ 读取今日所有 observations
-2. ✅ 运行模式识别（频次统计+成功率）
-3. ✅ 时间衰减：未验证模式 confidence *= 0.95/周
-4. ✅ 淘汰：confidence < 0.05 的模式删除
-5. ✅ 提炼规则
-6. ✅ 写入 evolution-log.md（含因果链）
-7. ✅ 更新 patterns.json / failures.json（遵守大小限制）
-8. ✅ 标记 skill-candidates
-
----
-
-## 10. 数据文件 Schema
-
-### patterns.json v2
-```json
-{
-  "version": 2,
-  "maxEntries": 50,
-  "lastUpdated": "ISO-8601 with timezone",
-  "patterns": [
-    {
-      "id": "string",
-      "type": "success|failure",
-      "category": "toolchain|decision|preference|safety",
-      "trigger": "string (脱敏)",
-      "pattern": "string",
-      "confidence": 0.0-1.0,
-      "validatedCount": "number",
-      "observedCount": "number",
-      "lastObserved": "YYYY-MM-DD",
-      "lastValidated": "YYYY-MM-DD",
-      "expiresAt": "YYYY-MM-DD",
-      "notes": "string"
-    }
-  ],
-  "antiPatterns": [
-    {
-      "id": "string",
-      "category": "string",
-      "trigger": "string",
-      "pattern": "string",
-      "fix": "string",
-      "confidence": 0.0-1.0,
-      "observedCount": "number",
-      "lastObserved": "YYYY-MM-DD"
-    }
-  ],
-  "decayConfig": {
-    "enabled": true,
-    "decayRate": 0.95,
-    "decayIntervalDays": 7,
-    "minConfidence": 0.1,
-    "purgeBelowConfidence": 0.05
-  }
-}
-```
-
-### failures.json v2
-```json
-{
-  "version": 2,
-  "maxEntries": 50,
-  "failures": [
-    {
-      "id": "string",
-      "timestamp": "ISO-8601 with timezone",
-      "type": "TOOL_FAIL|USER_CORRECT|MISUNDERSTAND|TIMEOUT|SAFETY_BLOCK",
-      "trigger": "string (脱敏)",
-      "attempt": "string",
-      "result": "string",
-      "rootCause": "string",
-      "fix": "string",
-      "status": "proposed|validated",
-      "occurrences": "number",
-      "parentEventId": "string|null"
-    }
-  ]
-}
-```
+| 文件 | 用途 | Schema |
+|------|------|--------|
+| capability-state.json | 能力状态机 | v1 |
+| learning-agenda.json | 学习议程 | v1 |
+| critic-evaluations.json | Critic评估 | v1 |
+| patterns.json | 成功/失败模式 | v2 |
+| failures.json | 失败记录 | v2 |
+| corrections.json | 用户纠正 | v2 |
+| feedback.json | 正/负反馈 | v2 |
+| skill-improvements.json | Skill改进提案 | v1 |
+| knowledge-gaps.json | 知识差距 | v1 |
+| run-log.json | 运行记录 | v1 |
+| observations-YYYY-MM-DD.json | 每日观察 | v1 |
+| evolution-log.md | 进化日志 | v2 |
