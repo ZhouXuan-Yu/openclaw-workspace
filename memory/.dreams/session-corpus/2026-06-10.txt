@@ -1,0 +1,5 @@
+[main/sessions/main/fa1386c8-a5d1-4db3-a9a8-a32cd828ea48.jsonl.reset.2026-06-11T01-24-37.797Z#L372] Assistant: 现在我看清了。让我看看你的电源管理设置和 OpenClaw 的服务配置。
+[main/sessions/main/fa1386c8-a5d1-4db3-a9a8-a32cd828ea48.jsonl.reset.2026-06-11T01-24-37.797Z#L374] Assistant: 再查查网络和相关的配置：
+[main/sessions/main/fa1386c8-a5d1-4db3-a9a8-a32cd828ea48.jsonl.reset.2026-06-11T01-24-37.797Z#L386] Assistant: OK，看起来没有专门的"合盖"设置项（可能笔记本BIOS层面控制了）。让我看看 OpenClaw 服务是如何启动的，以及熄屏后网络状态：
+[main/sessions/main/fa1386c8-a5d1-4db3-a9a8-a32cd828ea48.jsonl.reset.2026-06-11T01-24-37.797Z#L388] Assistant: 找到了！**"在电池模式停止, 不用电池启动"** — 这是电源管理设置。再确认一下网络方面的配置：
+[main/sessions/main/fa1386c8-a5d1-4db3-a9a8-a32cd828ea48.jsonl.reset.2026-06-11T01-24-37.797Z#L396] Assistant: 好了，全部信息齐了。让我给你一个完整的诊断报告 🛡️ --- ## 🛡️ 熄屏断连诊断报告 ### 🔍 原因分析 你遇到了 **两个层面的问题叠加**： #### 1️⃣ 电源管理 → 熄屏后系统进入省电状态 从你的当前配置： | 设置 | 当前值 | 问题 | |------|--------|------| | **显示器关闭**（交流电） | 7,200秒 = 120分钟 | ⚠️ 太久？但这不是关键 | | **睡眠**（交流电） | **10,8

@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-06-14
+> 最后更新:2026-06-15
 
 ---
 
@@ -78,6 +78,34 @@ python C:\Users\ZhouXuan\.openclaw\workspace\scripts\ocr.py <图片路径>
 - 数字用 1️⃣2️⃣3️⃣
 
 **原因:** 小红书/快手文本框不支持 Markdown,格式符会被当成普通文本显示。
+
+---
+
+## ⚠️ 小红书防封 — 草稿模式（2026-06-14）
+
+**问题**：小红书检测到 AI 托管代发，触发封禁（2026年3月新规）
+**方案**：`save_as_draft` 草稿模式 — 自动上传素材，人工手动发布+声明 AI 内容
+
+```powershell
+sau xiaohongshu upload-note --account creator --images img1.png --title "标题" --note "正文" --draft
+```
+
+**规则**：
+- 小红书默认用 `--draft`，不用自动发布
+- 其他平台（抖音/B站/快手/视频号）仍可自动发布
+- 草稿箱手动发布时需声明 AI 内容
+
+---
+
+## ⚠️ guizang-social-card-skill（核心链路）
+
+**地位**：内容生产的核心 Skill，不是可选工具。
+
+**正确链路**：
+- 图文：Codex → **guizang-social-card** → Playwright → PNG
+- 视频：Codex → **guizang-social-card** → HyperFrames → MP4
+
+**教训**：不要凭记忆推断用户说过什么，不确定就老实说不知道。
 
 ---
 

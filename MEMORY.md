@@ -30,10 +30,12 @@
 | 06-12 | OpenGAP: 14个设计模式优化架构，agent.yaml+RULES.md+workflows/ |
 | 06-13 | 智能检索升级: 先想后查+topic关联图+跨周期推理 |
 | 06-14 | 视频号上传: locator超时先检查URL重定向，不是元素不可见 |
+| 06-15 | GitHub热门项目分析: 10个项目，Agent工程化趋势（skills/codegraph/agentmemory） |
 
 ## 主题索引
 | 主题 | 位置 |
 |------|------|
+| 术语表 | `CONTEXT.md` |
 | 偏好 | `topics/preferences.md` |
 | 项目 | `topics/projects.md` |
 | 多平台发布 | `tools/social-auto-upload/` (见 topics/work-tools.md) |
@@ -44,10 +46,13 @@
 | 人物 | `topics/people.md` |
 | 工具 | `topics/work-tools.md` |
 | 沟通 | `topics/communication.md` |
-| 进化 | `evolution/EVOLUTION-PROTOCOL.md` |
+| 进化 | `evolution/EVOLUTION-PROTOCOL.md` (v4) |
+| 变更影响 | `docs/change-impact-checklist.md` |
+| ADR | `docs/adr/` |
 | 智能检索 | `memory/retrieval-strategy.md` + `topics/_graph.json` |
 | OpenSpec 分析 | `topics/openspec-analysis.md` |
 | 架构增强 | `topics/openspec-arch-enhancements.md` |
+| GitHub 热门项目 | `topics/github-may-2026-projects.md` |
 | 进化引擎 | `evolution/EVOLUTION-PROTOCOL.md` |
 | Skill 自进化 | `evolution/skill-evolution.md` + `evolution/skill-traces/` |
 | 自举协议 | `evolution/SELF-IMPROVE-PROTOCOL.md` |
@@ -67,4 +72,4 @@
 | YouNavi Skill | `skills/younavi-integration/SKILL.md` |
 
 ## Tag 索引
-`#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows`
+`#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`

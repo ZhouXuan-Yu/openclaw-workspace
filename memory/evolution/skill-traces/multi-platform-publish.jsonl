@@ -1,0 +1,1 @@
+{"skill":"multi-platform-publish","timestamp":"2026-06-14T23:00:00+08:00","result":"partial","details":"3/6成功(抖音/B站/快手)，3/6失败(小红书按钮重试5次失败/视频号cookie过期/wechatsync未连接)","success_platforms":["douyin","bilibili","kuaishou"],"failed_platforms":["xiaohongshu","tencent","wechatsync"]}
