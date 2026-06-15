@@ -1,6 +1,6 @@
 ﻿# 学习沉淀
 
-> 最后更新：2026-06-14
+> 最后更新：2026-06-16
 
 ---
 
@@ -43,3 +43,82 @@
 - 核心过滤：单次事件不提权，多次出现才记忆
 
 详见：`prompt学习提示词/Memory记忆架构/`
+
+## AI Agent 记忆架构 2026 前沿（2026-06-15 深度研究）
+
+完整报告：`E:\Obsidian仓库\ZhouXuan私人领域\开发项目\AI-Agent记忆架构-2026深度研究.md`
+
+### 核心趋势
+- **RAG → MaaS**：记忆即服务架构成为主流，记忆与推理解耦
+- **记忆治理是核心**：写入-管理-读取闭环 + 冲突处理 + 智能遗忘 + 来源追踪
+- **协同记忆**：受控协作记忆框架（私有→草稿→规范→弃用四层），多Agent集体认知
+- **效率双轮驱动**：向量量化压缩存储（TurboQuant 6x） + 多信号检索（Mem0 92.5分/LoCoMo）
+- **差异化竞争**：LLM推理能力商品化，记忆系统成为Agent核心壁垒
+
+### 关键技术
+- **Mem0 2026算法**：单程分层提取 + 多信号检索，查询token从26K降至7K，LoCoMo 92.5分
+- **四层协同记忆**：Private → Shared Drafts → Canonical → Deprecated
+- **指数衰减遗忘**：检索时引入新近度信号，时间久远记忆权重自然降低
+- **向量量化**：Google TurboQuant，向量存储压缩6倍+，不牺牲检索性能
+
+### 未来方向
+1. 自管理记忆（Agent学会何时记忆/遗忘）
+2. 生成式记忆（从被动回忆到主动推理）
+3. 多模态记忆（文本+视觉+音频+空间）
+4. 标准化协同记忆协议（Agent互联网）
+
+## Addy Osmani Agent Skills 分析（2026-06-15）
+
+24 个 Skill 覆盖完整开发生命周期（Define→Plan→Build→Verify→Review→Ship）。
+
+最值得学的 5 个：
+1. **doubt-driven-development** — 不确定时先验证再实现（≈ Think Tool）
+2. **incremental-implementation** — 增量实现 5 条铁律（已写入 RULES.md）
+3. **context-engineering** — 上下文窗口管理
+4. **spec-driven-development** — 规格先行
+5. **Anti-Rationalization 表** — 对抗偷懒（已加入关键 Skill）
+
+与现有体系互补：
+- interview-me ≈ grill-me（需求对齐）
+- DDD ≈ Think Tool（关键决策前思考）
+- using-agent-skills ≈ Task Mode Router（任务模式路由）
+
+完整报告：`E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Addy-Osmani-Agent-Skills深度解析.md`
+
+## AI Agent 工程化全景 2026（2026-06-15 深度研究）
+
+完整报告：`E:\Obsidian仓库\ZhouXuan私人领域\开发项目\AI-Agent工程化2026深度研究报告.md`
+
+### Harness Engineering（驾驭工程）
+- **范式转变**：从 Prompt Engineering(2022-2024) → Context Engineering(2025) → Harness Engineering(2026)
+- **核心公式**：AI Agent = 大模型 + Harness Engineering
+- **四大支柱**：约束与规则 / 反馈与评估回路 / 工作流编排 / 安全与权限
+- **关键洞察**：设计精良的 Harness 带来的性能提升 > 升级下一代大模型
+
+### 主流框架对比
+| 框架 | 编排模型 | 记忆 | 最佳场景 |
+|------|----------|------|----------|
+| LangGraph | 图状态机 | 强（持久化） | 企业级复杂工作流 |
+| CrewAI | 角色协作 | 轻量 | 快速原型/任务团队 |
+| AutoGen | 对话协作 | 中等 | 动态对话系统 |
+| Hermes Agent | 闭环学习 | 非常强 | 长期个性化助手 |
+| Haystack | 模块化管道 | 强（RAG） | 知识密集型应用 |
+
+### 多智能体协作模式
+- **层级式**：主管 Agent 分配 + 专家 Agent 执行（结构化项目）
+- **角色式**：预定义角色流转（CrewAI 模式）
+- **对话式**：无中心，协商推进（AutoGen 模式）
+- **A2A 协议**：Google 提出的 Agent 互操作开放标准
+
+### MCP 协议 2026
+- **架构**：彻底无状态，JSON-RPC 2.0，`_meta` 字段传递上下文
+- **传输**：STDIO（本地）/ SSE（远程）
+- **开发**：FastMCP (Python) 为主流 SDK，Resources(只读) vs Tools(有副作用)
+- **生态**：Anthropic Claude + Cursor 已深度集成，云服务商尚未原生支持
+- **定位**：开发者工具领域事实标准，通用基础设施愿景仍在发展
+
+### 与我相关
+- OpenClaw 的 Skill 架构 = Harness Engineering 的实践（约束+反馈+编排+安全）
+- 记忆 4 层架构对标 Hermes Agent 的闭环学习模式
+- MCP 工具调用模式可借鉴到 OpenClaw 的工具集成
+- 多智能体编排参考 LangGraph 的图状态机或 CrewAI 的角色模式

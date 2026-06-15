@@ -64,6 +64,37 @@
 **状态**: validated (1次)
 **因果**: root=OpenSpec 架构分析
 
+### 2026-06-16T00:10:00+08:00 进化事件
+
+**类型**: FIX + DATA_POPULATED
+**触发**: 进化引擎全景审计 → 用户要求优化
+**内容**:
+1. 创建 .skill-quality.json — 5个Skill质量追踪
+2. 创建 memory-state.json — 记忆系统健康状态
+3. 创建 perf-baseline.json — 性能基线
+4. 创建 observations-2026-06-15.json — 8条观察数据
+5. 更新 capability-state.json — 5个能力（含新能力cap-architecture-evolution）
+6. 更新 learning-agenda.json — 3项议程进度更新
+7. 更新 performance.json — 从observations计算真实指标
+**动作**: 补全进化引擎数据管道
+**状态**: validated
+**因果**: root=进化引擎设计90/数据40差距
+
+### 2026-06-16T00:45:00+08:00 进化事件
+
+**类型**: FIX + DATA_CORRECTED
+**触发**: 子Agent集成测试发现6个数据不一致问题
+**内容**:
+1. memory-state.json: MEMORY.md行数 95→83, topics数 12→11, skillTraces 2→5, improvements文件名修正
+2. .skill-quality.json: 添加 architecture-evolution + evolution-audit 条目, 修正 memory-reflection lastResult=error
+3. learning-agenda.json: cap-memory-management targetStage practiced→passed, cap-skill-evolution practiced→passed
+4. capability-state.json: cap-skill-evolution level understood→practiced, 添加2条新evidence
+**动作**: 修复数据不一致
+**状态**: validated
+**因果**: root=子Agent交叉引用测试(C评级)发现估算值vs实际值差异
+
+---
+
 ### 2026-06-13 23:30+08:00 进化事件
 
 **类型**: PATTERN_LEARNED (第三次验证)
