@@ -109,6 +109,76 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 
 ---
 
+## 社交内容生产完整链路（2026-06-16 固化）
+
+**前置检查（每次必做）**：
+1. 读 memory/topics/work-tools.md（本文）
+2. 读 skills/guizang-social-card/SKILL.md
+3. 读 skills/hyperframes-video/SKILL.md
+4. memory_search 确认历史教训
+
+**完整流程**：
+```
+Q0: 内容来源
+├── 首选: YouNavi 深度研究 (yn.research_full)
+└── 备选: 自行生成（memory_search + web_search）
+
+Q1: 图片素材生成（必须步骤）
+├── 工具: image_generate（AI生图）或 web_search（找图）
+├── Swiss模式: 产品渲染/UI截图/keyshot风格 → AI生成
+├── Editorial模式: Pexels/Unsplash/Flickr CC → web找图
+├── 输出: 每张卡片的 hero image → assets/
+└── 记录: assets/SOURCES.md 记录图片来源
+
+Q2: 卡片设计
+├── Skill: guizang-social-card
+├── 风格: Swiss International (ikb 蓝)
+├── 模板: assets/template-swiss-card.html
+├── 渲染: Playwright → PNG (图文) / HyperFrames → MP4 (视频)
+└── 输出: 1080x1920 竖版
+
+Q3: TTS 配音
+├── 工具: edge-tts
+├── 语音: zh-CN-YunxiNeural (男声)
+└── 输出: MP3
+
+Q4: 字幕
+├── 方案: 文稿 → 按句分割 → 算时间戳 → SRT
+├── 样式: FontSize=10, 黑字+半透明浅灰底条, MarginV=80
+├── 烧录: FFmpeg subtitles + force_style
+└── 决策: 白底卡片用黑字（不是白字，白底上看不见）
+
+Q5: 视频合成
+├── 路径A: HyperFrames 动画 → npx hyperframes render → MP4
+├── 路径B: 静态帧拼接 → FFmpeg concat → MP4
+├── 合并: FFmpeg -i video -i audio -vf subtitles → final.mp4
+└── 注意: GSAP 不能在 clip 元素上设 visibility（HyperFrames 限制）
+
+Q6: 发布
+├── 工具: sau CLI (.venv/Scripts/python.exe sau_cli.py)
+├── 小红书: --draft 草稿模式（AI声明）
+├── 抖音/快手/B站: 自动发布
+├── 公众号/知乎/掘金: Wechatsync
+└── 发布前: sau <platform> check 验证登录状态
+```
+
+**HyperFrames 注意事项**：
+- GSAP 不能在 clip 元素上设 visibility/display（用 CSS opacity:0 代替）
+- Google Fonts 需本地化（@font-face + .woff2），否则离线渲染失败
+- Noto Sans SC 需要 @font-face 声明
+- 入口文件必须是 index.html
+
+**sau CLI 路径**：
+```powershell
+$py = "tools/social-auto-upload/.venv/Scripts/python.exe"
+$sau = "tools/social-auto-upload/sau_cli.py"
+& $py $sau <command>
+```
+
+**决策树位置**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\社交自动化决策树.md`
+
+---
+
 ## YouNavi CLI（必须记住路径）
 
 **固定调用路径：**

@@ -41,6 +41,7 @@
 | 偏好 | `topics/preferences.md` |
 | 项目 | `topics/projects.md` |
 | 多平台发布 | `tools/social-auto-upload/` (见 topics/work-tools.md) |
+| 社交内容生产链路 | `topics/work-tools.md`（Q0-Q5 完整流程，2026-06-16 固化）|
 | 安全扫描 | `tools/SkillSpector/` (见 topics/work-tools.md) |
 | 社交内容设计 | `skills/guizang-social-card/` (Codex CLI 生成图片/视频时必用) |
 | 学习 | `topics/learnings.md` |
@@ -72,6 +73,7 @@
 | YouNavi CLI | `D:\YouNavi\resources\backend\agent-cli.exe`（见 topics/work-tools.md） |
 | YouNavi 桥梁 | `tools/younavi_bridge.py`（Python封装，解决编码问题） |
 | YouNavi Skill | `skills/younavi-integration/SKILL.md` |
+| 每日社交内容 | `workflows/daily-social-content.md`（cron: daily-social-content, 10:00）|
 
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
