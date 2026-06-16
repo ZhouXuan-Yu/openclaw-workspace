@@ -1,0 +1,100 @@
+# 生命周期钩子配置
+version: 2
+
+# ===== 会话启动钩子 =====
+bootstrap:
+  description: 每次会话启动时执行
+  steps:
+    - read: SOUL.md          # 身份定义
+    - read: USER.md          # 用户偏好
+    - read: MEMORY.md        # 长时记忆索引
+    - read: agent.yaml       # Agent 清单
+    - read: RULES.md         # 硬约束
+    - read: memory/daily/${today}.md  # 今日日志（无则创建）
+    - check: cron_status     # 检查定时任务状态
+    - check: heartbeat       # 检查保活状态
+
+# ===== 会话启动上下文注入（v2新增）=====
+# agentmemory 模式：会话开始时注入关键上下文
+session_start:
+  description: 会话启动后注入上下文，减少冷启动成本
+  inject:
+    - source: memory/daily/${today}.md
+      section: "## 待办"  # 只注入待办事项
+      maxLines: 20
+    - source: memory/daily/${today}.md
+      section: "## 星标"  # 只注入今日星标
+      maxLines: 10
+    - source: MEMORY.md
+      section: "## 星标记忆"  # 注入星标记忆
+      maxLines: 15
+
+# ===== 工具调用前钩子（v2新增）=====
+# agentmemory 模式：工具调用前注入相关上下文
+pre_tool_use:
+  description: 工具调用前，根据工具类型注入相关上下文
+  rules:
+    - tool: memory_search
+      inject: "搜索时用 L1→L2→L3→L4 顺序，先想后查"
+    - tool: exec
+      inject: "PowerShell 环境，路径用反斜杠"
+    - tool: write
+      inject: "写入前检查是否需要快照（AGENTS/USER/Skill 改前必须快照）"
+    - tool: edit
+      inject: "edit 前检查是否需要快照"
+    - tool: web_fetch
+      inject: "微信文章动态渲染，正文需 JS 执行，用 web_search 间接获取"
+
+# ===== 压缩前钩子（v2新增）=====
+# agentmemory 模式：上下文压缩前注入关键记忆
+pre_compact:
+  description: 上下文压缩前，注入必须保留的关键信息
+  inject:
+    - "当前任务目标"
+    - "未完成的待办事项"
+    - "用户最近一次纠正"
+    - "正在进行的进化动作"
+    - "安全红线提醒"
+
+# ===== 会话结束钩子 =====
+teardown:
+  description: 会话结束时执行
+  steps:
+    - write: memory/daily/${today}.md  # 写入今日摘要
+    - update: MEMORY.md     # 如有重要信息，更新索引
+    - log: session_summary  # 记录会话摘要
+    - check: evolution_candidates  # 检查是否有可进化的模式（v2新增）
+
+# ===== 长任务钩子 =====
+long_task:
+  description: 预估 >2 分钟的任务
+  before:
+    - write: memory/heartbeat-state.json  # {active: true, task, startedAt}
+    - enable: cron task-heartbeat
+  after:
+    - disable: cron task-heartbeat
+    - write: memory/heartbeat-state.json  # {active: false}
+
+# ===== 安全检查钩子 =====
+security:
+  description: 安全相关检查
+  triggers:
+    - before_external_action  # 外部操作前
+    - before_file_modification  # 文件修改前
+  steps:
+    - check: RULES.md 合规性
+    - check: SOUL.md hash 一致性
+    - verify: 用户确认（如需）
+
+# ===== 变更影响检查（v2新增，来自 agentmemory）=====
+change_impact:
+  description: 修改核心组件时自动检查影响范围
+  triggers:
+    - modify: skills/*/SKILL.md
+      check: docs/change-impact-checklist.md "修改 Skill"
+    - modify: AGENTS.md
+      check: docs/change-impact-checklist.md "修改 Memory 架构"
+    - modify: memory/evolution/*
+      check: docs/change-impact-checklist.md "修改 Evolution 引擎"
+    - modify: SOUL.md
+      check: docs/change-impact-checklist.md "修改安全规则"

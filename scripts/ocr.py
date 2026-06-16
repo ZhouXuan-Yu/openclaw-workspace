@@ -1,14 +1,22 @@
-"""
+""""
 本地 OCR 工具 — 图片文字识别
 用法: python ocr.py <图片路径>
 """
 import sys
 import json
+import functools
 import easyocr
 
-def ocr_image(image_path, languages=['ch_sim', 'en']):
+
+@functools.lru_cache(maxsize=1)
+def get_reader(languages_tuple=('ch_sim', 'en')):
+    """模块级单例 — EasyOCR 模型只加载一次"""
+    return easyocr.Reader(list(languages_tuple), gpu=False, verbose=False)
+
+
+def ocr_image(image_path, languages=None):
     """识别图片中的文字"""
-    reader = easyocr.Reader(languages, gpu=False, verbose=False)
+    reader = get_reader(tuple(languages or ['ch_sim', 'en']))
     results = reader.readtext(image_path)
     
     output = []

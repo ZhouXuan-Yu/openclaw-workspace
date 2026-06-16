@@ -1,5 +1,115 @@
 {
   "version": 1,
-  "skills": {},
-  "evolution_log": []
+  "skills": {
+    "multi-platform-content": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-12T23:30:00+08:00",
+      "notes": "首次创建并用于小红书/快手内容生成"
+    },
+    "multi-platform-publish": {
+      "success": 1,
+      "failure": 1,
+      "lastUsed": "2026-06-14T23:00:00+08:00",
+      "notes": "6/14发布3/6平台成功，小红书按钮失败+视频号cookie过期+wechatsync未连接"
+    },
+    "content-calendar": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-12T23:30:00+08:00",
+      "notes": "首次创建"
+    },
+    "test-and-validate": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-12T23:30:00+08:00",
+      "notes": "首次验收测试 91% (12/15 passed, 3 skipped)"
+    },
+    "evolution-engine": {
+      "success": 2,
+      "failure": 0,
+      "lastUsed": "2026-06-14T00:30:00+08:00",
+      "notes": "6/14升级：增加验料+验证门+自进化集成（借鉴鲁班）"
+    },
+    "local-ocr": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-12T23:30:00+08:00",
+      "notes": "图片处理工作流验证通过"
+    },
+    "multi-search-engine": {
+      "success": 0,
+      "failure": 0,
+      "lastUsed": "2026-06-12T10:00:00+08:00",
+      "notes": "SkillSpector 扫描 50/100 CAUTION, 2 issues 待修复"
+    },
+    "weixin-media-send": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-12T23:30:00+08:00",
+      "notes": "截图+发送到微信验证通过"
+    },
+    "guizang-social-card-skill": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-14T00:43:00+08:00",
+      "notes": "DERIVED: 用户纠正为核心Skill（图文→Playwright→PNG, 视频→HyperFrames→MP4），非可选工具"
+    },
+    "video-upload-debug": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-14T01:36:00+08:00",
+      "notes": "CAPTURED: 视频号上传超时修复——URL重定向检测+自动点击发表视频按钮"
+    },
+    "skill-self-evolution": {
+      "success": 1,
+      "failure": 0,
+      "lastUsed": "2026-06-14T00:30:00+08:00",
+      "notes": "CAPTURED: Skill自进化协议v1，借鉴鲁班增加验料/验证门/活体检查"
+    }
+  },
+  "evolution_log": [
+    {
+      "timestamp": "2026-06-12T23:30:00+08:00",
+      "type": "CAPTURED",
+      "skill": "multi-platform-content",
+      "reason": "成功任务无Skill匹配→捕获为新Skill"
+    },
+    {
+      "timestamp": "2026-06-12T23:30:00+08:00",
+      "type": "CAPTURED",
+      "skill": "multi-platform-publish",
+      "reason": "成功任务无Skill匹配→捕获为新Skill"
+    },
+    {
+      "timestamp": "2026-06-12T23:30:00+08:00",
+      "type": "CAPTURED",
+      "skill": "content-calendar",
+      "reason": "成功任务无Skill匹配→捕获为新Skill"
+    },
+    {
+      "timestamp": "2026-06-12T23:30:00+08:00",
+      "type": "CAPTURED",
+      "skill": "test-and-validate",
+      "reason": "成功任务无Skill匹配→捕获为新Skill"
+    },
+    {
+      "timestamp": "2026-06-14T23:30:00+08:00",
+      "type": "DERIVED",
+      "skill": "guizang-social-card-skill",
+      "reason": "用户纠正重要性认知→记录为核心Skill"
+    },
+    {
+      "timestamp": "2026-06-14T23:30:00+08:00",
+      "type": "CAPTURED",
+      "skill": "video-upload-debug",
+      "reason": "视频号上传超时修复成功→捕获调试经验"
+    },
+    {
+      "timestamp": "2026-06-14T23:30:00+08:00",
+      "type": "CAPTURED",
+      "skill": "skill-self-evolution",
+      "reason": "Skill自进化协议设计成功→捕获为新Skill"
+    }
+  ]
 }

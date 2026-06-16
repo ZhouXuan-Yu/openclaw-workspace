@@ -1,0 +1,64 @@
+# 知识索引 — 按需检索，不随启动加载
+version: 1
+
+# 主题 → 文件映射
+topics:
+  preferences:
+    file: memory/topics/preferences.md
+    keywords: [偏好, 风格, 喜欢, 讨厌]
+    
+  projects:
+    file: memory/topics/projects.md
+    keywords: [项目, 工程, 开发, 仓库]
+    
+  learnings:
+    file: memory/topics/learnings.md
+    keywords: [学习, 教训, 发现, prompt, CLAUDE]
+    
+  decisions:
+    file: memory/topics/decisions.md
+    keywords: [决策, 选择, 方案, 架构]
+    
+  people:
+    file: memory/topics/people.md
+    keywords: [人名, 同事, 朋友, 联系]
+    
+  work_tools:
+    file: memory/topics/work-tools.md
+    keywords: [工具, skill, MCP, 飞书, lark, wechatsync]
+    
+  communication:
+    file: memory/topics/communication.md
+    keywords: [沟通, 消息, 回复, 礼仪]
+
+# 进化引擎知识
+evolution:
+  protocol:
+    file: memory/evolution/EVOLUTION-PROTOCOL.md
+    keywords: [进化, 观察, 分析, 提炼, 固化]
+    
+  self_improve:
+    file: memory/evolution/SELF-IMPROVE-PROTOCOL.md
+    keywords: [自举, 优化, token, 性能]
+    
+  test_history:
+    file: memory/evolution/test-history.json
+    keywords: [测试, 验收, 分数, 趋势]
+
+# 工具知识
+tools:
+  social_auto_upload:
+    file: tools/social-auto-upload/docs/CLI.md
+    keywords: [sau, 抖音, 小红书, 快手, B站, 发布]
+    
+  wechatsync:
+    file: TOOLS.md  # Wechatsync 部分
+    keywords: [wechatsync, 知乎, CSDN, 掘金, 公众号, 同步]
+    
+  screenshot:
+    file: tools/screenshot.ps1
+    keywords: [截图, 屏幕, screenshot]
+    
+  skillspector:
+    file: tools/SkillSpector/README.md
+    keywords: [安全扫描, 漏洞, SkillSpector]

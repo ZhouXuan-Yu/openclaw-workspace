@@ -1,57 +1,49 @@
----
+﻿---
 name: evolution-engine
-description: "自进化引擎：基于 OpenSpace 思路，每次任务后自动分析成败，触发 Skill 进化（FIX/DERIVED/CAPTURED）。"
+description: "鑷繘鍖栧紩鎿庯細鍩轰簬 OpenSpace 鎬濊矾锛屾瘡娆′换鍔″悗鑷姩鍒嗘瀽鎴愯触锛岃Е鍙?Skill 杩涘寲锛團IX/DERIVED/CAPTURED锛夈€?
 parent: ""
 origin: "imported"
 generation: 0
 created: "2026-06-12"
-metadata: {"openclaw":{"emoji":"🧬"}}
+metadata: {"openclaw":{"emoji":"馃К"}}
 ---
 
-# Skill Evolution Engine — 自进化引擎
+# Skill Evolution Engine 鈥?鑷繘鍖栧紩鎿?
+鍩轰簬 OpenSpace 鎬濊矾锛岄€傞厤 OpenClaw 鏂囦欢绯荤粺鏋舵瀯銆備笁绉嶈繘鍖栨ā寮忥細FIX / DERIVED / CAPTURED銆?
+## 姒傝堪
 
-基于 OpenSpace 思路，适配 OpenClaw 文件系统架构。三种进化模式：FIX / DERIVED / CAPTURED。
+姣忔浠诲姟鎵ц鍚庯紝鑷姩鍒嗘瀽缁撴灉锛屽喅瀹氭槸鍚﹁Е鍙戣繘鍖栵細
+- **FIX**: 淇鍑洪敊/杩囨椂鐨?Skill锛坒ailure >= 2 瑙﹀彂锛?- **DERIVED**: 浠庣幇鏈?Skill 鍒涘缓澧炲己鐗堬紙鐢ㄦ埛绾犳瑙﹀彂锛?- **CAPTURED**: 浠庢垚鍔熸墽琛屼腑鎹曡幏鍙鐢ㄦā寮忥紙鎴愬姛+鏃燬kill瑙﹀彂锛?
+## 杩涘寲瑙﹀彂鏉′欢
 
-## 概述
-
-每次任务执行后，自动分析结果，决定是否触发进化：
-- **FIX**: 修复出错/过时的 Skill（failure >= 2 触发）
-- **DERIVED**: 从现有 Skill 创建增强版（用户纠正触发）
-- **CAPTURED**: 从成功执行中捕获可复用模式（成功+无Skill触发）
-
-## 进化触发条件
-
-| 模式 | 触发条件 | 操作 |
+| 妯″紡 | 瑙﹀彂鏉′欢 | 鎿嶄綔 |
 |------|---------|------|
-| FIX | Skill 执行失败 ≥ 2次 | 原地修复 SKILL.md |
-| DERIVED | 用户说"不要这样"/"换个方式" | 创建增强版（带 parent） |
-| CAPTURED | 任务成功 + 无现有 Skill 匹配 | 捕获为新 Skill |
+| FIX | Skill 鎵ц澶辫触 鈮?2娆?| 鍘熷湴淇 SKILL.md |
+| DERIVED | 鐢ㄦ埛璇?涓嶈杩欐牱"/"鎹釜鏂瑰紡" | 鍒涘缓澧炲己鐗堬紙甯?parent锛?|
+| CAPTURED | 浠诲姟鎴愬姛 + 鏃犵幇鏈?Skill 鍖归厤 | 鎹曡幏涓烘柊 Skill |
 
-## 文件结构
+## 鏂囦欢缁撴瀯
 
 ```
 skills/
-├── evolution-engine/
-│   ├── SKILL.md          # 本文件
-│   └── .skill_id         # 唯一标识
-├── .skill-quality.json   # 全局质量计数器
-└── ...
+鈹溾攢鈹€ evolution-engine/
+鈹?  鈹溾攢鈹€ SKILL.md          # 鏈枃浠?鈹?  鈹斺攢鈹€ .skill_id         # 鍞竴鏍囪瘑
+鈹溾攢鈹€ memory/evolution/.skill-quality.json   # 鍏ㄥ眬璐ㄩ噺璁℃暟鍣?鈹斺攢鈹€ ...
 ```
 
-## SKILL.md Frontmatter 扩展规范
+## SKILL.md Frontmatter 鎵╁睍瑙勮寖
 
 ```yaml
 ---
 name: skill-name
-description: "简短描述"
-parent: ""           # 父 Skill ID（进化链，空=根节点）
+description: "绠€鐭弿杩?
+parent: ""           # 鐖?Skill ID锛堣繘鍖栭摼锛岀┖=鏍硅妭鐐癸級
 origin: "imported"   # imported | captured | derived | fixed
-generation: 0        # 进化代数（FIX/DERIVED 时 +1）
-created: "2026-06-12"
+generation: 0        # 杩涘寲浠ｆ暟锛團IX/DERIVED 鏃?+1锛?created: "2026-06-12"
 ---
 ```
 
-## 质量计数器 (skills/.skill-quality.json)
+## 璐ㄩ噺璁℃暟鍣?(memory/evolution/.skill-quality.json)
 
 ```json
 {
@@ -69,11 +61,12 @@ created: "2026-06-12"
 }
 ```
 
-## 集成点
-
-| 组件 | 集成方式 |
+## 闆嗘垚鐐?
+| 缁勪欢 | 闆嗘垚鏂瑰紡 |
 |------|---------|
-| 反射管道 (23:30 cron) | 执行后分析 → 触发进化 |
-| 记忆整合 (02:00 cron) | 识别重复模式 → 升级为 Skill |
-| AGENTS.md | 反射管道章节已扩展 |
-| learnings.md | 失败教训自动写入 |
+| 鍙嶅皠绠￠亾 (23:30 cron) | 鎵ц鍚庡垎鏋?鈫?瑙﹀彂杩涘寲 |
+| 璁板繂鏁村悎 (02:00 cron) | 璇嗗埆閲嶅妯″紡 鈫?鍗囩骇涓?Skill |
+| AGENTS.md | 鍙嶅皠绠￠亾绔犺妭宸叉墿灞?|
+| learnings.md | 澶辫触鏁欒鑷姩鍐欏叆 |
+
+

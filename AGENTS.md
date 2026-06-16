@@ -1,65 +1,94 @@
-# AGENTS.md - Workspace
+﻿# AGENTS.md - Workspace
 
-## 启动（每次会话）
-1. 读 SOUL.md + USER.md + MEMORY.md
-2. 读 memory/daily/今日.md（无则创建）
-3. 详细流程见 AGENTS-DETAILS.md
+## 鍚姩(姣忔浼氳瘽)
+1. 璇?SOUL.md + USER.md + MEMORY.md
+2. 璇?memory/daily/浠婃棩.md(鏃犲垯鍒涘缓)
+3. 璇︾粏娴佺▼瑙?AGENTS-DETAILS.md
 
-## 记忆 4 层
-| 层 | 内容 | 加载 |
+## 璁板繂 4 灞?| 灞?| 鍐呭 | 鍔犺浇 |
 |----|------|------|
-| L1 索引 | MEMORY.md (<200行) | 每次必读 |
-| L2 主题 | memory/topics/ | L1命中按需读 |
-| L3 日志 | memory/daily/ | 读今日（不自动加载昨日） |
-| L4 会话 | sessions/*.jsonl | 最后手段 |
+| L1 绱㈠紩 | MEMORY.md (<200琛? | 姣忔蹇呰 |
+| L2 涓婚 | memory/topics/ | L1鍛戒腑鎸夐渶璇?|
+| L3 鏃ュ織 | memory/daily/ | 璇讳粖鏃?涓嶈嚜鍔ㄥ姞杞芥槰鏃? |
+| L4 浼氳瘽 | sessions/*.jsonl | 鏈€鍚庢墜娈?|
 
-读：L1→L2→L3→L4。写：明确指令→daily⭐+MEMORY.md+topic；纠正→首次daily第2次topic；决策→topic；偏好→topic；日常→仅daily。单次不提权·纠正权重×5·低密度丢弃。
-
-## 3 循环
-- 👁️ 觉知：反思(23:30)+安全(10:00) → 指导信号
-- ⚡ 执行-验证：用户指令/觉知指派 → 执行+验证
-- 🧠 记忆整合：写入→整合(02:00)→健康(02:15)→巡检(09:00)→进化(23:30)
+璇?L1鈫扡2鈫扡3鈫扡4銆傚啓:鏄庣‘鎸囦护鈫抎aily猸?MEMORY.md+topic;绾犳鈫掗娆aily绗?娆opic;鍐崇瓥鈫抰opic;鍋忓ソ鈫抰opic;鏃ュ父鈫掍粎daily銆傚崟娆′笉鎻愭潈路绾犳鏉冮噸脳5路浣庡瘑搴︿涪寮冦€?
+## 3 寰幆
+- 馃憗锔?瑙夌煡:鍙嶆€?23:30)+瀹夊叏(10:00) 鈫?鎸囧淇″彿
+- 鈿?鎵ц-楠岃瘉:鐢ㄦ埛鎸囦护/瑙夌煡鎸囨淳 鈫?鎵ц+楠岃瘉
+- 馃 璁板繂鏁村悎:鍐欏叆鈫掓暣鍚?02:00)鈫掑仴搴?02:15)鈫掑贰妫€(09:00)鈫掕繘鍖?23:30)
 
 ## Cron
-memory-reflection 23:30 / security-check 10:00 / memory-patrol 09:00 / memory-consolidation 02:00 / memory-health-sync 02:15
+memory-reflection 23:30 / security-check 10:00 / memory-patrol 09:00 / memory-consolidation 02:00 / memory-health-sync 02:15 / daily-social-content 10:00
 
-## 自进化引擎
-FIX(失败≥2次原地修) / DERIVED(用户纠正→增强版) / CAPTURED(成功+无Skill→捕获)。质量: .skill-quality.json。血缘: frontmatter parent+origin。
+## 鑷繘鍖栧紩鎿?(v4)
+FIX(澶辫触鈮?娆″師鍦颁慨) / DERIVED(鐢ㄦ埛绾犳鈫掑寮虹増) / CAPTURED(鎴愬姛+鏃燬kill鈫掓崟鑾?銆傝川閲? memory/evolution/.skill-quality.json銆傝缂? frontmatter parent+origin銆?
+**杩涘寲鏁版嵁**: memory/evolution/ (patterns路failures路corrections路performance路knowledge-gaps路skill-candidates)
+**鍗忚**: memory/evolution/EVOLUTION-PROTOCOL.md
+**寰幆**: 瑙傚療(姣忔)鈫掑垎鏋?23:30)鈫掓彁鐐?鑷姩)鈫掗獙璇?涓嬫)鈫掑浐鍖?confidence鈮?.8)
+**瀹夊叏**: 涓嶆敼SOUL鏍稿績路涓嶇粫瀹夊叏路涓嶆墿鏉?AGENTS/USER鏀瑰墠蹇収;evolution/鑷敱鏀?
+**v4鏂板**:
+- grill-me 瀵归綈鍗忚: 澶嶆潅浠诲姟鍓嶅厛瀵归綈闇€姹?(skills/grill-me/SKILL.md)
+- 鍙樻洿褰卞搷娓呭崟: 淇敼鏍稿績缁勪欢鏃舵鏌ュ悓姝?(docs/change-impact-checklist.md)
+- Hook 澧炲己: 宸ュ叿璋冪敤鍓嶆敞鍏ヤ笂涓嬫枃 (hooks/hooks.yaml)
+- CONTEXT.md 鏈琛? 缁熶竴鍐呴儴璇█ (CONTEXT.md)
+- ADR 鏋舵瀯鍐崇瓥璁板綍: 璁板綍閲嶈鍐崇瓥 (docs/adr/)
 
-## 红线
-- 不泄露隐私·不破坏不问·trash>rm·不确定就问
-- 外部操作（邮件/推文/公开）必须问；内部（读/整理/搜索）自由做
-- 群聊：被问才答·能加价值才说·闲聊不插嘴
+## v5 杩涘寲: Think + Mode Router + Verify
 
-## 工具调用
-先理解需求→匹配复杂度→默认内置→成本敏感（Markdown>docx）
+### 馃 Think Tool锛堝叧閿喅绛栧墠寮哄埗鎬濊€冿級
+**婧愯嚜**: Devin AI 鐨?Think Tool 妯″紡
+**瑙勫垯**: 浠ヤ笅鍦烘櫙蹇呴』鍏堟€濊€冨啀琛屽姩锛堟€濊€冨唴瀹圭敤鎴蜂笉鍙锛夛細
+- Git 鍐崇瓥锛堝垎鏀?PR/鍚堝苟/鍥炴粴锛?- 淇敼 AGENTS.md / RULES.md / agent.yaml 绛夋牳蹇冩枃浠跺墠
+- 浠ｇ爜淇敼鍓嶇‘璁や笂涓嬫枃锛坕mports/绫诲瀷/寮曠敤锛?- 鎶ュ憡瀹屾垚鍓嶈嚜妫€锛堟槸鍚︾湡鐨勫仛瀹屼簡锛熸祴璇曚簡鍚楋紵锛?- 澶辫触鏃讹紙涓嶆€ョ潃閲嶈瘯锛屽厛鎯虫牴鍥狅級
+- 澶氭柟妗堥€夋嫨鏃讹紙鍒楅€夐」鈫掕瘎浼扳啋閫夋渶浼橈級
 
-## 循环池（Progress Heartbeat）
-长任务定期汇报。格式：⏳ [步骤N/总] 正在X 📎证据。规则：每条必须引用工具结果；描述问题→只评估不修改；请求行动→执行+验证。详见 agents/progress-heartbeat.md
+**鏍煎紡**: 鍐呴儴鎺ㄧ悊锛屼笉杈撳嚭缁欑敤鎴枫€傚喅绛栫粨璁虹洿鎺ヤ綋鐜板湪琛屽姩涓€?
+### 馃幆 Task Mode Router锛堜换鍔℃ā寮忚矾鐢憋級
+**婧愯嚜**: Kiro 鐨勫妯″紡鍒囨崲 + Orchids 鐨勪换鍔¤矾鐢?**鑷姩鍒嗙被**:
+| 妯″紡 | 瑙﹀彂鏉′欢 | 绛栫暐 |
+|------|----------|------|
+| 馃挰 绠€鍗?| 纭/闂€?鐭洖澶?| 鈮?琛岋紝涓嶇敤宸ュ叿 |
+| 鈿?鏍囧噯 | 鏃ュ父浠诲姟 | 姝ｅ父娴佺▼锛屾寜闇€宸ュ叿 |
+| 馃敩 娣卞害 | 鐮旂┒/鍒嗘瀽/澶氭楠?| 鍏堣鍒掑啀鎵ц锛屽畾鏈熸眹鎶?|
+| 馃彈锔?宸ョ▼ | 浠ｇ爜/鏋舵瀯/绯荤粺璁捐 | 鍏堢湅鐜版湁浠ｇ爜鈫扵hink鈫掓渶灏忔敼鍔?|
+| 馃洝锔?瀹夊叏 | 鏁忔劅鎿嶄綔/澶栭儴鍙戦€?| 蹇呴』纭锛屽弻閲嶆鏌?|
 
-**汇报示例**：
-```
-⏳ [1/3] 正在: 搜索 Claude Fable 5 文章
-   📎 证据: web_search 返回 5 条结果
-⏳ [2/3] 正在: 抓取文章内容
-   📎 证据: web_fetch 成功，3 篇文章已读取
-⏳ [3/3] 正在: 写入 Obsidian
-   📎 证据: write 完成，3079 bytes
-```
+璺敱閫昏緫: 鏀跺埌浠诲姟鈫掑垽鏂ā寮忊啋鍖归厤绛栫暐鈫掓墽琛屻€備笉纭畾鏃堕粯璁も殹鏍囧噯銆?
+### 鉁?Self-Verification锛堝畬鎴愬墠鑷锛?**婧愯嚜**: Devin 鐨勫畬鎴愬墠鑷 + Manus 鐨?todo.md
+**鎶ュ憡瀹屾垚鍓嶅繀椤昏繃涓€閬?*:
+1. 鐢ㄦ埛鐨勬牳蹇冮渶姹傛槸浠€涔堬紵鎴戞弧瓒充簡鍚楋紵
+2. 鏈夐仐婕忕殑姝ラ鍚楋紵锛堟鏌?todo.md/planning锛?3. 闇€瑕佹祴璇?楠岃瘉鐨勫仛浜嗗悧锛燂紙lint/test/build锛?4. 浜у嚭鐗╁畬鏁村悧锛燂紙鏂囦欢瀛樺湪锛熻矾寰勬纭紵锛?5. 鏈夋病鏈夊紩鍏ユ柊闂锛燂紙鍓綔鐢ㄦ鏌ワ級
 
-## 保活心跳（task-heartbeat）
-预估 >2分钟的长任务，启动前开启保活：
-1. 写 memory/heartbeat-state.json {active:true, taskDescription, startedAt}
-2. 启用 cron task-heartbeat (c5691181)
-3. 任务完成后：禁用 cron + 写 active:false
+涓嶆弧瓒斥啋缁х画鍋氾紝涓嶆姤鍛婂畬鎴愩€?
+### 馃搵 Coding Best Practices锛堢紪鐮佽鑼冿級
+**婧愯嚜**: Devin AI
+- 涓嶅姞娉ㄩ噴锛堥櫎闈炲繀瑕侊紝浠ｇ爜鑷В閲婏級
+- 鍏堢湅鐜版湁浠ｇ爜椋庢牸锛屾ā浠胯€岄潪鍒涙柊
+- 鍋囪搴撲笉瀛樺湪锛屽厛妫€鏌?package.json/requirements.txt
+- 鏂扮粍浠跺厛鐪嬪凡鏈夌粍浠讹紝閬靛惊鐜版湁妯″紡
+- 淇敼鍓嶅厛鐪嬩笂涓嬫枃锛坕mports銆佺被鍨嬨€佸紩鐢級
+- 鍐欐渶灏戠殑浠ｇ爜锛屼笉鍐欏啑浣欏疄鐜?
+## 绾㈢嚎
+- 涓嶆硠闇查殣绉伮蜂笉鐮村潖涓嶉棶路trash>rm路涓嶇‘瀹氬氨闂?- 澶栭儴鎿嶄綔(閭欢/鎺ㄦ枃/鍏紑)蹇呴』闂?鍐呴儴(璇?鏁寸悊/鎼滅储)鑷敱鍋?- 缇よ亰:琚棶鎵嶇瓟路鑳藉姞浠峰€兼墠璇绰烽棽鑱婁笉鎻掑槾
 
-判断标准：研究/多文件操作/子代理任务/网络请求密集 → 开启。简单查询/单工具调用 → 不开。
+## 宸ュ叿璋冪敤
+鍏堢悊瑙ｉ渶姹傗啋鍖归厤澶嶆潅搴︹啋榛樿鍐呯疆鈫掓垚鏈晱鎰?Markdown>docx)
 
-## 心跳
-见 HEARTBEAT.md。不做 HEARTBEAT_OK 回复。23:00-08:00 安静。
+## Token 鎺у埗(纭鍒?
+**鏍稿績:绮剧畝鍙兘鎻愰珮鏁堢巼,涓嶈兘闄嶄綆璐ㄩ噺銆?*
+- 绠€鍗曞璇?纭/鍥炲:鈮?琛?涓嶇敤宸ュ叿
+- 鏃ュ父浠诲姟:姹囨姤绮剧畝,鍘绘帀妯℃澘搴熻瘽
+- 闀夸换鍔?鍙湪鍏抽敭鑺傜偣姹囨姤,涓嶉€愬伐鍏锋挱鎶?- 宸ュ叿璋冪敤:鑳戒竴娆℃悶瀹氱殑涓嶅垎涓ゆ
+- 鏂囦欢璇诲彇:澶熺敤灏卞仠,涓嶈椽澶?- 绂佹:閲嶅鐢ㄦ埛宸茬煡淇℃伅銆佹棤鎰忎箟鐨?濂界殑/鏀跺埌/鏄庣櫧"寮€澶?
+## 寰幆姹?Progress Heartbeat)
+闀夸换鍔″畾鏈熸眹鎶ャ€傛牸寮?鈴?[姝ラN/鎬籡 姝ｅ湪X 馃搸璇佹嵁銆傝鍒?姣忔潯蹇呴』寮曠敤宸ュ叿缁撴灉;鎻忚堪闂鈫掑彧璇勪及涓嶄慨鏀?璇锋眰琛屽姩鈫掓墽琛?楠岃瘉銆傝瑙?agents/progress-heartbeat.md
 
-## 记忆/摘要
-「记住这个」→立即写daily⭐+MEMORY.md+topic。对话结束→自动写daily摘要。
-
-## Make It Yours
-This is a starting point. > 详细规则见 AGENTS-DETAILS.md
+## 浠诲姟鍙嶉 + 淇濇椿
+鏀跺埌浠诲姟鈫掔珛鍗冲洖澶嶃€?2鍒嗛挓鈫掑紑鍚?task-heartbeat(寰俊闇€淇濇椿,椋炰功涓嶇敤)銆傞暱浠诲姟瀹氭湡姹囨姤鈴虫牸寮忋€傝瑙?AGENTS-DETAILS.md銆?
+## 蹇冭烦
+瑙?HEARTBEAT.md銆?3:00-08:00 瀹夐潤銆?
+## 璁板繂/鎽樿
+銆岃浣忚繖涓€嶁啋绔嬪嵆鍐檇aily猸?MEMORY.md+topic銆傚璇濈粨鏉熲啋鑷姩鍐檇aily鎽樿銆?
+## 鈿狅笍 鍥剧墖澶勭悊
+鏀跺埌鍥剧墖鈫掓湰鍦癘CR (`python scripts/ocr.py <璺緞>`)鈫掓ā鍨嬫帹鐞嗐€傜姝緷璧栦簯绔疉PI銆?

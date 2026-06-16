@@ -1,0 +1,67 @@
+# 发布结果汇总工作流
+name: publish-report
+description: 各平台发布后生成汇总报告
+triggers:
+  - "发布汇总"
+  - "发布报告"
+  - "查看发布结果"
+
+inputs:
+  topic:
+    type: string
+    required: true
+  publish_results:
+    type: object
+    description: 各平台发布结果
+
+steps:
+  # 收集各平台状态
+  collect_results:
+    action: read
+    files:
+      - "memory/content/${{ date }}-${{ topic }}/publish-log.json"
+    outputs:
+      - results
+
+  # 生成汇总报告
+  generate_report:
+    action: write
+    target: "memory/content/${{ date }}-${{ topic }}/summary-report.md"
+    template: |
+      # 📊 发布汇总 — ${{ topic }}
+      
+      **发布时间**: ${{ timestamp }}
+      **总平台数**: ${{ total_platforms }}
+      **成功**: ${{ success_count }} | **失败**: ${{ fail_count }}
+      
+      ## 各平台状态
+      
+      ${{ for platform in results }}
+      | ${{ platform.name }} | ${{ platform.status }} | ${{ platform.url }} |
+      ${{ endfor }}
+      
+      ## 待处理
+      
+      ${{ for failed in failed_platforms }}
+      - ❌ ${{ failed.name }}: ${{ failed.error }}
+      ${{ endfor }}
+
+  # 记录到进化引擎
+  log_evolution:
+    action: write
+    target: "memory/evolution/run-log.json"
+    append: true
+    data:
+      task: "publish"
+      topic: ${{ topic }}
+      results: ${{ publish_results }}
+      timestamp: ${{ timestamp }}
+
+  # 通知用户
+  notify:
+    action: message
+    template: |
+      ✅ **发布完成**
+      主题: ${{ topic }}
+      成功: ${{ success_count }}/${{ total_platforms }}
+      详情: ${{ report_path }}

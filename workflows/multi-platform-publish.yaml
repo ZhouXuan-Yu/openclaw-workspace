@@ -1,0 +1,111 @@
+# 多平台内容发布工作流
+name: multi-platform-publish
+description: 一个主题 → 多平台适配 → 一键发布
+triggers:
+  - "发布到各平台"
+  - "一键发布"
+  - "发内容"
+
+inputs:
+  topic:
+    type: string
+    required: true
+    description: 内容主题
+  platforms:
+    type: array
+    default: ["xiaohongshu", "douyin", "gongzhonghao", "zhihu", "csdn", "juejin"]
+  mode:
+    type: enum
+    values: [draft, publish]
+    default: draft
+
+steps:
+  # Step 1: 检查登录状态
+  check_platforms:
+    action: exec
+    description: 检查各平台登录状态
+    commands:
+      - "sau xiaohongshu check --account creator"
+      - "sau kuaishou check --account creator"
+      - "sau douyin check --account creator"
+      - "sau bilibili check --account creator"
+    on_failure: skip_platform
+
+  # Step 2: 搜索素材
+  research:
+    action: web_search
+    description: 搜索主题相关信息
+    inputs:
+      query: ${{ inputs.topic }}
+    outputs:
+      - research_results
+
+  # Step 3: 生成各平台内容
+  generate_content:
+    action: write
+    description: 生成 6 平台适配内容
+    target: "memory/content/${{ date }}-${{ inputs.topic }}/"
+    files:
+      - xiaohongshu.md   # 300-800字, emoji, 口语化
+      - douyin.md         # 200-500字, 前3秒抓眼球
+      - gongzhonghao.md   # 1500-3000字, 深度长文
+      - zhihu.md          # 1000-2000字, 专业严谨
+      - csdn.md           # 1500-3000字, 代码+技术
+      - juejin.md         # 1000-2000字, 实战导向
+      - image-prompts.md  # 配图提示词
+      - summary.md        # 汇总报告
+
+  # Step 4: 生成配图
+  generate_images:
+    action: image_generate
+    description: 根据提示词生成封面图
+    depends_on: [generate_content]
+    inputs:
+      prompts_file: "memory/content/${{ date }}-${{ inputs.topic }}/image-prompts.md"
+    outputs:
+      - image_paths
+
+  # Step 5: 发布到视频/图文平台
+  publish_media:
+    action: exec
+    description: 通过 social-auto-upload 发布
+    depends_on: [check_platforms, generate_content]
+    parallel: true
+    max_concurrent: 3
+    commands:
+      platform: xiaohongshu
+      condition: "check_platforms.xiaohongshu == 'valid'"
+      cmd: "sau xiaohongshu upload-note --account creator --images ${{ images }} --title ${{ title }} --note ${{ content }}"
+
+  # Step 6: 发布到文章平台
+  publish_articles:
+    action: exec
+    description: 通过 Wechatsync 发布
+    depends_on: [check_platforms, generate_content]
+    condition: "wechatsync_token != null"
+    commands:
+      - "wechatsync sync zhihu.md -p zhihu --title ${{ title }}"
+      - "wechatsync sync csdn.md -p csdn --title ${{ title }}"
+      - "wechatsync sync juejin.md -p juejin --title ${{ title }}"
+
+  # Step 7: 生成发布报告
+  report:
+    action: write
+    description: 生成发布汇总报告
+    depends_on: [publish_media, publish_articles]
+    target: "memory/content/${{ date }}-${{ inputs.topic }}/publish-report.md"
+
+  # Step 8: 记录运行数据
+  log_run:
+    action: write
+    description: 记录到进化引擎
+    target: "memory/evolution/run-log.json"
+    data:
+      run_id: "run-${{ timestamp }}"
+      task: "multi-platform-publish"
+      tokens_used: ${{ token_count }}
+      platforms: ${{ publish_results }}
+
+error_handling:
+  on_failure: notify
+  channel: "current"
