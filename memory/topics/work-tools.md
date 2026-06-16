@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-06-15
+> 最后更新:2026-06-17
 
 ---
 
@@ -245,6 +245,12 @@ r = yn.daily_briefing()
 - 生成产物: `C:\Users\ZhouXuan\navi-ai\generated_artifacts\`
 - OpenClaw Skill: `skills/younavi-integration/SKILL.md`
 - 详细文档: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\YouNavi-CLI使用手册.md`
+
+**已知限制：**
+- `channel sync --all` 在 JSON 模式下不可用（需手动在客户端触发）
+- `research start` 只生成计划，`research execute` 才执行研究
+- 服务启动超时时需先启动 YouNavi.exe 主应用
+- GBK 编码问题可通过 Python bridge 绕过
 
 **Cron 自动化：**
 | 任务 | 时间 | 功能 |
