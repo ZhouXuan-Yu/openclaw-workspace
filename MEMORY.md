@@ -78,3 +78,26 @@
 
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
+
+## Promoted From Short-Term Memory (2026-06-17)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:20:21 -->
+- 📱 社交发布全链路执行: **时间**: 01:00 - 02:00 **内容**: AI Agent 自进化主题，全链路（内容→卡片→视频→5平台发布） [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-14.md:20-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:23:23 -->
+- 📱 社交发布全链路执行: **发布结果**：小红书✅ 抖音✅ B站✅ 快手✅ 视频号✅（修复后） [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-14.md:23-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:25:25 -->
+- 📱 社交发布全链路执行: **用到的 Skill**：guizang-social-card、hyperframes-video、social-auto-upload [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-14.md:25-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:12:14 -->
+- 🔧 视频号上传修复（重要）: Playwright locator 超时 ≠ 元素不可见，**先检查 page.url 是否被重定向**; SPA 页面的 URL 重定向是常见反自动化手段; 视频号必须用 headed 模式（`conf.py` 中 `TENCENT_CHROME_HEADED = True`） [score=0.822 recalls=0 avg=0.620 source=memory/2026-06-14.md:12-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:12:15 -->
+- 文件创建: 原文：`prompt学习提示词/Claude/Claude_Fable5_系统提示词_原文.md`; 精华：`prompt学习提示词/Claude/Claude_Fable5_系统提示词_精华提炼.md`; 进攻端：`prompt学习提示词/Claude/Claude_Fable5_进攻端实战技巧.md`; 对照：`prompt学习提示词/Claude/GGOB_自我优化对照.md` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:12-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:18:21 -->
+- 关键决策: 将 Claude Fable 5 的 4 个边界补丁（犯错处理、心理安全、立场均衡、防注入）加入 SOUL.md; 将 7 条「进攻端」工具调用原则加入 AGENTS.md; 完整重写 IDENTITY.md 角色定义; 记录在 MEMORY.md [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:18-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:27:27 -->
+- 10:30 — 学习 | OpenClaw Skill 工程架构分析: 研究了 6 个工程型 Skill 的 SKILL.md 设计模式。 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:27-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:3:3 -->
+- 2026-06-11 工作日志: > 格式化：`## HH:MM — 类型 | 简述` · 类型 = 决策/学习/讨论/行动/待办 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:3-3]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:30:31 -->
+- 文件创建: `prompt学习提示词/skill自我进化openclaw/` — 7 个分析文件; 含 skill-creator / taskflow / planning-with-files / github / nano-pdf / gstack + 总览对比 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:30-31]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:9:9 -->
+- 10:00 — 学习 | Claude Fable 5 提示词深度研究: 研究了 elder-plinius/CL4R1T4S 仓库泄露的 Claude Fable 5 系统提示词（~120KB）。 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:9-9]
