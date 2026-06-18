@@ -48,7 +48,7 @@
 | 决策 | `topics/decisions.md` |
 | 人物 | `topics/people.md` |
 | 工具 | `topics/work-tools.md` |
-| 沟通 | `topics/communication.md` |
+| 沟通 | `topics/communication.md` ⛔已废弃→合并至preferences |
 | 进化 | `evolution/EVOLUTION-PROTOCOL.md` (v4) |
 | 变更影响 | `docs/change-impact-checklist.md` |
 | ADR | `docs/adr/` |
