@@ -79,25 +79,48 @@
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
 
-## Promoted From Short-Term Memory (2026-06-17)
+## Promoted From Short-Term Memory (2026-06-18)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:20:21 -->
-- 📱 社交发布全链路执行: **时间**: 01:00 - 02:00 **内容**: AI Agent 自进化主题，全链路（内容→卡片→视频→5平台发布） [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-14.md:20-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:23:23 -->
-- 📱 社交发布全链路执行: **发布结果**：小红书✅ 抖音✅ B站✅ 快手✅ 视频号✅（修复后） [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-14.md:23-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:25:25 -->
-- 📱 社交发布全链路执行: **用到的 Skill**：guizang-social-card、hyperframes-video、social-auto-upload [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-14.md:25-25]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:12:14 -->
-- 🔧 视频号上传修复（重要）: Playwright locator 超时 ≠ 元素不可见，**先检查 page.url 是否被重定向**; SPA 页面的 URL 重定向是常见反自动化手段; 视频号必须用 headed 模式（`conf.py` 中 `TENCENT_CHROME_HEADED = True`） [score=0.822 recalls=0 avg=0.620 source=memory/2026-06-14.md:12-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:12:15 -->
-- 文件创建: 原文：`prompt学习提示词/Claude/Claude_Fable5_系统提示词_原文.md`; 精华：`prompt学习提示词/Claude/Claude_Fable5_系统提示词_精华提炼.md`; 进攻端：`prompt学习提示词/Claude/Claude_Fable5_进攻端实战技巧.md`; 对照：`prompt学习提示词/Claude/GGOB_自我优化对照.md` [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:12-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:18:21 -->
-- 关键决策: 将 Claude Fable 5 的 4 个边界补丁（犯错处理、心理安全、立场均衡、防注入）加入 SOUL.md; 将 7 条「进攻端」工具调用原则加入 AGENTS.md; 完整重写 IDENTITY.md 角色定义; 记录在 MEMORY.md [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:18-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:27:27 -->
-- 10:30 — 学习 | OpenClaw Skill 工程架构分析: 研究了 6 个工程型 Skill 的 SKILL.md 设计模式。 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:27-27]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:3:3 -->
-- 2026-06-11 工作日志: > 格式化：`## HH:MM — 类型 | 简述` · 类型 = 决策/学习/讨论/行动/待办 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:3-3]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:30:31 -->
-- 文件创建: `prompt学习提示词/skill自我进化openclaw/` — 7 个分析文件; 含 skill-creator / taskflow / planning-with-files / github / nano-pdf / gstack + 总览对比 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:30-31]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:9:9 -->
-- 10:00 — 学习 | Claude Fable 5 提示词深度研究: 研究了 elder-plinius/CL4R1T4S 仓库泄露的 Claude Fable 5 系统提示词（~120KB）。 [score=0.806 recalls=0 avg=0.620 source=memory/2026-06-11.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:13:15 -->
+- 测试结果: MP4: 62 KB（1080x1920，H.264）; GIF: 316 KB; **渲染时间**：约 3 分钟 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:13-15]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:18:20 -->
+- Skill 创建: 创建 `skills/hyperframes-video/SKILL.md`; 文档化完整工作流程：HTML 组合 → 逐帧截取 → 合成视频; 集成到社交自动化流水线 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:18-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:23:26 -->
+- 技术发现: imageio-ffmpeg 可以替代系统 FFmpeg; 宽度需为 16 的倍数（1080→1088）避免警告; GSAP timeline 通过 `time()` 方法精确控制帧; 首次运行需下载 Chrome（~101MB） [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:23-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:30:33 -->
+- 平台登录状态汇总: | 平台 | 状态 | 发布测试 | |------|------|---------| | 小红书 | ✅ | ✅ 图文发布成功 | | 快手 | ✅ | ✅ 图文发布成功（定时） | [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:30-33]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:5:5 -->
+- 23:52 — HyperFrames 视频生成测试: 用户要求测试 Codex + HyperFrames 生成短视频，并固化为 Skill。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:8:11 -->
+- 测试结果: HyperFrames CLI v0.6.94 已安装; FFmpeg 安装失败（choco 权限问题，GitHub 下载超时）; **解决方案**：Playwright 逐帧截取 + imageio 合成; 生成 150 帧（15s @ 10fps） [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:8-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:10:13 -->
+- 模块 1：内容质量 ✅: [x] 内容基于真实经历（记忆系统确实搭建了，测试确实跑了）; [x] 技术细节准确（4层架构、26项测试）; [x] 无错误归因; [x] 文字简洁 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:10-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:14:14 -->
+- 模块 1：内容质量 ✅: ⚠️ 小红书格式需确认（无Markdown） [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:14-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:17:20 -->
+- 模块 2：人设一致性 ✅: [x] 符合"Agent工程开发者"定位; [x] 体现"从零到一"学习过程; [x] 保持技术深度+实战风格; [x] 无卖课感、鸡汤感 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:17-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:24:27 -->
+- 模块 3：平台策略 ✅: [x] 小红书已发布（图文）; [x] 抖音已发布（图文）; [x] 快手定时发布; ⚠️ B站视频待制作 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:24-27]
+
+## Promoted From Short-Term Memory (2026-06-18)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:10:13 -->
+- 完整链路（最终版）: Q0: 内容深化（YouNavi） ├── 研究主题 → research_full → 报告 → 提取核心观点 ├── 会议录音 → audio_transcribe → 文字 → 整理 └── 知识积累 → memory/notes → 引用 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:10-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:15:18 -->
+- 完整链路（最终版）: Q1-Q3: 内容生产 ├── 路径A 图文 → Codex + guizang + Playwright → PNG ├── 路径B 视频 → edge-tts + HyperFrames → MP4 ├── 路径C 文章 → Markdown → wechatsync → 多平台 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:15-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:21:23 -->
+- 完整链路（最终版）: Q4: 内审 → 发布 ├── 视频/图文 → sau CLI → 小红书/抖音/快手/B站 └── 文章 → wechatsync CLI → 知乎/CSDN/掘金/公众号 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:21-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:28:31 -->
+- 工具链最终全景: | 层级 | 工具 | 用途 | |------|------|------| | 研究层 | YouNavi CLI | 深度研究·音频转写·知识管理 | | 生产层 | Codex CLI | AI 生成 HTML/代码 | [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:28-31]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:5:5 -->
+- 02:45 — 社交自动化决策树 v2（加入 YouNavi）: 用户指出 YouNavi CLI 应融入链路。已更新决策树，加入 Q0 内容深化环节。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:5:5 -->
+- 🔧 视频号上传修复（重要）: **根因**：视频号助手检测到自动化浏览器（patchright headless），访问 `/platform/post/create` 会被 302 重定向到 `/platform`（dashboard）。dashboard 上没有 `input[type="file"]`，所以 `page.set_input_files('input[type="file"]', ...)` 永远超时。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-14.md:5-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:7:7 -->
+- 🔧 视频号上传修复（重要）: **修复方案**：`open_upload_page` 方法增加重定向检测——如果 URL 不含 `/post/create`，自动点击「发表视频」按钮进入上传表单。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-14.md:7-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:9:9 -->
+- 🔧 视频号上传修复（重要）: **修复文件**：`tools/social-auto-upload/uploader/tencent_uploader/main.py` 第 498-509 行 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-14.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:21:21 -->
+- 模块 2：人设一致性 ✅: [x] 原创内容 [score=0.819 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:21-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:19:19 -->
+- 完整链路（最终版）: └── 路径D 混合 → A+B+C [score=0.809 recalls=0 avg=0.620 source=memory/2026-06-13.md:19-19]
