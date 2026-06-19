@@ -124,3 +124,18 @@
 - 模块 2：人设一致性 ✅: [x] 原创内容 [score=0.819 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:21-21]
 <!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:19:19 -->
 - 完整链路（最终版）: └── 路径D 混合 → A+B+C [score=0.809 recalls=0 avg=0.620 source=memory/2026-06-13.md:19-19]
+
+## Promoted From Short-Term Memory (2026-06-19)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:4:4 -->
+- 总评: 评分：85/100 [score=0.821 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:4-4]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:14:14 -->
+- 小红书封号修复: **测试结果**: ✅ 6张图片+标题+正文成功保存到草稿箱 [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-15.md:14-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:17:18 -->
+- 小红书封号修复: 旧：全自动上传+发布 → 触发封号; 新：自动上传到草稿箱 → 用户手动打开草稿 → 声明AI内容 → 手动发布 [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-15.md:17-18]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:5:8 -->
+- 小红书封号修复: **时间**: 00:40 **问题**: 小红书因"违反社区规范"禁止发笔记 **根因**: 2026年3月10日新规，AI托管代发直接封禁（Playwright全自动发布被检测） **解决方案**: 草稿模式 [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-15.md:5-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:9:12 -->
+- 小红书封号修复: XiaoHongShuNote 类新增 `save_as_draft` 参数; CLI 新增 `--draft` 标志; 填完标题正文后点击"暂存离开"代替"发布"; 增加随机延迟（2-8秒）模拟人类操作节奏 [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-15.md:9-12]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:16:16 -->
+- 小红书封号修复: **发布流程变更**: [score=0.802 recalls=0 avg=0.620 source=memory/2026-06-15.md:16-16]
