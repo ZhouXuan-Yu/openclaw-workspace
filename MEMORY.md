@@ -139,3 +139,10 @@
 - 小红书封号修复: XiaoHongShuNote 类新增 `save_as_draft` 参数; CLI 新增 `--draft` 标志; 填完标题正文后点击"暂存离开"代替"发布"; 增加随机延迟（2-8秒）模拟人类操作节奏 [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-15.md:9-12]
 <!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:16:16 -->
 - 小红书封号修复: **发布流程变更**: [score=0.802 recalls=0 avg=0.620 source=memory/2026-06-15.md:16-16]
+
+## Promoted From Short-Term Memory (2026-06-20)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:21:24 -->
+- 小红书封号修复: 偶尔AI辅助未标注 → 限流警告; 全部笔记AI托管代发 → 直接封禁; AI批量养号 → 直接封禁; 解决：发布时点击【设置】→【内容类型声明】→ 勾选【笔记含AI合成内容】 [score=0.819 recalls=0 avg=0.620 source=memory/2026-06-15.md:21-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:20:20 -->
+- 小红书封号修复: **小红书2026新规核心**: [score=0.804 recalls=0 avg=0.620 source=memory/2026-06-15.md:20-20]
