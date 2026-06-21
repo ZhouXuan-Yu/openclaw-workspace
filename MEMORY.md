@@ -79,52 +79,6 @@
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
 
-## Promoted From Short-Term Memory (2026-06-18)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:13:15 -->
-- 测试结果: MP4: 62 KB（1080x1920，H.264）; GIF: 316 KB; **渲染时间**：约 3 分钟 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:13-15]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:18:20 -->
-- Skill 创建: 创建 `skills/hyperframes-video/SKILL.md`; 文档化完整工作流程：HTML 组合 → 逐帧截取 → 合成视频; 集成到社交自动化流水线 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:18-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:23:26 -->
-- 技术发现: imageio-ffmpeg 可以替代系统 FFmpeg; 宽度需为 16 的倍数（1080→1088）避免警告; GSAP timeline 通过 `time()` 方法精确控制帧; 首次运行需下载 Chrome（~101MB） [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:23-26]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:30:33 -->
-- 平台登录状态汇总: | 平台 | 状态 | 发布测试 | |------|------|---------| | 小红书 | ✅ | ✅ 图文发布成功 | | 快手 | ✅ | ✅ 图文发布成功（定时） | [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:30-33]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:5:5 -->
-- 23:52 — HyperFrames 视频生成测试: 用户要求测试 Codex + HyperFrames 生成短视频，并固化为 Skill。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:5-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-12.md:8:11 -->
-- 测试结果: HyperFrames CLI v0.6.94 已安装; FFmpeg 安装失败（choco 权限问题，GitHub 下载超时）; **解决方案**：Playwright 逐帧截取 + imageio 合成; 生成 150 帧（15s @ 10fps） [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-12.md:8-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:10:13 -->
-- 模块 1：内容质量 ✅: [x] 内容基于真实经历（记忆系统确实搭建了，测试确实跑了）; [x] 技术细节准确（4层架构、26项测试）; [x] 无错误归因; [x] 文字简洁 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:10-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:14:14 -->
-- 模块 1：内容质量 ✅: ⚠️ 小红书格式需确认（无Markdown） [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:14-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:17:20 -->
-- 模块 2：人设一致性 ✅: [x] 符合"Agent工程开发者"定位; [x] 体现"从零到一"学习过程; [x] 保持技术深度+实战风格; [x] 无卖课感、鸡汤感 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:17-20]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:24:27 -->
-- 模块 3：平台策略 ✅: [x] 小红书已发布（图文）; [x] 抖音已发布（图文）; [x] 快手定时发布; ⚠️ B站视频待制作 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:24-27]
-
-## Promoted From Short-Term Memory (2026-06-18)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:10:13 -->
-- 完整链路（最终版）: Q0: 内容深化（YouNavi） ├── 研究主题 → research_full → 报告 → 提取核心观点 ├── 会议录音 → audio_transcribe → 文字 → 整理 └── 知识积累 → memory/notes → 引用 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:10-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:15:18 -->
-- 完整链路（最终版）: Q1-Q3: 内容生产 ├── 路径A 图文 → Codex + guizang + Playwright → PNG ├── 路径B 视频 → edge-tts + HyperFrames → MP4 ├── 路径C 文章 → Markdown → wechatsync → 多平台 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:15-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:21:23 -->
-- 完整链路（最终版）: Q4: 内审 → 发布 ├── 视频/图文 → sau CLI → 小红书/抖音/快手/B站 └── 文章 → wechatsync CLI → 知乎/CSDN/掘金/公众号 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:21-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:28:31 -->
-- 工具链最终全景: | 层级 | 工具 | 用途 | |------|------|------| | 研究层 | YouNavi CLI | 深度研究·音频转写·知识管理 | | 生产层 | Codex CLI | AI 生成 HTML/代码 | [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:28-31]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:5:5 -->
-- 02:45 — 社交自动化决策树 v2（加入 YouNavi）: 用户指出 YouNavi CLI 应融入链路。已更新决策树，加入 Q0 内容深化环节。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-13.md:5-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:5:5 -->
-- 🔧 视频号上传修复（重要）: **根因**：视频号助手检测到自动化浏览器（patchright headless），访问 `/platform/post/create` 会被 302 重定向到 `/platform`（dashboard）。dashboard 上没有 `input[type="file"]`，所以 `page.set_input_files('input[type="file"]', ...)` 永远超时。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-14.md:5-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:7:7 -->
-- 🔧 视频号上传修复（重要）: **修复方案**：`open_upload_page` 方法增加重定向检测——如果 URL 不含 `/post/create`，自动点击「发表视频」按钮进入上传表单。 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-14.md:7-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:9:9 -->
-- 🔧 视频号上传修复（重要）: **修复文件**：`tools/social-auto-upload/uploader/tencent_uploader/main.py` 第 498-509 行 [score=0.829 recalls=0 avg=0.620 source=memory/2026-06-14.md:9-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:21:21 -->
-- 模块 2：人设一致性 ✅: [x] 原创内容 [score=0.819 recalls=0 avg=0.620 source=memory/2026-06-13-audit.md:21-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-13.md:19:19 -->
-- 完整链路（最终版）: └── 路径D 混合 → A+B+C [score=0.809 recalls=0 avg=0.620 source=memory/2026-06-13.md:19-19]
-
 ## Promoted From Short-Term Memory (2026-06-19)
 
 <!-- openclaw-memory-promotion:memory:memory/2026-06-13-audit.md:4:4 -->
@@ -146,3 +100,45 @@
 - 小红书封号修复: 偶尔AI辅助未标注 → 限流警告; 全部笔记AI托管代发 → 直接封禁; AI批量养号 → 直接封禁; 解决：发布时点击【设置】→【内容类型声明】→ 勾选【笔记含AI合成内容】 [score=0.819 recalls=0 avg=0.620 source=memory/2026-06-15.md:21-24]
 <!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:20:20 -->
 - 小红书封号修复: **小红书2026新规核心**: [score=0.804 recalls=0 avg=0.620 source=memory/2026-06-15.md:20-20]
+
+## Promoted From Short-Term Memory (2026-06-21)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:31:31 -->
+- ⚠️ 记忆纠正 — guizang-social-card-skill: 用户指出：Codex CLI 生成图片/视频时，**必须**参考 `guizang-social-card-skill` 的流程。之前记忆中只把它当成"精美图文卡片"工具，低估了重要性。 [score=0.840 recalls=0 avg=0.620 source=memory/2026-06-14.md:31-31]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:33:33 -->
+- ⚠️ 记忆纠正 — guizang-social-card-skill: **教训**: 不要凭记忆推断用户说过什么，不确定就老实说不知道。 [score=0.840 recalls=0 avg=0.620 source=memory/2026-06-14.md:33-33]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:39:39 -->
+- 💬 用户个人信息: 吉首大学人工智能专业研0，双非硕士，三年后毕业。已有完整 AI 工程能力（Agent 架构、多平台自动化、记忆系统设计、安全扫描），比大多数 985 硕士毕业时的项目经验更强。 [score=0.840 recalls=0 avg=0.620 source=memory/2026-06-14.md:39-39]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:41:41 -->
+- 💬 用户个人信息: **建议方向**：发论文（哪怕 workshop）+ Kaggle/天池奖牌 + GitHub 开源作品集 + 研二大厂实习 [score=0.840 recalls=0 avg=0.620 source=memory/2026-06-14.md:41-41]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-14.md:47:50 -->
+- 🧠 记忆架构升级（06-13 延续）: `_graph.json` v2: 9 节点 + 20 边 + constraints 字段; work-tools 节点增加约束：`Codex社交内容`、`图片处理`、`视频号自动化`; 智能检索 v2：先想后查（意图拆解→定向检索→上下文组装）; Skill 自进化协议 v1：调用轨迹 + 健康度评级 + 验证门机制 [score=0.840 recalls=0 avg=0.620 source=memory/2026-06-14.md:47-50]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:18:19 -->
+- 进化引擎全景审计: **时间**: 00:07 **结论**: 设计90�?数据40分。进化引擎架构完善（8个子系统×50+指标），但执行数据几乎全空： [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-16.md:18-19]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:20:20 -->
+- 进化引擎全景审计: corrections.json: 5�?�?- feedback.json: 4�?�?- improvements.json: 4�?�?- run-log.json: 3�?�?- observations-2026-06-15.json: 6�?�?- patterns.json: 3个模�?�?- knowledge-gaps.json: 2个gap �?- critic-evaluations.json: 1�?�?- capability-state.json: 能力清单 �?- **skill-traces/**: �?❌（设计最精细但零数据�?- **.skill-quality.json**: 不存�?�?- **evolution-log-archive.md**: 不存�?�?- **memory-state.json**: 不存�?�?- **perf-baseline.json**: 全零 �?- **SELF-IMPROVE-PROTOCOL.md**: 空模�?�? [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-16.md:20-20]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:21:21 -->
+- 进化引擎全景审计: **关键差距**: 进化引擎设计完善但数据管道断裂�?3:30 四步循环未真正执行�? [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-16.md:21-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:25:25 -->
+- v5/v5.1 架构进化: Think Tool: 关键决策前强制思考（源自 Devin AI�?- Task Mode Router: 简�?标准/深度/工程/安全 五模式（源自 Kiro + Orchids�?- Self-Verification: 完成�?步自检（源�?Devin + Manus�? [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-16.md:25-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:7:9 -->
+- 记忆巡检: 凌晨整合(02:00) ✅ 已执行; 健康检查(02:21) ✅ 已执行; Git 同步 ✅ 本地已提交(push 失败，SSL/TLS) [score=0.812 recalls=0 avg=0.620 source=memory/2026-06-16.md:7-9]
+
+## Promoted From Short-Term Memory (2026-06-21)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:27:28 -->
+- 小红书封号修复: `tools/social-auto-upload/uploader/xiaohongshu_uploader/main.py` — XiaoHongShuNote 类; `tools/social-auto-upload/sau_cli.py` — CLI --draft 参数 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:27-28]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:31:34 -->
+- 01:05 多平台发布结果: 抖音: ✅ 自动发布成功; 快手: ✅ 定时发布 (03:11); B站: ✅ biliup 上传成功; 视频号: ❌ cookie过期，需重新扫码 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:31-34]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:35:35 -->
+- 01:05 多平台发布结果: 小红书: 📝 草稿箱待手动发布（AI声明+微调） [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:35-35]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:37:39 -->
+- 01:05 多平台发布结果: **视频信息**: evolution_v2.mp4, 4.2MB, 4.2min **卡片风格**: Swiss International (guizang-social-card) **配音**: zh-CN-YunyangNeural (沉稳男声) [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:37-39]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:45:45 -->
+- 01:50 GitHub 5月热门项目分析: 分析了逛逛GitHub公众号推荐的10个项目，逐个看README，写入 `topics/github-may-2026-projects.md`。 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:45-45]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:47:47 -->
+- 01:50 GitHub 5月热门项目分析: **重点学习**: [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:47-47]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:27:27 -->
+- v5/v5.1 架构进化: Agent Skills: Doubt-Driven Development + Incremental Implementation（源�?Addy Osmani�?- 反偷懒表: Agent 常用借口 + 反驳 [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:27-27]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:33:34 -->
+- System Prompt 收集: **范围**: 20+ 工具�?6 个文�?**工具列表**: Dify, Coze, FastGPT, Cursor, Windsurf, Claude Code, Lovable, Bolt, Replit, Devin, OpenHands, SWE-Agent, Augment Code, GitHub Copilot, Trae, Roo Code, Cline, Kilo Code, Kiro, Aider, Goose, Open Interpreter, Amazon Q Developer, Gemini Code Assist, Tabnine, Qodo, Microsoft Copilot **存储位置**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\` 下按工具名建文件�? [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:33-34]
