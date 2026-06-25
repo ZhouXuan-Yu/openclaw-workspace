@@ -1,6 +1,17 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-06-17
+> 最后更新:2026-06-26
+
+---
+
+## 架构组件（v3, 2026-06-25）
+
+| 组件 | 位置 | 用途 |
+|------|------|------|
+| 惰性检测器 | `hooks/laziness-detectors.yaml` | 7 种实时检测: brute_retry / idle_tool / busy_loop / premature_done / blame_shift / passive_wait / same_file_edit |
+| 长任务循环 | `hooks/task-loop.md` | RECEIVE→ALIGN→SLICE→EXECUTE→VERIFY→REPORT，自动切片+检查点+汇报 |
+| hooks 配置 v3 | `hooks/hooks.yaml` | 集成惰性检测器 + task_loop 配置段 |
+| RuleMaturity | `RULES.md` | shadow→proposed→enforced 三阶段渐进式规则演进 |
 
 ---
 
@@ -109,13 +120,16 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 
 ---
 
-## 社交内容生产完整链路（2026-06-16 固化）
+## 社交内容生产完整链路（2026-06-25 v4 更新）
+
+**新增环节**：Q2.5 ComfyUI 精修（可选，使用 skills/comfyui-skill/SKILL.md）
 
 **前置检查（每次必做）**：
 1. 读 memory/topics/work-tools.md（本文）
 2. 读 skills/guizang-social-card/SKILL.md
 3. 读 skills/hyperframes-video/SKILL.md
-4. memory_search 确认历史教训
+4. 如果使用 ComfyUI：读 skills/comfyui-skill/SKILL.md，先检查 server status
+5. memory_search 确认历史教训
 
 **完整流程**：
 ```
@@ -124,7 +138,10 @@ Q0: 内容来源
 └── 备选: 自行生成（memory_search + web_search）
 
 Q1: 图片素材生成（必须步骤）
-├── 工具: image_generate（AI生图）或 web_search（找图）
+├── 工具: image_generate（AI生图）或 ComfyUI Skill（本地生图）
+│   ├── 如果ComfyDesktop已运行 → comfyui-skill --json run <id> --args '{...}'
+│   ├── 否则 → image_generate（cloud API）
+│   └── 注意: ComfyUI生图质量更高、无API费用、可批量
 ├── Swiss模式: 产品渲染/UI截图/keyshot风格 → AI生成
 ├── Editorial模式: Pexels/Unsplash/Flickr CC → web找图
 ├── 输出: 每张卡片的 hero image → assets/
@@ -136,6 +153,14 @@ Q2: 卡片设计
 ├── 模板: assets/template-swiss-card.html
 ├── 渲染: Playwright → PNG (图文) / HyperFrames → MP4 (视频)
 └── 输出: 1080x1920 竖版
+
+Q2.5: ComfyUI 精修（v4 新增，可选）
+├── 用途: 对Q2输出的图片/视频做画质增强、风格迁移、细节优化
+├── 前提: ComfyDesktop已本地运行
+├── 检查: comfyui-skill --json server status
+├── 生图: comfyui-skill --json list → submit + status → 获取增强后的图片
+├── 补充说明: 如果ComfyDesktop未运行则跳过此环节，使用Q2原图
+└── 注意: 首次使用需先 cd skills/comfyui-skill && 配置config.json
 
 Q3: TTS 配音
 ├── 工具: edge-tts

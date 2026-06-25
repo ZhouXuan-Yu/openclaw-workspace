@@ -1,6 +1,6 @@
 ﻿# 重要决策记录
 
-> 最后更新：2026-06-16
+> 最后更新：2026-06-26
 
 ---
 
@@ -8,6 +8,11 @@
 
 | 日期 | 决策 | 理由 | 影响范围 |
 |------|------|------|---------|
+| 2026-06-25 | v3 架构升级：惰性检测器 + 长任务执行循环 | task-heartbeat 反复超时，借鉴 SCALE Engine v0.51.0 Hook 阻断机制 | hooks/laziness-detectors.yaml + hooks/task-loop.md + hooks/hooks.yaml + RULES.md |
+| 2026-06-25 | RuleMaturity 三阶段（shadow→proposed→enforced） | 规则渐进式演进，避免一次性写出不成熟的硬约束 | RULES.md 规则段 |
+| 2026-06-24 | Trust Scoring v1：5 级 trust 标记 + 纠正/验证/冲突机制 | 借鉴 duMem Bayesian trust，轻量文件方案 | memory/evolution/trust-registry.json + RULES.md |
+| 2026-06-24 | 分级 Decay v1：5 tier 差异化衰减替代一刀切 | 借鉴 duMem 分级衰减，decay-scanner.py + cron 集成 | scripts/decay-scanner.py + memory-consolidation cron + RULES.md |
+| 2026-06-24 | Semantic Dedup v1：中文关键词指纹去重 | 借鉴 duMem Semantic Dedup，改用中文 2-4 字滑动窗口指纹替代 Jaccard | scripts/dedup-scanner.py + RULES.md |
 | 2026-06-11 | 记忆架构采用 4 层 + 文件系统方案 | 零外部依赖，Windows 兼容，未来可升级 | 全局记忆体系 |
 | 2026-06-11 | MEMORY.md 只做索引，内容放 topic 文件 | 瘦身 <200 行，按需加载 | 启动 token |
 | 2026-06-11 | 记忆架构 v3：三条核心机制（写入/检索/老化） | 别纠结几层，机制才是关键 | 记忆质量 |
