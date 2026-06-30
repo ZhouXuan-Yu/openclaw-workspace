@@ -1,6 +1,6 @@
 ﻿# 学习沉淀
 
-> 最后更新：2026-06-16 【待确认】10天无强化（静默期未增加）
+> 最后更新：2026-06-29
 
 ---
 
@@ -122,3 +122,40 @@
 - 记忆 4 层架构对标 Hermes Agent 的闭环学习模式
 - MCP 工具调用模式可借鉴到 OpenClaw 的工具集成
 - 多智能体编排参考 LangGraph 的图状态机或 CrewAI 的角色模式
+
+## AI Agent 2026 下半年趋势（2026-06-29 深度研究）
+
+完整报告：`E:\Obsidian仓库\ZhouXuan私人领域\开发项目\AI-Agent-2026下半年趋势深度研究.md`
+
+### 自进化 Agent 三巨头
+- **GenericAgent** (4.3K⭐): 3,300行种子代码→自动生长，5层记忆+技能结晶(skill crystallization)，首次执行贵但后续 6x token 节省
+- **Evolver** (4.7K⭐): 基因进化协议(GEP)，结构化进化资产(genes+capsules)，Git-based 回滚+爆炸半径计算
+- **MOSS 论文**: Agent 重写自身源码→自动测试验证→部署，Ratchet 论文提供安全门
+
+### 自进化 vs 微调
+- 自进化: 协议化离散周期，可审计，确定性，不需要 GPU
+- 微调: 连续梯度更新，黑箱权重，随机性，需要 GPU
+- 关键: Evolver 进化"Agent 如何行为"，Fine-tuning 改变"模型知道什么"——不同层
+
+### 记忆架构 2026 前沿
+- **行业共识**: Memory 是 Agent Stack 最后的真正战场，LLM 推理能力正在商品化
+- **Mem0 2026**: LoCoMo 92.5 分，token 从 26K→6,956，多信号并行检索
+- **两层架构成标准**: Tier1(RAM/5-10条记忆) + Tier2(存储/按需供给)
+- **记忆生命周期**: 提取→更新→删除，ADD-only 初始 + self-check gate 提升 8x yield
+- **RAG vs Agent Memory 分离**: 不同检索命名空间，避免冲突
+- **Context Window 是 RAM**: BEAM 研究: 偏好遵循率从第5轮73%降至第16轮33%
+
+### 多 Agent 协议生态
+- **MCP** (Anthropic): Agent↔工具，2026 强势回归，OAuth/多租户/企业治理首选
+- **A2A** (Google): Agent↔Agent，v1 发布，被 Semantic Kernel 等集成
+- **ACP/AGUI/A2UI**: 消息/UI 层协议
+- **编排模式**: 层级式(主管+专家)/角色式(CrewAI)/对话式(AutoGen)/协议式(A2A)
+
+### Agent 编译
+- Compiling Agentic Workflows into LLM Weights: 多步管道→单次推理，成本 $0.50→$0.005 (100x)，延迟 30s→2s
+- IdleSpec: 工具等待时投机规划，预测正确率 60-80%，感知延迟减半
+
+### 对 OpenClaw 的行动建议
+1. **短期**: 技能结晶 MVP — task 成功后自动检查可提取 pattern
+2. **中期**: MOSS 风格工具调用逻辑自优化 + Ratchet 安全门
+3. **长期**: A2A 协议集成 + 多 Agent 编排
