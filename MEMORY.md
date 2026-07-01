@@ -81,6 +81,12 @@
 | YouNavi 桥梁 | `tools/younavi_bridge.py`（Python封装，解决编码问题） |
 | YouNavi Skill | `skills/younavi-integration/SKILL.md` |
 | 每日社交内容 | `workflows/daily-social-content.md`（cron: daily-social-content, 10:00）|
+| 用户画像 | `E:\Obsidian仓库\ZhouXuan私人领域\人物画像.md`（每日复盘更新+每周日周报）|
+| 画像追踪方案 | `E:\Obsidian仓库\ZhouXuan私人领域\顶级UI设计\用户画像追踪实现方案.md` |
+| 早间推送 | cron: morning-task-brief (09:00) |
+| 晚间规划 | cron: evening-plan-reminder (23:30) |
+| 每日复盘 | cron: memory-reflection (23:45, 含画像更新) |
+| 周度复盘 | cron: weekly-portrait-review (周日23:30) |
 
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
