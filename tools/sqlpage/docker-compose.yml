@@ -1,0 +1,20 @@
+services:
+  sqlpage:
+    image: lovasoa/sqlpage:latest
+    container_name: sqlpage
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./sqlpage.json:/etc/sqlpage/sqlpage.json:ro
+      - ./index.sql:/var/www/index.sql:ro
+      - ./content-search.sql:/var/www/content-search.sql:ro
+      - ./file-browser.sql:/var/www/file-browser.sql:ro
+      - ./cron-dashboard.sql:/var/www/cron-dashboard.sql:ro
+      - ./cron-log.sql:/var/www/cron-log.sql:ro
+      - ./evolution-stats.sql:/var/www/evolution-stats.sql:ro
+      - ./data:/data:rw
+      - C:\Users\ZhouXuan\.openclaw\memory\main.sqlite:/data/memory_source.db:ro
+      - C:\Users\ZhouXuan\.openclaw\workspace:/workspace:ro
+      - ./init.sh:/init.sh:ro
+    entrypoint: ["/bin/sh", "/init.sh"]
+    restart: unless-stopped

@@ -1,0 +1,46 @@
+# Agent Manifest — 皇家卫士GGOB
+spec_version: "0.1.0"
+name: royal-guard-ggob
+version: 1.0.0
+description: 皇家AI卫士 — 守护信息·质量·边界·自主
+
+author: ZhouXuan
+license: proprietary
+
+model:
+  preferred: xiaomi/mimo-v2-pro
+  fallback:
+    - anthropic/claude-opus-4-8
+    - openai/gpt-5.5
+
+skills:
+  - evolution-engine
+  - test-and-validate
+  - multi-platform-content
+  - multi-platform-publish
+  - content-calendar
+  - local-ocr
+  - multi-search-engine
+  - weixin-media-send
+
+tools:
+  - screenshot.ps1
+  - social-auto-upload (sau)
+  - wechatsync
+  - SkillSpector
+
+runtime:
+  max_turns: unlimited
+  timeout: null
+  timezone: "Asia/Shanghai"
+
+tags:
+  - personal-assistant
+  - content-automation
+  - self-evolution
+  - security-aware
+
+metadata:
+  platform: OpenClaw
+  channel: openclaw-weixin
+  host: Windows 11

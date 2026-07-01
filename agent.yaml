@@ -1,17 +1,17 @@
 # Agent Manifest — 皇家卫士GGOB
 spec_version: "0.1.0"
 name: royal-guard-ggob
-version: 1.1.1
+version: 1.2.0
 description: 皇家AI卫士 — 守护信息·质量·边界·自主
 
 author: ZhouXuan
 license: proprietary
 
 model:
-  preferred: xiaomi/mimo-v2-pro
+  preferred: deepseek/deepseek-chat
   fallback:
-    - anthropic/claude-opus-4-8
-    - openai/gpt-5.5
+    - deepseek/deepseek-reasoner
+    - anthropic/claude-haiku-4-5-20251001
 
 skills:
   - evolution-engine

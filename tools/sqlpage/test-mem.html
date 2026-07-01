@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html
+    lang=""
+    style="font-size: 18px"
+    >
+<head>
+    <meta charset="utf-8" />
+    <title>文件浏览器</title>
+    <link rel="icon" href="/favicon.f63476b10007b32f.svg">
+    <link rel="stylesheet" href="/sqlpage.472f3974f990d624.css">
+
+
+    <script src="/sqlpage.a61d541d79448cde.js" defer nonce="1190174546610279914"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="文件浏览器" />
+
+
+    <meta name="generator" content="SQLPage v0.44.1" />
+</head>
+
+
+<body class="layout-boxed" >
+    <div class="page">
+        <header id="sqlpage_header">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid gap-2 justify-content-start" style="min-width:0">
+                <a class="navbar-brand" href="/">
+<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>                </a>
+                <span class="mb-0 fs-2 text-truncate flex-grow-1" style="flex-basis:0">
+                    <a class="text-decoration-none text-body" href="/">文件浏览器</a>
+                </span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbar-menu">
+                        <ul class="navbar-nav ms-auto">                        <li class="nav-item">
+                                                <a class="nav-link " href="/index.sql"
+                                                    role="button"
+                                                >                                    <span class="me-1"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg></span>
+                    首页</a>                        </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link " href="/content-search.sql"
+                                                    role="button"
+                                                >                                    <span class="me-1"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></span>
+                    搜索</a>                        </li>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+        </header>
+        <div class="page-wrapper">
+            <main class="page-body container-xl flex-grow-1 px-md-5 px-sm-3  mt-3" id="sqlpage_main_wrapper"><h2 class="mt-2 mb-1  " >MEMORY.md</h2>
+<div class="remove-bottom-margin  "><h1>MEMORY.md — 长时记忆索引</h1>
+<p>保持 &lt;200行。详情见 <code>memory/topics/</code>。</p>
+<h2>浏览器策略（统一 Edge）</h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>浏览器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>手动操作/扩展加载</td>
+<td>Edge</td>
+<td>系统默认，兼容Chrome扩展</td>
+</tr>
+<tr>
+<td>Playwright 自动化</td>
+<td>Chromium（内嵌）</td>
+<td>不可改，不影响</td>
+</tr>
+<tr>
+<td>Wechatsync 扩展</td>
+<td>Edge</td>
+<td>加载到 Edge 扩展程序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>规则</strong>：所有需手动操作的场景统一用 Edge，不装 Chrome。文章同步用 Wechatsync CLI（不封装 MCP），保持和 social-auto-upload CLI 一致的工具链风格。</p>
+<h2>用户</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>ZhouXuan</td>
+</tr>
+<tr>
+<td>风格</td>
+<td>简洁·直接·实事求是</td>
+</tr>
+<tr>
+<td>Vault</td>
+<td><code>E:\Obsidian仓库\ZhouXuan私人领域</code></td>
+</tr>
+</tbody>
+</table>
+<h2>星标记忆</h2>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>06-25</td>
+<td>v3架构升级: 惰性检测器+长任务循环+hooks.yaml v3+RuleMaturity</td>
+</tr>
+<tr>
+<td>06-11</td>
+<td>记忆架构是进化的关键</td>
+</tr>
+<tr>
+<td>06-11</td>
+<td>Phase 2-5 已完成验证</td>
+</tr>
+<tr>
+<td>06-12</td>
+<td>自进化引擎: FIX/DERIVED/CAPTURED</td>
+</tr>
+<tr>
+<td>06-12</td>
+<td>OpenSpec 分析: Delta 变更追踪+验证前置可借鉴</td>
+</tr>
+<tr>
+<td>06-12</td>
+<td>多平台自动化: social-auto-upload 5平台CLI验证通过</td>
+</tr>
+<tr>
+<td>06-12</td>
+<td>SkillSpector: 安全扫描集成，5个Skill扫描完成</td>
+</tr>
+<tr>
+<td>06-12</td>
+<td>OpenGAP: 14个设计模式优化架构，agent.yaml+RULES.md+workflows/</td>
+</tr>
+<tr>
+<td>06-13</td>
+<td>智能检索升级: 先想后查+topic关联图+跨周期推理</td>
+</tr>
+<tr>
+<td>06-14</td>
+<td>视频号上传: locator超时先检查URL重定向，不是元素不可见</td>
+</tr>
+<tr>
+<td>06-15</td>
+<td>GitHub热门项目分析: 10个项目，Agent工程化趋势（skills/codegraph/agentmemory）</td>
+</tr>
+<tr>
+<td>06-15</td>
+<td>v5进化: Think Tool(Devin)+Mode Router(Kiro)+Self-Verify(Devin), 健康检查89/98(A)</td>
+</tr>
+<tr>
+<td>06-15</td>
+<td>v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表</td>
+</tr>
+</tbody>
+</table>
+<h2>主题索引</h2>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>术语表</td>
+<td><code>CONTEXT.md</code></td>
+</tr>
+<tr>
+<td>偏好</td>
+<td><code>topics/preferences.md</code></td>
+</tr>
+<tr>
+<td>项目</td>
+<td><code>topics/projects.md</code></td>
+</tr>
+<tr>
+<td>多平台发布</td>
+<td><code>tools/social-auto-upload/</code> (见 topics/work-tools.md)</td>
+</tr>
+<tr>
+<td>社交内容生产链路</td>
+<td><code>topics/work-tools.md</code>（Q0-Q5 完整流程，2026-06-16 固化）</td>
+</tr>
+<tr>
+<td>安全扫描</td>
+<td><code>tools/SkillSpector/</code> (见 topics/work-tools.md)</td>
+</tr>
+<tr>
+<td>社交内容设计</td>
+<td><code>skills/guizang-social-card/</code> (Codex CLI 生成图片/视频时必用)</td>
+</tr>
+<tr>
+<td>学习</td>
+<td><code>topics/learnings.md</code></td>
+</tr>
+<tr>
+<td>决策</td>
+<td><code>topics/decisions.md</code></td>
+</tr>
+<tr>
+<td>人物</td>
+<td><code>topics/people.md</code></td>
+</tr>
+<tr>
+<td>工具</td>
+<td><code>topics/work-tools.md</code></td>
+</tr>
+<tr>
+<td>沟通</td>
+<td><code>topics/communication.md</code> ⛔已废弃→合并至preferences</td>
+</tr>
+<tr>
+<td>进化</td>
+<td><code>evolution/EVOLUTION-PROTOCOL.md</code> (v4)</td>
+</tr>
+<tr>
+<td>变更影响</td>
+<td><code>docs/change-impact-checklist.md</code></td>
+</tr>
+<tr>
+<td>ADR</td>
+<td><code>docs/adr/</code></td>
+</tr>
+<tr>
+<td>智能检索</td>
+<td><code>memory/retrieval-strategy.md</code> + <code>topics/_graph.json</code></td>
+</tr>
+<tr>
+<td>OpenSpec 分析</td>
+<td><code>topics/openspec-analysis.md</code></td>
+</tr>
+<tr>
+<td>架构增强</td>
+<td><code>topics/openspec-arch-enhancements.md</code></td>
+</tr>
+<tr>
+<td>GitHub 热门项目</td>
+<td><code>topics/github-may-2026-projects.md</code></td>
+</tr>
+<tr>
+<td>战略思维伙伴</td>
+<td><code>knowledge/strategic-thinking-partner.md</code>（MBB框架集+思维模型）</td>
+</tr>
+<tr>
+<td>进化引擎</td>
+<td><code>evolution/EVOLUTION-PROTOCOL.md</code></td>
+</tr>
+<tr>
+<td>Skill 自进化</td>
+<td><code>evolution/skill-evolution.md</code> + <code>evolution/skill-traces/</code></td>
+</tr>
+<tr>
+<td>Trust Scoring</td>
+<td><code>evolution/trust-registry.json</code> (v1, from duMem)</td>
+</tr>
+<tr>
+<td>Decay 衰减</td>
+<td><code>evolution/trust-registry.json</code> + <code>scripts/decay-scanner.py</code> (v1, from duMem)</td>
+</tr>
+<tr>
+<td>Semantic Dedup</td>
+<td><code>scripts/dedup-scanner.py</code> (v1, from duMem)</td>
+</tr>
+<tr>
+<td>自举协议</td>
+<td><code>evolution/SELF-IMPROVE-PROTOCOL.md</code></td>
+</tr>
+<tr>
+<td>测试历史</td>
+<td><code>evolution/test-history.json</code></td>
+</tr>
+<tr>
+<td>OpenGAP</td>
+<td><code>E:\Obsidian仓库\ZhouXuan私人领域\开发项目\OpenGAP核心要点.md</code></td>
+</tr>
+<tr>
+<td>agent.yaml</td>
+<td><code>agent.yaml</code> Agent 清单</td>
+</tr>
+<tr>
+<td>RULES.md</td>
+<td><code>RULES.md</code> 硬约束</td>
+</tr>
+<tr>
+<td>workflows</td>
+<td><code>workflows/</code> YAML 工作流</td>
+</tr>
+<tr>
+<td>hooks</td>
+<td><code>hooks/</code> 生命周期钩子</td>
+</tr>
+<tr>
+<td>惰性检测器</td>
+<td><code>hooks/laziness-detectors.yaml</code>（v3, 7种检测器）</td>
+</tr>
+<tr>
+<td>长任务循环</td>
+<td><code>hooks/task-loop.md</code>（v3, RECEIVE→ALIGN→SLICE→EXECUTE→VERIFY→REPORT）</td>
+</tr>
+<tr>
+<td>knowledge</td>
+<td><code>knowledge/</code> 知识索引</td>
+</tr>
+<tr>
+<td>examples</td>
+<td><code>examples/</code> few-shot 示例</td>
+</tr>
+<tr>
+<td>图片处理</td>
+<td>⚠️ 收到图片→本地OCR→模型推理（见 topics/work-tools.md）</td>
+</tr>
+<tr>
+<td>Wechatsync</td>
+<td><code>E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Wechatsync-CLI使用手册.md</code></td>
+</tr>
+<tr>
+<td>社交自动化决策树</td>
+<td><code>E:\Obsidian仓库\ZhouXuan私人领域\开发项目\社交自动化决策树.md</code></td>
+</tr>
+<tr>
+<td>YouNavi CLI</td>
+<td><code>D:\YouNavi\resources\backend\agent-cli.exe</code>（见 topics/work-tools.md）</td>
+</tr>
+<tr>
+<td>YouNavi 桥梁</td>
+<td><code>tools/younavi_bridge.py</code>（Python封装，解决编码问题）</td>
+</tr>
+<tr>
+<td>YouNavi Skill</td>
+<td><code>skills/younavi-integration/SKILL.md</code></td>
+</tr>
+<tr>
+<td>每日社交内容</td>
+<td><code>workflows/daily-social-content.md</code>（cron: daily-social-content, 10:00）</td>
+</tr>
+</tbody>
+</table>
+<h2>Tag 索引</h2>
+<p><code>#memory-architecture</code> <code>#skill-evolution</code> <code>#claude-fable5</code> <code>#openclaw-skills</code> <code>#obsidian-notes</code> <code>#openspec</code> <code>#opengap</code> <code>#security-scan</code> <code>#workflows</code> <code>#github-trends</code></p>
+<h2>Promoted From Short-Term Memory (2026-06-21)</h2>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:27:28 --&gt;
+<ul>
+<li>小红书封号修复: <code>tools/social-auto-upload/uploader/xiaohongshu_uploader/main.py</code> — XiaoHongShuNote 类; <code>tools/social-auto-upload/sau_cli.py</code> — CLI --draft 参数 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:27-28]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:31:34 --&gt;
+<ul>
+<li>01:05 多平台发布结果: 抖音: ✅ 自动发布成功; 快手: ✅ 定时发布 (03:11); B站: ✅ biliup 上传成功; 视频号: ❌ cookie过期，需重新扫码 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:31-34]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:35:35 --&gt;
+<ul>
+<li>01:05 多平台发布结果: 小红书: 📝 草稿箱待手动发布（AI声明+微调） [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:35-35]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:37:39 --&gt;
+<ul>
+<li>01:05 多平台发布结果: <strong>视频信息</strong>: evolution_v2.mp4, 4.2MB, 4.2min <strong>卡片风格</strong>: Swiss International (guizang-social-card) <strong>配音</strong>: zh-CN-YunyangNeural (沉稳男声) [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:37-39]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:45:45 --&gt;
+<ul>
+<li>01:50 GitHub 5月热门项目分析: 分析了逛逛GitHub公众号推荐的10个项目，逐个看README，写入 <code>topics/github-may-2026-projects.md</code>。 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:45-45]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:47:47 --&gt;
+<ul>
+<li>01:50 GitHub 5月热门项目分析: <strong>重点学习</strong>: [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:47-47]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:27:27 --&gt;
+<ul>
+<li>v5/v5.1 架构进化: Agent Skills: Doubt-Driven Development + Incremental Implementation（源�?Addy Osmani�?- 反偷懒表: Agent 常用借口 + 反驳 [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:27-27]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:33:34 --&gt;
+<ul>
+<li>System Prompt 收集: <strong>范围</strong>: 20+ 工具�?6 个文�?<strong>工具列表</strong>: Dify, Coze, FastGPT, Cursor, Windsurf, Claude Code, Lovable, Bolt, Replit, Devin, OpenHands, SWE-Agent, Augment Code, GitHub Copilot, Trae, Roo Code, Cline, Kilo Code, Kiro, Aider, Goose, Open Interpreter, Amazon Q Developer, Gemini Code Assist, Tabnine, Qodo, Microsoft Copilot <strong>存储位置</strong>: <code>E:\Obsidian仓库\ZhouXuan私人领域\开发项目\</code> 下按工具名建文件�? [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:33-34]</li>
+</ul>
+<h2>Promoted From Short-Term Memory (2026-06-22)</h2>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:37:40 --&gt;
+<ul>
+<li>Agent Skills 深度解析: <strong>来源</strong>: Addy Osmani (Google Chrome 团队) <strong>内容</strong>: 24 �?Skill 覆盖完整开发生命周�?(DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP) <strong>最值得复用</strong>: doubt-driven-development, incremental-implementation, context-engineering, spec-driven-development, anti-rationalization <strong>文档位置</strong>: <code>E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Addy-Osmani-Agent-Skills深度解析.md</code> [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:37-40]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:44:45 --&gt;
+<ul>
+<li>AI Agent 未来发展方向报告: <strong>产出</strong>: <code>E:\Obsidian仓库\ZhouXuan私人领域\开发项目\AI-Agent未来发展方向研究报告.md</code> <strong>六大方向</strong>: 记忆系统 / Skill驱动工作�?/ 多智能体协作 / 自进�?/ 可信Agent / 具身�?<strong>数据来源</strong>: YouNavi深度研究×2 + Agent Skills分析 + v5/v5.1实战 + 20+工具System Prompt + GitHub热门项目 [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:44-45]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:49:50 --&gt;
+<ul>
+<li>security-check cron 超时修复: <strong>问题</strong>: timeout 60s 导致大量命令执行失败 <strong>修复</strong>: timeout 60s �?300s，payload 增加 timeout 字段 [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:49-50]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:24:24 --&gt;
+<ul>
+<li>v5/v5.1 架构进化: <strong>v5 组件</strong>: [score=0.836 recalls=0 avg=0.620 source=memory/2026-06-16.md:24-24]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:26:26 --&gt;
+<ul>
+<li>小红书封号修复: <strong>修改文件</strong>: [score=0.827 recalls=0 avg=0.620 source=memory/2026-06-15.md:26-26]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:29:29 --&gt;
+<ul>
+<li>v5/v5.1 架构进化: **健康检�?*: 89/98 (A) [score=0.822 recalls=0 avg=0.620 source=memory/2026-06-16.md:29-29]</li>
+</ul>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:5:5 --&gt;
+<ul>
+<li>记忆巡检: <strong>时间</strong>: 09:00 [score=0.816 recalls=0 avg=0.620 source=memory/2026-06-16.md:5-5]</li>
+</ul>
+<h2>Promoted From Short-Term Memory (2026-06-23)</h2>
+&lt;!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:26:26 --&gt;
+<ul>
+<li>v5/v5.1 架构进化: <strong>v5.1 组件</strong>: [score=0.805 recalls=0 avg=0.620 source=memory/2026-06-16.md:26-26]</li>
+</ul>
+</div><p class=" ">
+    </p>
+<h2 class="mt-2 mb-1  " >打开文件</h2>
+<form 
+    
+    class="mt-3 mb-1 "
+    method="post"
+    
+        
+    
+>
+    <fieldset class="form-fieldset mb-1">
+            <h2 class="text-center mb-0">输入完整路径</h2>
+        <div class="row">
+                <label class="form-label mb-2 col-md-12">file_path                        <div class="input-group">
+                            
+                            
+                            <input name="file_path" class="form-control " placeholder="如 MEMORY.md 或 memory/topics/preferences.md"  value="MEMORY.md" />
+                            
+                        </div>
+</label>        </div>
+            <button class="btn
+            btn-primary
+            
+            
+            "
+            
+            type="submit"><span>Submit Query</span>
+            </button>
+
+    </fieldset>
+</form>
+<div class="card my-2 " >
+        <div class="card-header ">
+            <h2 class="card-title">核心配置</h2>
+        </div>
+    <div class="list-group list-group-flush list-group-hoverable">
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;MEMORY.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        MEMORY.md<div class="text-muted text-truncate">L1 记忆索引</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;AGENTS.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        AGENTS.md<div class="text-muted text-truncate">会话引导 + v5 架构</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;AGENTS-DETAILS.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        AGENTS-DETAILS.md<div class="text-muted text-truncate">详细规则</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;RULES.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-orange"></span></div>
+                    <div class="col text-truncate">
+                        RULES.md<div class="text-muted text-truncate">硬约束 + RuleMaturity</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;SOUL.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-purple"></span></div>
+                    <div class="col text-truncate">
+                        SOUL.md<div class="text-muted text-truncate">人格+安全红线</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;HEARTBEAT.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        HEARTBEAT.md<div class="text-muted text-truncate">心跳 + 主动智能</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;TOOLS.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        TOOLS.md<div class="text-muted text-truncate">工具箱速查</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;CONTEXT.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        CONTEXT.md<div class="text-muted text-truncate">术语表</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card my-2 " >
+        <div class="card-header ">
+            <h2 class="card-title">知识主题 (memory/topics/)</h2>
+        </div>
+    <div class="list-group list-group-flush list-group-hoverable">
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/preferences.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        preferences.md<div class="text-muted text-truncate">用户偏好</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/learnings.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        learnings.md<div class="text-muted text-truncate">技术学习笔记</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/decisions.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-purple"></span></div>
+                    <div class="col text-truncate">
+                        decisions.md<div class="text-muted text-truncate">架构决策记录</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/projects.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-orange"></span></div>
+                    <div class="col text-truncate">
+                        projects.md<div class="text-muted text-truncate">项目索引</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/work-tools.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        work-tools.md<div class="text-muted text-truncate">工具链</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/people.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        people.md<div class="text-muted text-truncate">人际关系</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/github-may-2026-projects.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        github-may-2026-projects.md<div class="text-muted text-truncate">GitHub 5月热门项目</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/openspec-analysis.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-purple"></span></div>
+                    <div class="col text-truncate">
+                        openspec-analysis.md<div class="text-muted text-truncate">OpenSpec 分析</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/topics/openspec-arch-enhancements.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-orange"></span></div>
+                    <div class="col text-truncate">
+                        openspec-arch-enhancements.md<div class="text-muted text-truncate">架构增强</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card my-2 " >
+        <div class="card-header ">
+            <h2 class="card-title">进化引擎 (memory/evolution/)</h2>
+        </div>
+    <div class="list-group list-group-flush list-group-hoverable">
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/evolution/EVOLUTION-PROTOCOL.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-purple"></span></div>
+                    <div class="col text-truncate">
+                        EVOLUTION-PROTOCOL.md<div class="text-muted text-truncate">进化协议</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/evolution/SELF-IMPROVE-PROTOCOL.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        SELF-IMPROVE-PROTOCOL.md<div class="text-muted text-truncate">自举协议</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/evolution/skill-evolution.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        skill-evolution.md<div class="text-muted text-truncate">Skill 自进化追踪</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/evolution/evolution-log.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-orange"></span></div>
+                    <div class="col text-truncate">
+                        evolution-log.md<div class="text-muted text-truncate">进化日志</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/evolution/SELF-EVOLUTION-SUMMARY.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        SELF-EVOLUTION-SUMMARY.md<div class="text-muted text-truncate">自进化摘要</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;memory/evolution/skill-candidates.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        skill-candidates.md<div class="text-muted text-truncate">Skill 候选池</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card my-2 " >
+        <div class="card-header ">
+            <h2 class="card-title">钩子系统 (hooks/)</h2>
+        </div>
+    <div class="list-group list-group-flush list-group-hoverable">
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;hooks/hooks.yaml"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        hooks.yaml<div class="text-muted text-truncate">v3 主配置</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;hooks/laziness-detectors.yaml"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        laziness-detectors.yaml<div class="text-muted text-truncate">7种惰性检测器</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;hooks/task-loop.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-purple"></span></div>
+                    <div class="col text-truncate">
+                        task-loop.md<div class="text-muted text-truncate">长任务循环</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card my-2 " >
+        <div class="card-header ">
+            <h2 class="card-title">工作流 (workflows/)</h2>
+        </div>
+    <div class="list-group list-group-flush list-group-hoverable">
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;workflows/daily-social-content.md"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-blue"></span></div>
+                    <div class="col text-truncate">
+                        daily-social-content.md<div class="text-muted text-truncate">每日社交内容</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;workflows/multi-platform-publish.yaml"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-orange"></span></div>
+                    <div class="col text-truncate">
+                        multi-platform-publish.yaml<div class="text-muted text-truncate">多平台发布</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;workflows/publish-report.yaml"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-green"></span></div>
+                    <div class="col text-truncate">
+                        publish-report.yaml<div class="text-muted text-truncate">发布报告</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+        <div 
+            class="list-group-item list-group-item-action p-0  ">
+            <div class="row align-items-center m-0">
+                <a href="?file_path&#x3D;workflows/test-and-validate.yaml"
+                    class="col row align-items-center text-decoration-none text-body m-0 p-3">
+                        <div class="col-auto"><span class="badge bg-purple"></span></div>
+                    <div class="col text-truncate">
+                        test-and-validate.yaml<div class="text-muted text-truncate">测试验证</div></div>
+
+                    </a>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+                <footer class="w-100 text-center fs-6 my-2 text-secondary" id="sqlpage_footer">
+                        <!-- You can change this footer using the 'footer' parameter of the 'shell' component -->
+                        Built with <a class="text-reset" href="https://sql-page.com"
+                            title="SQLPage v0.44.1">SQLPage</a>
+                </footer>
+        </div>
+    </div>
+</body>
+</html>

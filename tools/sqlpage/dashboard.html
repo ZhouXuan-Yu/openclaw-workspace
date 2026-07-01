@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw System Dashboard</title>
+<style>
+  :root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d;
+    --text: #c9d1d9; --muted: #8b949e; --accent: #58a6ff;
+    --green: #3fb950; --orange: #d2991d; --red: #f85149;
+    --purple: #a371f7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; line-height: 1.5; padding: 2rem; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+  .card .label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .card .value { font-size: 1.75rem; font-weight: 700; margin: 0.25rem 0; }
+  .card .detail { color: var(--muted); font-size: 0.8rem; }
+  .card.green .value { color: var(--green); }
+  .card.orange .value { color: var(--orange); }
+  .card.red .value { color: var(--red); }
+  .card.purple .value { color: var(--purple); }
+  .card.accent .value { color: var(--accent); }
+  .section { margin-bottom: 2rem; }
+  .section h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .status-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+  .status-row:last-child { border: none; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot.ok { background: var(--green); }
+  .dot.warn { background: var(--orange); }
+  .dot.err { background: var(--red); }
+  .timeline { font-size: 0.88rem; }
+  .timeline-item { padding: 0.4rem 0; border-bottom: 1px solid var(--border); color: var(--muted); }
+  .timeline-item .date { color: var(--text); font-weight: 500; }
+  .quick-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .quick-links a { color: var(--accent); text-decoration: none; font-size: 0.88rem; padding: 0.35rem 0.75rem; border: 1px solid var(--border); border-radius: 6px; }
+  .quick-links a:hover { background: #1f2a37; }
+  .alert { padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.88rem; }
+  .alert.warn { background: rgba(210,153,29,0.12); border: 1px solid rgba(210,153,29,0.3); color: var(--orange); }
+  .alert.err { background: rgba(248,81,73,0.12); border: 1px solid rgba(248,81,73,0.3); color: var(--red); }
+  .tag { display: inline-block; font-size: 0.72rem; padding: 0.1rem 0.5rem; border-radius: 4px; margin-left: 0.5rem; }
+  .tag.ok { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag.err { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag.warn { background: rgba(210,153,29,0.15); color: var(--orange); }
+  .progress-bar { height: 6px; border-radius: 3px; background: var(--border); margin-top: 0.5rem; }
+  .progress-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🦞 OpenClaw System Dashboard</h1>
+<div class="subtitle">v2026.6.10 · 上次刷新: <span id="refreshTime">--</span></div>
+
+<!-- CORE METRICS -->
+<div class="grid">
+  <div class="card accent">
+    <div class="label">记忆文件</div>
+    <div class="value">96</div>
+    <div class="detail">文档索引</div>
+  </div>
+  <div class="card green">
+    <div class="label">记忆片段</div>
+    <div class="value">629</div>
+    <div class="detail">bge-m3 · 1024d</div>
+  </div>
+  <div class="card purple">
+    <div class="label">自进化引擎</div>
+    <div class="value">v5</div>
+    <div class="detail">Think + Mode Router + Verify</div>
+  </div>
+  <div class="card orange">
+    <div class="label">Cron 任务</div>
+    <div class="value">12/14</div>
+    <div class="detail">2 个异常</div>
+  </div>
+</div>
+
+<!-- ALERTS -->
+<div class="alert warn">⚠️ security-check 上次执行异常 | ⚠️ daily-social-content 上次执行异常</div>
+<div class="alert warn">⚠️ WinDefend 已停止 — 检查是否有替代安全软件接管</div>
+
+<!-- CRON STATUS -->
+<div class="section">
+  <h2>📋 Cron 任务</h2>
+  <div class="card">
+    <div class="status-row"><span class="dot ok"></span> memory-reflection<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> memory-consolidation<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> memory-health-sync<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> memory-patrol<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> Memory Dreaming Promotion<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> daily-obsidian-update<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> younavi-meeting-sync<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> github-key-scan-daily<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> daily-report-reminder<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> content-evolution<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> 每日新闻<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot ok"></span> openclaw-update-check<span class="tag ok">OK</span></div>
+    <div class="status-row"><span class="dot err"></span> security-check<span class="tag err">ERROR</span></div>
+    <div class="status-row"><span class="dot err"></span> daily-social-content<span class="tag err">ERROR</span></div>
+  </div>
+</div>
+
+<!-- MEMORY LAYER -->
+<div class="section">
+  <h2>🧠 记忆 4 层架构</h2>
+  <div class="card">
+    <div class="status-row">
+      <span class="dot ok"></span> L1 索引 · MEMORY.md · 200 行
+      <span style="margin-left:auto;color:var(--muted)">每次加载</span>
+    </div>
+    <div class="status-row">
+      <span class="dot ok"></span> L2 主题 · 10 topics
+      <span style="margin-left:auto;color:var(--muted)">L1 命中时加载</span>
+    </div>
+    <div class="status-row">
+      <span class="dot ok"></span> L3 日志 · 14 daily files
+      <span style="margin-left:auto;color:var(--muted)">今日必读</span>
+    </div>
+    <div class="status-row">
+      <span class="dot ok"></span> L4 会话 · jsonl 归档
+      <span style="margin-left:auto;color:var(--muted)">最后手段</span>
+    </div>
+  </div>
+</div>
+
+<!-- EVOLUTION ENGINE -->
+<div class="section">
+  <h2>🔮 自进化引擎 v5</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="label">能力状态</div>
+      <div class="value" style="font-size:1.2rem;">32 次迭代</div>
+      <div class="detail">capability-state.json</div>
+    </div>
+    <div class="card">
+      <div class="label">失败模式</div>
+      <div class="value" style="font-size:1.2rem;">3 捕获</div>
+      <div class="detail">failures.json</div>
+    </div>
+    <div class="card">
+      <div class="label">Skill 候选</div>
+      <div class="value" style="font-size:1.2rem;">活跃</div>
+      <div class="detail">skill-candidates.md</div>
+    </div>
+    <div class="card">
+      <div class="label">信任注册表</div>
+      <div class="value" style="font-size:1.2rem;">v1</div>
+      <div class="detail">trust-registry.json</div>
+    </div>
+  </div>
+</div>
+
+<!-- RECENT ACTIVITY -->
+<div class="section">
+  <h2>📅 最近活动</h2>
+  <div class="card timeline">
+    <div class="timeline-item"><span class="date">06-27</span> · SQLPage 数据面板部署 · 记忆系统 Dashboard 开发 · 版本升级评估</div>
+    <div class="timeline-item"><span class="date">06-26</span> · 多平台内容发布 · ComfyDesktop 本地 AI 算力接入 · Remotion 视频工业级升级</div>
+    <div class="timeline-item"><span class="date">06-25</span> · v3 架构升级（惰性检测器+长任务循环） · YouNavi 会议同步</div>
+    <div class="timeline-item"><span class="date">06-24</span> · 系统静默检查 · 记忆巡检</div>
+    <div class="timeline-item"><span class="date">06-21</span> · 记忆整合 · 小红书封号修复确认 · GitHub 5月项目分析</div>
+    <div class="timeline-item"><span class="date">06-16</span> · v5/v5.1 架构进化 · 20+ 工具 System Prompt 收集 · AI Agent 未来方向报告</div>
+  </div>
+</div>
+
+<!-- QUICK NAV -->
+<div class="section">
+  <h2>🔗 快速导航</h2>
+  <div class="quick-links">
+    <a href="http://localhost:8080" target="_blank">SQLPage 数据面板</a>
+    <a href="#">文件管理器</a>
+    <a href="#">进化引擎日志</a>
+    <a href="#">Cron 管理</a>
+    <a href="#">系统配置</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+  document.getElementById('refreshTime').textContent = new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'});
+</script>
+
+</body>
+</html>

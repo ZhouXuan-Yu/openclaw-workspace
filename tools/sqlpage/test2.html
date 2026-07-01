@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html
+    lang=""
+    style="font-size: 18px"
+    >
+<head>
+    <meta charset="utf-8" />
+    <title>文件浏览器</title>
+    <link rel="icon" href="/favicon.f63476b10007b32f.svg">
+    <link rel="stylesheet" href="/sqlpage.472f3974f990d624.css">
+
+
+    <script src="/sqlpage.a61d541d79448cde.js" defer nonce="13520001772827459795"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="文件浏览器" />
+
+
+    <meta name="generator" content="SQLPage v0.44.1" />
+</head>
+
+
+<body class="layout-boxed" >
+    <div class="page">
+        <header id="sqlpage_header">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <div class="container-fluid gap-2 justify-content-start" style="min-width:0">
+                <a class="navbar-brand" href="/">
+<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>                </a>
+                <span class="mb-0 fs-2 text-truncate flex-grow-1" style="flex-basis:0">
+                    <a class="text-decoration-none text-body" href="/">文件浏览器</a>
+                </span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbar-menu">
+                        <ul class="navbar-nav ms-auto">                        <li class="nav-item">
+                                                <a class="nav-link " href="/index.sql"
+                                                    role="button"
+                                                >                                    <span class="me-1"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg></span>
+                    首页</a>                        </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link " href="/content-search.sql"
+                                                    role="button"
+                                                >                                    <span class="me-1"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></span>
+                    搜索</a>                        </li>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+        </header>
+        <div class="page-wrapper">
+            <main class="page-body container-xl flex-grow-1 px-md-5 px-sm-3  mt-3" id="sqlpage_main_wrapper"><h2 class="mt-2 mb-1  " >AGENTS.md</h2>
+<div class="alert alert-danger mt-2" role="alert">
+    <div class="alert-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033" /><path d="M12 8v4" /><path d="M12 16h.01" /></svg>
+    </div>
+    <div class="overflow-auto w-100">
+        <h4 class="alert-title">
+            Error in query number <strong>2</strong>
+        </h4>
+        <div class="text-muted">
+            <p>We are sorry, but an error occurred while generating this page. You should contact the site's
+                administrator.</p><pre class="mt-2"><code class="sqlpage-error-description">In &quot;file-browser.sql&quot;: The following error occurred while executing an SQL statement:
+error returned from database: (code: 1) no such table: ws_content
+
+The SQL statement sent by SQLPage was:
+SELECT &#x27;text&#x27; AS component, content AS contents_md FROM ws_content WHERE CAST(?1 AS TEXT) IS NOT NULL AND CAST(?1 AS TEXT) &lt;&gt; &#x27;&#x27; AND path &#x3D; CAST(?1 AS TEXT);
+file-browser.sql: lines 16 to 20</code></pre>            <p class="fs-6 mt-1 p-1 my-1"><strong>Note:</strong> You can hide error messages like this one from your users by setting the &#x27;environment&#x27; configuration option to &#x27;production&#x27;.</p>
+        </div>
+    </div>
+</div></main>
+
+                <footer class="w-100 text-center fs-6 my-2 text-secondary" id="sqlpage_footer">
+                        <!-- You can change this footer using the 'footer' parameter of the 'shell' component -->
+                        Built with <a class="text-reset" href="https://sql-page.com"
+                            title="SQLPage v0.44.1">SQLPage</a>
+                </footer>
+        </div>
+    </div>
+</body>
+</html>

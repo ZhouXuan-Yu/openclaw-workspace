@@ -14,7 +14,8 @@ if ($Query.Trim().Length -lt 2) {
     exit 0
 }
 
-$workspace = "C:\Users\ZhouXuan\.openclaw\workspace"
+# 从脚本位置自动推导 workspace 路径（修复：之前硬编码 C:\Users\ZhouXuan\.openclaw\workspace）
+$workspace = $PSScriptRoot
 $maxResults = 50
 
 # 同义词表
@@ -41,26 +42,21 @@ $synonyms = @{
     "session"    = @("会话", "对话", "聊天")
 }
 
-# 构建搜索词
+# 修复：收集所有匹配的同义词组（之前只匹配第一个就break）
 $searchTerms = @($Query.Trim())
 $qLower = $Query.Trim().ToLower()
 
+$matchedGroups = @()
 foreach ($key in $synonyms.Keys) {
     $kLower = $key.ToLower()
-    if ($qLower -eq $kLower) {
-        $searchTerms += $synonyms[$key]
-        break
+    $allVals = @($kLower) + ($synonyms[$key] | ForEach-Object { $_.ToLower() })
+    if ($qLower -in $allVals) {
+        $matchedGroups += $key
+        $matchedGroups += $synonyms[$key]
     }
-    $matched = $false
-    foreach ($syn in $synonyms[$key]) {
-        if ($qLower -eq $syn.ToLower()) {
-            $searchTerms += $key
-            $searchTerms += ($synonyms[$key] | Where-Object { $_.ToLower() -ne $qLower })
-            $matched = $true
-            break
-        }
-    }
-    if ($matched) { break }
+}
+if ($matchedGroups.Count -gt 0) {
+    $searchTerms += $matchedGroups | Where-Object { $_ -and $_.Trim() -ne "" } | Select-Object -Unique
 }
 
 $searchTerms = $searchTerms | Where-Object { $_ -and $_.Trim() -ne "" } | Select-Object -Unique

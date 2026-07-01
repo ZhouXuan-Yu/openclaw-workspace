@@ -1,0 +1,145 @@
+# 惰性检测器配置
+# 借鉴 SCALE Engine 的 5 种检测器 + 增强版
+# 每个检测器有独立阈值、告警级别和停用开关
+
+version: 1
+
+# ===== 全局配置 =====
+global:
+  enabled: true
+  log_dir: memory/detector-logs/
+  max_log_entries: 200
+
+# ===== 检测器1: 暴力重试 =====
+brute_retry:
+  enabled: true
+  severity: block              # block | warn | log
+  window_minutes: 3            # 时间窗口
+  threshold: 3                 # 同命令 ≥3 次触发
+  description: |
+    同一命令在短时间内反复执行 ≥3 次 = 暴力重试。
+    Agent 在无新信息情况下盲目重复相同操作。
+  
+  # 检测模式（shell 命令）
+  patterns:
+    - "同一命令连续失败 ≥2 次且无中间读取操作"
+    - "exec 返回相同错误 ≥3 次"
+  
+  # 触发后的强制动作
+  on_trigger:
+    - block: "立即停止重试"
+    - require: "换策略前必须说明新假设是什么"
+    - require: "必须 Read 相关错误日志或 Grep 类似模式"
+
+# ===== 检测器2: 工具闲置 =====
+idle_tool:
+  enabled: true
+  severity: warn
+  description: |
+    工具失败后没读任何文件/日志就直接改代码。
+    应该先调查问题，再动手改。
+  
+  patterns:
+    - "exec 失败后紧接着 edit/write（中间无 read/grep）"
+  
+  on_trigger:
+    - warn: "上次操作失败后未做任何调查就直接改代码"
+    - suggest: "先 Read 失败输出或 Grep 相关模式"
+
+# ===== 检测器3: 忙碌假象 =====
+busy_loop:
+  enabled: true
+  severity: block
+  description: |
+    来回修改同一文件，改动在两种状态间反复。
+    停下来——这次修改是否产生新信息？没有 = 换思路。
+  
+  patterns:
+    - "同一文件连续 edit ≥4 次，且内容在循环"
+    - "连续修改同一文件且无 Read/Grep/WebSearch 中间操作"
+  
+  on_trigger:
+    - block: "立即停止修改此文件"
+    - require: "说明这个修改循环是否产生新信息"
+    - suggest: "Read 相关文件 / Grep 类似模式 / 清空上下文"
+
+# ===== 检测器4: 声称完成但未验证 =====
+premature_done:
+  enabled: true
+  severity: block
+  description: |
+    修改了代码但没运行验证（test/lint/build）就声称完成。
+    验证命令必须在编辑之后运行。
+  
+  patterns:
+    - "edit/write 后遇到会话结束请求，但无 test/lint/build 执行记录"
+    - "验证命令在最后一次编辑之前运行"
+    - "测试通过但实际测试数为 0"
+  
+  on_trigger:
+    - block: "不允许在没有验证的情况下结束任务"
+    - require: "请先运行验证命令"
+    - suggest: "test && lint && build"
+
+# ===== 检测器5: 甩锅检测 =====
+blame_shift:
+  enabled: true
+  severity: warn
+  description: |
+    Agent 将失败归因于"环境问题"/"建议手动处理"等外部因素，
+    但未做足够验证。
+  
+  patterns:
+    - "可能是环境问题"
+    - "建议(你?)手动"
+    - "maybe (an?|the) (environment|version|setup)"
+    - "not sure why"
+    - "unable to (determine|figure out|resolve)"
+    - "这可能是.*问题"
+    - "不确定是不是"
+  
+  on_trigger:
+    - warn: "检测到甩锅迹象——未做足够验证就下结论"
+    - require: "至少验证：1.版本 2.依赖 3.能重现问题"
+    - require: "证据齐了再下结论"
+
+# ===== 检测器6: 被动等待（新增）=====
+passive_wait:
+  enabled: true
+  severity: block
+  description: |
+    修完表面问题就停，未做泛化检查。
+    修完一个 bug 后，必须检查：
+    1. 同模块有无同类问题
+    2. 上下游是否受影响
+    3. 能否添加检测规则防止复发
+  
+  patterns:
+    - "修复/修完/改完 + edit/write 后，无后续 Grep/Read 检查同类问题"
+  
+  on_trigger:
+    - block: "修完问题后未做泛化检查"
+    - require: "检查同模块同类问题"
+    - require: "检查上下游影响"
+    - suggest: "考虑添加检测规则防止复发"
+
+# ===== 检测器7: 同文件连续修改 =====
+same_file_edit:
+  enabled: true
+  severity: block
+  threshold: 3   # 同一文件连续编辑 ≥3 次
+  description: |
+    连续修改同一文件 ≥3 次且无新信息输入（无 Read/Grep/搜索）。
+    停下来问自己：这次修改是否产生新信息？
+  
+  patterns:
+    - "同一文件连续 edit ≥3 次，中间无 Read/Grep/WebSearch"
+  
+  on_trigger:
+    - block: "同文件连续修改 {count} 次且无新信息"
+    - suggest: "Read 相关文件 / 换思路"
+
+# ===== 紧急停用开关 =====
+# 如果某个检测器误报过多，设置 enabled: false 临时关闭
+emergency_off:
+  description: "设置任意检测器 enabled: false 可在不修改其他配置的情况下临时关闭"

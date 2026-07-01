@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw Dashboard</title>
+<style>
+  :root { --bg:#0d1117; --card:#161b22; --border:#30363d; --text:#c9d1d9; --muted:#8b949e; --accent:#58a6ff; --green:#3fb950; --orange:#d2991d; --red:#f85149; --purple:#a371f7; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; line-height:1.5; padding:2rem; }
+  .container { max-width:960px; margin:0 auto; }
+  h1 { font-size:1.5rem; font-weight:600; margin-bottom:0.15rem; }
+  .subtitle { color:var(--muted); font-size:0.82rem; margin-bottom:1.25rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:0.75rem; margin-bottom:1.5rem; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1rem; }
+  .card .label { color:var(--muted); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.05em; }
+  .card .value { font-size:1.5rem; font-weight:700; margin:0.1rem 0; }
+  .card .detail { color:var(--muted); font-size:0.75rem; }
+  .card.g .value { color:var(--green); }
+  .card.b .value { color:var(--accent); }
+  .card.p .value { color:var(--purple); }
+  .card.o .value { color:var(--orange); }
+  .section { margin-bottom:1.75rem; }
+  .section h2 { font-size:1rem; font-weight:600; margin-bottom:0.65rem; padding-bottom:0.4rem; border-bottom:1px solid var(--border); }
+  .status-row { display:flex; align-items:center; gap:0.5rem; padding:0.25rem 0; font-size:0.82rem; border-bottom:1px solid rgba(48,54,61,0.5); }
+  .status-row:last-child { border:none; }
+  .dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-right:0.15rem; }
+  .dot.ok { background:var(--green); }
+  .dot.err { background:var(--red); }
+  .dot.orange { background:var(--orange); }
+  .dot.blue { background:var(--accent); }
+  .dot.purple { background:var(--purple); }
+  .tag { display:inline-block; font-size:0.64rem; padding:0.05rem 0.35rem; border-radius:3px; margin-left:auto; font-weight:500; }
+  .tag.ok { background:rgba(63,185,80,0.12); color:var(--green); }
+  .tag.err { background:rgba(248,81,73,0.12); color:var(--red); }
+  .alert { padding:0.5rem 0.8rem; border-radius:6px; margin-bottom:0.75rem; font-size:0.8rem; }
+  .alert.warn { background:rgba(210,153,29,0.08); border:1px solid rgba(210,153,29,0.2); color:var(--orange); }
+  .clip { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:420px; }
+  .footer { text-align:center; color:var(--muted); font-size:0.68rem; margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>OpenClaw Dashboard</h1>
+<div class="subtitle">OpenClaw 2026.6.10 (aa69b12) &middot; LAPTOP-BMD6UMQ7 &middot; 2026-06-27 21:19:49 +08:00</div>
+
+<div class="grid">
+  <div class="card b"><div class="label">Memory Files</div><div class="value">96</div><div class="detail">Indexed documents</div></div>
+  <div class="card g"><div class="label">Memory Chunks</div><div class="value">629</div><div class="detail">bge-m3:latest &middot; 1024d</div></div>
+  <div class="card p"><div class="label">Skills</div><div class="value">23</div><div class="detail">Custom skills</div></div>
+  <div class="card o"><div class="label">Daily Logs</div><div class="value">14</div><div class="detail">14 records</div></div>
+</div>
+
+<div class='alert warn'>3 cron tasks with errors</div>
+
+<div class="section">
+  <h2>Cron Tasks</h2>
+  <div class="card"><div class='status-row'><span class='dot ok'></span>content-evolution<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot err'></span>daily-social-content<span class='tag err'>ERROR</span></div><div class='status-row'><span class='dot ok'></span>memory-reflection<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>daily-obsidian-update<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>memory-consolidation<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>Memory<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>memory-patrol<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>younavi-meeting-sync<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot err'></span>security-check<span class='tag err'>ERROR</span></div><div class='status-row'><span class='dot ok'></span>github-key-scan-daily<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>daily-report-reminder<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot ok'></span>姣忔棩鏂伴椈<span class='tag ok'>OK</span></div><div class='status-row'><span class='dot err'></span>younavi-weekly-research<span class='tag err'>ERROR</span></div><div class='status-row'><span class='dot ok'></span>openclaw-update-check<span class='tag ok'>OK</span></div></div>
+</div>
+
+<div class="section">
+  <h2>Capability Evolution (v5)</h2>
+  <div class="card"><div class='status-row'><span class='dot blue'></span>多平台内容发布<span style='margin-left:auto;font-size:0.72rem;color:var(--muted)'>practiced</span></div><div class='status-row'><span class='dot green'></span>研究分析（搜索→抓取→分析→总结）<span style='margin-left:auto;font-size:0.72rem;color:var(--muted)'>passed</span></div><div class='status-row'><span class='dot blue'></span>记忆架构管理<span style='margin-left:auto;font-size:0.72rem;color:var(--muted)'>practiced</span></div><div class='status-row'><span class='dot blue'></span>Skill自进化<span style='margin-left:auto;font-size:0.72rem;color:var(--muted)'>practiced</span></div><div class='status-row'><span class='dot blue'></span>架构进化（v3+惰性检测+任务循环）<span style='margin-left:auto;font-size:0.72rem;color:var(--muted)'>practiced</span></div><div class='status-row'><span class='dot orange'></span>惰性检测（Hook阻断+退出码协议）<span style='margin-left:auto;font-size:0.72rem;color:var(--muted)'>recorded</span></div></div>
+</div>
+
+<div class="section">
+  <h2>Data Inventory</h2>
+  <div class="grid">
+    <div class="card p"><div class="label">Evolution</div><div class="value">39</div><div class="detail">11 observations</div></div>
+    <div class="card b"><div class="label">Daily Logs</div><div class="value">14</div><div class="detail">memory/daily/</div></div>
+    <div class="card g"><div class="label">Topics</div><div class="value">10</div><div class="detail">memory/topics/</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Recent Memory Files</h2>
+  <div class="card"><div class='status-row'><span class='clip'>memory/evolution/evolution-log.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>3.9 KB</span></div><div class='status-row'><span class='clip'>memory/daily/2026-06-26.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>1.5 KB</span></div><div class='status-row'><span class='clip'>memory/dreaming/deep/2026-06-26.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>0.2 KB</span></div><div class='status-row'><span class='clip'>memory/dreaming/rem/2026-06-26.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>0.1 KB</span></div><div class='status-row'><span class='clip'>memory/dreaming/light/2026-06-26.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>25.0 KB</span></div><div class='status-row'><span class='clip'>memory/task-loop-retrospectives/2026-06-26-remotion鍗囩骇.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>0.7 KB</span></div><div class='status-row'><span class='clip'>memory/topics/learnings.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>6.4 KB</span></div><div class='status-row'><span class='clip'>memory/topics/preferences.md</span><span style='margin-left:auto;font-family:monospace;font-size:0.75rem'>1.5 KB</span></div></div>
+</div>
+
+<div class="section">
+  <h2>Recent Daily Logs</h2>
+  <div class="card"><div class='status-row'><span>2026-06-27.md</span></div><div class='status-row'><span>2026-06-26.md</span></div><div class='status-row'><span>2026-06-25.md</span></div><div class='status-row'><span>2026-06-24.md</span></div><div class='status-row'><span>2026-06-21.md</span></div><div class='status-row'><span>2026-06-20.md</span></div><div class='status-row'><span>2026-06-18.md</span></div></div>
+</div>
+
+<div class="footer">Auto-generated &middot; Refreshed after each conversation</div>
+
+</div>
+</body>
+</html>

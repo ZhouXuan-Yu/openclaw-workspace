@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给AI装了个脑子</title>
+  <style>
+    :root {
+      --bg: #050713;
+      --cyan: #20f4ff;
+      --blue: #2f7bff;
+      --violet: #8c5cff;
+      --pink: #ff4fd8;
+      --text: #f6fbff;
+      --muted: #a8b7d9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #111;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+    }
+
+    .cover {
+      position: relative;
+      width: 1080px;
+      height: 1440px;
+      overflow: hidden;
+      isolation: isolate;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 33%, rgba(32, 244, 255, 0.22), transparent 25%),
+        radial-gradient(circle at 82% 16%, rgba(255, 79, 216, 0.18), transparent 24%),
+        radial-gradient(circle at 18% 72%, rgba(47, 123, 255, 0.18), transparent 28%),
+        linear-gradient(160deg, #040510 0%, #071021 45%, #0a0617 100%);
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(32, 244, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 244, 255, 0.08) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at 50% 42%, black 0 42%, transparent 78%);
+      z-index: -2;
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 7px
+        );
+      mix-blend-mode: screen;
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .hud-ring {
+      position: absolute;
+      left: 50%;
+      top: 36%;
+      width: 640px;
+      height: 640px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background:
+        conic-gradient(from 18deg, transparent 0 7%, rgba(32, 244, 255, 0.95) 7% 10%, transparent 10% 25%, rgba(255, 79, 216, 0.8) 25% 28%, transparent 28% 54%, rgba(47, 123, 255, 0.9) 54% 59%, transparent 59% 100%),
+        radial-gradient(circle, transparent 0 56%, rgba(32, 244, 255, 0.24) 57% 58%, transparent 59%);
+      filter: drop-shadow(0 0 28px rgba(32, 244, 255, 0.55));
+      opacity: 0.95;
+    }
+
+    .hud-ring::before,
+    .hud-ring::after {
+      content: "";
+      position: absolute;
+      inset: 64px;
+      border-radius: 50%;
+      border: 2px solid rgba(32, 244, 255, 0.24);
+      box-shadow: inset 0 0 44px rgba(32, 244, 255, 0.1);
+    }
+
+    .hud-ring::after {
+      inset: 156px;
+      border-color: rgba(255, 79, 216, 0.28);
+      box-shadow: 0 0 54px rgba(255, 79, 216, 0.18);
+    }
+
+    .brain {
+      position: absolute;
+      left: 50%;
+      top: 36%;
+      width: 430px;
+      height: 322px;
+      transform: translate(-50%, -50%);
+      border: 3px solid rgba(246, 251, 255, 0.75);
+      border-radius: 48% 52% 44% 46% / 58% 58% 42% 42%;
+      background:
+        radial-gradient(circle at 34% 34%, rgba(32, 244, 255, 0.34), transparent 22%),
+        radial-gradient(circle at 64% 34%, rgba(255, 79, 216, 0.24), transparent 22%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+      box-shadow:
+        0 0 34px rgba(32, 244, 255, 0.55),
+        inset 0 0 42px rgba(32, 244, 255, 0.15);
+    }
+
+    .brain::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      bottom: 28px;
+      width: 3px;
+      background: linear-gradient(transparent, rgba(246, 251, 255, 0.68), transparent);
+      box-shadow:
+        -88px 26px 0 -1px rgba(32, 244, 255, 0.65),
+        88px 26px 0 -1px rgba(255, 79, 216, 0.6),
+        -118px 96px 0 -1px rgba(47, 123, 255, 0.58),
+        118px 96px 0 -1px rgba(32, 244, 255, 0.58);
+    }
+
+    .brain::after {
+      content: "";
+      position: absolute;
+      inset: 42px 54px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 18% 42%, var(--cyan) 0 6px, transparent 7px),
+        radial-gradient(circle at 38% 22%, var(--blue) 0 6px, transparent 7px),
+        radial-gradient(circle at 58% 58%, var(--pink) 0 6px, transparent 7px),
+        radial-gradient(circle at 78% 34%, var(--cyan) 0 6px, transparent 7px),
+        linear-gradient(38deg, transparent 0 18%, rgba(32, 244, 255, 0.65) 18% 19%, transparent 20%),
+        linear-gradient(142deg, transparent 0 28%, rgba(255, 79, 216, 0.55) 28% 29%, transparent 30%),
+        linear-gradient(98deg, transparent 0 42%, rgba(47, 123, 255, 0.6) 42% 43%, transparent 44%);
+      opacity: 0.9;
+    }
+
+    .chip {
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      width: 232px;
+      height: 152px;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgba(32, 244, 255, 0.72);
+      border-radius: 18px;
+      background: rgba(5, 10, 28, 0.72);
+      box-shadow:
+        0 0 42px rgba(32, 244, 255, 0.36),
+        inset 0 0 24px rgba(32, 244, 255, 0.12);
+    }
+
+    .chip::before,
+    .chip::after {
+      content: "";
+      position: absolute;
+      left: -40px;
+      right: -40px;
+      top: 18px;
+      bottom: 18px;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 24px, rgba(32, 244, 255, 0.72) 24px 28px, transparent 28px 44px);
+      z-index: -1;
+    }
+
+    .chip::after {
+      inset: -34px 28px;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 22px, rgba(255, 79, 216, 0.65) 22px 26px, transparent 26px 42px);
+    }
+
+    .chip span {
+      position: absolute;
+      inset: 26px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(246, 251, 255, 0.18);
+      color: rgba(246, 251, 255, 0.82);
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .copy {
+      position: absolute;
+      left: 82px;
+      right: 82px;
+      bottom: 138px;
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+      color: var(--cyan);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-shadow: 0 0 18px rgba(32, 244, 255, 0.66);
+    }
+
+    .kicker::before,
+    .kicker::after {
+      content: "";
+      width: 86px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan));
+      box-shadow: 0 0 14px var(--cyan);
+    }
+
+    .kicker::after {
+      background: linear-gradient(90deg, var(--cyan), transparent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 128px;
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow:
+        0 0 18px rgba(32, 244, 255, 0.62),
+        0 12px 38px rgba(0, 0, 0, 0.72);
+    }
+
+    h1 .ai {
+      color: transparent;
+      background: linear-gradient(92deg, #ffffff 0%, var(--cyan) 34%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .subtitle {
+      margin: 34px auto 0;
+      width: max-content;
+      max-width: 100%;
+      padding: 18px 42px 20px;
+      border: 1px solid rgba(32, 244, 255, 0.46);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(32, 244, 255, 0.12), rgba(255, 79, 216, 0.12));
+      color: #dce8ff;
+      font-size: 52px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0;
+      box-shadow:
+        0 0 28px rgba(32, 244, 255, 0.22),
+        inset 0 0 18px rgba(255, 255, 255, 0.06);
+    }
+
+    .corner {
+      position: absolute;
+      width: 156px;
+      height: 156px;
+      border-color: rgba(32, 244, 255, 0.64);
+      filter: drop-shadow(0 0 16px rgba(32, 244, 255, 0.42));
+    }
+
+    .corner.tl {
+      left: 54px;
+      top: 54px;
+      border-top: 4px solid;
+      border-left: 4px solid;
+    }
+
+    .corner.br {
+      right: 54px;
+      bottom: 54px;
+      border-right: 4px solid;
+      border-bottom: 4px solid;
+    }
+
+    .tag {
+      position: absolute;
+      top: 76px;
+      right: 78px;
+      padding: 14px 24px;
+      border: 1px solid rgba(255, 79, 216, 0.5);
+      color: #ffd7f7;
+      background: rgba(255, 79, 216, 0.08);
+      border-radius: 999px;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0;
+      box-shadow: 0 0 20px rgba(255, 79, 216, 0.18);
+    }
+
+    .data-line {
+      position: absolute;
+      left: 98px;
+      top: 112px;
+      width: 330px;
+      height: 86px;
+      border-left: 2px solid rgba(32, 244, 255, 0.48);
+      border-bottom: 2px solid rgba(32, 244, 255, 0.48);
+    }
+
+    .data-line::after {
+      content: "MEMORY SYSTEM";
+      position: absolute;
+      left: 24px;
+      bottom: 16px;
+      color: var(--muted);
+      font: 700 24px/1 Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .spark {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 18px 6px rgba(32, 244, 255, 0.45);
+      opacity: 0.9;
+    }
+
+    .s1 { left: 170px; top: 410px; }
+    .s2 { left: 858px; top: 392px; background: var(--pink); }
+    .s3 { left: 214px; top: 888px; background: var(--blue); }
+    .s4 { left: 892px; top: 944px; }
+  </style>
+</head>
+<body>
+  <main class="cover" aria-label="小红书封面：给AI装了个脑子，一天搭建记忆系统">
+    <div class="corner tl"></div>
+    <div class="corner br"></div>
+    <div class="tag">DAY 01</div>
+    <div class="data-line"></div>
+    <div class="hud-ring"></div>
+    <div class="brain"></div>
+    <div class="chip"><span>AI</span></div>
+    <i class="spark s1"></i>
+    <i class="spark s2"></i>
+    <i class="spark s3"></i>
+    <i class="spark s4"></i>
+    <section class="copy">
+      <div class="kicker">从零到可用</div>
+      <h1>给<span class="ai">AI</span><br />装了个脑子</h1>
+      <p class="subtitle">一天搭建记忆系统</p>
+    </section>
+  </main>
+</body>
+</html>

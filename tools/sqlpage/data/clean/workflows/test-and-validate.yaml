@@ -1,0 +1,90 @@
+# 测试验收工作流
+name: test-and-validate
+description: 全系统健康检查 + 安全扫描 + 端到端测试
+triggers:
+  - "测试验收"
+  - "跑测试"
+  - "验收报告"
+
+steps:
+  # Step 1: 基础环境检查
+  environment:
+    action: exec
+    parallel: true
+    checks:
+      - name: Node.js
+        cmd: "node --version"
+        expect: "v*"
+      - name: Python
+        cmd: "python --version"
+        expect: "Python 3.*"
+      - name: uv
+        cmd: "uv --version"
+        expect: "uv *"
+      - name: sau CLI
+        cmd: "sau --help"
+        expect: "usage: sau"
+      - name: wechatsync CLI
+        cmd: "wechatsync --help"
+        expect: "Usage: wechatsync"
+
+  # Step 2: 安全扫描
+  security_scan:
+    action: exec
+    description: SkillSpector 扫描所有 Skill
+    cmd: "skillspector scan skills/ --no-llm --format json --output memory/evolution/security-scan-report.json"
+    working_dir: "tools/SkillSpector"
+    outputs:
+      - scan_results
+
+  # Step 3: 平台登录检查
+  platform_check:
+    action: exec
+    parallel: true
+    commands:
+      - platform: xiaohongshu
+        cmd: "sau xiaohongshu check --account creator"
+      - platform: kuaishou
+        cmd: "sau kuaishou check --account creator"
+      - platform: douyin
+        cmd: "sau douyin check --account creator"
+      - platform: bilibili
+        cmd: "sau bilibili check --account creator"
+
+  # Step 4: 端到端验证
+  e2e_validation:
+    action: exec
+    cmd: "python tests/test_verify.py"
+    working_dir: "tools/social-auto-upload"
+
+  # Step 5: 进化引擎完整性
+  evolution_check:
+    action: read
+    files:
+      - "memory/evolution/EVOLUTION-PROTOCOL.md"
+      - "memory/evolution/SELF-IMPROVE-PROTOCOL.md"
+      - "memory/evolution/run-log.json"
+      - "memory/evolution/skill-performance.json"
+      - "memory/evolution/test-history.json"
+    validate: json_valid
+
+  # Step 6: 截图测试
+  screenshot_test:
+    action: exec
+    cmd: "powershell -ExecutionPolicy Bypass -File tools/screenshot.ps1"
+    validate: file_exists_and_size_gt_0
+
+  # Step 7: 生成验收报告
+  report:
+    action: write
+    target: "memory/evolution/validation-report-${{ date }}.md"
+
+  # Step 8: 更新测试历史
+  update_history:
+    action: write
+    target: "memory/evolution/test-history.json"
+    depends_on: [report]
+
+error_handling:
+  on_failure: continue
+  partial_report: true
