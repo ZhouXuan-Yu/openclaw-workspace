@@ -276,7 +276,7 @@ r = yn.daily_briefing()
 - `research start` 只生成计划，`research execute` 才执行研究
 - 服务启动超时（agent_manager + api_server 启动后 30s 内未就绪），需先启动 YouNavi.exe 主应用
 - GBK 编码问题可通过 Python bridge 绕过
-- ⚠️ 2026-06-27起持续不稳定：CLI 服务频繁启动超时，agent_manager/api_server 无日志写入，可能依赖/端口/配置问题。Fallback: SQLite 直读数据库 + web_search/web_fetch 替代
+- ⚠️ 2026-06-27起持续不稳定（至07-01连续5天失败）：CLI 服务频繁启动超时，agent_manager/api_server 无日志写入，可能依赖/端口/配置问题。Fallback: SQLite 直读数据库 + web_search/web_fetch 替代
 
 **Cron 自动化：**
 | 任务 | 时间 | 功能 |

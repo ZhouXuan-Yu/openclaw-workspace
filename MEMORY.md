@@ -58,6 +58,7 @@
 | OpenSpec 分析 | `topics/openspec-analysis.md` |
 | 架构增强 | `topics/openspec-arch-enhancements.md` |
 | GitHub 热门项目 | `topics/github-may-2026-projects.md` |
+| UI设计系统交叉分析 | `topics/design-systems-analysis.md` |
 | 战略思维伙伴 | `knowledge/strategic-thinking-partner.md`（MBB框架集+思维模型）|
 | 进化引擎 | `evolution/EVOLUTION-PROTOCOL.md` |
 | Skill 自进化 | `evolution/skill-evolution.md` + `evolution/skill-traces/` |
