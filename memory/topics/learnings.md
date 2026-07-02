@@ -1,10 +1,22 @@
 ﻿# 学习沉淀
 
-> 最后更新：2026-07-01
+> 最后更新：2026-07-02
 
 ---
 
-## Tool Calling 原则
+## 学习方法论
+
+### 交叉分析学习法（已验证有效）
+- **方法**: 收集N个同类高质量案例 → 横向交叉对比 → 提炼元系统
+- **实践**: 15个品牌 DESIGN.md → 交叉分析 → 元 DESIGN.md + 8场景模板
+- **关键**: 先读原规范再分析品牌，不从二手文章获取（遵循源码优先原则）
+- **2016设计趋势**: Kinetic Typography / Dark by Default / Cinematic Scrollytelling / Micro-Delight / Bento Grids
+- **来源**: Awwwards / CSSDA / Muzli / Mobbin 设计社区
+
+### 元设计系统构建
+- 场景化模板策略: 11种场景 × 首选+备选模板 × 理由
+- Techno-Futurist 方向: 暗底+霓虹+玻璃态+Bento Grid+微交互
+- 每个 DESIGN.md 含10大板块: 色彩/排版/材质/微交互/动效/数据可视化/可访问性/空状态/布局/Agent指南
 
 从 Claude Fable 5 进攻端提炼的 7 条原则：
 1. **工具优先级树** — 内部数据 > 搜索 > MCP
