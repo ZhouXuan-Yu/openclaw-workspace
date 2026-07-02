@@ -1,6 +1,6 @@
 ﻿# 重要决策记录
 
-> 最后更新：2026-06-26
+> 最后更新：2026-07-02
 
 ---
 
@@ -21,6 +21,8 @@
 | 2026-06-15 | Agent Skills 增量实现 + 对抗性审查 | 借鉴 Addy Osmani agent-skills，与现有体系互补 | RULES.md |
 | 2026-06-14 | Skill 自进化协议 v1 | 借鉴鲁班方法论，FIX/DERIVED/CAPTURED 三模式 + 调用轨迹 | evolution/skill-evolution.md |
 | 2026-06-14 | 小红书草稿模式 | AI 托管检测封禁，改为 save_as_draft 人工发布 | social-auto-upload CLI |
+| 2026-07-01 | UI设计系统:Techno-Futurist方向 | 深入Awwwards/CSSDA/Mobbin研究后确定暗底+霓虹+玻璃态+Bento Grid | 顶级UI设计/全部场景 |
+| 2026-07-01 | UI方案v1→v2推倒重来 | 用户反馈v1太简陋达不到标准，不犹豫直接重构 | 千亿项目UI方案 |
 
 ---
 

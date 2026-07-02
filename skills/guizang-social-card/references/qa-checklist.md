@@ -81,3 +81,42 @@ Run these only for posters where text touches a photo (full-bleed cover, large i
 - Show the main cover inline when useful.
 - Mention verification performed.
 - Mention any limitations, such as low-resolution source assets.
+
+## Data Density Checks (D1-D7)
+
+Run these for every data-heavy Swiss poster (S13/S14/S15 or any poster with `.num-mega`, `.h-bar`, `.compare-matrix`, `.kpi-insight`). Append to the standard checklist above.
+
+### D1 — SO WHAT present?
+
+Every data poster has at least one `.kpi-insight`, `.compare-conclusion`, or explicit takeaway sentence. No orphan numbers.
+
+### D2 — ≥3 typographic layers?
+
+Count distinct type roles. A poster with only `.num-mega` + `.t-cat` has 2 layers — add a body/insight/conclusion layer.
+
+### D3 — No chartjunk?
+
+- No gridlines, axis ticks, or data labels on bars (`.h-bar-val` is the label).
+- No unnecessary borders around data cells.
+- No decorative backgrounds behind numbers.
+- Every pixel serves data or readability.
+
+### D4 — Data source explicit?
+
+- Real data: source noted in design brief or page comment.
+- Hypothetical/demo: marked as "illustrative" in metadata.
+- Never present fabricated data as real.
+
+### D5 — 360px readable?
+
+Squint-test each `.num-mega`, `.h-bar`, `.num-xl`, `.compare-change`. If any data-carrying element disappears at phone width (~360px), increase contrast or weight.
+
+### D6 — ≥75% canvas filled?
+
+Run the 4-band density check above. Content must cover ≥3 bands with no single under-filled band >216px.
+
+### D7 — Spacing not crowded?
+
+Check each `--kpi-gap`/`--bar-gap`/grid gap. If two adjacent KPI blocks blur together, increase `--kpi-gap` by 8px. If H-Bar rows look like a solid block, increase `--bar-gap` by 4px.
+
+Any FAIL → fix the page plan before final delivery.

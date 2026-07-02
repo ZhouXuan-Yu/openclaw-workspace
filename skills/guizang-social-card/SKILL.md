@@ -66,6 +66,8 @@ Read these files as needed:
 - `references/theme-presets.md` when choosing electronic-magazine palettes or Swiss accent palettes.
 - `references/layout-recipes.md` when selecting carousel/social-card/WeChat page structures.
 - `references/components.md` for the shared component spec: font stacks, type scale, minimum readable sizes, Chinese title length bands, Swiss card-fill mutual-exclusion rule, image-container ratio classes, spacing tokens, and Lucide icon rules.
+- `references/data-components.md` for CSS-only data-visualization micro-components (KPI Tower, H-Bar Chart, Comparison Matrix) — Swiss only, v2 data-density enhancement.
+- `references/density-gate.md` for pre-render density quality checks — mandatory for any Swiss page using data components.
 - `references/background-systems.md` when building electronic-magazine WebGL/ink/paper backgrounds.
 - `references/portrait-fill.md` when adapting layouts to 3:4 and avoiding under-filled vertical space.
 - `references/content-planning.md` for cover hooks, page breakdown, and copy compression.
@@ -166,6 +168,19 @@ When the user asks for approval, show this plan before rendering. Otherwise use 
 Use `references/layout-recipes.md` to choose page structures. Avoid making every page a repeated title-plus-card layout.
 
 For 3:4 images, check `references/portrait-fill.md` before coding. A short table or ledger must be expanded into a full portrait composition with a quote column, image evidence, marginalia, larger rows, or a background hero zone.
+
+### 4a. Density Gate (data-heavy Swiss pages only)
+
+For any Swiss page that uses `.num-mega`, `.h-bar`, `.compare-matrix`, or `.kpi-insight`, run the Density Gate audit **before** proceeding to Step 4.5.
+
+Follow `references/density-gate.md`:
+
+1. **Phase 1: Plan Audit** — Fill the plan template for every data poster (info zones, hero:sidebar ratio, chart plan, component hierarchy, SO WHAT).
+2. **Phase 2: Pre-Render Checklist** — Check all 7 items (SO WHAT present, ≥3 typographic layers, no chartjunk, data source explicit, 360px readable, ≥75% canvas filled, spacing not crowded).
+
+If the gate fails, stop and redesign the page plan. Do not proceed to template copy and render.
+
+For non-data or Editorial pages, skip this gate.
 
 ### 4.5. Copy The Seed Template
 

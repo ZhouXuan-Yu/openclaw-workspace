@@ -51,6 +51,13 @@ Swiss scale (default for 3:4):
 | Mid title   | `.h-md`       |  56px | 400    | sans      |
 | Mega number | `.num-mega`   | 200px | 200    | sans      |
 | XL number   | `.num-xl`     | 144px | 200    | sans      |
+| KPI insight | `.kpi-insight`|  24px | 400    | sans-zh   |
+| H-Bar group | `.h-bar-group`|  —    | —      | —         |
+| H-Bar fill  | `.h-bar`      |  4px  | —      | —         |
+| H-Bar value | `.h-bar-val`  |  22px | 500    | mono      |
+| Compare title| `.compare-title`| 18px| 500    | mono      |
+| Compare change| `.compare-change`| 28px| 600 | mono      |
+| Compare conclusion| `.compare-conclusion`| 22px | 400 | sans-zh|
 | Lead        | `.lead`       |  30px | 400    | sans-zh   |
 | Body        | `.body`       |  26px | 400    | sans-zh   |
 | Category    | `.t-cat`      |  22px | 600    | sans      |
@@ -268,6 +275,31 @@ Both templates share the same primitives (different default gaps).
 | `.grid-12`       | n/a             | 12-col grid     | Swiss only.                          |
 | `.span-N`        | n/a             | grid column span| Swiss only.                          |
 | `.grid-3`        | 3 columns       | 3 columns       | Both.                                |
+
+## Data Component Classes (Swiss only)
+
+Added by v2 data-density enhancement. Only available in Swiss International mode.
+
+| Class | Rule |
+|-------|------|
+| `.kpi-stack` | Flex column, `gap: var(--kpi-gap, 24px)`. Wraps 2-4 `.kpi-block`s. |
+| `.kpi-block` | Flex column, `gap: var(--sp-3)`. Contains `.num-mega` + `.t-meta` + `.kpi-insight`. |
+| `.kpi-insight` | 24px, weight 400, sans-zh, positioned below the KPI unit. One-line So What conclusion. |
+| `.h-bar-group` | Flex column, `gap: var(--bar-gap, 8px)`. Contains 3-6 `.h-bar-row`s. |
+| `.h-bar-row` | Flex row, gap 12px. Left label + `.h-bar` (filling accent track) + right `.h-bar-val`. |
+| `.h-bar` | Height 4px, border-radius 2px, background `var(--accent)`. Width set inline as `style="width: 68%"`. |
+| `.h-bar-val` | 22px, weight 500, mono. Right-aligned numeric value. |
+| `.h-bar-baseline` | Dashed 1px transparent hairline behind bars (`.h-bar-group > .h-bar-baseline`). |
+| `.compare-matrix` | CSS Grid: 2 or 3 columns, `gap: 16px`. 2×2 to 3×2 `.compare-cell`s. |
+| `.compare-cell` | Padding 16px, border-radius 8px, background `var(--grey-1)`. Flex column. |
+| `.compare-title` | 22px, weight 600, sans. Top of cell. |
+| `.compare-change` | 28px, weight 500, mono. Inline with arrow. |
+| `.change-up` | Colored green; displays `↑` arrow before value. |
+| `.change-down` | Colored red; displays `↓` arrow before value. |
+| `.change-flat` | Colored grey; displays `→` arrow before value. |
+| `.compare-conclusion` | 20px, weight 400, sans-zh. Bottom of cell, default grey-4. |
+
+Note: `.num-mega` and `.num-xl` remain Swiss-only classes defined in the Type Scale table above. They are used inside `.kpi-block` and `.compare-cell` respectively.
 
 ## Hard Rules (Shared)
 

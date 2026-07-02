@@ -869,6 +869,144 @@
       margin-bottom: var(--sp-5);
     }
 
+    /* ---------- 14. Data components (density-enhanced) ----------
+       KPI Tower · H-Bar · Comparison Matrix
+       See references/data-components.md for full spec.
+       Added in data-density v1. CSS-only, no JS deps.
+    ---------- */
+
+    /* 14a. KPI Tower */
+    .kpi-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px; /* --kpi-gap */
+    }
+    .kpi-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+    .kpi-insight {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    /* 14b. H-Bar Chart (thin bar variant) */
+    .h-bar-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bar-gap, 8px);
+    }
+    .h-bar-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: var(--sp-6);
+      padding: var(--sp-3) 0;
+    }
+    .h-bar-row > .h-bar-track {
+      position: relative;
+      height: 4px;
+      background: var(--grey-1);
+      border-radius: 0;
+      width: 100%;
+    }
+    .h-bar-row > .h-bar-track > .h-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--accent);
+      width: var(--w, 50%);
+    }
+    .h-bar-baseline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 0;
+      border-top: 1px dashed var(--grey-2);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .h-bar-row > .h-bar-val {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: .04em;
+      color: var(--ink);
+      text-align: right;
+      min-width: 64px;
+      margin: 0;
+    }
+    .h-bar-label {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 24px;
+      color: var(--ink);
+      grid-column: 1 / -1;
+      margin: 0;
+    }
+    .poster.xhs .h-bar-row {
+      grid-template-columns: 1fr;
+      gap: var(--sp-4);
+    }
+    .poster.xhs .h-bar-row > .h-bar-val {
+      text-align: left;
+    }
+
+    /* 14c. Comparison Matrix */
+    .compare-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-5);
+    }
+    .compare-cell {
+      background: var(--grey-1);
+      padding: var(--sp-5);
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .compare-cell > .compare-title {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin: 0;
+    }
+    .compare-cell > .compare-change {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1;
+      margin: 0;
+    }
+    .compare-cell > .compare-conclusion {
+      font-family: var(--sans-zh);
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0;
+    }
+    .change-up   { color: #16a34a; }
+    .change-up::before   { content: "↑"; margin-right: .15em; }
+    .change-down { color: #dc2626; }
+    .change-down::before { content: "↓"; margin-right: .15em; }
+    .change-flat { color: var(--grey-3); }
+    .change-flat::before { content: "→"; margin-right: .15em; }
+    .poster.wide .compare-matrix { grid-template-columns: repeat(3, 1fr); }
+    .poster.xhs .compare-matrix  { grid-template-columns: repeat(2, 1fr); }
+
     /* ---------- 13. Hard rules (visual guard rails) ----------
        Swiss style refuses these — uncomment to find offenders.
     .poster *[style*="border-radius"],

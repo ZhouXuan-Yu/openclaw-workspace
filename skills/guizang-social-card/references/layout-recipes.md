@@ -809,6 +809,151 @@ HTML skeleton (3:4 — matrix collapses to 2 columns):
 
 Hard limits: 8 cells on 3:4 (2×4), 9 cells on 1:1 (3×3), 12 cells on 21:9 (4×3). Max one `is-accent` cell — two breaks the rhythm. The `num-mega` at bottom must agree with the cell count (`12` if 12 cells, `8` if 8); never display a number unsupported by the grid.
 
+### S13 KPI Tower Page
+
+Best for displaying 2-4 key metrics with vertical emphasis on the numbers and right-side context.
+
+Structure:
+
+- KPI tower in left column (35% typical width) + insight/chart column on the right (65% typical width).
+- Uses `.kpi-stack` from `references/data-components.md`. Each KPI: `.num-mega` + `.t-meta` + `.kpi-insight`.
+- Right column: `.lead` narrative, `.h-bar-group`, or small `.compare-matrix` as evidence.
+
+HTML skeleton (3:4):
+
+```html
+<section class="poster xhs" id="xhs-kpi-page">
+  <div class="content stack gap-7">
+    <p class="t-cat">KPI · 核心指标</p>
+    <h2 class="h-xl">半年回顾</h2>
+    <div class="row gap-10" style="flex:1; align-items:flex-start">
+      <div class="kpi-stack" style="width:35%">
+        <div class="kpi-block">
+          <p class="num-mega">132K</p>
+          <p class="t-meta">DAU</p>
+          <p class="kpi-insight">环比增长 12%,创近半年新高</p>
+        </div>
+        <div class="kpi-block">
+          <p class="num-mega">3.4×</p>
+          <p class="t-meta">SPEED</p>
+          <p class="kpi-insight">AI 辅助后完成速度提升 3.4×</p>
+        </div>
+      </div>
+      <div class="stack gap-7" style="width:65%">
+        <p class="lead">用户增长主要由新渠道和产品体验改善驱动。以下查看更多指标变化。</p>
+        <hr class="hr-hairline">
+        <p class="t-meta">详情见下一张</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+**Minimum density (3:4)**: 4 horizontal bands each ≥20%. Left column with 2-3 KPI blocks + right column with ≥2 content elements (narrative + rule + meta).
+
+### S14 H-Bar Comparison Page
+
+Best for ranking/comparing 3-6 items with bar lengths encoding relative magnitude.
+
+Structure:
+
+- `kicker` + `h-xl` page title.
+- `.h-bar-group` with 3-6 `.h-bar-row`s. Each row: `.h-bar-label` + `.h-bar-track` with `.h-bar` (width via `--w:NN%`) + `.h-bar-val`.
+- So What row at bottom: `.kpi-insight` or `.lead` summarizing the takeaway.
+
+HTML skeleton (3:4):
+
+```html
+<section class="poster xhs" id="xhs-hbar">
+  <div class="content stack gap-7">
+    <p class="t-cat">Ranking · TOP 6</p>
+    <h2 class="h-xl">工具使用率</h2>
+    <div class="h-bar-group" style="flex:1; justify-content:center">
+      <div class="h-bar-row">
+        <p class="h-bar-label">Claude Code</p>
+        <div class="h-bar-track"><div class="h-bar" style="--w:94%"></div></div>
+        <p class="h-bar-val">94%</p>
+      </div>
+      <div class="h-bar-row">
+        <p class="h-bar-label">Cursor</p>
+        <div class="h-bar-track"><div class="h-bar" style="--w:78%"></div></div>
+        <p class="h-bar-val">78%</p>
+      </div>
+      <div class="h-bar-row">
+        <p class="h-bar-label">Linear</p>
+        <div class="h-bar-track"><div class="h-bar" style="--w:62%"></div></div>
+        <p class="h-bar-val">62%</p>
+      </div>
+      <div class="h-bar-row">
+        <p class="h-bar-label">Raycast</p>
+        <div class="h-bar-track"><div class="h-bar" style="--w:48%"></div></div>
+        <p class="h-bar-val">48%</p>
+      </div>
+    </div>
+    <div>
+      <p class="kpi-insight">前两名占据 80% 以上使用率,头部效应明显</p>
+    </div>
+  </div>
+</section>
+```
+
+**Minimum density (3:4)**: bar region ≥50% of canvas height (≥720px). Each bar row with label + track + value. So What row present at bottom.
+
+Bar spacing: `--bar-gap: 8px`. No gridlines, no borders between rows.
+
+Adapt for 21:9: keep the same structure but shift to 3-column grid (label | track | value in one row). Adapt for 1:1: limit to 4 rows max.
+
+### S15 Comparison Matrix
+
+Best for before/after, product A/B, or period-over-period comparisons in a 2×2 or 3×2 grid.
+
+Structure:
+
+- `kicker` + `h-xl` page title.
+- `.compare-matrix` grid of 4-6 `.compare-cell`s.
+- Each cell: `.compare-title` (mono label) → `.num-xl` (big number) → `.compare-change` with arrow class (`change-up`/`change-down`/`change-flat`) → `.compare-conclusion` (one-line So What).
+
+HTML skeleton (3:4):
+
+```html
+<section class="poster xhs" id="xhs-compare">
+  <div class="content stack gap-7">
+    <p class="t-cat">Comparison · 对比</p>
+    <h2 class="h-xl">上半年 vs 下半年</h2>
+    <div class="compare-matrix" style="flex:1">
+      <div class="compare-cell">
+        <p class="compare-title">01 · DAU</p>
+        <p class="num-xl">132K</p>
+        <p class="compare-change change-up">+12.4%</p>
+        <p class="compare-conclusion">新用户留存率上升带动了 DAU 增长</p>
+      </div>
+      <div class="compare-cell">
+        <p class="compare-title">02 · Task Completion</p>
+        <p class="num-xl">68%</p>
+        <p class="compare-change change-down">−3.2%</p>
+        <p class="compare-conclusion">复杂任务占比上升,简单任务已饱和</p>
+      </div>
+      <div class="compare-cell">
+        <p class="compare-title">03 · Avg Session</p>
+        <p class="num-xl">24m</p>
+        <p class="compare-change change-flat">+0.2%</p>
+        <p class="compare-conclusion">基本持平,用户习惯已稳定</p>
+      </div>
+      <div class="compare-cell">
+        <p class="compare-title">04 · Conversion</p>
+        <p class="num-xl">8.2%</p>
+        <p class="compare-change change-up">+1.8%</p>
+        <p class="compare-conclusion">新引导流程上线后首次突破 8%</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+**Minimum density (3:4)**: 4 horizontal bands each ≥20%. No empty cells — all four components (title, number, delta, conclusion) required per cell.
+
+Adapt for 21:9: use 3-column grid (3×2, 6 cells). Adapt for 1:1: keep 2×2 with shorter conclusions.
+
 ## WeChat Adaptation
 
 For 21:9:

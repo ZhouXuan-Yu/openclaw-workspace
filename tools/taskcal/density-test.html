@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="ikb">
+<head>
+  <meta charset="utf-8">
+  <title>Density Gate Test — KPI Tower + H-Bar</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+SC:wght@200;300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --paper: #fafaf8;
+      --ink: #0a0a0a;
+      --grey-1: #f0f0ee;
+      --grey-2: #d4d4d2;
+      --grey-3: #737373;
+      --grey-4: #525252;
+      --accent: #002FA7;
+      --accent-on: #ffffff;
+      --sp-3: 8px; --sp-4: 12px; --sp-5: 16px; --sp-6: 24px;
+      --sp-7: 32px; --sp-8: 40px; --sp-9: 48px; --sp-10: 64px;
+      --sp-12: 96px;
+      --kpi-gap: 24px; --bar-gap: 8px;
+    }
+
+    .poster {
+      width: 1080px; height: 1440px;
+      background: var(--paper);
+      display: flex; flex-direction: column;
+      padding: var(--sp-12);
+      font-family: 'Noto Sans SC','Inter',sans-serif;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    /* ----- Type ----- */
+    .h-xl { font-size:72px; font-weight:300; font-family:Inter,sans-serif; line-height:1.1; }
+    .h-md { font-size:40px; font-weight:400; line-height:1.2; }
+    .lead { font-size:28px; font-weight:400; color: var(--grey-4); }
+    .t-cat { font-size:18px; font-weight:600; font-family:Inter,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+    .t-meta { font-size:16px; font-weight:500; font-family:'IBM Plex Mono',monospace; color:var(--grey-3); }
+    .body { font-size:24px; font-weight:400; line-height:1.5; }
+
+    /* ----- KPI Tower ----- */
+    .kpi-stack { display:flex; flex-direction:column; gap:var(--kpi-gap); }
+    .kpi-block { display:flex; flex-direction:column; gap:var(--sp-3); }
+    .num-mega { font-size:200px; font-weight:200; font-family:Inter,sans-serif; line-height:.95; color:var(--ink); }
+    .kpi-insight { font-size:24px; font-weight:400; color:var(--grey-4); }
+
+    /* ----- H-Bar ----- */
+    .h-bar-group { display:flex; flex-direction:column; gap:var(--bar-gap); position:relative; }
+    .h-bar-row { display:flex; align-items:center; gap:12px; }
+    .h-bar-label { font-size:22px; font-weight:500; min-width:120px; }
+    .h-bar-track { flex:1; height:4px; background:var(--grey-2); border-radius:2px; overflow:hidden; }
+    .h-bar { height:4px; background:var(--accent); border-radius:2px; }
+    .h-bar-val { font-size:20px; font-weight:500; font-family:'IBM Plex Mono',monospace; min-width:48px; text-align:right; }
+
+    /* ----- Compare Matrix ----- */
+    .compare-matrix { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .compare-cell { padding:16px; background:var(--grey-1); border-radius:8px; display:flex; flex-direction:column; gap:8px; }
+    .compare-title { font-size:20px; font-weight:600; color:var(--grey-4); }
+    .num-xl { font-size:100px; font-weight:200; font-family:Inter,sans-serif; line-height:1; }
+    .change-up { color:#16a34a; }
+    .change-up::before { content:"↑ "; }
+    .change-down { color:#dc2626; }
+    .change-down::before { content:"↓ "; }
+    .change-flat { color:var(--grey-3); }
+    .change-flat::before { content:"→ "; }
+    .compare-conclusion { font-size:18px; font-weight:400; color:var(--grey-4); }
+
+    .section-gap { margin-top:var(--sp-8); }
+    .section-title { font-size:22px; font-weight:500; font-family:'IBM Plex Mono',monospace; color:var(--grey-3); margin-bottom:var(--sp-6); letter-spacing:.04em; }
+    .source-line { font-size:16px; color:var(--grey-3); margin-top:auto; padding-top:var(--sp-6); border-top:1px solid var(--grey-2); }
+  </style>
+</head>
+<body>
+<!-- ===== Poster 1: KPI Tower (S13) ===== -->
+<section class="poster xhs">
+  <span class="t-cat">AI Agent 内存架构</span>
+  <h1 class="h-xl" style="margin-top:var(--sp-4)">Memory System<br>Benchmarks</h1>
+  <p class="lead" style="margin-top:var(--sp-5)">4-Layer memory vs. baseline RAG — 2026 H1 内部测试</p>
+
+  <div class="section-gap">
+    <div class="section-title">KEY METRICS</div>
+    <div class="kpi-stack">
+      <div class="kpi-block">
+        <div class="num-mega">93.8<span style="font-size:48px;">%</span></div>
+        <div class="t-meta">Recall Precision · L4 Session Transcript</div>
+        <div class="kpi-insight">跨天对话回忆准确率从 68% 提升到 93.8%</div>
+      </div>
+      <div class="kpi-block">
+        <div class="num-mega">2.1<span style="font-size:48px;">s</span></div>
+        <div class="t-meta">P95 Retrieval Latency · Memory Search</div>
+        <div class="kpi-insight">4 层索引方案比单层 RAG 快 3.7x，P95 稳定在 2.1s</div>
+      </div>
+      <div class="kpi-block">
+        <div class="num-mega">97.2<span style="font-size:48px;">GB</span></div>
+        <div class="t-meta">Total Token Savings · Monthly</div>
+        <div class="kpi-insight">L1索引 + topic 分片节省每月 97.2GB 上下文 tokens</div>
+      </div>
+    </div>
+  </div>
+  <div class="source-line">Source: OpenClaw Memory Bench v4 · 2026-06-30 snapshot · N=1,247 queries</div>
+</section>
+
+<!-- ===== Poster 2: H-Bar Comparison (S14) ===== -->
+<section class="poster xhs">
+  <span class="t-cat">Model Performance</span>
+  <h1 class="h-xl" style="margin-top:var(--sp-4)">Task Completion<br>by Model</h1>
+  <p class="lead" style="margin-top:var(--sp-5)">相同 50-task benchmark，5 个模型横向对比</p>
+
+  <div class="section-gap">
+    <div class="section-title">TASK SUCCESS RATE (n=50)</div>
+    <div class="h-bar-group">
+      <div class="h-bar-row">
+        <span class="h-bar-label">DeepSeek v4 Pro</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:94%"></div></div>
+        <span class="h-bar-val">94%</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">DeepSeek v4 Flash</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:87%"></div></div>
+        <span class="h-bar-val">87%</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">Claude 4 Sonnet</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:82%"></div></div>
+        <span class="h-bar-val">82%</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">GPT-5 Mini</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:76%"></div></div>
+        <span class="h-bar-val">76%</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">Gemini 2.5 Pro</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:71%"></div></div>
+        <span class="h-bar-val">71%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-gap" style="margin-top:auto">
+    <div class="section-title">COST PER TASK</div>
+    <div class="h-bar-group">
+      <div class="h-bar-row">
+        <span class="h-bar-label">Flash</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:15%; background:var(--grey-3)"></div></div>
+        <span class="h-bar-val">$0.02</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">GPT-5 Mini</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:35%; background:var(--grey-3)"></div></div>
+        <span class="h-bar-val">$0.08</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">Pro</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:50%; background:var(--grey-3)"></div></div>
+        <span class="h-bar-val">$0.12</span>
+      </div>
+      <div class="h-bar-row">
+        <span class="h-bar-label">Claude</span>
+        <div class="h-bar-track"><div class="h-bar" style="width:100%; background:var(--grey-3)"></div></div>
+        <span class="h-bar-val">$0.24</span>
+      </div>
+    </div>
+  </div>
+  <div class="source-line">Source: Internal auto-eval pipeline · 2026-06-28 · All tasks include tool-call rounds</div>
+</section>
+
+<!-- ===== Poster 3: Comparison Matrix (S15) ===== -->
+<section class="poster xhs">
+  <span class="t-cat">Evolution Engine</span>
+  <h1 class="h-xl" style="margin-top:var(--sp-4)">Self-Improvement<br>Loop Metrics</h1>
+  <p class="lead" style="margin-top:var(--sp-5)">FIX / DERIVED / CAPTURED 三个月运行对比</p>
+
+  <div class="section-gap">
+    <div class="compare-matrix">
+      <div class="compare-cell">
+        <div class="compare-title">FIX · 失败自动修复</div>
+        <div class="num-xl">89<span style="font-size:32px;">%</span></div>
+        <div class="change-up" style="font-size:24px;font-weight:600;">12pp</div>
+        <div class="compare-conclusion">失败后自主修复成功率，从 77→89%</div>
+      </div>
+      <div class="compare-cell">
+        <div class="compare-title">DERIVED · 增强生成</div>
+        <div class="num-xl">43</div>
+        <div class="change-flat" style="font-size:24px;font-weight:600;">±0</div>
+        <div class="compare-conclusion">新增强版 Skill 数量，本月与上月持平</div>
+      </div>
+      <div class="compare-cell">
+        <div class="compare-title">CAPTURED · 模式捕获</div>
+        <div class="num-xl">17</div>
+        <div class="change-up" style="font-size:24px;font-weight:600;">5pp</div>
+        <div class="compare-conclusion">成功复用模式数，较上月 +5</div>
+      </div>
+      <div class="compare-cell">
+        <div class="compare-title">Trust Score Mean</div>
+        <div class="num-xl">0.82</div>
+        <div class="change-up" style="font-size:24px;font-weight:600;">0.06</div>
+        <div class="compare-conclusion">Agent 可信度评分均值从 0.76→0.82</div>
+      </div>
+    </div>
+  </div>
+  <div class="source-line">Source: memory/evolution/test-history.json · 2026Q2 window · N=386 events</div>
+</section>
+
+</body>
+</html>
