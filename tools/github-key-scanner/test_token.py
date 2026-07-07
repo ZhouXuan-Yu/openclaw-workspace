@@ -1,5 +1,5 @@
-import requests
-t = "GH_PAT_REMOVED"
+import os, requests
+t = os.environ.get("GITHUB_TOKEN", "")
 h = {"Accept": "application/vnd.github.v3.text-match+json", "Authorization": f"token {t}"}
 queries = [
     "api_key filename:.env pushed:>2026-06-25",

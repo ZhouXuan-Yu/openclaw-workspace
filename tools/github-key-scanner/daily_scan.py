@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from collections import Counter, defaultdict
 
-GITHUB_TOKEN = "GH_PAT_REMOVED"
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 HISTORY_JSON = Path("tools/github-key-scanner/scan_history.json")
 LOG_MD = Path("docs/github-key-scan-log.md")
 OBSIDIAN_DIR = Path("E:/Obsidian仓库/ZhouXuan私人领域/密钥存储")

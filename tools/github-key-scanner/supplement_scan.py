@@ -1,9 +1,9 @@
 """补扫第一批中断的供应商"""
-import requests, re, time, json, base64
+import os, requests, re, time, json, base64
 from datetime import datetime
 from pathlib import Path
 
-GITHUB_TOKEN = "GH_TOKEN_REMOVED"
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
 def gh_headers():
     h = {"Accept": "application/vnd.github.v3.text-match+json"}

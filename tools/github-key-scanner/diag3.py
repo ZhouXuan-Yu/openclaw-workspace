@@ -1,7 +1,7 @@
-import requests, warnings, json
+import os, requests, warnings, json
 warnings.filterwarnings("ignore")
 
-token = "GH_PAT_REMOVED"
+token = os.environ.get("GITHUB_TOKEN", "")
 headers = {"Authorization": f"token {token}"}
 
 # Same query as daily_scan.py uses
