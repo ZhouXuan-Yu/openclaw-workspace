@@ -5,17 +5,19 @@
 ---
 
 ## 总览
-- **累计**: 101 密钥, 78 仓库
-- **最后**: 2026-07-02 15:31
+- **累计**: 129 密钥, 102 仓库
+- **最后**: 2026-07-05 14:41
 
 ### 供应商分布
 
 | 供应商 | 泄露数 |
 |--------|--------|
-| Google Gemini | 78 |
-| OpenAI Proj | 11 |
-| Anthropic | 5 |
-| OpenAI类 | 3 |
+| Google Gemini | 95 |
+| OpenAI Proj | 15 |
+| Anthropic | 7 |
+| OpenAI类 | 4 |
+| Unknown | 2 |
+| MiniMax JWT | 2 |
 | 百川智能 | 1 |
 | HuggingFace | 1 |
 | Groq | 1 |
@@ -23,6 +25,49 @@
 
 ---
 ## 历史
+
+### 2026-07-05
+> 扫描 38 个，**新增 0** 个
+
+### 2026-07-05
+> 扫描 80 个，**新增 9** 个
+
+| 1 | Google Gemini | Bikiran007/Ai-Story-Generator | `app.py` | `AIzaSyDM...Ls9M` | [查看](https://github.com/Bikiran007/Ai-Story-Generator/blob/acc53ce7495bf72badb9cbd87d2509cc9d899cd6/app.py) |
+| 2 | Google Gemini | PaulKinlan/PSITools | `run.py` | `AIzaSyBf...uGr0` | [查看](https://github.com/PaulKinlan/PSITools/blob/d1b6eed6dce5306348febc176b7a4b471e4399a5/run.py) |
+| 3 | Google Gemini | TanishSh/GreenSleuth | `app.py` | `AIzaSyD_...4jTA` | [查看](https://github.com/TanishSh/GreenSleuth/blob/b8e87e9202eaaa3c7090435faacee80c209cbd16/app.py) |
+| 4 | Google Gemini | joshuawoodapu/when-and-where | `App.js` | `AIzaSyDC...kBak` | [查看](https://github.com/joshuawoodapu/when-and-where/blob/fd5c38a20bdf765969cead9c8329ff935ea95fa3/App.js) |
+| 5 | Google Gemini | joshuawoodapu/when-and-where | `App.js` | `AIzaSyBw...HS5g` | [查看](https://github.com/joshuawoodapu/when-and-where/blob/fd5c38a20bdf765969cead9c8329ff935ea95fa3/App.js) |
+| 6 | Google Gemini | sujay-sn/deptEventsapp | `fb.js` | `AIzaSyBu...CbnI` | [查看](https://github.com/sujay-sn/deptEventsapp/blob/0b1c8eb91ba82acbd21c2ed15d004f1b41240650/fb.js) |
+| 7 | Unknown | innerpixel/cstcp-icp-qtime-continuum | `.env_mistral_api_key` | `bgtVtnTt...KusQ` | [查看](https://github.com/innerpixel/cstcp-icp-qtime-continuum/blob/e4c1a3fb09c19a450d741fbffe6121d37a8b1d24/.env_mistral_api_key) |
+| 8 | MiniMax JWT | 1609676823/HeyGem.ai | `.env.development` | `eyJhbGci...VCJ9` | [查看](https://github.com/1609676823/HeyGem.ai/blob/2e817976a59818e1c2d81b55749e753b6ae04f29/.env.development) |
+| 9 | MiniMax JWT | 1609676823/HeyGem.ai | `.env.development` | `eyJHcm91...gifQ` | [查看](https://github.com/1609676823/HeyGem.ai/blob/2e817976a59818e1c2d81b55749e753b6ae04f29/.env.development) |
+
+### 2026-07-04
+> 扫描 75 个，**新增 4** 个
+
+| 1 | OpenAI Proj | tonszazo-lang/raqqa | `config.py` | `sk-proj-...BbwA` | [查看](https://github.com/tonszazo-lang/raqqa/blob/5718be4d2d5d7b96e703215269dc5f6c5946c5fb/config.py) |
+| 2 | OpenAI Proj | rlaxogns77/streamlit | `app.py` | `sk-proj-...jrsA` | [查看](https://github.com/rlaxogns77/streamlit/blob/aa2fbb2081a84f4867542844a82b10d0392cb30b/app.py) |
+| 3 | OpenAI Proj | said4244/openai-realtime-livekit | `main.py` | `sk-proj-...----` | [查看](https://github.com/said4244/openai-realtime-livekit/blob/2c1b5940a93d48394ecc18ede402cdfbfe4414e4/main.py) |
+| 4 | OpenAI Proj | mrahmdi/Thatis | `main.py` | `sk-proj-...HZAA` | [查看](https://github.com/mrahmdi/Thatis/blob/1a614d399e93d9d68e05daacfe9cc4e2bca5e226/main.py) |
+
+### 2026-07-04
+> 扫描 101 个，**新增 15** 个
+
+| 1 | OpenAI类 | boliyushe/my_openrouter_proxy | `app.py` | `sk-or-v1...2f12` | [查看](https://github.com/boliyushe/my_openrouter_proxy/blob/0a588f857a90fed0dd964e2cc56e79e03d5533b1/app.py) |
+| 2 | Anthropic | koding-fantasi/kontas-web | `env.txt` | `sk-ant-a...0000` | [查看](https://github.com/koding-fantasi/kontas-web/blob/6508fa8ba3908ba81bcf20154503566f22d8053c/env.txt) |
+| 3 | Anthropic | Ladorigvava/thekeyssystemstricoreai | `.env.txt` | `sk-ant-a...FwAA` | [查看](https://github.com/Ladorigvava/thekeyssystemstricoreai/blob/9c732cde12a14f7ef466ee9bde841f8b54e5c652/.env.txt) |
+| 4 | Google Gemini | waikup/server | `tts.js` | `AIzaSyAT...T1aM` | [查看](https://github.com/waikup/server/blob/013ac6f55538dbdc0620316d2d38b733400fc56e/tts.js) |
+| 5 | Google Gemini | Anjalita/LifeLink-Blood-and-Health-Network | `in.js` | `AIzaSyCl...-Ro0` | [查看](https://github.com/Anjalita/LifeLink-Blood-and-Health-Network/blob/81a1e45c76a3af70201676d32cd158e8dd8ba853/in.js) |
+| 6 | Google Gemini | Anuga123/Anuwh-MD-V1-bot | `img.js` | `AIzaSyAE...LUFo` | [查看](https://github.com/Anuga123/Anuwh-MD-V1-bot/blob/1fd01b9ab4c98e0aa99499e70477f9ccdcb0fdf8/img.js) |
+| 7 | Google Gemini | rentals19/rentapps | `.js` | `AIzaSyBv...8KpU` | [查看](https://github.com/rentals19/rentapps/blob/ae8555f22e9b67b73c1be53ce8095d46cb3d8ff0/.js) |
+| 8 | Google Gemini | Akshay0932/My-Java | `ak.js` | `AIzaSyA0...BbNs` | [查看](https://github.com/Akshay0932/My-Java/blob/91ac7c846a44f0d5fb3c8411ab75f776ecf85a2d/ak.js) |
+| 9 | Google Gemini | spiralgalaxytrs/onewaytaxis | `bb.js` | `AIzaSyCs...H6Ao` | [查看](https://github.com/spiralgalaxytrs/onewaytaxis/blob/a6b4ab2d80603d6d7222f9e932f07e365ab63129/bb.js) |
+| 10 | Google Gemini | vinodMS/Translation_API_Server_Concorde | `mt.js` | `AIzaSyCU...cdJQ` | [查看](https://github.com/vinodMS/Translation_API_Server_Concorde/blob/2e2670d74b3f42995840c7b4759214eba81a315b/mt.js) |
+| 11 | Google Gemini | OndrejHj04/stock | `db.js` | `AIzaSyDX...rSnk` | [查看](https://github.com/OndrejHj04/stock/blob/e8f4cfe7a51b84335f982ce551855555135b640e/db.js) |
+| 12 | Google Gemini | m-cnan/Quizzler | `.env.js` | `AIzaSyCx...uL1k` | [查看](https://github.com/m-cnan/Quizzler/blob/f1943f3606e6198d6064ebb770bef6b680126c43/.env.js) |
+| 13 | Google Gemini | pankilhas2/audio_pank | `.env.local.txt` | `AIzaSyBh...y6GE` | [查看](https://github.com/pankilhas2/audio_pank/blob/04012601e3862dc362e3c849cddc3f72aa399b04/.env.local.txt) |
+| 14 | Unknown | iLiaxxxiLiev/multi_agent_interview_coach | `.env.save` | `6FAwvg2g...0kQd` | [查看](https://github.com/iLiaxxxiLiev/multi_agent_interview_coach/blob/31b50effe70cc3d3c4d4a03b60287ae775241099/.env.save) |
+| 15 | Google Gemini | jordytje1/discord-open-source-bot | `config.js` | `AIzaSyDz...vd8U` | [查看](https://github.com/jordytje1/discord-open-source-bot/blob/f029b8c6d777c7f683fb6f96e27c555fccc07b7c/config.js) |
 
 ### 2026-07-02
 > 扫描 42 个，**新增 23** 个
@@ -160,4 +205,4 @@
 | 1 | 百川智能 | 1Reminding/MediChain-LLM-Agent | `源码及数据库文件/medicine/smart-medicine-main/smart-medicine-main/smart-medicine-main/.env` | `sk-098c3...58e4` | [查看](https://github.com/1Reminding/MediChain-LLM-Agent/blob/ed3c3f795311d5d3dc31909013e5fa699e5d5d22/.../.env) |
 
 ---
-> 更新于 2026-07-02 15:31
+> 更新于 2026-07-05 14:41
