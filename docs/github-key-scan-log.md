@@ -5,8 +5,8 @@
 ---
 
 ## 总览
-- **累计**: 129 密钥, 102 仓库
-- **最后**: 2026-07-05 14:41
+- **累计**: 136 密钥, 108 仓库
+- **最后**: 2026-07-07 14:53
 
 ### 供应商分布
 
@@ -15,16 +15,31 @@
 | Google Gemini | 95 |
 | OpenAI Proj | 15 |
 | Anthropic | 7 |
-| OpenAI类 | 4 |
+| OpenAI类 | 7 |
+| MiniMax JWT | 4 |
+| Groq | 3 |
 | Unknown | 2 |
-| MiniMax JWT | 2 |
 | 百川智能 | 1 |
 | HuggingFace | 1 |
-| Groq | 1 |
 | Replicate | 1 |
 
 ---
 ## 历史
+
+### 2026-07-07
+> 扫描 58 个，**新增 2** 个
+
+| 1 | OpenAI类 | ngangsi-dev/lead-generation-ai | `.env.txt` | `sk-beee4...52ca` | [查看](https://github.com/ngangsi-dev/lead-generation-ai/blob/20f2252e15062819e4cecb157601839966b5a453/.env.txt) |
+| 2 | OpenAI类 | huwenbo1866/AI_making | `server/.env.multi` | `sk-viyml...zycl` | [查看](https://github.com/huwenbo1866/AI_making/blob/eec40c9dffdafbe022260ecf2f4d9e5c17606b49/server/.env.multi) |
+
+### 2026-07-07
+> 扫描 85 个，**新增 5** 个
+
+| 1 | Groq | pankilhas2/postcard | `.env.local.txt` | `gsk_nlzc...Uabq` | [查看](https://github.com/pankilhas2/postcard/blob/f08ebfd58985ade1956a8f6f52d036313462783a/.env.local.txt) |
+| 2 | Groq | Krut369/guru_nest | `.env.dart` | `gsk_Qnp5...ylm9` | [查看](https://github.com/Krut369/guru_nest/blob/545cef9c020d913fb3f3f2e9d91ec451a624de4f/.env.dart) |
+| 3 | OpenAI类 | cutelove/Davinci-demos | `demos/.env.cc` | `sk-42geL...keUO` | [查看](https://github.com/cutelove/Davinci-demos/blob/73d9b5e262b4b1ff0808b5d88bb268a0b69f15f8/demos/.env.cc) |
+| 4 | MiniMax JWT | mis007/4 | `.env.demo` | `eyJhbGci...VCJ9` | [查看](https://github.com/mis007/4/blob/79d3c854dc92868d9b80645fecd3bc2e9988e7c9/.env.demo) |
+| 5 | MiniMax JWT | mis007/4 | `.env.demo` | `eyJHcm91...4In0` | [查看](https://github.com/mis007/4/blob/79d3c854dc92868d9b80645fecd3bc2e9988e7c9/.env.demo) |
 
 ### 2026-07-05
 > 扫描 38 个，**新增 0** 个
@@ -205,4 +220,4 @@
 | 1 | 百川智能 | 1Reminding/MediChain-LLM-Agent | `源码及数据库文件/medicine/smart-medicine-main/smart-medicine-main/smart-medicine-main/.env` | `sk-098c3...58e4` | [查看](https://github.com/1Reminding/MediChain-LLM-Agent/blob/ed3c3f795311d5d3dc31909013e5fa699e5d5d22/.../.env) |
 
 ---
-> 更新于 2026-07-05 14:41
+> 更新于 2026-07-07 14:53
