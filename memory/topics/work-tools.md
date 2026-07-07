@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-06-26
+> 最后更新:2026-07-07
 
 ---
 
@@ -36,6 +36,25 @@
 | cover-gen.py | 本地配图生成(Pillow) | 2026-06-12 |
 | tracker.py | 发布数据追踪 | 2026-06-12 |
 | YouNavi CLI | 对话分析/深度研究/音频转写 | 2026-06-12 |
+
+---
+
+## ⚠️ GitHub 每日推送规则（2026-07-07 用户指令）
+
+**规则**: 每次修改工作区文件后必须立即 git push，不攒批。优先级最高。
+
+```powershell
+cd C:\Users\ZhouXuan\.openclaw\workspace
+git add -A
+git commit -m "类型: 描述"
+git push
+```
+
+**新增 cron 任务**:
+| 任务 | 时间 | 功能 |
+|------|------|------|
+| github-trends-daily | 每日 16:00 | GitHub 趋势推送 → WeChat |
+| github-trends-weekly | 周日 16:30 | 周度趋势报告 → Obsidian + WeChat 摘要 |
 
 ---
 
