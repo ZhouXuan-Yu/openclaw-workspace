@@ -33,7 +33,8 @@
 | 06-14 | 视频号上传: locator超时先检查URL重定向，不是元素不可见 |
 | 06-15 | GitHub热门项目分析: 10个项目，Agent工程化趋势（skills/codegraph/agentmemory） |
 | 06-15 | v5进化: Think Tool(Devin)+Mode Router(Kiro)+Self-Verify(Devin), 健康检查89/98(A) |
-| 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表 |
+| 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表
+| 07-07 | ⭐ GitHub 每日推送：每次修改立即 git push，不攒批，优先级最高 |
 
 ## 主题索引
 | 主题 | 位置 |
