@@ -98,43 +98,25 @@
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
 
-## Promoted From Short-Term Memory (2026-06-21)
+## Promoted From Short-Term Memory (2026-07-13)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:27:28 -->
-- 小红书封号修复: `tools/social-auto-upload/uploader/xiaohongshu_uploader/main.py` — XiaoHongShuNote 类; `tools/social-auto-upload/sau_cli.py` — CLI --draft 参数 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:27-28]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:31:34 -->
-- 01:05 多平台发布结果: 抖音: ✅ 自动发布成功; 快手: ✅ 定时发布 (03:11); B站: ✅ biliup 上传成功; 视频号: ❌ cookie过期，需重新扫码 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:31-34]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:35:35 -->
-- 01:05 多平台发布结果: 小红书: 📝 草稿箱待手动发布（AI声明+微调） [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:35-35]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:37:39 -->
-- 01:05 多平台发布结果: **视频信息**: evolution_v2.mp4, 4.2MB, 4.2min **卡片风格**: Swiss International (guizang-social-card) **配音**: zh-CN-YunyangNeural (沉稳男声) [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:37-39]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:45:45 -->
-- 01:50 GitHub 5月热门项目分析: 分析了逛逛GitHub公众号推荐的10个项目，逐个看README，写入 `topics/github-may-2026-projects.md`。 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:45-45]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:47:47 -->
-- 01:50 GitHub 5月热门项目分析: **重点学习**: [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:47-47]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:27:27 -->
-- v5/v5.1 架构进化: Agent Skills: Doubt-Driven Development + Incremental Implementation（源�?Addy Osmani�?- 反偷懒表: Agent 常用借口 + 反驳 [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:27-27]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:33:34 -->
-- System Prompt 收集: **范围**: 20+ 工具�?6 个文�?**工具列表**: Dify, Coze, FastGPT, Cursor, Windsurf, Claude Code, Lovable, Bolt, Replit, Devin, OpenHands, SWE-Agent, Augment Code, GitHub Copilot, Trae, Roo Code, Cline, Kilo Code, Kiro, Aider, Goose, Open Interpreter, Amazon Q Developer, Gemini Code Assist, Tabnine, Qodo, Microsoft Copilot **存储位置**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\` 下按工具名建文件�? [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:33-34]
-
-## Promoted From Short-Term Memory (2026-06-22)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:37:40 -->
-- Agent Skills 深度解析: **来源**: Addy Osmani (Google Chrome 团队) **内容**: 24 �?Skill 覆盖完整开发生命周�?(DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP) **最值得复用**: doubt-driven-development, incremental-implementation, context-engineering, spec-driven-development, anti-rationalization **文档位置**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Addy-Osmani-Agent-Skills深度解析.md` [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:37-40]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:44:45 -->
-- AI Agent 未来发展方向报告: **产出**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\AI-Agent未来发展方向研究报告.md` **六大方向**: 记忆系统 / Skill驱动工作�?/ 多智能体协作 / 自进�?/ 可信Agent / 具身�?**数据来源**: YouNavi深度研究×2 + Agent Skills分析 + v5/v5.1实战 + 20+工具System Prompt + GitHub热门项目 [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:44-45]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:49:50 -->
-- security-check cron 超时修复: **问题**: timeout 60s 导致大量命令执行失败 **修复**: timeout 60s �?300s，payload 增加 timeout 字段 [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:49-50]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:24:24 -->
-- v5/v5.1 架构进化: **v5 组件**: [score=0.836 recalls=0 avg=0.620 source=memory/2026-06-16.md:24-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:26:26 -->
-- 小红书封号修复: **修改文件**: [score=0.827 recalls=0 avg=0.620 source=memory/2026-06-15.md:26-26]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:29:29 -->
-- v5/v5.1 架构进化: **健康检�?*: 89/98 (A) [score=0.822 recalls=0 avg=0.620 source=memory/2026-06-16.md:29-29]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:5:5 -->
-- 记忆巡检: **时间**: 09:00 [score=0.816 recalls=0 avg=0.620 source=memory/2026-06-16.md:5-5]
-
-## Promoted From Short-Term Memory (2026-06-23)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:26:26 -->
-- v5/v5.1 架构进化: **v5.1 组件**: [score=0.805 recalls=0 avg=0.620 source=memory/2026-06-16.md:26-26]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:69:69 -->
+- 质量评估: **子 Agent 的上下文缺失问题**： [score=0.906 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:69-69]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:76:79 -->
+- 适合蜂群的场景 ✅: | 场景 | 质量 | 说明 | |------|------|------| | 批量读文件 | ✅ 好 | 读 20 个文件各自独立，不需要背景 | | 批量搜索（不同关键词） | ✅ 好 | 每个搜索自包含 | [score=0.906 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:76-79]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:80:82 -->
+- 适合蜂群的场景 ✅: | 并行数据抓取 | ✅ 好 | 爬多个 URL 独立 | | 批量格式转换 | ✅ 好 | 机械任务，不需要判断力 | | 多方向分析 | ⚠️ 中等 | 每个 Agent 各自分析，我再汇总 | [score=0.906 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:80-82]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:3:5 -->
+- Session: 2026-07-07 14:14:54 GMT+8: **Session Key**: agent:main:openclaw-weixin:87f48d3a5105-im-bot:direct:o9cq809s5mwppkptln8ewptnlvzm@im.wechat; **Session ID**: 5073f5a9-bdde-461f-98fd-ff3b8107c5f8; **Source**: openclaw-weixin [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:3-5]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:32:34 -->
+- Conversation Summary: ✅ **README.md** 已补充并推送; ✅ **每次修改后立即 git push** — 刚推送的 2 个 commit 都是即时执行的; ✅ **MEMORY.md 星标记录** — 今后每次会话都会读到这条硬要求 [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:32-34]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:36:38 -->
+- Conversation Summary: 以后每次修改完直接 commit + push，不攒批。 user: 你能够启动蜂群模式吗？比如一下开启数十个子agent完成任务吗 assistant: 当前没有现成的「蜂群模式」。不过用 `sessions_spawn` 可以做到**并行派发多个子 Agent**，策略如下： [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:36-38]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:40:40 -->
+- Conversation Summary: **单批可并行数量**：取决于模型配额和任务复杂度，理论上一次可以派发十几个到几十个。 [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:40-40]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:45:45 -->
+- Conversation Summary: 一回合内多次 sessions_spawn → sessions_yield 等全部完成 [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:45-45]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:48:48 -->
+- Conversation Summary: **示例场景（假设需要并行处理 20 个文件）**： [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:48-48]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:51:52 -->
+- Conversation Summary: sessions_spawn(task="分析文件1", ...) sessions_spawn(task="分析文件2", ...) [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:51-52]
