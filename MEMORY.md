@@ -120,3 +120,22 @@
 - Conversation Summary: **示例场景（假设需要并行处理 20 个文件）**： [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:48-48]
 <!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:51:52 -->
 - Conversation Summary: sessions_spawn(task="分析文件1", ...) sessions_spawn(task="分析文件2", ...) [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:51-52]
+
+## Promoted From Short-Term Memory (2026-07-14)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:59:61 -->
+- Conversation Summary: 模型速率限制（并发太多可能 429）; 每个子 Agent 消耗 Token; 子 Agent 间不能互相通信（各自独立完成任务） [score=0.933 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:59-61]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:63:65 -->
+- Conversation Summary: **要我试一次蜂群吗？** 比如你给一个具体任务（批量分析文件夹中的所有文件、批量搜索多个关键词、批量处理数据），我可以一次性派发多个子 Agent 并行执行。给个场景我就跑。 user: 有意义吗？质量会不会很差 assistant: 实话实说，**有意义但场景有限**。 [score=0.933 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:63-65]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:70:72 -->
+- 质量评估: 默认 `context="isolated"` → 只有工作区文件，没有当前对话背景，不知道 SOUL.md 的身份规则; 需要 `context="fork"` 继承对话 → 但 Token 消耗翻倍; 每个子 Agent 都是**冷启动**，没有我们之间的默契和上下文积累 [score=0.933 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:70-72]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:54:55 -->
+- Conversation Summary: sessions_spawn(task="分析文件20", ...) sessions_yield() → 等全部结果回来 [score=0.901 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:54-55]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:9:9 -->
+- Conversation Summary: assistant: Token 已暴露在 Git 历史中，需要： [score=0.901 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:9-9]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:22:22 -->
+- Conversation Summary: **⚠️ 注意事项** [score=0.891 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:22-22]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:42:42 -->
+- Conversation Summary: **实现方式**： [score=0.891 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:42-42]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:58:58 -->
+- Conversation Summary: **实际限制**： [score=0.891 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:58-58]
