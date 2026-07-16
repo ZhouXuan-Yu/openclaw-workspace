@@ -140,7 +140,7 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 
 ---
 
-## 社交内容生产完整链路（2026-06-25 v4 更新）
+## 社交内容生产完整链路（2026-07-16 v5 — 自进化版本）
 
 **新增环节**：Q2.5 ComfyUI 精修（可选，使用 skills/comfyui-skill/SKILL.md）
 
@@ -149,8 +149,11 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 2. 读 skills/guizang-social-card/SKILL.md
 3. 读 skills/hyperframes-video/SKILL.md
 4. 如果使用 Agent Reach：读 ~/.agents/skills/agent-reach/SKILL.md
+   **Windows 特殊处理**: PowerShell 下 `curl` 是别名，必须用 `curl.exe`；
+   Python Scripts 目录在 `$env:USERPROFILE\AppData\Roaming\Python\Python314\Scripts`
 5. 如果使用 ComfyUI：读 skills/comfyui-skill/SKILL.md，先检查 server status
 6. memory_search 确认历史教训
+7. **健康检查**: 加载 `memory/evolution/pipeline-health.json`（自进化路由表）
 
 **完整流程**：
 ```
@@ -226,7 +229,67 @@ Q7: 发布后追踪（Agent Reach）
 │   └── Exa 网页搜索覆盖全网的转发/引用
 ├── 产出: 反馈简报 → 写回 daily log
 └── 参考: Q0 Track A 的引用方式，复用 agent-reach
+
+### Q7 自进化闭环（v5 新增）
+├── 记录: 每次执行结果 → tool成功/失败 → 写入 pipeline-health.json
+├── 读取: 每次 Q0 开始前→读 pipeline-health.json→跳过已知失败的后端
+├── 学习: 连续 3 次失败→标记后端为 bad→自动切换主后端
+├── 恢复: 连续 3 次成功→提升该后端优先级
+└── 告警: 某平台所有后端都 bad→主动提醒用户
+
+### 自进化路由表文件
+
+位置: `memory/evolution/pipeline-health.json`
+
+```json
+{
+  "platforms": {
+    "bilibili": {
+      "backends": [
+        {
+          "name": "B站搜索API",
+          "status": "fail",
+          "last_ok": null,
+          "last_fail": "2026-07-16T14:20:00",
+          "fail_reason": "CDN拦截，空响应",
+          "fail_count": 3
+        },
+        {
+          "name": "bili-cli",
+          "status": "ok",
+          "last_ok": "2026-07-16T14:25:00",
+          "last_fail": null,
+          "fail_count": 0
+        }
+      ],
+      "active_backend": "bili-cli",
+      "learned_at": "2026-07-16T14:25:00"
+    }
+  },
+  "version": 1
+}
 ```
+```
+
+### 自进化健康管理脚本
+
+位置: `scripts/pipeline-health.py`
+
+```powershell
+# 查看当前链路健康状态
+python scripts/pipeline-health.py status
+
+# 重新测试所有平台并自动更新路由
+python scripts/pipeline-health.py learn
+
+# 完整报告
+python scripts/pipeline-health.py report
+```
+
+**每次使用链路前必做**：
+1. 读 `memory/evolution/pipeline-health.json` — 看哪些后端已知失败
+2. 如果有新增的失败或恢复 → 跑 `python scripts/pipeline-health.py learn`
+3. 开始 Q0 双通道调研
 
 **HyperFrames 注意事项**：
 - GSAP 不能在 clip 元素上设 visibility/display（用 CSS opacity:0 代替）
