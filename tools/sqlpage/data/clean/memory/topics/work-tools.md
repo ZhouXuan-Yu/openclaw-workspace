@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-06-26
+> 最后更新:2026-07-07
 
 ---
 
@@ -36,6 +36,25 @@
 | cover-gen.py | 本地配图生成(Pillow) | 2026-06-12 |
 | tracker.py | 发布数据追踪 | 2026-06-12 |
 | YouNavi CLI | 对话分析/深度研究/音频转写 | 2026-06-12 |
+
+---
+
+## ⚠️ GitHub 每日推送规则（2026-07-07 用户指令）
+
+**规则**: 每次修改工作区文件后必须立即 git push，不攒批。优先级最高。
+
+```powershell
+cd C:\Users\ZhouXuan\.openclaw\workspace
+git add -A
+git commit -m "类型: 描述"
+git push
+```
+
+**新增 cron 任务**:
+| 任务 | 时间 | 功能 |
+|------|------|------|
+| github-trends-daily | 每日 16:00 | GitHub 趋势推送 → WeChat |
+| github-trends-weekly | 周日 16:30 | 周度趋势报告 → Obsidian + WeChat 摘要 |
 
 ---
 
@@ -276,7 +295,7 @@ r = yn.daily_briefing()
 - `research start` 只生成计划，`research execute` 才执行研究
 - 服务启动超时（agent_manager + api_server 启动后 30s 内未就绪），需先启动 YouNavi.exe 主应用
 - GBK 编码问题可通过 Python bridge 绕过
-- ⚠️ 2026-06-27起持续不稳定：CLI 服务频繁启动超时，agent_manager/api_server 无日志写入，可能依赖/端口/配置问题。Fallback: SQLite 直读数据库 + web_search/web_fetch 替代
+- ⚠️ 2026-06-27起持续不稳定（至07-01连续5天失败）：CLI 服务频繁启动超时，agent_manager/api_server 无日志写入，可能依赖/端口/配置问题。Fallback: SQLite 直读数据库 + web_search/web_fetch 替代
 
 **Cron 自动化：**
 | 任务 | 时间 | 功能 |

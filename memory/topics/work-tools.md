@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-07-07
+> 最后更新:2026-07-16
 
 ---
 
@@ -36,6 +36,7 @@
 | cover-gen.py | 本地配图生成(Pillow) | 2026-06-12 |
 | tracker.py | 发布数据追踪 | 2026-06-12 |
 | YouNavi CLI | 对话分析/深度研究/音频转写 | 2026-06-12 |
+| Agent Reach | 全网搜索+多平台内容采集（Skill: agent-reach） | 2026-07-16 |
 
 ---
 
@@ -147,14 +148,25 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 1. 读 memory/topics/work-tools.md（本文）
 2. 读 skills/guizang-social-card/SKILL.md
 3. 读 skills/hyperframes-video/SKILL.md
-4. 如果使用 ComfyUI：读 skills/comfyui-skill/SKILL.md，先检查 server status
-5. memory_search 确认历史教训
+4. 如果使用 Agent Reach：读 ~/.agents/skills/agent-reach/SKILL.md
+5. 如果使用 ComfyUI：读 skills/comfyui-skill/SKILL.md，先检查 server status
+6. memory_search 确认历史教训
 
 **完整流程**：
 ```
-Q0: 内容来源
-├── 首选: YouNavi 深度研究 (yn.research_full)
-└── 备选: 自行生成（memory_search + web_search）
+Q0: 内容来源（双通道）
+├── Track A: Agent Reach 社会监听（热点/舆情/大众讨论）
+│   ├── Skill: agent-reach（~/.agents/skills/agent-reach/SKILL.md）
+│   ├── 用法: 先 `agent-reach doctor --json` 检查可用后端
+│   ├── 场景: 小红书搜话题、推特看讨论、B站找评测、Reddit看海外反应
+│   ├── 产出: 互联网实时讨论/热度/大众情绪
+│   ├── 参考: references/social.md（小红书/推特/B站/V2EX/Reddit）
+│   └── 参考: references/search.md（Exa 网页搜索）
+├── Track B: YouNavi 深度研究（行业/竞品/专业洞察）
+│   ├── 用法: yn.research_full("主题")
+│   └── 产出: 结构化深度报告
+├── 交叉验证: Track A 完成 → 搜一遍互联网确认选题新颖性
+└── 选题提案: 双通道结果汇总 → 你定选题 → 进入Q1
 
 Q1: 图片素材生成（必须步骤）
 ├── 工具: image_generate（AI生图）或 ComfyUI Skill（本地生图）
@@ -203,7 +215,17 @@ Q6: 发布
 ├── 小红书: --draft 草稿模式（AI声明）
 ├── 抖音/快手/B站: 自动发布
 ├── 公众号/知乎/掘金: Wechatsync
-└── 发布前: sau <platform> check 验证登录状态
+├── 发布前: sau <platform> check 验证登录状态
+└── 发布后 → Q7
+
+Q7: 发布后追踪（Agent Reach）
+├── 工具: Agent Reach 监测各平台发文后的讨论/反馈
+├── 场景:
+│   ├── 小红书/推特/B站 搜相关关键词 → 看讨论趋势
+│   ├── Reddit 搜海外反应
+│   └── Exa 网页搜索覆盖全网的转发/引用
+├── 产出: 反馈简报 → 写回 daily log
+└── 参考: Q0 Track A 的引用方式，复用 agent-reach
 ```
 
 **HyperFrames 注意事项**：

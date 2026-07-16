@@ -23,6 +23,7 @@
 | 2026-06-14 | 小红书草稿模式 | AI 托管检测封禁，改为 save_as_draft 人工发布 | social-auto-upload CLI |
 | 2026-07-01 | UI设计系统:Techno-Futurist方向 | 深入Awwwards/CSSDA/Mobbin研究后确定暗底+霓虹+玻璃态+Bento Grid | 顶级UI设计/全部场景 |
 | 2026-07-01 | UI方案v1→v2推倒重来 | 用户反馈v1太简陋达不到标准，不犹豫直接重构 | 千亿项目UI方案 |
+| 2026-07-02 | 诚实协议v6进化 | 微信公众号文章启发：把握度标注+自我审查+交叉验证三条写入RULES.md硬约束 | RULES.md全局行为规则 |
 
 ---
 

@@ -33,7 +33,8 @@
 | 06-14 | 视频号上传: locator超时先检查URL重定向，不是元素不可见 |
 | 06-15 | GitHub热门项目分析: 10个项目，Agent工程化趋势（skills/codegraph/agentmemory） |
 | 06-15 | v5进化: Think Tool(Devin)+Mode Router(Kiro)+Self-Verify(Devin), 健康检查89/98(A) |
-| 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表 |
+| 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表
+| 07-07 | ⭐ GitHub 每日推送：每次修改立即 git push，不攒批，优先级最高 |
 
 ## 主题索引
 | 主题 | 位置 |
@@ -58,6 +59,7 @@
 | OpenSpec 分析 | `topics/openspec-analysis.md` |
 | 架构增强 | `topics/openspec-arch-enhancements.md` |
 | GitHub 热门项目 | `topics/github-may-2026-projects.md` |
+| UI设计系统交叉分析 | `topics/design-systems-analysis.md` |
 | 战略思维伙伴 | `knowledge/strategic-thinking-partner.md`（MBB框架集+思维模型）|
 | 进化引擎 | `evolution/EVOLUTION-PROTOCOL.md` |
 | Skill 自进化 | `evolution/skill-evolution.md` + `evolution/skill-traces/` |
@@ -82,10 +84,14 @@
 | YouNavi 桥梁 | `tools/younavi_bridge.py`（Python封装，解决编码问题） |
 | YouNavi Skill | `skills/younavi-integration/SKILL.md` |
 | 每日社交内容 | `workflows/daily-social-content.md`（cron: daily-social-content, 10:00）|
+| GitHub 趋势推送 | 每日 16:00 → WeChat |
+| GitHub 周度趋势报告 | 周日 16:30 → Obsidian Vault + WeChat 摘要 |
 | 用户画像 | `E:\Obsidian仓库\ZhouXuan私人领域\人物画像.md`（每日复盘更新+每周日周报）|
 | 画像追踪方案 | `E:\Obsidian仓库\ZhouXuan私人领域\顶级UI设计\用户画像追踪实现方案.md` |
 | 早间推送 | cron: morning-task-brief (09:00) |
 | 晚间规划 | cron: evening-plan-reminder (23:30) |
+| GitHub 趋势推送 | cron: github-trends-daily (16:00) |
+| GitHub 周度趋势报告 | cron: github-trends-weekly (周日 16:30) |
 | 每日复盘 | cron: memory-reflection (23:45, 含画像更新) |
 | 周度复盘 | cron: weekly-portrait-review (周日23:30) |
 
