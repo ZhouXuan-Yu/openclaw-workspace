@@ -37,6 +37,7 @@
 | tracker.py | 发布数据追踪 | 2026-06-12 |
 | YouNavi CLI | 对话分析/深度研究/音频转写 | 2026-06-12 |
 | Agent Reach | 全网搜索+多平台内容采集（Skill: agent-reach） | 2026-07-16 |
+| Codex CLI | AI生图（有独立API凭证，OpenAI gpt-5.5） | 2026-07-16 |
 
 ---
 
@@ -172,10 +173,12 @@ Q0: 内容来源（双通道）
 └── 选题提案: 双通道结果汇总 → 你定选题 → 进入Q1
 
 Q1: 图片素材生成（必须步骤）
-├── 工具: image_generate（AI生图）或 ComfyUI Skill（本地生图）
-│   ├── 如果ComfyDesktop已运行 → comfyui-skill --json run <id> --args '{...}'
-│   ├── 否则 → image_generate（cloud API）
-│   └── 注意: ComfyUI生图质量更高、无API费用、可批量
+├── 工具: Codex CLI（首选，有独立API凭证）或 ComfyUI（备选本地）或 image_generate（最后手段）
+│   ├── 首选: codex exec "只用image_generate生成一张[描述]" → 从 ~/.codex/generated_images/ 取图
+│   │   └── Codex CLI 的 OpenAI 额度独立于当前模型，通常可用
+│   ├── 备选: ComfyDesktop已运行 → comfyui-skill --json run <id>
+│   ├── 兜底: Swiss纯排版（无配图，靠文字+几何元素）
+│   └── 注意: image_generate（OpenAI API）余额不足时不可用；Pexels/Unsplash 网络可能403
 ├── Swiss模式: 产品渲染/UI截图/keyshot风格 → AI生成
 ├── Editorial模式: Pexels/Unsplash/Flickr CC → web找图
 ├── 输出: 每张卡片的 hero image → assets/
