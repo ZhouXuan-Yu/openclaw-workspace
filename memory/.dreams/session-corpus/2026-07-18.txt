@@ -1,0 +1,2 @@
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L478] Assistant: No activity since the interrupted turn last week. Let me do a quick system health check after the restart gap.
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L488] Assistant: All OK. System is healthy — Gateway running, 60 sessions, no issues, but has been idle for over a week. HEARTBEAT_OK

@@ -49,6 +49,7 @@
 | 学习 | `topics/learnings.md` |
 | 决策 | `topics/decisions.md` |
 | 人物 | `topics/people.md` |
+| 实用工具 | `E:\Obsidian仓库\ZhouXuan私人领域\实用工具收录\` |
 | 工具 | `topics/work-tools.md` |
 | 任务日历 | `topics/task-calendar.md` |
 
