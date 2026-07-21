@@ -57,8 +57,8 @@
 | 变更影响 | `docs/change-impact-checklist.md` |
 | ADR | `docs/adr/` |
 | 智能检索 | `memory/retrieval-strategy.md` + `topics/_graph.json` |
-| OpenSpec 分析 | `topics/openspec-analysis.md` |
-| 架构增强 | `topics/openspec-arch-enhancements.md` |
+| OpenSpec 分析 | `topics/openspec-analysis.md`（已归档）|
+| 架构增强 | `topics/openspec-arch-enhancements.md`（已归档）|
 | GitHub 热门项目 | `topics/github-may-2026-projects.md` |
 | UI设计系统交叉分析 | `topics/design-systems-analysis.md` |
 | 战略思维伙伴 | `knowledge/strategic-thinking-partner.md`（MBB框架集+思维模型）|

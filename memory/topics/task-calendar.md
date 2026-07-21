@@ -1,4 +1,4 @@
-# 任务日历
+# 任务日历 【待确认】7天无强化
 
 > 基于 OpenAI State+Notes 混合模式 & GitHub Copilot JIT-Verification
 > 每个任务 = 日期 + 时间段 + 内容 + 状态 + 引用
