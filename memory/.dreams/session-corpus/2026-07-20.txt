@@ -1,0 +1,1 @@
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L650] Assistant: Long stretch of heartbeats - nothing to report. HEARTBEAT_OK
