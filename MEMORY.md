@@ -35,6 +35,7 @@
 | 06-15 | v5进化: Think Tool(Devin)+Mode Router(Kiro)+Self-Verify(Devin), 健康检查89/98(A) |
 | 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表
 | 07-07 | ⭐ GitHub 每日推送：每次修改立即 git push，不攒批，优先级最高 |
+| 07-22 | ⭐ 技术文档存放规则：`E:\Obsidian仓库\ZhouXuan私人领域\Agent学习\技术文档\YYYY-MM\`，按月分目录 |
 
 ## 主题索引
 | 主题 | 位置 |
