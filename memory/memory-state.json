@@ -1,11 +1,11 @@
 {
     "lastConsolidation":  "2026-07-21T17:36:00+08:00",
     "lastPatrol":  "2026-07-21T17:36:00+08:00",
-    "lastHealthCheck":  "2026-07-21T23:23:00+08:00",
+    "lastHealthCheck":  "2026-07-22T23:15:00+08:00",
     "lastCheckResults":  {
                              "memory_lines":  130,
                              "total_pending":  4,
-                             "recent_dailies_7d":  14,
+                             "recent_dailies_7d":  13,
                              "expired_topics_30d":  0,
                              "topics_total":  12,
                              "expired_topics_7d":  1
