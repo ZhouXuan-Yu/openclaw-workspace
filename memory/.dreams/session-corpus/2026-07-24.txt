@@ -1,0 +1,2 @@
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L860] Assistant: Last user interaction was 17 days ago (session interruption). Quick state check needed.
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L865] Assistant: Gateway healthy, 23 cron jobs registered, memory state is stale but no errors. No human activity in 17 days. DMN scan: nothing actionable. HEARTBEAT_OK
