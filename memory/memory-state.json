@@ -1,26 +1,25 @@
 {
-    "lastConsolidation": "2026-07-26T11:07:00+08:00",
-    "lastPatrol": "2026-07-26T11:07:00+08:00",
-    "lastHealthCheck": "2026-07-26T11:07:00+08:00",
+    "lastConsolidation": "2026-07-27T11:17:00+08:00",
+    "lastPatrol": "2026-07-27T11:17:00+08:00",
+    "lastHealthCheck": "2026-07-27T11:16:06.797264+08:00",
     "lastCheckResults": {
-        "memory_lines": 131,
-        "total_pending": 6,
-        "recent_dailies_7d": 7,
+        "memory_lines": 109,
+        "total_pending": 7,
+        "recent_dailies_7d": 14,
         "expired_topics_30d": 0,
         "topics_total": 12,
-        "expired_topics_7d": 2,
-        "lines_warning": 2,
-        "stale_topics": [
-            "work-tools.md (10d, 328行 过载)"
-        ],
+        "expired_topics_7d": 0,
+        "lines_warning": 7,
+        "stale_topics": [],
         "overloaded_topics": [
-            "work-tools.md (328行)",
-            "design-systems-analysis.md (290行)"
+            "design-systems-analysis.md (390行)",
+            "github-may-2026-projects.md (188行)",
+            "learnings.md (230行)",
+            "openclaw-update-log.md (65行)",
+            "openspec-analysis.md (240行)",
+            "openspec-arch-enhancements.md (142行)",
+            "work-tools.md (417行)"
         ],
-        "issues": [
-            "6项07-02遗留任务未确认（含3项P0）",
-            "用户静默第6天（07-20后无交互）",
-            "今日.md已恢复更新（07-16→07-26）"
-        ]
+        "issues": []
     }
 }
