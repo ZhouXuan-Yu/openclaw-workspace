@@ -103,44 +103,9 @@
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
 
-## Promoted From Short-Term Memory (2026-07-13)
+## 短期记忆（2026-07-13 整合）
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:69:69 -->
-- 质量评估: **子 Agent 的上下文缺失问题**： [score=0.906 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:69-69]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:76:79 -->
-- 适合蜂群的场景 ✅: | 场景 | 质量 | 说明 | |------|------|------| | 批量读文件 | ✅ 好 | 读 20 个文件各自独立，不需要背景 | | 批量搜索（不同关键词） | ✅ 好 | 每个搜索自包含 | [score=0.906 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:76-79]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:80:82 -->
-- 适合蜂群的场景 ✅: | 并行数据抓取 | ✅ 好 | 爬多个 URL 独立 | | 批量格式转换 | ✅ 好 | 机械任务，不需要判断力 | | 多方向分析 | ⚠️ 中等 | 每个 Agent 各自分析，我再汇总 | [score=0.906 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:80-82]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:3:5 -->
-- Session: 2026-07-07 14:14:54 GMT+8: **Session Key**: agent:main:openclaw-weixin:87f48d3a5105-im-bot:direct:o9cq809s5mwppkptln8ewptnlvzm@im.wechat; **Session ID**: 5073f5a9-bdde-461f-98fd-ff3b8107c5f8; **Source**: openclaw-weixin [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:3-5]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:32:34 -->
-- Conversation Summary: ✅ **README.md** 已补充并推送; ✅ **每次修改后立即 git push** — 刚推送的 2 个 commit 都是即时执行的; ✅ **MEMORY.md 星标记录** — 今后每次会话都会读到这条硬要求 [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:32-34]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:36:38 -->
-- Conversation Summary: 以后每次修改完直接 commit + push，不攒批。 user: 你能够启动蜂群模式吗？比如一下开启数十个子agent完成任务吗 assistant: 当前没有现成的「蜂群模式」。不过用 `sessions_spawn` 可以做到**并行派发多个子 Agent**，策略如下： [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:36-38]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:40:40 -->
-- Conversation Summary: **单批可并行数量**：取决于模型配额和任务复杂度，理论上一次可以派发十几个到几十个。 [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:40-40]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:45:45 -->
-- Conversation Summary: 一回合内多次 sessions_spawn → sessions_yield 等全部完成 [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:45-45]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:48:48 -->
-- Conversation Summary: **示例场景（假设需要并行处理 20 个文件）**： [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:48-48]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:51:52 -->
-- Conversation Summary: sessions_spawn(task="分析文件1", ...) sessions_spawn(task="分析文件2", ...) [score=0.874 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:51-52]
-
-## Promoted From Short-Term Memory (2026-07-14)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:59:61 -->
-- Conversation Summary: 模型速率限制（并发太多可能 429）; 每个子 Agent 消耗 Token; 子 Agent 间不能互相通信（各自独立完成任务） [score=0.933 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:59-61]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:63:65 -->
-- Conversation Summary: **要我试一次蜂群吗？** 比如你给一个具体任务（批量分析文件夹中的所有文件、批量搜索多个关键词、批量处理数据），我可以一次性派发多个子 Agent 并行执行。给个场景我就跑。 user: 有意义吗？质量会不会很差 assistant: 实话实说，**有意义但场景有限**。 [score=0.933 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:63-65]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:70:72 -->
-- 质量评估: 默认 `context="isolated"` → 只有工作区文件，没有当前对话背景，不知道 SOUL.md 的身份规则; 需要 `context="fork"` 继承对话 → 但 Token 消耗翻倍; 每个子 Agent 都是**冷启动**，没有我们之间的默契和上下文积累 [score=0.933 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:70-72]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:54:55 -->
-- Conversation Summary: sessions_spawn(task="分析文件20", ...) sessions_yield() → 等全部结果回来 [score=0.901 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:54-55]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:9:9 -->
-- Conversation Summary: assistant: Token 已暴露在 Git 历史中，需要： [score=0.901 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:9-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:22:22 -->
-- Conversation Summary: **⚠️ 注意事项** [score=0.891 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:22-22]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:42:42 -->
-- Conversation Summary: **实现方式**： [score=0.891 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:42-42]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-07-1414.md:58:58 -->
-- Conversation Summary: **实际限制**： [score=0.891 recalls=0 avg=0.620 source=memory/2026-07-07-1414.md:58-58]
+- **子 Agent 蜂群模式**（sessions_spawn）: 适合批量读文件/并行搜索/数据抓取/格式转换（机械任务不需要判断力）；多方向分析（各自分析→汇总）质量中等
+- **限制**: context=isolated 冷启动无背景，context=fork 则 Token 翻倍；子 Agent 间不能通信；依赖模型配额（并发多可能429）
+- **用法**: 单回合 `sessions_spawn` 派多个 → `sessions_yield` 等全部返回
+- **注意**: 每次修改后立即 git push（已入星标）
