@@ -36,6 +36,8 @@
 | 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表
 | 07-07 | ⭐ GitHub 每日推送：每次修改立即 git push，不攒批，优先级最高 |
 | 07-22 | ⭐ 技术文档存放规则：`E:\Obsidian仓库\ZhouXuan私人领域\Agent学习\技术文档\YYYY-MM\`，按月分目录 |
+| 07-26 | ⭐ AgentChat 集成决策：Q1 图片生成首选→网页AI(AgentChat)；废弃 image_generate API；Chrome CDP 开机自启；已固化到社交自动化链路 |
+| 07-26 | ⭐ 社交内容面向群体：中国大陆开发者/技术用户，中文表达，使用国内常见技术栈和平台参考 |
 
 ## 主题索引
 | 主题 | 位置 |
@@ -80,6 +82,7 @@
 | knowledge | `knowledge/` 知识索引 |
 | examples | `examples/` few-shot 示例 |
 | 图片处理 | ⚠️ 收到图片→本地OCR→模型推理（见 topics/work-tools.md） |
+| 图片生成 | AgentChat(网页AI) 优先 → Codex CLI → ComfyUI → image_generate API兜底 |
 | Wechatsync | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Wechatsync-CLI使用手册.md` |
 | 社交自动化决策树 | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\社交自动化决策树.md` |
 | YouNavi CLI | `D:\YouNavi\resources\backend\agent-cli.exe`（见 topics/work-tools.md） |

@@ -173,12 +173,14 @@ Q0: 内容来源（双通道）
 └── 选题提案: 双通道结果汇总 → 你定选题 → 进入Q1
 
 Q1: 图片素材生成（必须步骤）
-├── 工具: Codex CLI（首选，有独立API凭证）或 ComfyUI（备选本地）或 image_generate（最后手段）
-│   ├── 首选: codex exec "只用image_generate生成一张[描述]" → 从 ~/.codex/generated_images/ 取图
-│   │   └── Codex CLI 的 OpenAI 额度独立于当前模型，通常可用
-│   ├── 备选: ComfyDesktop已运行 → comfyui-skill --json run <id>
-│   ├── 兜底: Swiss纯排版（无配图，靠文字+几何元素）
-│   └── 注意: image_generate（OpenAI API）余额不足时不可用；Pexels/Unsplash 网络可能403
+├── 工具优先级:
+│   1️⃣ AgentChat（网页AI生图）— E:\AgentChat, node index.js "生成一张[描述]"
+│   2️⃣ Codex CLI — codex exec "只用image_generate生成一张[描述]"
+│   3️⃣ ComfyUI（备选本地）
+│   4️⃣ Swiss纯排版（无配图，靠文字+几何元素）
+│   ❌ image_generate API（自带缺额度，最后手段）
+├── AgentChat 生图: 调用网页版 Gemini/ChatGPT 生成，通过 Chrome CDP 控制
+│   └── 命令: cd E:\AgentChat && node skills/AgentChat-OneWeb/index.js "生成一张[描述]的图片"
 ├── Swiss模式: 产品渲染/UI截图/keyshot风格 → AI生成
 ├── Editorial模式: Pexels/Unsplash/Flickr CC → web找图
 ├── 输出: 每张卡片的 hero image → assets/
