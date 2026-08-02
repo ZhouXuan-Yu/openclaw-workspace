@@ -1,6 +1,6 @@
 ﻿# 学习沉淀
 
-> 最后更新：2026-07-20
+> 最后更新：2026-08-02
 
 ---
 
@@ -25,6 +25,15 @@
 3. 合规优先：私有化部署+数据安全+校外监管平台对接
 4. GEO营销正在替代传统SEO，AI搜索推荐是新流量入口
 5. 大厂免费策略（Qwen3-Learning）挤压通用能力空间，差异化需走向垂直深耕
+
+---
+
+## Cron 稳定性失败模式（2026-07-08 提出 → 07-31 仍未落地）
+
+- **信号**: 7 个 cron 持续报错多日未修复（memory-patrol / younavi-meeting-sync / github-repo-tracker / daily-social-content / 每日新闻 / younavi-weekly-research / openclaw-update-check）
+- **背景**: 07-08 提出「发现即修复」机制，始终未落地；07-28 起进化数据（patterns.json 等）全面老化，因静默期无信号触发修复
+- **教训**: 报错发现后应立即记录到 task-calendar 并设修复任务，不能只留在 daily 日志里等用户交互
+- **状态**: 待用户交互时统一处理或降级
 
 ---
 
