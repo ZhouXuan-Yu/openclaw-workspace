@@ -336,3 +336,20 @@
 - memory/daily/2026-07-31.md（追加反思段）
 - memory/evolution/.skill-quality.json (memory-reflection 42→43)
 - 人物画像.md（YAML last_updated + status + 07-31 晚间补充段）
+
+## 08-02 18:46
+- 08-01 整机离线（首次离线型静默），08-02 18:12 health + 18:41 recovery 恢复检查正常
+- recovery 机制验证有效：正确检测昨日日志缺失并生成 P0 补跑建议
+- 连续静默 13 天（07-21→08-02），刷新历史最长纪录
+- 观察：静默需区分「在线静默（用户缺席）」与「离线静默（设备关机）」两种类型
+
+### 指标
+- memory-reflection: 43→44 calls, qualityScore 0.976（不变）
+
+### 进化动作
+- 无（今日无用户任务、无 Skill 调用、无成败信号；不满足 FIX/DERIVED/CAPTURED 触发条件）
+
+### 写入文件
+- memory/daily/2026-08-02.md（新建 + 反思段）
+- memory/evolution/.skill-quality.json (memory-reflection 43→44)
+- 人物画像.md（YAML last_updated + status + 08-02 复盘段）
