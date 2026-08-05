@@ -1,0 +1,1018 @@
+Title: 每日AI资讯、热点、动态、融资、产品发布 | AI工具集
+
+URL Source: https://ai-bot.cn/daily-ai-news
+
+Published Time: 2023-08-11T00:10:28+08:00
+
+Markdown Content:
+7月31·周五
+
+## [智谱 GLM Coding Plan 开放订阅](https://mp.weixin.qq.com/s/wTPYjrZZ70VnTIfr_A_ajw?scene=1&click_id=13)
+
+智谱GLM Coding Plan重新开放订阅。之前因需求爆发曾限名额，本次回归伴随基础设施扩容，新版采用透明积分制，输入输出及MCP能力均按规则折算，支持周末全天低峰抵扣。老用户权益保留，v1用户到期前可按V2价格续订，同时开放HighSpeed高速版申请。来源：智谱开放平台
+
+## [腾讯 WorkBuddy 联合腾讯文档推出人机双写功能](https://mp.weixin.qq.com/s/nW8bk_RR_fXhB7Wifbk-hw)
+
+腾讯[WorkBuddy](https://ai-bot.cn/sites/73160.html) （V5.3.5版）联合腾讯文档推出人机双写功能，让用户与 AI 可在同一份文档中实时协同编辑。工具支持框选即改，AI 仅在指定范围内处理内容，兼容 Word、Excel、PPT、Markdown 等主流格式及本地 Office 与腾讯文档，同时支持多人与 AI 共同创作、实时同步。来源：腾讯
+
+7月30·周四
+
+字节跳动启动AI业务组织调整，飞书产品团队并入[豆包](https://ai-bot.cn/sites/4189.html)，由豆包负责人赵祺统筹，飞书负责人谢欣向其汇报。飞书GTM团队与火山引擎整合为创造力服务平台，由谭待负责，统一推进MaaS和SaaS市场。数据显示豆包月活3.82亿，字节大模型ARR已达40亿美元。来源：财联社
+
+## [腾讯混元团队开源投机解码框架 AngelSpec](https://mp.weixin.qq.com/s/NQJb4HvBjC5cbr48xV_X5w)
+
+腾讯混元团队开源投机解码框架 [AngelSpec](https://ai-bot.cn/angelspec/)，覆盖 drafter 训练、架构设计到线上部署全链路，同步开源 Hy3-A21B 的 MTP 与 DFly drafter 权重及训练代码。DFly 在 4 至 64 并发取得 SOTA，较自回归基线平均加速 1.98–2.40 倍，代码数学峰值 2.86 倍；D-cut 高并发额外提升吞吐 15.7%，MTP 结合 TTT 将对话接受率从 52.8% 提至 66.4%。来源：腾讯混元
+
+7月29·周三
+
+## [马斯克旗下 SpaceXAI 为 Grok 推出 Build 模式](https://www.ithome.com/0/982/828.htm)
+
+SpaceXAI 为 [Grok](https://ai-bot.cn/sites/5368.html) 推出 Build 模式，用户输入提示词可将创意实时转化为带独立域名的可发布产品。Build 模式支持生成网站、应用、游戏及实时仪表盘，提供实时预览与自然语言迭代，无需编写代码可调整布局、样式与逻辑。完成后的项目可通过 grok.me 域名或自定义域名发布，支持导出源代码至 GitHub 继续开发。来源：IT之家
+
+## [360旗下纳米团队推出 AI 办公智能体「纳米Work」](https://mp.weixin.qq.com/s/gVQqWE-xWZx9Be2oy4k7rQ)
+
+360旗下纳米团队推出新一代企业智能体工作平台[纳米Work](https://ai-bot.cn/sites/82909.html)，平台覆盖谋、干、盯、开发、赚钱、成长六大工作场景，通过多智能体协同执行，交付可直接使用的方案、PPT、网站等成品。平台具备多智能体引擎、多模型底座、云端办公室、多工作模式及多AI专家五大技术亮点，支持一句话布置任务、7×24小时云端执行。来源：纳米Work
+
+7月28·周二
+
+## [Kimi K3 开放模型权重、技术报告和关键 Infra 技术](https://mp.weixin.qq.com/s/tryHe81IyM6nr0fBPDz72g)
+
+月之暗面正式推出[Kimi K3](https://ai-bot.cn/kimi-k3/)模型权重、技术报告及三项关键Infra技术。Kimi K3为2.8万亿参数MoE模型，具备原生视觉理解与100万token长上下文能力，规模化效率较前代提升2.5倍。同步开源MoonEP高性能通信库、FlashKDA算子及AgentEnv沙箱系统，覆盖从训练通信到分布式RL环境的关键链路。来源：月之暗面Kimi
+
+7月27·周一
+
+## [吴恩达开源个人桌面Agent「OpenWorker」](https://mp.weixin.qq.com/s/qwVRnh02GuERh8vEgDHr-A)
+
+AI教育大佬吴恩达开源桌面Agent项目[OpenWorker](https://ai-bot.cn/openworker/)。与普通聊天机器人不同，工具强调直接交付完成的工作成果，可自主调用本地文件和日常办公工具链完成任务。项目主打本地优先与隐私保护，数据默认保留在用户设备上，用户可自由切换底层模型。OpenWorker目前已支持macOS，Windows测试版已开放下载。来源：量子位
+
+## [美团推出全场景 AI Agent 平台 CatPaw](https://mp.weixin.qq.com/s/daRzJtun2EfQ8X3VVpVppQ)
+
+美团正式推出全场景AI Agent平台[CatPaw](https://ai-bot.cn/sites/65836.html)，提供开箱即用的AI智能工作台与企业级Agent开发托管能力。平台深度融合美团本地生活行业认知，支持移动端App、PC客户端及云端7×24小时不间断运行，已在内部覆盖9万员工、搭建3万个Agent。CatPaw具备多Agent自主协同、专家与技能即装即用、跨会话长期记忆等能力。来源：MeituanCatPaw
+
+## [阿里推出一站式 AI 办公工具「千问办公」](https://www.ithome.com/0/981/982.htm)
+
+阿里正式推出一站式 AI 办公工具[千问办公](https://ai-bot.cn/sites/82742.html)，开放Windows与macOS Beta版下载，主打企业IM写作、Office一站式生成、多模态理解、全栈网页生成等六大核心能力。同时，其鸿蒙电脑Beta版也上架AppGallery应用尝鲜，千问办公应用由钉钉科技开发，支持AI写作、PPT生成、文档互转及多模型切换等功能。来源：IT之家
+
+## [AI互动娱乐平台海艺宣布完成超亿元B轮融资](https://mp.weixin.qq.com/s/jeRhK138ADPotCZOUHKTDQ)
+
+全球化AI互动娱乐平台[海艺](https://ai-bot.cn/seaart-ai/)宣布完成超亿元B轮融资，由视觉中国、华盖创赢、祥峰投资联合领投。海艺注册用户超6500万，海外占比超90%，毛利率超40%，已沉淀超200万个AI原生创作资产，构建起”SeaArt角色创作+MoreShort短剧消费+SeaSoul角色互动”的完整AI IP生态，从工具竞争转向内容资产与创作者生态壁垒。来源：Z Potentials
+
+7月24·周五
+
+## [小红书开源多模态大模型流水并行训练框架 BigMac](https://mp.weixin.qq.com/s/tNJARtn1jIayL5URg87Row)
+
+小红书 dots infra 团队开源多模态大模型训练框架[BigMac](https://ai-bot.cn/bigmac/)，针对计算效率与显存占用难以兼顾的痛点，提出依赖安全的嵌套流水线设计，用 LLM 流水线为主干有序嵌入编码器与生成器计算。实验显示其训练速度较基线提升 1.08 至 1.9 倍，且显存占用保持稳定，目前已应用于 dots 系列模型生产训练。来源：小红书技术REDtech
+
+## [阿里开源0.8B文档解析模型 OvisOCR2](https://mp.weixin.qq.com/s/B_PxfTk2GT7-QH8D2lscWQ)
+
+阿里云开源文档解析模型[OvisOCR2](https://ai-bot.cn/ovisocr2/)，模型用 96.58 分刷新 OmniDocBench v1.6 榜单纪录，成为首个超越传统流水线方法并登顶的端到端模型。模型仅 0.8B 参数，基于 Qwen3.5-0.8B 后训练，通过真实与合成数据互补引擎及多阶段训练流程，实现文本、公式、表格等内容的单步 Markdown 输出。来源：阿里云
+
+7月23·周四
+
+## [腾讯云推出云端智能体 CodeBuddy NPC](https://mp.weixin.qq.com/s/4NqFB4E1hY9YZZcQQCMaNA)
+
+腾讯云正式推出云端智能体 [CodeBuddy NPC](https://ai-bot.cn/codebuddy-npc/)，定位为”住在云端的 AI 员工”。开发者只需在 Issue 中 @NPC 派发任务，智能体可自主完成从方案规划到代码交付的全流程，无需人工干预。CodeBuddy NPC支持多 NPC 组队协同完成复杂任务，首轮 Token 消耗已从 2 万多个降至约 2000，降幅超 90%。来源：腾讯云
+
+## [智象未来完成15亿元人民币C轮融资](https://mp.weixin.qq.com/s/0H9DDFP4eycs2EHqRARJ_A)
+
+智象未来（HiDream.ai）宣布完成15亿元C轮融资，由社保基金四川振兴科创基金、工银资本等联合领投，多家国资与产业资本跟投，老股东持续加注。近三月累计融资超21亿元，正式迈入独角兽行列。本轮融资将加速其从多模态大模型向原生全模态世界模型的演进。来源：HiDream智象未来
+
+7月22·周三
+
+## [腾讯正式全量上线 Miora](https://mp.weixin.qq.com/s/9DSlAZqLs-5GaT9XTVRIHw)
+
+腾讯AI创意智能体平台[Miora](https://ai-bot.cn/sites/74421.html)正式全量上线。平台定位为有记忆、能理解需求、能调用多智能体协作的AI创意工作室，用户只需提出目标，Miora可自动拆解任务，将图片、视频、3D、UI等工作交由对应专家处理，保持风格一致。来源：腾讯
+
+## [商汤科技推出「咔皮家族」AI应用矩阵](https://mp.weixin.qq.com/s/vScbus-4yLnCORdv1mh6pg)
+
+商汤科技推出「咔皮家族」AI应用矩阵，定位为以Personal Intelligence为核心的全天候生活智能体，累计用户已突破4000万，年增速超500%。该家族包含三位私人高管：「[咔皮健康](https://ai-bot.cn/kapihealth/)」可将智能手表数据翻译为个性化健康建议；「[Kapi相机](https://ai-bot.cn/app/68488.html)」基于多模态能力提供AI构图、滤镜与姿势推荐；「[咔皮记账](https://ai-bot.cn/heylumi/)」连接日常收支与长期财务目标。来源：商汤科技SenseTime
+
+7月21·周二
+
+## [腾讯混元推出科学发现智能体 Hyra](https://mp.weixin.qq.com/s/upwDQ_6ZfmszBUcRQjR_Dg)
+
+腾讯混元推出[Hyra](https://ai-bot.cn/hyra/)，首个支持递归自我改进的通用科学发现智能体。Hyra在AI研发三项基准上均超越Recursive系统；在55个数学开放问题上刷新29项历史最优纪录，并设计出参数减少58%的加法器、效率提升44%的量子路由算法及优于上市药物的抗癌分子候选。来源：腾讯混元
+
+7月20·周一
+
+7月17·周五
+
+## [努比亚发售 AI 宠物机器人 iMoochi](https://www.ithome.com/0/977/959.htm)
+
+努比亚AI陪伴机器人[iMoochi](https://ai-bot.cn/imoochi/)正式上市，售价1699元。产品由中兴通讯在MWC26首发，以萌系毛绒外形与拟生命体交互为核心卖点，通过触摸传感与AI算法实现摇头摆尾、发声反馈等灵动回应，并随使用时间养成独特性格与生活习惯。产品主要面向都市独居人群提供情感慰藉。来源：IT之家
+
+## [秒哒3.5，全球首发iOS App 无代码开发、多端共享后端](https://mp.weixin.qq.com/s/W3QACoSYgwK0TW4zG-KFsg)
+
+百度[秒哒](https://ai-bot.cn/sites/65909.html)在WAIC2026现场发布3.5版本，新版本通过内置SEO Agent降低搜索优化门槛，并全球首发iOS打包能力，支持无代码生成应用并直达iPhone。同时新增共享后端与多环境隔离，实现从创作到多端交付的完整闭环，持续推动无代码开发普惠化。来源：百度智能云
+
+## [多模态通用智能公司 Prana Labs 完成近千万美金种子轮融资](https://mp.weixin.qq.com/s/EH7GZETFd2YRUejqEwyMqA)
+
+多模态通用智能公司 Prana Labs 近日完成近千万美金种子轮融资，由元生资本、XVC、Creekstone、三七互娱联合投资。公司定位多模态基础模型公司，致力构建可交互、带物理约束的规模化世界生成系统，让 AI 在虚拟环境中行动、试错并学习物理规律，以此训练下一代通用智能。来源：Z Potentials
+
+7月16·周四
+
+## [Codex 推出首款编程键盘硬件 Codex Micro](https://mp.weixin.qq.com/s/KbeZRFLlMgWBNdY6UTbIag)
+
+OpenAI 联合外设厂商 Work Louder 正式推出[Codex](https://ai-bot.cn/sites/53.html) 首款硬件 [Codex Micro](https://ai-bot.cn/codex-micro/)，售价 230 美元（约 1556 元），现已开启预购。硬件专为 Codex 设计，通过 RGB 灯光实时映射 AI Agent 的工作状态，让用户无需切换窗口可掌握任务进度。旋钮可动态调节 AI 推理强度，配合摇杆与实体按键，分别用于派发工作流和执行高频决策。来源：APPSO
+
+7月15·周三
+
+## [支付宝与OPPO达成智能体跨端互联合作](https://mp.weixin.qq.com/s/N5geHHwl2zPh3yUwOHXaZg)
+
+支付宝与OPPO宣布达成智能体跨端互联合作，支付宝AI智能体「[阿宝](https://ai-bot.cn/open-alipay/)」正式接入OPPO AI助手「[小布](https://ai-bot.cn/xiaobu-ai/)」。即日起，OPPO用户无需打开App，仅通过语音对话可让小布调用阿宝完成充话费、购票、查询公积金等近 200 项 生活服务，实现一句话办事。来源：支付宝
+
+7月14·周二
+
+## [爱诗科技完成 29.8 亿元 C 轮融资](https://mp.weixin.qq.com/s/mWK96cTdJfCcw-N1U0AMpw)
+
+爱诗科技宣布完成整体C轮融资，累计金额29.8亿元，C+轮由阿里巴巴领投，十余家国内外机构参投。资金将用于视频生成基础模型、实时世界模型研发及全球化产品增长。公司旗下[PixVerse](https://ai-bot.cn/pixverse-ai-video-generator/)全球用户超1.5亿，年初推出全球首个支持1080P的通用实时世界模型[PixVerse R1](https://ai-bot.cn/pixverse-r1/)，并与芒果传媒、阿里巴巴等产业伙伴达成战略合作。来源：爱诗科技 AIsphere
+
+## [阶跃星辰推出首款大模型原生智能体手机 STEPX Neo](https://mp.weixin.qq.com/s/zJ85sWEPlmGKWSFfGIae1g)
+
+阶跃星辰推出首款AI智能体手机[STEPX Neo](https://ai-bot.cn/stepx-neo/)，搭载自研智能体原生操作系统Step AOS，内置系统级个人智能体Amoo。用户可通过自然语言指令实现跨应用自主调度。系统具备长期记忆、端云协同能力，支持”能端则端、需云则云”的灵活任务路由。首批生态合作伙伴包括支付宝、美团、高德、滴滴、京东、百度等主流应用。来源：智东西
+
+## [Looki 完成数亿元 A1 轮融资](https://mp.weixin.qq.com/s/HX9oilSs0Q2Lor6KSZUVVw)
+
+Looki（光智时空）完成数亿元A1轮融资，元生资本领投，BAI资本等老股东加注。公司定位个人智能可穿戴赛道，通过PIE主动式AI引擎2.0实现从”被动响应”到”主动预测”的升级，结合场景理解与长期记忆预判用户下一步需求。其首款可穿戴多模态AI硬件[Looki L1](https://ai-bot.cn/looki-l1/)出货量预计达10万台。来源：Founder Park
+
+7月13·周一
+
+## [阶跃星辰推出端侧模型全家桶 Step Edge](https://mp.weixin.qq.com/s/StOzmXaUGSsjUXkAoW-HZg)
+
+阶跃星辰推出端侧模型全家桶 [Step Edge](https://ai-bot.cn/step-edge/)，包含基础模型、Audio、GUI、Gen 四个方向，面向手机、汽车等终端场景。该系列支持 0.1 秒 超低本地延迟，实现全模态隐私保护，采用原生端云协同架构。在 29 项核心评测中，Step Edge 覆盖文本视觉、音频、GUI、图像生成等方向均取得第一。来源：阶跃StepFun
+
+## [腾讯混元开源端到端 OCR 大模型 HyOCR-1.5](https://mp.weixin.qq.com/s/vKFCa9FfoGBUGK8J1MhFag)
+
+腾讯混元开源 [HyOCR-1.5](https://ai-bot.cn/hyocr-1-5/)，业界首个训推全开源的端到端 OCR 专家大模型。模型引入 DFlash 投机解码，Transformers 下推理提速 6.37 倍，vLLM 下提速 2.14 倍；OmniDocBench v1.6 以 94.74 分登顶端到端第一。HyOCR-1.5 支持文档解析、古文字识别、图表解析、多页问答等 8 类任务，覆盖 331 种语言。来源：腾讯混元
+
+7月10·周五
+
+## [OpenAI 正式推出最新一代大语言模型系列 GPT-5.6](https://mp.weixin.qq.com/s/YZdoqo4eWbO1oqcCDujxBA)
+
+OpenAI正式推出[GPT-5.6](https://ai-bot.cn/gpt-5-6/)系列模型，包含旗舰Sol、均衡Terra和性价比Luna三款，API价格梯度覆盖$1-$30/百万token。在Agents’ Last Exam评测中，Sol以53.6分超越Claude Fable 5达13.1分，编程智能体指数更创80分新高，且成本与耗时均大幅降低。来源：APPSO
+
+7月9·周四
+
+## [SpaceXAI推出新一代旗舰大语言模型 Grok 4.5](https://mp.weixin.qq.com/s/cSNPCSgkPhXjL7CG9ELYFQ)
+
+SpaceXAI推出旗舰模型[Grok 4.5](https://ai-bot.cn/grok-4-5/)，采用1.5T参数MoE架构并与Cursor联合训练，性能对标Claude Opus。模型推理速度达80 TPS，编程能力在DeepSWE Bench上超越Opus 4.8，且Token效率提升4倍以上，支持50万上下文，下周将升级至百万，月底还将推出2T参数版本。来源：量子位
+
+## [阿里元境推出一站式AI大模型聚合平台 JellyToken](https://ai-bot.cn/jellytoken/)
+
+阿里元境正式推出[JellyToken](https://ai-bot.cn/jellytoken/)（智渲云）国内主流AI大模型一站式API聚合平台。用户仅需一个API Key可调用通义千问、DeepSeek、豆包、智谱、月之暗面等60余款国产模型，覆盖文本、图像、视频、音频四大场景。平台提供智能路由、负载均衡、Token级精准计费及正规发票等企业级能力，帮助开发者与企业降低多模型接入门槛与运维成本。来源：AI工具集
+
+7月8·周三
+
+7月7·周二
+
+## [字节跳动推出超长程评测集 EdgeBench](https://mp.weixin.qq.com/s/TRdasyCjWlExZTilsYi_bg)
+
+字节跳动Seed团队推出超长程评测集[EdgeBench](https://ai-bot.cn/edgebench/)，用于衡量AI Agent在真实世界环境中的持续学习能力。评测集包含134个真实任务，覆盖科学、软件工程、知识工作等六大领域，每个任务支持12小时以上连续运行。研究发现，Agent在环境交互中的学习轨迹遵循高精度log-sigmoid曲线，且前沿模型的学习速度每三个月翻一倍。来源：字节跳动Seed
+
+## [支付宝 AI 开放平台开放邀测](https://mp.weixin.qq.com/s/DIgQpqW_L3Pu__7Uxi61EA)
+
+[支付宝AI开放平台](https://ai-bot.cn/open-alipay/)正式上线并开放邀测，面向商家与开发者提供一次接入、多端分发的AI化升级服务。商家可将存量小程序和API一键升级为MCP、Skill或Agent，通过[阿宝](https://ai-bot.cn/ai-pay-bao/)触达支付宝10亿用户，同时跨端覆盖手机、车机、AI眼镜等智能终端。来源：支付宝
+
+## [腾讯 AI 生成应用 App「吐司」苹果 iOS 版上线](https://www.ithome.com/0/973/569.htm)
+
+腾讯AI生成应用App”[吐司](https://ai-bot.cn/app/77418.html)“正式上线苹果iOS版，安卓版已于上月推出。产品定位为探索型氛围编程工具，可由AI梳理功能并精细化编辑打磨，设有灵感广场与优质模板，支持用户共创应用。平台让无代码基础的用户能将想法转化为真实可用的App，形成想法→应用→分发→共创闭环生态。来源：IT之家
+
+7月6·周一
+
+## [阿里推出Qoder企业版，支持企业知识库与Credits灵活分配](https://mp.weixin.qq.com/s/fCS0bMfHGjCQRE5egn263Q)
+
+阿里云推出[Qoder](https://ai-bot.cn/sites/60584.html)企业版，为企业提供提供个人云端知识库QMind，支持跨产品、跨设备、跨人员的知识共享，可整合RepoWiki、本地文件、URL等多源数据为可复用资产。同时上线资源池化Credits付费模式，企业管理员可按需动态分配额度等。安全方面覆盖传输加密、访问控制、AI运行时等五层防护，已通过ISO 27001认证。来源：阿里云
+
+## [美团 LongCat-2.0 开源，同步开放国产卡推理代码](https://mp.weixin.qq.com/s/5YW7Z-lufAvu-4aNZ1lVGw)
+
+美团正式开源万亿参数大模型[LongCat-2.0](https://ai-bot.cn/longcat-2-0/)，总参数 1.6T、平均激活 48B，专为 Agentic Coding 任务设计。模型创新性引入 LongCat 稀疏注意力与 N-gram Embedding，提升长上下文处理与代码执行表现，率先在五万卡国产算力集群上完成推理验证。本次开源同步提供 BF16/FP8/INT8 多精度版本及国产芯片优化推理代码。来源：龙猫LongCat
+
+## [腾讯混元开源混合专家模型 Hy3](https://mp.weixin.qq.com/s/X2x1GF09bFbTzc3M1981BQ)
+
+腾讯混元正式推出[Hy3](https://ai-bot.cn/hy3/)大模型，基于[preview](https://ai-bot.cn/hy3-preview/)版本提升后训练数据质量与RL算力规模，在推理、智能体、长上下文等任务上显著进步，效果比肩参数规模2-5倍的旗舰模型。幻觉率从12.5%降至5.4%，常识错误率从25.4%降至12.7%，多轮问题率从17.4%降至7.9%。来源：腾讯混元
+
+## [生数科技推出实时交互模型 Vidu S1](https://mp.weixin.qq.com/s/RuukpnoOA2tI0ERCNrLgtQ)
+
+生数科技在2026全球数字经济大会推出[Vidu S1](https://ai-bot.cn/vidu-s1/)实时交互模型。模型支持语音控制视频走向、无限时长连续互动，可达540P分辨率与25FPS流畅帧率。用户上传一张图片可创建真人、动漫或萌宠等个性化交互角色，无需建模训练。来源：生数科技
+
+7月3·周五
+
+## [谷歌开源零样本表格基础模型 TabFM](https://ai-bot.cn/tabfm/)
+
+谷歌开源零样本表格基础模型[TabFM](https://ai-bot.cn/tabfm/)，支持对混合数值与类别特征的结构化数据进行分类和回归，无需微调或超参数搜索。模型在数百亿合成表格数据上预训练，采用Transformer序列架构，在TabArena基准51个数据集上超越梯度提升树等强基线。来源：AI工具集
+
+## [阿里全面禁用Claude](https://mp.weixin.qq.com/s/OPKdMtGNTx2gdZ3vA3G5Jw)
+
+阿里巴巴内部宣布全面禁用Anthropic旗下Claude系列产品，包括Sonnet、Opus、Fable等多个系列模型，以及[Claude Code](https://ai-bot.cn/sites/56948.html)等Agent产品。导火索是Claude Code被曝存在植入后门的安全风险，其从2.1.91版本起内置隐蔽木马系统，通过检测本地时区和代理关键词标记中国用户。来源：智东西
+
+7月2·周四
+
+## [快手旗下可灵AI将完成30亿美元融资](https://mp.weixin.qq.com/s/DmsxpeDbSN5a7hJobAGEFA)
+
+快手旗下AI视频生成业务[可灵AI](https://ai-bot.cn/sites/13002.html)将完成30亿美元（约203.8亿元）融资，腾讯参与了本轮融资，投后估值180亿美元，较此前200亿美元目标下调20亿美元。快手预计12个月内启动可灵AI赴港IPO，募资将用于算力建设和人才引进。可灵AI年化收入已超3亿美元，Q1收入7500万美元，主要来自海外市场。来源：智东西
+
+## [AI 版支付宝开放公测，无需邀请码即可体验](https://mp.weixin.qq.com/s/4sza7cwddXfoW2ZOPVfBdg)
+
+支付宝AI智能体”[阿宝](https://ai-bot.cn/ai-pay-bao/)“结束内测，正式面向iOS和安卓用户开放公测，无需邀请码即可体验。用户可在应用商店或支付宝App内搜索”阿宝”或”蚂蚁阿宝”可直接使用。阿宝从海量办事服务中整理出72项技能，涵盖居家保洁、出行订票、购物优惠、社保查询、账单分析等72项生活服务，支持模糊口语理解、全场景服务覆盖及长期陪伴互动。来源：支付宝
+
+## [Meta 开源 React 设计系统 Astryx](https://ai-bot.cn/astryx/)
+
+Meta正式开源React设计系统[Astryx](https://ai-bot.cn/astryx/)，目前处于Beta阶段。系统基于React与StyleX构建，历经8年内部打磨，支撑Facebook、Instagram等超1.3万个应用。系统提供150+可访问组件、品牌级主题、暗黑模式、即用型模板及CLI工具集，开发者无需额外构建插件，导入预编译CSS即可使用。来源：AI工具集
+
+7月1·周三
+
+## [AI 芯片初创公司 Etched 完成流片，获得8亿美元融资](https://mp.weixin.qq.com/s/ST38chCPQ5kQt_P9ilKCfA)
+
+Transformer专用AI芯片初创公司Etched完成A0芯片流片，并获得8亿美元融资及10亿美元客户订单。公司由哈佛辍学生创立，获卡帕西、李飞飞、辛顿等AI巨头投资。Etched推出首款机柜产品，采用低电压推理（LVI）和集群规模内存（CSM）技术，专为万亿参数级MoE模型推理优化，计划今夏出货。来源：量子位
+
+6月30·周二
+
+## [OpenAI 推出首款 AI 硬件，Codex 联名键盘](https://www.ithome.com/0/970/272.htm)
+
+OpenAI 开发者官方账号 6 月 30 日在 X 平台宣布，将与客制化键盘厂商 Work Louder 合作推出 [Codex](https://ai-bot.cn/sites/53.html) 品牌专用输入设备，定于 7 月 15 日上线。设备基于 Creator Micro 2 微型快捷键盘打造，配备 12 个可自定义机械按键、八向摇杆及无极旋转旋钮，专为 AI 开发场景优化。来源：IT之家
+
+## [清华系初创「厘清智能」完成数亿元种子轮融资](https://mp.weixin.qq.com/s/2Okd7vu6obNXTWdITeFysw)
+
+清华系初创厘清智能完成数亿元种子轮融资，顺为资本、红杉中国、高瓴创投等参投。团队由清华AI学院助理教授李一鸣创立，团队平均年龄23岁。公司拒绝”世界模型”标签，定位Physical AI基础设施商，自研数据管线与可微物理引擎，实现Real-to-Sim-Real闭环，可用1%真机数据达同等训练效果。来源：智能涌现
+
+## [全球金融科技平台 Airwallex 空中云汇完成H轮3.2亿美元融资](https://mp.weixin.qq.com/s/FMj-SzSmUwW7x-su-KqKag)
+
+全球金融科技平台 Airwallex 空中云汇宣布完成 H 轮 3.2 亿美元融资，投后估值达 110 亿美元，半年内从 80 亿美元跃升约 40%。本轮由 Addition 领投，多家国际机构跟投。公司同步发布两款 AI 产品：AI 原生财务平台 [T:0](https://ai-bot.cn/t0/)与智能体消费者钱包 Airi，资金将用于 AI 产品研发、全球合规布局及团队扩充。来源：Z Potentials
+
+6月29·周一
+
+## [OpenAI 推出最新一代大语言模型系列 GPT-5.6](https://mp.weixin.qq.com/s/zHA3FpSLLVksg9ze9Ybg_g)
+
+OpenAI 推出 [GPT-5.6](https://ai-bot.cn/gpt-5-6/) 系列限量预览版，包含旗舰 Sol、平衡 Terra 和性价比 Luna 三款模型。Sol 在编程、网络安全和生物学领域表现突出，新增 max 深度推理和 ultra 多 Agent 协同模式；Terra 以 GPT-5.5 一半价格提供同等性能；Luna 主打轻量高速。模型因应美国政府要求改为限量预览，原计划为开放访问。来源：机器之心
+
+## [高德推出 AI 应用生成平台「袋马」](https://www.ithome.com/0/969/794.htm)
+
+高德内测Vibe Coding产品「[袋马](https://ai-bot.cn/daimax/)」，主打自然语言驱动零门槛构建应用，聚焦微信小程序与iOS原生场景，可快速生成可直接上线、真机可用的应用。产品面向无专业研发团队的个人从业者与中小主体，用户无需编程知识，通过自然语言描述需求可生成完整App，支持获取真机二维码测试与持续迭代。来源：IT之家
+
+## [阿里通义千问推出独立AI语音输入法「千问输入法」](https://ai-bot.cn/ime-qianwen/)
+
+阿里巴巴通义千问团队推出独立AI语音输入法「[千问输入法](https://ai-bot.cn/ime-qianwen/)」，主打”说得随意，写得漂亮”。产品底层接入千问大模型CosyVoice能力，能语音转文字，更能理解语义、自动去除语气词、纠正口误，将散装口语整理为结构化书面文本。千问输入法支持最快300字/分钟输入、9种方言识别与中英混说。来源：AI工具集
+
+## [生数科技推出的 AI 陪伴应用 Vidy](https://ai-bot.cn/vidy/)
+
+生数科技推出AI陪伴应用 [Vidy](https://ai-bot.cn/vidy/)，定位”AI Vibe Buddy”，支持文字、语音及实时通话互动。产品内置Humi等差异化AI角色，搭载关系成长记忆系统，可随对话积累理解用户习惯与情绪。依托自研U-ViT架构和Vidu视频大模型，Vidy计划实现AI形象实时表情动作生成，将陪伴从文字语音推向面对面视频通话层级。来源：AI工具集
+
+## [自变量连续完成4轮融资，估值超过200亿元](https://mp.weixin.qq.com/s/dsBovOAIJ-3RB7dZLebtIA)
+
+自变量（X SQUARE ROBOT）两个月内连续完成四轮融资，投后估值突破200亿元，成为大湾区首家估值超200亿元的具身大脑公司。 投资方超30家，美团、阿里、字节、小米四大互联网巨头分别领投各轮次，小米连续三轮加注，58集团、奇瑞、中国移动、红杉中国等悉数入场。来源：量子位
+
+6月26·周五
+
+6月25·周四
+
+## [OpenAI 推出首款自研推理加速芯片 Jalapeño](https://mp.weixin.qq.com/s/PiwjL246aIWzT1P6yqwfOQ)
+
+OpenAI 发布首款自研推理芯片 Jalapeño，联合博通与 Celestica 打造，专为 ChatGPT、Codex 等模型量身定制。项目由前谷歌 TPU 核心成员 Richard Ho 主导，仅用 270 天完成从设计到流片，创高性能 ASIC 最快纪录。芯片通过优化数据搬运与资源平衡提升实际利用率，计划 2026 年底部署，每瓦性能大幅优于现有方案。来源：量子位
+
+## [阿里云推出 AI 语音输入法 CosyVoice](https://ai-bot.cn/cosyvoice-ai/)
+
+阿里云推出新一代AI语音输入法[CosyVoice](https://ai-bot.cn/cosyvoice-ai/)，搭载千问大模型，支持语音实时转写、自动过滤口语冗余、识别自我修正及结构化整理。工具可理解用户意图生成制式文稿，支持上海话、粤语、四川话等多种方言转普通话。工具主打大模型深度赋能的语义级理解与文本再生成能力，区别于传统语音输入法仅做声学转写。来源：AI工具集
+
+## [阿里云推出 AI 互动故事创作与阅读平台「向尾」](https://ai-bot.cn/xiangwei/)
+
+阿里云推出AI互动故事创作与阅读平台[「向尾」](https://ai-bot.cn/xiangwei/)，支持从零起稿、文稿续写及长篇小说分章规划三种模式，覆盖网文、剧本、儿童故事等场景。阅读时AI实时生成场景背景图，读者可在关键节点选择剧情走向或自定义输入，平台即时续写并保持人设一致。来源：AI工具集
+
+6月24·周三
+
+## [豆包正式推出专业版](https://mp.weixin.qq.com/s/Sb-NMXTrWFQES1EDO_Gr2g)
+
+[豆包](https://ai-bot.cn/sites/4189.html)专业版正式上线，基于[豆包2.1](https://ai-bot.cn/doubao-seed-2-1/)系列大模型推出全新办公任务模式，支持本地电脑操作、浏览器、Skills技能调用、定时任务及内置Office套件，可完成文档处理、应用开发、数据分析等专业工作。订阅采用三级阶梯定价：标准套餐68元/月、加强套餐200元/月、高级套餐500元/月；大学生认证可享38元/月专属优惠。来源：豆包
+
+## [通义千问推出原生语言世界模型 Qwen-AgentWorld](https://mp.weixin.qq.com/s/bcNrnicCIjsArrFGMamSKg)
+
+阿里通义正式推出 [Qwen-AgentWorld](https://ai-bot.cn/qwen-agentworld/)，首个原生语言世界模型，可在 MCP、Search、Terminal、SWE、Web、OS、Android 七大领域模拟智能体交互环境。模型基于超 1000 万条真实环境轨迹，经 CPT→SFT→RL 三阶段端到端训练，在自研评测基准 AgentWorldBench 上整体模拟质量超越 GPT-5.4、Claude Opus 4.8 等顶尖模型。来源：千问大模型
+
+## [百川智能推出医疗增强大模型 Baichuan-M4](https://mp.weixin.qq.com/s/WBWQFRH5d8z1MBvCMHSWDQ)
+
+百川智能联合清华大学推出新一代医疗增强大模型 [Baichuan-M4](https://ai-bot.cn/baichuan-m4/)，在 HealthBench 三项榜单登顶世界第一，幻觉率仅3.3%为行业最低。Baichuan-M4具备深度主动问诊、全病程记忆、证据锚定及 Agent 调度四大核心能力，由 Baichuan-Harness 自主编排诊疗流程，实现从会答题到会看病的跨越。来源：百川智能
+
+## [Momenta 冲刺港股”物理AI第一股”IPO](https://mp.weixin.qq.com/s/rfoGnsuOYCINXZw5TQ9dhw?scene=1&click_id=110)
+
+自动驾驶公司 Momenta 冲刺港股”物理AI第一股”IPO，正式将自身定位为物理AI基座模型构建者。其R7世界模型已量产上车，依托超120亿公里真实行驶数据与预训练—仿真—强化学习三层架构，实现对物理世界的理解与推演。公司营收三年翻三倍，许可收入激增42倍，商业模式正从项目制转向规模化License收费。来源：量子位
+
+6月23·周二
+
+## [影眸科技完成数亿元新一轮融资](https://mp.weixin.qq.com/s/0jokAKAzdxen9ZV9Uj-D7A)
+
+影眸科技完成数亿元新融资，本轮融资由凯辉基金、上海国投先导领投，老股东持续跟投。同步发布最新3D生成模型Hyper3D[Rodin Gen-2.5](https://ai-bot.cn/rodin-gen-2-5/)，首次引入大语言模型先思考再生成模式，支持五档思考深度，最快4秒生成百万面模型，同步推出全球首个12K精度原生3D贴图模型。来源：智能涌现
+
+## [TRAE Work中国版支持豆包2.1，免费体验](https://mp.weixin.qq.com/s/d3LYtnZ2rkP5hyEB2Jaaeg)
+
+[TRAE Work](https://ai-bot.cn/sites/79473.html)中国版于[豆包2.1](https://ai-bot.cn/doubao-seed-2-1/)模型发布Day0完成接入并同步上线，第一时间免费向全量用户开放体验。豆包2.1是字节跳动全新一代模型，包含Pro与Turbo版本，具备更可靠的通用Agent能力、更稳定的代码工程交付能力及更强劲的多模态基础能力。TRAE IDE暂时仅对速通Ultra与优速通Express用户开放。来源：TRAE.ai
+
+## [美国AI推理芯片独角兽 Groq 完成6.5亿美元融资](https://zhidx.com/p/568303.html)
+
+美国AI推理芯片独角兽 Groq 宣布完成 6.5亿美元融资，用于全球AI推理云扩张，目标2027年算力达 200兆瓦。Groq此前与英伟达达成 200亿美元授权协议，核心团队已加入英伟达；现聚焦推理云业务，运营13座数据中心，服务超500万开发者，并任命全新领导团队。来源：智东西
+
+6月22·周一
+
+## [微信小范围内测原生AI助手「小微」](https://mp.weixin.qq.com/s/nXjFyV79SEM5l7J7dqBkgQ)
+
+微信「小微」AI助手启动小范围内测，用户可在主界面左上角通过绿色眼睛图标进入。小微支持文字或语音对话操作微信原生功能，包括调整设置、发送消息、调起小程序、生成图片等，主模型为微信自研WeLM，部分回答调用DeepSeek。同时，小微具备一句话生成小程序能力。来源：财联社
+
+## [港股智谱总市值突破 1 万亿港元](https://www.ithome.com/0/966/791.htm)
+
+港股智谱总市值首次突破1万亿港元，年内涨超2000%，总市值达1.27万亿港元。此前智谱开源的[GLM-5.2](https://ai-bot.cn/glm-5-2/)模型在全球百万用户盲测的Code Arena前端开发评估中位列可用模型第一。来源：IT之家
+
+6月18·周四
+
+## [演语科技（EVOKEN）完成近 3 亿美元B+轮融资](https://mp.weixin.qq.com/s/q43uBzL5GISBl5ItrgeUMQ)
+
+演语科技（EVOKEN）完成近3亿美元B+轮融资，投后估值超20亿美元，由Granite Asia、顺为资本联合领投，高榕创投、蚂蚁集团等股东持续加码。旗下产品矩阵覆盖[LibLibAI](https://ai-bot.cn/sites/66771.html)、[LibTV](https://ai-bot.cn/sites/73776.html)及[星流](https://ai-bot.cn/sites/61482.html)三大平台，其中AI视频平台LibTV上线两月收入增超13倍，5月集团整体收入同比增长超3000%。本轮资金将用于加大研发投入与全球市场拓展。来源：演语 EVOKEN
+
+## [豆包实时语音模型3.0 API 服务正式上线](https://mp.weixin.qq.com/s/L4BJnexabQu5DAxDnwEGxw)
+
+火山引擎正式上线豆包实时语音模型 3.0（[Seeduplex](https://ai-bot.cn/seeduplex/)）API 服务并开启邀测。作为原生全双工端到端语音大模型，模型具备精准遵循、抗干扰、动态判停三大优势，支持在实时对话中调用工具完成任务，实现边听边说边办事。判停延迟缩短约 250ms，复杂场景抢话比例下降 40%。来源：火山引擎
+
+## [OpenAI 为 ChatGPT 推出全新定时任务功能](https://www.ithome.com/0/965/700.htm)
+
+OpenAI 为ChatGPT逐步推送全新定时任务功能，替代现有的Pulse功能。新功能支持发送提醒、处理周期性工作及监测事项，新增侧边栏专属页面统一管理任务，运行速度与稳定性均获提升。用户可指定精确时间或宽泛时段，监测类任务支持联网检索与应用数据读取。新功能每小时最多运行一次，长时间无交互可能自动暂停。来源：IT之家
+
+6月17·周三
+
+## [SpaceX 600亿美元收购 Cursor](https://mp.weixin.qq.com/s/klg2bc8HY3_95H_CSmmBpw)
+
+SpaceX宣布以全股权交易600亿美元收购AI编程工具[Cursor](https://ai-bot.cn/sites/906.html)母公司Anysphere，Cursor将成为SpaceX全资子公司，预计2026年Q3完成交割。SpaceX刚完成纳斯达克上市，市值达2.5万亿美元。Cursor年度B2B收入约26亿美元，此前底层模型依赖Anthropic和OpenAI，面临断供风险；并入后可用xAI超算训练自有代码模型。来源：机器之心
+
+## [DeepSeek首次融资落地，募集超500亿，估值超3300亿元](https://mp.weixin.qq.com/s/CHCq6jAz3W0RA0ifDQY33w)
+
+[DeepSeek](https://ai-bot.cn/sites/54501.html) 完成首次对外融资，募资超 500 亿元（约 74 亿美元），估值超 500 亿美元（约 3380 亿元），创国内 AI 行业最大单笔融资纪录。交易结构特殊：资金需投入梁文锋管理的有限合伙企业，外部投资者股份锁定五年且无投票权；国家 AI 产业投资基金例外，直接投资 10 亿元。梁文锋个人出资 200 亿元，腾讯、宁德时代等参投。来源：机器之心
+
+## [微信支付 「AI 专属卡」上线](https://mp.weixin.qq.com/s/V6wNr3xEWtU8RWJ2tUoc4Q)
+
+微信支付正式推出[AI专属卡](https://ai-bot.cn/ai-exclusive-card/)，[WorkBuddy](https://ai-bot.cn/sites/73160.html)率先接入。用户只需一句话，AI可代为查找餐厅、领取优惠券、团购下单并完成支付。资金安全采用专款专用+笔笔确认机制，每笔支付需用户手机端亲自授权。目前仅支持WorkBuddy mac电脑版5.1.1及以上版本，用户可在专家页面召唤美团生活助手体验。来源：腾讯
+
+6月16·周二
+
+## [MiniMax 开源原生多模态旗舰模型 MiniMax M3](https://mp.weixin.qq.com/s/AW6L89QZkwN-jD27hQ84ww)
+
+[MiniMax](https://ai-bot.cn/sites/8835.html) 开源原生多模态旗舰模型[MiniMax M3](https://ai-bot.cn/minimax-m3/)，总参数 428B、激活参数 23B，采用自研 MSA 稀疏注意力架构降低长上下文计算成本，是首个从 Step 0 开始多模态混合训练的开源模型。发布后在 Artificial Analysis 综合智能指数、GDPval-AA、Code Arena WebDev 等多个榜单取得开源模型第一，获 Vercel CEO 及 YC 创始人等业界好评。来源：MiniMax 稀宇科技
+
+## [硅基流动完成新一轮超 20 亿元融资](https://mp.weixin.qq.com/s/vUt5GuHHpEFfKF_q8j4ToA)
+
+硅基流动近日完成超20亿元B轮融资，由携程、晶科能源、金蝶、联通、壁仞、蔚来、商汤、巨人网络、国泰君安、纪源资本等产业链头部企业与知名机构联合投资，华兴资本担任独家财务顾问。公司定位”Token工厂”模式，日均Token调用量达数万亿，服务超1000万用户及1万家企业客户，营收同比增长超10倍。来源：硅基流动
+
+6月15·周一
+
+## [智谱AI推出最新旗舰开源模型 GLM-5.2](https://mp.weixin.qq.com/s/LDrbtLM0wiCTJorvd5GY9w)
+
+智谱推出[GLM-5.2](https://ai-bot.cn/glm-5-2/)模型，支持1M上下文，模型长程任务领先，定位最强国产Coding模型。GLM-5.2 将面向 GLM Coding Plan 全量用户开放，覆盖 Lite / Pro / Max / 团队版。GLM-5.2 API 本周将上线，同时模型也将开源，遵循 MIT 协议。来源：智谱
+
+6月12·周五
+
+## [OpenAI 收购初创公司 Ona](https://www.ithome.com/0/963/239.htm)
+
+OpenAI 宣布收购初创公司 Ona，为编程助手 [Codex](https://ai-bot.cn/sites/53.html) 提供安全、预配置云环境。Ona 技术将帮助 Codex 执行更长时间任务，支持用户将 AI 智能体安全部署到生产环境，同时强化企业对基础设施、数据资产和安全边界的掌控。双方未公布交易金额，Ona 团队将加入 OpenAI 参与 Codex 项目研发。来源：IT之家
+
+## [Visa 与 OpenAI 达成合作，探索 AI 智能体交易新模式](https://www.ithome.com/0/963/478.htm)
+
+Visa 宣布与 OpenAI 达成战略合作，双方将推动智能体商业进入市场，探索 AI 智能体交易新模式。Visa 将把全球支付网络、支付标记化、授权机制、身份识别及欺诈检测技术引入 OpenAI 产品，确保 AI 发起的交易安全可控，最终决策权仍保留在用户手中。同时双方将探索把支付能力整合到开发者工具中。来源：IT之家
+
+6月11·周四
+
+## [小米开源终端 AI 编程助手 MiMo Code](https://mp.weixin.qq.com/s/WkMPz-eBK2Hz0ZTQEwtx6w)
+
+小米大模型团队开源终端AI编程助手 [MiMo Code](https://ai-bot.cn/sites/79441.html)，内置限时免费的 [MiMo-V2.5](https://ai-bot.cn/mimo-v2-5/) 模型，同时支持 DeepSeek、Kimi 等主流模型。核心特性包括独创持久记忆系统、Compose 模式实现全流程自动开发、/dream 命令定期整理记忆，以及语音输入控制。在 SWE-Bench Pro 和 Terminal Bench 2 基准上，相同模型下表现优于 Claude Code。来源：Xiaomi MiMo
+
+## [科大讯飞推出智慧空间Agentic架构 SpaceMind](https://mp.weixin.qq.com/s/VTxedVFb7dEMG1vWBnrq7A)
+
+科大讯飞推出智慧空间Agentic架构[SpaceMind](https://ai-bot.cn/spacemind/)，推动智能家居从被动响应进入L2.5主动智能时代。SpaceMind用毫米波雷达为核心感知源，实现5厘米级定位与呼吸级微动检测；采用双路由架构与本地语义模型+云端大模型协同，设备控制响应低至700毫秒。系统具备持久记忆、多Agent协作和主动服务能力，可基于用户习惯自动调节环境。来源：讯飞开放平台
+
+## [GUI Agent平台Core-Mate获数千万元融资](https://mp.weixin.qq.com/s/VfCODLKOQwlITN4rt09y-w)
+
+GUI Agent 执行平台 Core-Mate 完成数千万元融资，由敦鸿资产独家投资。团队核心成员来自字节跳动，曾在抖音、豆包担任产品经理。Core-Mate 让 AI 真正接手网页和 App 中的真实操作，通过开源的 OpenGUI 框架融合视觉、控件树与页面状态实现稳定屏幕语义理解。来源：Founder Park
+
+6月10·周三
+
+## [字节跳动 TRAE SOLO 升级为 TRAE Work](https://ai-bot.cn/sites/79473.html)
+
+字节跳动旗下 [TRAE](https://ai-bot.cn/sites/65814.html) 宣布 TRAE SOLO 正式升级为 [TRAE Work](https://ai-bot.cn/sites/79473.html)，品牌内涵从The Real AI Engineer拓展为The Real AI Enabler。TRAE Work 面向更广泛的真实工作场景，包含 Work 模式与 Code 模式。TRAE Work 已覆盖 PC、移动端和 Web 三端，支持多任务并行，并于5月完成与飞书打通。来源：TRAE.ai
+
+## [蚂蚁集团推出 AI 应用生成平台 QMuse](https://ai-bot.cn/qmuse/)
+
+蚂蚁集团推出AI应用生成平台[QMuse](https://ai-bot.cn/qmuse/)，用户通过一句话自然语言描述可零代码生成可运行应用。平台内置灵感橱窗辅助创意，依托支付宝账号体系保障安全。目前产品处于内测阶段，需邀请码使用，旨在大幅降低应用开发门槛，实现从创意到产物的极速跨越。来源：AI工具集
+
+## [阿里千问推出国内首个全周期高考志愿填报Agent](https://mp.weixin.qq.com/s/ocE80lRyRyQ1g-AfCTGmxw)
+
+阿里[千问](https://ai-bot.cn/sites/1338.html)上线国内首个全周期高考志愿填报Agent，为全国考生免费提供志愿填报服务。产品基于千问高考志愿大模型和夸克8年高考数据，具备志愿日历、志愿报告和志愿问答三大能力。志愿报告实现Agent化升级，支持细节需求捕捉与实时动态调整。来源：千问APP
+
+6月9·周二
+
+## [AI 短剧创作「井英科技」宣布完成数千万美元 A 轮及 A+ 轮融资](https://mp.weixin.qq.com/s/y5Mq3tUDIaoo1D3ZS6xPVg)
+
+井英科技（CreativeFitting）完成数千万美元A轮及A+轮融资，投资方包括王慧文家办、蚂蚁集团等，同时宣布原AWS首席应用科学家王敏捷加盟任首席科学家。公司定位为内容行业首家Agent原生公司，以AI短剧为首个场景，构建创作者Agent可接入、可自我进化的强化学习环境，通过真实消费反馈驱动迭代。来源：机器之心
+
+6月8·周一
+
+## [OpenAI为所有个人用户开放ChatGPT锁定模式](https://help.openai.com/en/articles/6825453-chatgpt-release-notes#lockdown-mode-is-now-available-to-all-logged-in-users)
+
+OpenAI宣布向所有ChatGPT个人用户（Free、Go、Plus、Pro）开放锁定模式。功能启动后能禁用实时网页浏览、深度研究、Agent模式、图片检索及文件下载等高风险联网功能，仅支持访问缓存内容，同时保留图片上传与生成功能。来源：ChatGPT
+
+## [谷歌和 SpaceX 公司达成9.2亿美元云计算合作](https://www.ithome.com/0/960/770.htm)
+
+谷歌与SpaceX达成云计算合作，自2026年10月至2029年6月，谷歌每月向SpaceX支付9.2亿美元（约62.46亿元人民币），租赁约11万张英伟达GPU、CPU等芯片算力，用于AI训练与推理。协议将缓解谷歌算力供应紧张，同时为SpaceX AI业务开辟重要收入来源，为其IPO增添新叙事筹码。来源：IT之家
+
+## [「华超神控」获亿元天使系列融资](https://mp.weixin.qq.com/s/njxR7rgBPNK6Ui_fISHIlg?scene=1&click_id=20)
+
+新一代AI超声脑机公司华超神控（BCI-Sonics）宣布完成亿元人民币级天使轮系列融资，天使轮由经纬创投领投，天使+轮由德联资本、道远资本联合领投。公司由中科院博士、前GE医疗中国区负责人李昕创立，专注低强度聚焦超声无创脑机接口技术。本轮资金将用于技术验证与产业化落地，推进疼痛、成瘾等适应症临床转化。来源：36氪
+
+6月5·周五
+
+## [ChatGPT 推出全新的 Dreaming 记忆系统](https://mp.weixin.qq.com/s/TfQfVGg0VcA5kenObLk32g)
+
+OpenAI推出基于Dreaming技术的新版ChatGPT记忆系统。系统能自动整理长期对话中的用户偏好、计划等背景信息，判断信息是否过时，实现记忆的自动更新与修正，使回答更个性化。同时新功能新增可查看、编辑的记忆摘要。本次更新率先面向美国Plus和Pro用户开放，未来将逐步扩展至更多地区及免费用户。来源：APPSO
+
+## [阿里通义推出通用智能体评测基准 PawBench](https://mp.weixin.qq.com/s/Q1fa3KwT63HBOF2fmWKzlg)
+
+通义实验室推出通用智能体评测基准[PawBench](https://ai-bot.cn/pawbench/)，首次将底座模型与运行框架（Harness）纳入联合评测。PawBench v1.0 包含 150 道真实任务、4050 个测试单元，覆盖 9 个模型与 3 个 Harness 的交叉矩阵。评测发现 Harness 性能差距最高达 6.4 分，同一模型换 Harness 分差可达 11.5 分。来源：通义实验室
+
+6月4·周四
+
+## [AI音乐公司 Suno 获4亿美元融资](https://mp.weixin.qq.com/s/onjGSsaPZAlUAdZr81mYEg)
+
+AI音乐独角兽[Suno](https://ai-bot.cn/sites/6968.html)完成4亿美元融资，估值翻倍至54亿美元，由Bond Capital领投，IVP等跟投。公司订阅用户已突破200万，年销售额有望达3亿美元，计划年底扩招70%员工。Suno已与华纳音乐达成和解并签署授权协议，此前仍面临环球、索尼、华纳三大唱片公司的版权侵权诉讼。来源：Z Potentials
+
+## [京东开源长音视频生成框架 JoyAI-Echo](https://mp.weixin.qq.com/s/tISrnBhhxZnJmtbyfeB8sg)
+
+京东推出 [JoyAI-Echo](https://ai-bot.cn/joyai-echo/) 长音视频生成框架，通过跨模态音视频记忆库、记忆驱动后训练推理速度提升7.5倍、Director Agent对话式编辑及轻量化实时超分四项技术创新，解决角色一致性、声音稳定性和生成速度三大行业难题。实测显示框架5分钟视频角色与音色高度一致，语音准确率达0.8646，各项指标全面领先。来源：京东黑板报
+
+6月3·周三
+
+## [OpenAI 发布 AI 编程智能体 Codex 三项更新](https://mp.weixin.qq.com/s/3nHDmHMYRCmuEuziq2P_oA)
+
+OpenAI宣布编程智能体[Codex](https://ai-bot.cn/sites/53.html)三项更新：智能体插件预置6个岗位技能包，企业无需编程可部署AI员工；注释功能支持对生成内容指哪改哪精准修改；站点功能可将文档一键转为交互式网站。Codex周活跃用户已达500万，较年初增长8倍。同时OpenAI计划将Codex引入ChatGPT，支持AWS平台一键部署。来源：智东西
+
+## [Windsurf 升级更名为 Devin Desktop](https://devin.ai/blog/windsurf-is-now-devin-desktop/)
+
+Cognition 宣布 Windsurf 正式升级为[Devin Desktop](https://ai-bot.cn/devin-desktop/)，从 AI IDE 转型为 Agent 指挥中心。新版本引入 Kanban 统一管理本地与云端 Agent，新增 Spaces 实现跨 Agent 上下文共享，支持 ACP 开放协议接入 Codex、Claude Agent 等第三方 Agent。产品保留完整 IDE 能力，现有用户可通过 OTA 自动升级，实现零成本迁移。来源：Devin
+
+## [千问App向第三方Agent、Skill全面开放](https://mp.weixin.qq.com/s/rUcQ-QxC3xmKfrK18fV0Yw)
+
+[千问App](https://ai-bot.cn/app/10279.html)宣布向第三方Agent和Skill全面开放，所有企业均可在千问运营品牌Agent。肯德基、瑞幸、蜜雪冰城、东方航空等首批企业正在测试，将陆续上线。Agent具备记忆与主动规划能力，可主动提供行程提醒、权益到期、复购推荐等服务。来源：千问APP
+
+6月2·周二
+
+## [阿里达摩院推出 AI 原生开发平台「语构」](https://ai-bot.cn/creo4u/)
+
+阿里达摩院推出AI原生开发平台[「语构」](https://ai-bot.cn/creo4u/)，以Vibe Coding为核心范式，用户通过自然语言描述可生成完整可用的数字产品。平台覆盖需求理解、智能追问、自动开发到预览发布的全链路，内置大模型对话、文生图、机器翻译、地图检索、实时汇率、股价查询、气象数据等标准化资源接口，支持零代码调用。来源：AI工具集
+
+## [谷歌母公司 Alphabet 宣布 800 亿美元大额融资，用于 AI 支出](https://www.ithome.com/0/958/473.htm)
+
+谷歌母公司Alphabet宣布总额800亿美元股权融资，用于AI基础设施与算力建设。其中300亿美元为公开发行，400亿美元按市值发行，伯克希尔·哈撒韦私募投资100亿美元。公司此前预计2026年资本支出达1800至1900亿美元，2027年将进一步提升；云业务2026年Q1营收同比增长63%，积压订单逾4600亿美元。来源：IT之家
+
+## [词元无限完成数千万元融资](https://mp.weixin.qq.com/s/IDiTRily9Cu8_jVLv-7IFg)
+
+词元无限完成数千万元天使+轮融资，由华控基金、水木创投联合领投，厦金创新跟投。公司由字节跳动万人级研发体系AI化改造团队与清华姚班背景团队创立，定位为企业级Agent基础设施，核心产品InfCode与InfOne分别面向AI原生软件开发和组织级智能业务编排，已服务十余家头部金融与软件企业。来源：Founder Park
+
+6月1·周一
+
+## [扣子 3.0 正式上线](https://mp.weixin.qq.com/s/Pn4N5KdIKUmIpXv7Dl3aSA)
+
+[扣子](https://ai-bot.cn/sites/6791.html) 3.0 正式上线，实现 iOS、Android、Mac、Windows 及网页端全量更新。新版本定位新一代 AI 团队，核心升级多 Agent 协作与项目空间管理，用户可创建项目召集不同职能 Agent 与团队推进任务。同时支持接入 Claude Code、Codex CLI 等本地 Agent，提供云端 Agent 长期运行能力，平台内置投资顾问、自媒体达人等职业模板。来源：扣子Coze
+
+## [VAST 获近2亿美元 A 轮系列融资](https://mp.weixin.qq.com/s/DXgludVqcoDOvt0LxtCTQA)
+
+通用人工智能公司VAST完成A+及A++两轮近2亿美元融资，由渶策资本、国寿长三角科创基金领投，荣耀等产业方及多家一线财务资本联合投资。同时，VAST推出全新世界模型项目Project Eden，创新性地将底层状态推演与视觉呈现解耦，解锁环境长程持久、场景自由复用、多人并发交互等颠覆性能力。来源：VAST AI
+
+## [小米开源可控视频音效生成模型 ControlFoley](https://mp.weixin.qq.com/s/BWud9NragguBe6UIHJvmPA)
+
+小米大模型应用团队开源可控视频音效生成模型[ControlFoley](https://ai-bot.cn/controlfoley/)，统一支持文本引导视频配音、文本控制视频配音及参考音频控制视频配音三类任务。模型通过联合视觉编码、时间-音色解耦与模态鲁棒训练，解决现有方案文本控制弱、参考音频难同步等问题，在 VGGSound-Test 等多个 benchmark 上达到开源 SOTA 表现。来源：小米技术
+
+5月29·周五
+
+## [Anthropic 融资 650 亿美元，融资后估值达9650亿美元](https://www.ithome.com/0/956/837.htm)
+
+Anthropic完成650亿美元H轮融资，投后估值达9650亿美元（约6.56万亿元人民币），预计为IPO前最后一轮私募融资。本轮由Altimeter Capital、Sequoia Capital等机构领投，亚马逊等超大规模云提供商参与，其中亚马逊已宣布投资50亿美元。来源：IT之家
+
+## [零一万物三周年宣布做首家盈利的 AI 2.0 公司](https://mp.weixin.qq.com/s/7SB2aWh5wCK257_uCR5knA?scene=1)
+
+零一万物三周年之际，李开复发表内部致辞《三生万物》，宣布公司开启”二次创业”，从AGI理想转向产业AI落地。公司对标Palantir，聚焦高毛利、高复购的2B业务，目标明年某季度成为中国首家盈利的AI 2.0公司。同时推出合伙人制度、2000万股期权及CEO专项激励，引入DRI范式。来源：零一万物 01AI
+
+5月28·周四
+
+## [腾讯推出AI游戏创作平台「代号Craft」](https://mp.weixin.qq.com/s/csZYzDmJVO__9UsuU_v3nA)
+
+腾讯推出AI游戏创作平台[「代号Craft」](https://ai-bot.cn/project-craft/)，支持赛车、开放世界、RPG、卡牌等多种游戏类型，提供2D/3D海量免费资产库与AIGC能力，让做游戏像玩游戏一样简单。平台联合深圳前海启动”开发者先锋营”线下训练营，为首测开发者提供AI游戏创作学习与实践机会，目前正在招募首批测试用户。来源：代号Craft
+
+## [OpenRouter 完成1.13亿美元 Series B 融资](https://openrouter.ai/announcements/series-b)
+
+[OpenRouter](https://ai-bot.cn/sites/58373.html) 宣布完成1.13亿美元 Series B 融资，由 Alphabet 旗下独立成长基金 CapitalG 领投，NVentures、ServiceNow Ventures、MongoDB Ventures 等参投。平台周处理量达 25 万亿 tokens，较半年前增长 5 倍，月处理量达 100 万亿。本轮融资将用于扩展路由、治理和优化能力，支持企业多模型 AI 部署需求。来源：OpenRouter
+
+## [自变量机器人开源具身智能模型 Wall-OSS-0.5](https://mp.weixin.qq.com/s/N8WlG3OydsmcV_o9lIvaxw?scene=1)
+
+自变量机器人（X Square Robot）开源具身大模型 [Wall-OSS-0.5](https://ai-bot.cn/wall-oss-0-5/)，提出预训练即可部署，在17个真实机器人任务零样本测试中，4项得分超80分。模型基于20余种机器人形态、超百万条轨迹及9000万条多模态语料预训练，采用梯度桥接协同训练与视觉对齐动作Tokenizer，微调后任务进度领先行业标杆π0.5达17.5分。来源：机器之心
+
+5月27·周三
+
+## [支付宝推出全球首个Token Pay服务](https://mp.weixin.qq.com/s/cMVuGZyRzByYhODmMlRc5Q)
+
+支付宝发布全栈AI原生支付体系，推出全球首个Token Pay服务、AI钱包，连同此前落地的AI付与AI收，构成覆盖授权、支付、结算、管理的完整智能体经济基础设施。AI付已完成3亿笔智能体支付，支持95%主流智能体框架，资损率降至亿分之一；AI收让全网Agent可自动购买商家服务，个人经验可通过Agent便捷变现。来源：智东西
+
+## [小米宣布 MiMo-V2.5 系列 API 永久降价](https://mp.weixin.qq.com/s/PuJcTCUO0MjB2V1D-V0_oA)
+
+小米大模型[MiMo-V2.5](https://ai-bot.cn/mimo-v2-5/)系列宣布API永久降价，最高降幅达99%，Token Plan套餐用量提升至原5-8倍。同时，自4月28日启动的”百万亿Token创造者激励计划”提前收官，累计发放100万亿Token，申请人数超54.8万。现有Token Plan用户额度全量重置，V2.5-TTS系列继续限时免费。来源：Xiaomi MiMo
+
+5月26·周二
+
+## [天工AI推出高性能 Agent 模型 SkyClaw-v1.0](https://mp.weixin.qq.com/s/DhJJMZoHaGAL80YTjH1KjQ)
+
+昆仑万维旗下天工AI正式推出高性能Agent模型[SkyClaw-v1.0](https://ai-bot.cn/skyclaw-v1-0/)及轻量化版本SkyClaw-v1.0-lite。模型支持百万token长上下文，深度适配真实智能体工作流，重点优化复杂工具调用、多轮任务执行、代码生成与交互式应用构建。在多项Agent基准测试中，SkyClaw-v1.0全面超越Minimax 2.7、DeepSeek V4 Flash等主流开源模型，性能接近更大规模的顶级模型，且定价低于竞品一半。来源：昆仑万维集团
+
+5月25·周一
+
+## [面壁智能联合清华开源端侧大模型 BitCPM-CANN](https://mp.weixin.qq.com/s/MV9yx298b2Fx51hZC2-lyg)
+
+面壁智能联合清华大学及 OpenBMB 开源社区开源中国首个完全基于华为昇腾国产算力平台端到端训练的 1.58-bit 三值大模型[BitCPM-CANN](https://ai-bot.cn/bitcpm-cann/)，包含 0.5B 至 8B 四个尺寸。模型采用量化感知训练路线，推理阶段释放约 6 倍显存红利，模型能力保留率达 90%–97.2%，为端侧 AI 落地与国产 NPU 生态提供关键基础设施。来源：面壁智能
+
+## [商汤办公小浣熊推出桌面智能体](https://mp.weixin.qq.com/s/HuNyO7jUnJv3bQjNQWFQcQ?scene=1&click_id=35)
+
+商汤[办公小浣熊](https://ai-bot.cn/sites/8516.html)桌面智能体正式发布，定位从建议者进化为执行者的AI办公伙伴。产品具备六大核心能力：支持20+格式本地文件直读、浏览器自动化、Ctrl+K全局快捷唤起、飞书等办公协同、本地记忆越用越懂用户、定时任务自动执行。来源：商汤科技SenseTime
+
+## [腾讯全面开放 ima copilot](https://mp.weixin.qq.com/s/R22ySmNraCJ4W4o2nbJu1w?scene=1&click_id=39)
+
+腾讯[ima copilot](https://ai-bot.cn/sites/26420.html)宣布全面开放，用户无需排队即可使用。工具具备持续进化记忆与全场景感知能力，可读取、总结并调用知识库内容，支持接入各大模型API KEY及自定义扩展技能。同时，ima知识号新增发布Skill功能，知识广场从”内容平台”升级为”能力平台”，首批上线微信读书、腾讯招聘等官方Skill。来源：ima.copilot
+
+## [智谱清言上线 AgentMore Skills 广场](https://mp.weixin.qq.com/s/xEsxKSsLwnxFpM771e1fkg?scene=1)
+
+[AgentMore](https://ai-bot.cn/sites/77943.html) Skills广场正式上线。广场整合「推荐」官方严选、「Skillhub」7.4 万+免费技能及「开源社区」三大模块，支持全局搜索与一键零 Token 安装。用户可为 Agent 快速装备微信读书、美团优惠券等大厂独家技能包，实现从通用聊天到行业专家的秒级升级，支持随时卸载管理。来源：智谱清言
+
+5月22·周五
+
+## [网易有道开源多模态大模型 Confucius4](https://ai-bot.cn/confucius4/)
+
+网易有道AI团队开源多模态推理模型[Confucius4](https://ai-bot.cn/confucius4/)，基于Qwen3.5-27B架构推出，专为高级数学推理设计。模型采用迭代SFT+RL训练与精细化CoT优化，在Math-Hard-500等基准达同等规模SOTA性能，推理链长度降低43.2%。Confucius4针对中文用户定向优化，支持图文混合输入，兼容Qwen生态。来源：AI工具集
+
+5月21·周四
+
+## [智谱推出下一代大模型推理网络架构 ZCube](https://mp.weixin.qq.com/s/JYyLD4U2235obw9WH45v9g)
+
+智谱联合驭驯网络与清华大学推出[ZCube](https://ai-bot.cn/zcube/)组网架构，针对PD分离推理拥塞难题，取消Spine层，采用扁平化拓扑与单/多轨混合接入。GLM-5.1 coding实测显示，ZCube使交换机及光模块成本降33%，GPU推理吞吐提升15%，首Token时延TTFT P99降40.6%，为下一代超大规模推理集群提供高效底座。来源：智谱
+
+## [阿里 D20 全球设计院长峰会正式开票，堆友携手参会](https://mp.weixin.qq.com/s/LNkJK2LTC7tECV83LgCAlw)
+
+阿里D20全球设计院长峰会2026正式开票，堆友再度携手参会。本届以”设计新生”为主题，主论坛聚焦大模型、Agent、AIGC及空间智能，分论坛涵盖阿里云”Vibe Designing”、淘天AI设计Agent、千问AI硬件UX等前沿方向，并首发AI设计实战工作坊与AI设计展。来源：堆友
+
+## [腾达Marvis正式上线，无需邀请码](https://www.ithome.com/0/953/096.htm)
+
+腾讯操作系统级AI助手[腾讯Marvis](https://ai-bot.cn/marvis-qq/)（马维斯）正式上线，官网开放Windows、Mac及安卓端下载，无需邀请码即可体验。产品由应用宝团队推出，内置6名24小时在线AI Agent，支持读取本地文件、操作电脑软件与手机App，具备系统级文件MCP服务。来源：IT之家
+
+5月20·周三
+
+## [阿里千问推出新一代旗舰模型 Qwen3.7-Max](https://mp.weixin.qq.com/s/aAWHw7itcNx9pIEinZIOPA)
+
+阿里通义千问推出旗舰模型 [Qwen3.7-Max](https://ai-bot.cn/qwen3-7-max/)，定位面向智能体时代的全能基座。模型在编程、办公自动化与长周期自主执行方面表现突出，曾在 35 小时、超 1000 次工具调用的内核优化任务中实现 10 倍加速。基准测试显示，模型在 SWE-Pro、MCP-Atlas 等多项智能体评测中领先同行。来源：千问大模型
+
+## [阿里云推出全新MaaS模型服务平台「千问云」](https://mp.weixin.qq.com/s/ERTLfMCEPQA7j00LYmMhsw)
+
+阿里云在2026阿里云峰会上发布为AI Agent而生的全新产品[千问云](https://ai-bot.cn/sites/77621.html)，集成Qwen、DeepSeek、Kimi等150余款主流模型API。平台将模型服务全面Skill和CLI化，Agent一句指令可自动完成模型选型、调用与任务执行，无需人工编写集成代码。来源：阿里云开发者
+
+## [微信读书官方推出 AI 助手扩展能力「微信读书Skill」](https://mp.weixin.qq.com/s/oiCpeZnOIfAtev1OO0NIGA)
+
+微信读书官方推出[微信读书Skill](https://ai-bot.cn/hidream-o1-image-pro/)，用户通过API Key绑定账号后，AI可调用个人阅读数据，实现查书架、搜书、统计阅读习惯、整理笔记及个性化推荐等六大功能。微信读书Skill支持部署至WorkBuddy等AI助手，安装后可用自然语言查询阅读记录，可批量导出划线笔记至Obsidian和Notion，让个人阅读数据真正被AI激活。来源：APPSO
+
+5月19·周二
+
+## [Lucius 完成数百万美元天使轮融资](https://mp.weixin.qq.com/s/ChnntEbRTygAouKf-SpzoA)
+
+Lucius 完成数百万美元天使轮融资，由明势创投领投，蓝狮资本担任独家财务顾问。Lucius 聚焦企业组织记忆缺失痛点，通过 AI Teammate 记录问题判断非仅存储答案，已服务 30 余家客户。典型案例 Dubbing AI 接入后社区自解决率从 29% 跃升至 88%。来源：Z Potentials
+
+## [腾讯内测操作系统层个人 AI 助手腾讯Marvis](https://mp.weixin.qq.com/s/UEKg2imwHA8hzV1kBR6e1g)
+
+腾讯内测操作系统级 AI 助手[腾讯Marvis](https://ai-bot.cn/marvis-qq/)，由应用宝团队开发，可在用户电脑本地部署 6 个 AI 智能体协同工作。产品支持自然语言指令完成文件管理、系统设置调整、跨模态内容检索及多任务自动化执行，采用云端效率与本地隐私双模式运行，敏感操作设 L2 级硬垂询确认 来源：腾讯科技
+
+5月18·周一
+
+## [腾讯推出AI应用生成平台「吐司」](https://ai-bot.cn/app/77418.html)
+
+腾讯推出探索型vibe coding产品[吐司](https://ai-bot.cn/app/77418.html)，定位应用生成及灵感共创平台，用户无需代码基础，自然语言描述可让AI完成从功能拆解到App打包的全流程。产品支持创造应用、社交分享、灵感广场复刻创作及AI应用搜索，构建”想法→应用→分发→共创”闭环。来源：AI工具集
+
+## [腾讯AI设计工具 Ardot 正式全面公测](https://mp.weixin.qq.com/s/xdU7x-icqyXjUGQzi68m2g)
+
+腾讯AI设计工具[Ardot](https://ai-bot.cn/sites/73831.html)正式全面公测，面向产设研团队开放。Ardot支持文/图生成UI设计稿、局部修改及批量图标，通过MCP协议实现设计稿一键转代码，兼容CodeBuddy、Cursor等IDE。产品具备多人协作、权限管理与开发者模式，深度兼容Figma且性能更优。来源：腾讯设计Ardot
+
+5月15·周五
+
+## [OpenAI Codex登陆ChatGPT手机App，所有用户都能用](https://mp.weixin.qq.com/s/BDEjgBgTbSsaOY0_QXbT1w)
+
+OpenAI 宣布 [Codex](https://ai-bot.cn/sites/53.html) 正式登陆 ChatGPT 手机 App，iOS 与 Android 双端同步开启预览，免费用户也能使用。用户可随时随地在手机上审批代码、查看线程动态、批准命令或启动新项目，Codex 在本地或远程环境中持续运行，状态实时同步至移动端。OpenAI 同步推出远程 SSH 连接、程序化访问令牌、Hooks 及 HIPAA 合规支持，进一步扩展团队自动化与安全管理能力。来源：机器之心
+
+## [阿里推出Qoder 1.0，从AI IDE升级为智能体自主开发工作台](https://mp.weixin.qq.com/s/iy0MjNjAj2Yb23CSDmx19w)
+
+阿里推出 [Qoder](https://ai-bot.cn/sites/60584.html) 1.0，从 AI IDE 升级为智能体自主开发工作台。新版本推出 Quest 独立视窗，支持跨项目多任务并行；整合记忆、Repo Wiki 与知识卡片为团队级知识引擎，引入 Experts 专家团及自定义 Agent 团队。目前 Windows、macOS 和 Linux 全平台已开放下载。来源：阿里云
+
+## [阿里云推出企业级AI建站平台万小智2.0](https://mp.weixin.qq.com/s/W5sRI5aifxkNQm1_F-Usgg)
+
+阿里云发布企业级 AI 建站平台[万小智](https://ai-bot.cn/sites/77243.html) 2.0，启用全新升级品牌 LOGO 与虚拟人形象。新版本从单纯生成页面扩展为建站全链路覆盖：支持行业模板、参考网站一键搭建及专业需求文档生成；原生集成域名注册、ICP 备案、SSL 证书与一键部署，实现合规上线；配备可视化管理后台、智能问答与创意中心，交付可持续运营的线上阵地。来源：阿里云万网
+
+## [墨刀AI上线AI生成App功能](https://mp.weixin.qq.com/s/iLVHvJkQDUrmTlSR2Zou8Q)
+
+[墨刀AI](https://ai-bot.cn/sites/2648.html)正式上线AI生成App功能，用户一句话描述需求，AI会主动反问对齐产品定位、视觉风格等细节，智能选定Ant Design、Shadcn UI等主流设计系统，快速生成基于React/HTML代码的高保真App应用。生成的设计稿可一键切换查看前端代码，直接交付开发。来源：墨刀
+
+5月14·周四
+
+## [豆包输入法推出macOS版本](https://mp.weixin.qq.com/s/mWj7LKVLNf7iHptOa4Sxpg?scene=1)
+
+字节跳动旗下[豆包输入法](https://ai-bot.cn/app/67045.html)macOS版本正式上线，苹果电脑用户可通过语音实现”用嘴打字”。macOS版本基于豆包App同款语音模型，支持任意输入框实时语音转文字，边说边出字且无时长限制。功能上支持多种方言及中英混说，可智能修正语气词、语病和口误，能记住用户个性化改词习惯等。来源：豆包
+
+5月13·周三
+
+## [谷歌推出 Gemini 电脑 Googlebook，把 AI 塞进光标](https://mp.weixin.qq.com/s/2j5lju0TlYEgQbycpjTu9w)
+
+谷歌在安卓Show大会上推出首款为[Gemini](https://ai-bot.cn/sites/736.html)量身打造的Googlebook笔记本，搭载智能光标并支持跨设备体验。同时发布安卓版Gemini Intelligence，支持跨App自动执行多步骤任务、Chrome集成Gemini插件、Rambler语音转文字及自定义桌面组件。谷歌还与苹果联手新增端到端加密RCS，预告下周I/O大会将抢先预览智能眼镜。来源：智东西
+
+## [林俊旸创业，新公司估值约20亿美金](https://mp.weixin.qq.com/s/eWxAChZE5Xkgi8xQdUdGJQ)
+
+前阿里千问大模型技术负责人林俊旸已正式创业，聚焦世界模型与具身大脑。他已招募来自字节、腾讯及海外背景的核心成员，以约20亿美元估值启动融资，接触红杉中国、高榕创投等机构。此前，林俊旸因阿里云计划拆分Qwen团队离职，具身智能也是其在阿里未竟之业。来源：智能涌现
+
+5月12·周二
+
+## [OpenAI推出AI网络防御工具Daybreak，斥资40亿美元成立新公司](https://mp.weixin.qq.com/s/0NL2sdsv9Ge3MzotCOTUgQ)
+
+OpenAI宣布成立OpenAI Deployment Company，获超40亿美元初始投资并收购英国AI咨询公司Tomoro，将150名前沿部署工程师嵌入企业，帮助客户将AI部署到销售、法务等核心业务流程，从模型提供商转型为AI经济部署层。同时推出AI网络安全工具[Daybreak](https://ai-bot.cn/daybreak/)，整合最强模型、Codex及安全合作伙伴，自动化漏洞发现与修复，加速网络防御并持续保障软件安全。来源：机器之心
+
+## [办公小浣熊桌面版 2.0 升级发布](https://mp.weixin.qq.com/s/c25rG1tbuF8BDk0xu751PQ)
+
+商汤[办公小浣熊](https://ai-bot.cn/sites/8516.html)桌面版2.0升级发布，从”桌面入口”转型为”执行助手”，新增六大能力：直接读取本地20+格式文件、一句话操控浏览器、⌘K全局快捷唤起、连接飞书/企微/钉钉、本地跨会话记忆、定时自动执行任务。现Mac端已开启首批内测招募，限时免费使用，Windows端预计5月中下旬上线。来源：商汤小浣熊
+
+## [码上飞全新升级！不仅做APP，还能帮你做生意](https://mp.weixin.qq.com/s/ge52GqAlLzPA2IxEn-9UWA)
+
+[码上飞](https://ai-bot.cn/sites/60995.html)宣布全新升级，进化为”用AI帮你做生意”的一站式平台。用户用中文可一句话生成微信小程序、App及网站。新版本为每个应用自动配备专属AI员工，支持内容创作、客户回复、数据分析等运营。同时自动生成管理后台集中管理订单、商品与经营数据，助力个人及小团队零门槛跑通业务。来源：码上飞-CodeFlying
+
+## [阿里千问与淘宝全面打通](https://mp.weixin.qq.com/s/-2Il_yefQVnmdM0ZHC0nUg)
+
+[千问APP](https://ai-bot.cn/app/10279.html)与淘宝全面打通，用户更新至6.9.1版本后，可在千问内直接完成商品挑选、对比及下单。依托AI能力，千问支持复杂条件精准筛选、模糊需求智能理解、场景化商品组合推荐，能识别”智商税”理性劝退，实现从搜索到购买的全链路AI购物体验。来源：千问APP
+
+5月11·周一
+
+## [Uncharted Dynamics 获数百万美元融资](https://mp.weixin.qq.com/s/H1UmhlpkKPvSJKczm5qGsQ)
+
+具身智能底层基础设施公司 Uncharted Dynamics 完成数百万美元种子轮融资，由险峰长青领投。公司聚焦高精度多体动力学求解器研发，为具身智能提供物理层面的”真值地基”，解决现有仿真系统在刚柔耦合、柔性接触等复杂交互中物理失真、导致模型难以迁移至现实的问题。来源：Z Finance
+
+5月9·周六
+
+## [百度推出旗舰大语言模型文心 5.1](https://mp.weixin.qq.com/s/_I9ziafHheXiJpA-QY2F7A)
+
+百度[文心 5.1](https://ai-bot.cn/ernie-5-1/)正式上线，总参数压缩至文心 5.0 的约 1/3、激活参数约 1/2，预训练成本仅为业界同规模模型的 6%。模型在 Arena 搜索榜以 1223 分位列全球第四、国内第一，Agent 能力超越 DeepSeek-V4-Pro，AIME26 数学竞赛得分 99.6 仅次于 Gemini-3.1 Pro。来源：百度文心
+
+## [蚂蚁百灵推出万亿级旗舰思考模型Ring-2.6-1T](https://mp.weixin.qq.com/s/eg4m5lngCeRjiEzKnE-7ZA)
+
+蚂蚁百灵正式推出[Ring-2.6-1T](https://ai-bot.cn/ring-2-6-1t/)，模型采用万亿级参数规模，在推理、编程、多模态理解等能力上实现显著提升。百灵团队通过创新的训练架构优化，在保证模型性能的同时有效降低推理成本。Ring-2.6-1T 已面向开发者和企业用户开放 API 调用，支持文本、图像、代码等多种任务场景，进一步丰富国内大模型生态的选择。来源：百灵大模型心
+
+## [通义灵码推出RepoWiki功能，一键生成结构化知识文档](https://mp.weixin.qq.com/s/HSOn2ztanIO9apFLPuOy0A)
+
+[通义灵码](https://ai-bot.cn/sites/5269.html)推出RepoWiki功能，支持为代码库自动生成覆盖模块关系、接口定义与实现逻辑的结构化知识文档，解决 AI 编程工具碎片化理解代码的痛点。RepoWiki支持全量生成、增量更新与 Git 目录同步，Wiki 文件可随代码提交实现团队共享。Repo Wiki 目前处于 Beta 阶段，面向企业标准版与专属版用户开放免费体验，来源：灵码Lingma
+
+5月8·周五
+
+## [美团推出 AI 原生共生社区「觅游」](https://ai-bot.cn/meyo/)
+
+美团推出 AI 原生社区[觅游](https://ai-bot.cn/meyo/)并开启公测。产品定位为面向大模型与 Agent 的共生社区，首创养虾模式，用户饲养的 AI Agent 虾可协助寻找赚钱机会、结识伙伴。目前平台已入驻超 3000 个 Agent、汇聚 4 万余项 Skill。来源：AI工具集
+
+## [360旗下AI办公平台推出AI PPT工具JJT](https://ai-bot.cn/ultrappt/)
+
+360集团旗下360 AI办公平台推出 AI PPT 工具 [JJT](https://ai-bot.cn/ultrappt/)，支持一句话生成、文档/大纲转 PPT、长内容总结汇报等创作模式，兼容 PDF、DOC、PPTX 等十余种格式上传。工具智能编辑能力涵盖一键换风格、精准配图、电影级转场、数据转图表及 AI 撰写演讲稿，支持 PPTX、HTML、PDF 多格式导出。来源：AI工具集
+
+## [共绩科技完成近亿元Pre-A轮融资](https://mp.weixin.qq.com/s/mUZf3AoQRUlZPjYwDyeJ7g)
+
+共绩科技宣布完成近亿元Pre-A轮融资，由春华创投、彼岸时代联合领投。公司独创”电网式算力调度网络”，整合全球闲时、异构算力资源，通过AI算法实现供需动态匹配，让算力像电力一样按需取用、按量计费。平台已服务超5000家团队及企业，帮助客户降低算力成本超50%，典型客户包括LiblibAI、Remy等。来源：共绩算力suanli.cn
+
+## [OpenAI推出Codex Chrome扩展插件](https://ai-bot.cn/sites/53.html)
+
+OpenAI 正式推出[Codex](https://ai-bot.cn/sites/53.html)Chrome扩展插件，支持 Codex 直接操作用户已登录的 Chrome 浏览器，包括读取打开标签页、页面内容及已登录网站信息，支持导航、点击、输入和截图等交互操作。用户可随时停止任务并在设置中管理访问权限，与新网站交互前需经确认。来源：AI工具集
+
+5月7·周四
+
+## [Anthropic与SpaceX达成合作扩容算力](https://mp.weixin.qq.com/s/D35gmbbzgqHWvq3pZWkAuA)
+
+Anthropic 在 Code with Claude 开发者大会连放数招：[Claude Code](https://ai-bot.cn/sites/56948.html) 调用限额翻倍至 10 小时并取消高峰削减，Claude Opus API 速率限制大幅放宽；托管智能体新增多智能体编排、目标结果与自主推演三大能力；Claude Code 更新远程控制、无闪烁渲染等十余项功能，同时与 SpaceX 达成算力合作。来源：智东西
+
+## [大基金领投DeepSeek，估值接近450亿](https://mp.weixin.qq.com/s/UggNZv8WQQwpkGMyK94Xsg)
+
+据《金融时报》报道，国家集成电路产业投资基金（大基金）正洽谈领投 DeepSeek，本轮估值接近 450 亿美元（约 3067 亿元），较半月前 200 亿美元翻倍。创始人梁文锋或亲自跟投，腾讯、阿里亦在洽谈参投。大基金此前从未投资 AI 大模型公司，DeepSeek 为首家。来源：智东西
+
+## [字节跳动推出统一多模态模型Mamoda2.5](https://ai-bot.cn/mamoda2-5/)
+
+字节跳动开源全球首个25B级统一多模态模型[Mamoda2.5](https://ai-bot.cn/mamoda2-5/)，基于Qwen3-VL-8B架构，总参数250亿每次仅激活约3亿。模型实现了文生图、文生视频、视频编辑等全任务SOTA，推理速度比阿里Wan2.2快12倍、比美团LongCat Video快18倍，视频编辑延迟仅9.2秒。模型在多项视频编辑基准测试中排名第一，性能接近闭源Sora和Kling。来源：AI工具集
+
+## [无问芯穹再获超7亿融资](https://mp.weixin.qq.com/s/RnDh8kRKhFdKE59mQSavkw)
+
+无问芯穹宣布再获超7亿元融资，由杭州高新金投集团和惠远资本联合领投，持续稳居中国AI原生基础设施公司融资规模之首。公司首发”AI生产力公式”，定位Token经济枢纽，其Agentic MaaS平台日均Token调用量较去年底增长超20倍。来源：无问芯穹
+
+## [OpenAI开放超大规模AI训练网络协议MRC](https://mp.weixin.qq.com/s/QugylM-Bhdx785Gnxca84w)
+
+OpenAI 联合 AMD、博通、英特尔、微软、英伟达五大巨头推出多路径可靠连接（MRC）协议，通过 OCP 向全行业开源。MRC 基于 RoCE 扩展，采用多平面网络设计与自适应数据包喷淋技术，将数据包分散至数百条路径并行传输，避免网络拥塞与热点，使故障恢复从秒级缩短至微秒级。来源：量子位
+
+## [像素绽放PixelBloom 完成C轮融资](https://mp.weixin.qq.com/s/hB58lk8CdOXVBGz9i8H-sQ)
+
+像素绽放PixelBloom完成C轮融资，由国科投资与商汤国香资本联合领投。公司从AI视觉表达平台全面跃迁为”AI办公解决方案Agent”，推出全球首个营销方案Agent”小方同学”，实现从”生成内容”到”交付结果”的质变。C端产品[AiPPT](https://ai-bot.cn/sites/2644.html)已覆盖3000万用户，B端深度嵌入联想、华为等硬件生态及中信证券、安利中国等头部企业。来源：像素绽放PixelBloom
+
+## [硅基流动跻身中国 MaaS 市场第一梯队](https://mp.weixin.qq.com/s/9_bolUvtLP4kGwY2Zvm2qQ)
+
+据IDC报告，2025年中国企业级MaaS市场规模达1944万亿Tokens，同比增长16倍。硅基流动作为唯一创业公司跻身公有云MaaS前四，与火山引擎、阿里云、百度智能云同处第一梯队，验证”第三类MaaS”模式价值。来源：硅基流动
+
+5月6·周三
+
+## [豆包测试增值付费服务，保留免费基础版](https://mp.weixin.qq.com/s/izhyNSFKuObuk3nvHWP9mA)
+
+字节跳动旗下AI助手[豆包](https://ai-bot.cn/sites/4189.html)推出付费订阅服务，分为标准版68元/月、加强版200元/月、专业版500元/月三档，同时保留免费基础版供日常使用。目前付费功能仍在测试阶段。据量子位智库数据，4月豆包APP日活突破1.4亿，环比增长21%，月下载量约5000万，稳居国内AI助手市场首位，断层领先千问、元宝等竞品。来源：量子位
+
+## [ChatGPT上线广告主平台](https://openai.com/index/new-ways-to-buy-chatgpt-ads/)
+
+OpenAI 宣布推出[ChatGPT](https://ai-bot.cn/sites/30.html)广告主平台，推出更灵活的购买方式。广告主现可通过电通、WPP 等代理商及 Adobe、Criteo 等技术伙伴购买广告，也可用美国地区测试中的自助 Ads Manager 直接投放。同时ChatGPT广告新增 CPC 竞价模式，上线转化 API 与像素追踪等测量工具。来源：OpenAI
+
+5月3·周日
+
+## [xAI 推出最新旗舰推理模型Grok 4.3](https://mp.weixin.qq.com/s/-ewhh9yqowqFdieLSecrJA)
+
+xAI 推出 [Grok 4.3](https://ai-bot.cn/grok-4-3/)模型，定位为务实过渡版本。模型 API 价格降低 40%-60%，输出速度达 196 Tokens/s，支持 100 万 Token 长上下文，在代理任务和办公辅助能力上提升明显，更擅长生成文档、表格和演示文稿。模型在 Intelligence Index落后于 GPT-5.5和 Claude Opus 4.7，复杂推理、事实核查稳定性不足，且幻觉率有所上升。来源：新智元
+
+## [OpenAI Codex 推出宠物模式](https://www.ithome.com/0/945/989.htm)
+
+OpenAI编程工具[Codex](https://ai-bot.cn/sites/53.html)推出宠物模式，用户可在桌面养一只「赛博桌宠」。输入 /pet 可唤醒电子宠物，支持实时显示 Codex 工作状态（运行中/等待输入/可复核）及进度提示，无需打开应用可查看工作进展。用户可通过 hatch-pet 技能自定义专属宠物形象。来源：IT之家
+
+## [百度智能云推出AI短剧与漫剧创作平台Hogee](https://ai-bot.cn/hogee/)
+
+百度智能云推出一站式 AI 短剧创作平台[Hogee](https://ai-bot.cn/hogee/)，用户上传剧本或输入灵感后，AI 可自动生成角色、场景与分镜视频，覆盖从文本到成片的完整链路。平台支持 .txt/.docx/.pdf 等五种格式剧本上传，内置 OpenClaw 数字员工矩阵，提供社媒运营、营销素材、数据分析等能力。来源：AI工具集
+
+## [美国防部与7家AI公司签署机密系统部署协议](https://mp.weixin.qq.com/s/huUEz1pjnhjeQpwSmalblg)
+
+美国国防部发布声明，已与 SpaceX、OpenAI、谷歌、英伟达、Reflection、微软和亚马逊云（AWS）7 家领先 AI 公司达成协议，加速美军转型为「人工智能主导」的作战力量，增强其在所有战争领域的决策优势。标志着美军正式将顶尖民用 AI 技术深度纳入国防体系，推动 AI 在军事指挥、情报分析与作战决策中的规模化应用。来源：财联社
+
+4月30·周四
+
+## [蚂蚁百灵开源万亿级综合旗舰模型Ling-2.6-1T](https://mp.weixin.qq.com/s/gnQm00GP9E8r9WocTP7rJg)
+
+百灵大模型[Ling-2.6-1T](https://ai-bot.cn/ling-2-6-1t/)正式开源面向复杂任务的万亿级综合旗舰模型。模型依托 MLA 与 Linear Attention 混合架构，以极低 Token 消耗实现高智效比，综合智能与 GPT-5.4（Non-Reasoning）同档。在 AIME26、SWE-bench Verified、BFCL-V4 等多个执行类基准上达到开源 SOTA，具备强 Agent 执行、代码生成与长上下文理解能力。来源：百灵大模型
+
+## [宇树发布双臂人形机器人 ¥2.69万元起](https://mp.weixin.qq.com/s/u6q6BWhyqOMAzOudx9RxgA)
+
+宇树科技发布双臂人形机器人，起售价 2.69万元。产品具备15-31个总自由度，支持固定底座与移动底盘两种部署方式，配备高性能电机、减速器及传感器，搭载视觉双目模组与语音交互系统，头部算力达10TOPS。产品面向多场景落地，支持全栈开放的底层二次开发，定位为超快速部署的高性能双臂机器人解决方案。来源：Unitree宇树
+
+4月29·周三
+
+## [商汤开源日日新系列原生理解生成统一模型SenseNova U1](https://mp.weixin.qq.com/s/Xot43BpXQLL-xSOYO5f5IQ)
+
+商汤正式开源日日新[SenseNova U1](https://ai-bot.cn/sensenova-u1/)系列原生理解生成统一模型。模型基于自研NEO-unify架构，摒弃传统拼接式设计，在单一架构内统一多模态理解、推理与生成。本次开源轻量版SenseNova U1 Lite，包含8B稠密网络与A3B MoE网络两个规格。在图像理解、生成编辑及视觉推理等多项基准测试中，达到同量级开源模型SOTA水平。来源：商汤科技SenseTime
+
+## [科大讯飞推出MoE架构大语言模型星火X2-Flash](https://mp.weixin.qq.com/s/-bQ9BrShvRKNbHGosVtuCA)
+
+科大讯飞[星火X2-Flash](https://ai-bot.cn/spark-x2-flash/)正式推出并开放API。模型采用MoE架构，总参数30B，支持256K超长上下文，基于华为昇腾910B国产算力集群训练。在智能体与代码能力上大幅提升，经实测效果接近万亿级参数模型，Token消耗成本不到主流大模型的三分之一。模型已接入AstronClaw、Loomy等平台，兼容OpenClaw等主流Agent框架。来源：讯飞开放平台
+
+## [DeepSeek识图模式开启灰度测试](https://mp.weixin.qq.com/s/Ze9_PslPLTXBYWtwVaTjrg)
+
+[DeepSeek](https://ai-bot.cn/sites/54501.html)多模态”识图模式”已开启灰度测试，部分用户可在首页看到新入口。上传图片后，DeepSeek能像人一样理解画面中的物体与场景。实测显示，识图模式可准确判断动物品种、通过建筑与文字线索识别杭州灵隐寺给出精确坐标，还能识破视觉陷阱图片。来源：智东西
+
+## [英国AI初创公司Ineffable，完成11亿美元种子轮融资](https://mp.weixin.qq.com/s/2HlpvDnb_oa6RiXXqZ-WYA)
+
+前谷歌DeepMind首席科学家、AlphaGo核心研发者David Silver创立的英国AI公司Ineffable完成11亿美元种子轮融资，估值达51亿美元，本轮融资由红杉资本与光速创投领投，英伟达、谷歌等参投，创欧洲史上最大种子轮纪录。公司致力于打造无需人类数据、通过自主实践探索知识的”超级学习系统”。来源：智东西
+
+4月28·周二
+
+## [微软 GitHub Copilot 宣布转向按量计费](https://www.ithome.com/0/944/205.htm)
+
+[GitHub Copilot](https://ai-bot.cn/sites/45.html)宣布6月1日起转向按量计费，以AI Credits替代固定额度，按Token消耗计费。基础订阅价不变：Pro每月10美元、Pro+每月39美元，均含等值Credits，代码补全不消耗额度。企业版支持共享额度池，Business和Enterprise客户6至8月可获额外促销额度。年度用户维持原计费至期满。来源：IT之家
+
+## [小红书首次公布「AI治理主张」](https://mp.weixin.qq.com/s/QdywEyR2-GCupUIgXKl_8w)
+
+小红书首次公布「AI治理主张」，明确三大原则：欢迎创作者使用AI作为创意放大器；鼓励对AI生成内容主动标识，未标注者平台将统一添加标识；严守真实底线，坚决反对AI造假与侵权。平台将持续建设AI内容识别治理能力，同时上线AI笔记贴条提示的申诉通道，保障创作者权益，守护社区真实、公平、温暖的底色。来源：小红书
+
+## [OpenAI 和微软联合宣布云合作独家限制正式解除](https://mp.weixin.qq.com/s/EzvUOcMzolvZkrkrAwu5VQ?scene=1&click_id=8)
+
+微软与OpenAI修订合作协议，解除云合作独家限制，OpenAI产品仍优先在Azure发布，且可通过任何云提供商向客户提供服务。知识产权授权从独家变为非独家，延至2032年。微软不再向OpenAI支付分成，OpenAI向微软的分成延续至2030年但设总额上限，与技术进展脱钩。微软同时获得独立追求AGI的权利。来源：APPSO
+
+## [百度文库网盘联合推出通用智能体GenFlow4.0](https://mp.weixin.qq.com/s/WIhhmEhPbAX6jm5_lpjWYg)
+
+百度AI DAY推出通用智能体GenFlow4.0，目前通用智能体[GenFlow](https://ai-bot.cn/sites/66596.html)的月活用户已经突破1亿。新版本全面升级Office Agent，一句话即可生成PPT、处理Excel数据、撰写Word长文档；记忆中心支持自主规划与个性化记忆。同时深度兼容OpenClaw，实现手机电脑无缝协作与Skills跨平台迁移。来源：百度
+
+## [阿里通义推出全新强化学习框架EAPO](https://mp.weixin.qq.com/s/FDCrB0D3B9BTDBC8TmX9CQ)
+
+阿里通义实验室推出全新强化学习框架[EAPO](https://ai-bot.cn/eapo/)（Evidence-Augmented Policy Optimization），引入”证据奖励”机制，将监督从答案下沉到证据提取过程，解决大模型长文本推理中”搜对却答错”的幻觉问题。框架基于Qwen3-30B的模型在多个权威长文本基准测试中表现优异，反超120B参数的GPT-OSS和Claude-Sonnet-4等大模型。来源：通义实验室
+
+## [阿里QoderWork推出专家套件功能](https://mp.weixin.qq.com/s/VXTVWEFyxqUNEvL588oR4A)
+
+阿里 [QoderWork](https://ai-bot.cn/sites/72782.html)正式上线「专家套件」功能，首批发布覆盖金融、法律、营销、财税、咨询、产品六大领域的 10 个预制套件，将专业知识、工作流程与数据连接器打包集成至 AI，用户无需编写 Skill 可一键调用、开箱即用。同时支持企业与用户自定义封装专属套件，实现业务配置与使用分离。来源：阿里云
+
+4月27·周一
+
+## [DeepSeek API输入缓存降价90%](https://www.ithome.com/0/943/748.htm)
+
+DeepSeek官方宣布全系API服务输入缓存命中价格降至原有价格的1/10。[DeepSeek-V4-Pro](https://ai-bot.cn/deepseek-v4/)缓存命中输入降至0.025元，DeepSeek-V4-Flash降至0.02元。Pro模型在5月5日前可叠加2.5折限时优惠。本次大幅降价为降低开发者调用成本，提升长上下文场景下的API使用性价比。来源：IT之家
+
+## [灵光App推出体验世界模型功能](https://mp.weixin.qq.com/s/wuAPTDtSX9fDAfLuIwy8WA)
+
+[灵光App](https://ai-bot.cn/app/65239.html)上线「体验世界模型」功能，首次将世界模型能力引入手机端。用户只需上传一张图片，选择「生成图中世界」或输入探索指令，可一键生成可交互的3D虚拟世界。进入场景后，可通过摇杆控制移动用第一人称视角自由漫步，像玩游戏一样沉浸式探索。来源：灵光App
+
+## [星动纪元完成超2亿美元新一轮融资](https://mp.weixin.qq.com/s/ysyX1YOq59pXe9Gs8nI5xw?scene=1&click_id=17)
+
+具身智能企业星动纪元完成超2亿美元新一轮融资，由顺丰集团领投，红杉中国、IDG资本、中金资本等联合注资，多家产业方共同参与。星动纪元实现了具身行业首个PMF，已携手中国邮政、顺丰等落地10余个物流中心，部分场景作业效率超人类85%，将于2026年Q2开启千台级机器人批量交付。来源：星动纪元
+
+## [阶跃星辰与腾讯云达成战略合作](https://mp.weixin.qq.com/s/VHWx7l1fkcfEgp2fGAXfog?scene=1)
+
+阶跃星辰与腾讯云达成战略合作，双方将整合阶跃星辰端到端语音大模型与多模态理解技术，结合腾讯云基础设施及内容生态优势，共同加速大模型上车进程。合作聚焦智能座舱场景，打造免唤醒、连续对话、情绪识别的主动式AI交互体验，联动腾讯音乐、视频、地图等服务，实现车内服务闭环。来源：阶跃星辰
+
+## [芒果传媒与爱诗科技达成战略合作](https://mp.weixin.qq.com/s/WX4IuQ4j1DmkFKAWixo83g?scene=1&click_id=6)
+
+芒果传媒与爱诗科技签署战略合作协议，合作将以芒果全景工作站为载体，将爱诗科技AI视频大模型能力系统性接入芒果内容生态，推动AI技术在音视频创制、AI影游、IP开发等核心业务场景落地。双方将围绕内容生产、互动娱乐及内容全球化三大方向展开深度合作，探索AI视频在短剧、动画、综艺视觉及实时互动内容中的产业化应用。来源：爱诗科技 AIsphere
+
+4月24·周五
+
+## [DeepSeek推出DeepSeek-V4 预览版](https://mp.weixin.qq.com/s/8bxXqS2R8Fx5-1TLDBiEDg)
+
+DeepSeek全新系列模型 [DeepSeek-V4](https://ai-bot.cn/deepseek-v4/) 的预览版本正式上线并同步开源，包含deepseek-v4-pro 和 deepseek-v4-flash两个版本，均支持 1M 超长上下文。V4-Pro 在 Agent 编码、世界知识与推理性能上比肩顶级闭源模型；V4-Flash 用更低成本提供接近的推理能力。模型采用全新注意力机制与 DSA 稀疏注意力，大幅降低长上下文计算与显存开销。来源：DeepSeek
+
+## [讯飞Loomy全面开放，开启“外挂”办公模式](https://mp.weixin.qq.com/s/u2-AamDMPOLvp25wjGxeTg)
+
+讯飞旗下AI办公助手[Loomy](https://ai-bot.cn/sites/73695.html)宣布全面开放，无需邀请码可注册使用。Loomy已完成超5000个真实任务闭环，覆盖金融、电商、教育等20余个行业，新用户留存率达70%。本次升级推出三大核心能力：集成飞书、企微、钉钉CLI实现自然语言操控IM工具；PPT引导式创建，通过选择题生成专业演示文稿；支持多任务并行处理，提升办公效率。来源：讯飞开放平台
+
+## [阿里云推出企业级智能体构建平台JVS Crew](https://mp.weixin.qq.com/s/Z0_A0E2Ft8Wmsjef1aQKbw)
+
+阿里云推出企业级智能体构建平台[JVS Crew](https://ai-bot.cn/jvs-crew/)，以”被集成”为设计理念，帮助企业快速在现有App或SaaS中嵌入生产级AI Agent能力。平台补齐OpenClaw在企业级场景的短板，通过身份、内容、执行三道安全墙实现自主可控，提供全托管跨会话记忆、端到端可观测Trace及四级预算成本管控。来源：阿里云JVS Crew
+
+4月23·周四
+
+## [阿里通义开源稠密多模态模型Qwen3.6-27B](https://mp.weixin.qq.com/s/qLG4WWORyIKUvnewmBlqzA)
+
+阿里通义千问团队开源[Qwen3.6-27B](https://ai-bot.cn/qwen3-6-27b/)，拥有270亿参数的稠密多模态模型。模型支持多模态思考与非思考模式，在智能体编程能力上实现旗舰级突破，于SWE-bench、Terminal-Bench等主要编程基准全面超越前代开源旗舰Qwen3.5-397B-A17B。作为稠密架构，模型无需MoE路由可部署，更便于广泛落地。来源：千问大模型
+
+## [字节跳动推出新一代 3D 生成大模型Seed3D 2.0](https://mp.weixin.qq.com/s/_9vggNLz0ehs_g0k8q709g)
+
+字节跳动推出新一代3D生成大模型[Seed3D 2.0](https://ai-bot.cn/step-3-5-flash/)，在几何与纹理两项核心指标上均达SOTA。模型引入Coarse-to-Fine两阶段DiT策略，解耦整体结构与精细细节，采用统一PBR生成架构结合MoE与VLM先验，大幅提升材质真实感。Seed3D 2.0拓展了部件级拆分、关节化建模及场景组合等下游能力，推动3D生成迈向”生产可用”。来源：字节跳动Seed
+
+## [腾讯混元开源快慢思考融合的混合专家模型Hy3 preview](https://mp.weixin.qq.com/s/J_39b28YKuYDLnOEXZBdhg)
+
+腾讯混元团队推出[Hy3 preview](https://ai-bot.cn/hy3-preview/)大模型，是团队从预训练、强化学习到基础设施全面推倒重建后的首个成果。模型采用快慢思考融合的MoE架构，拥有295B总参数、21B激活参数及256K长上下文，是混元迄今最智能的模型。Hy3 preview在FrontierScience-Olympiad、IMOAnswerBench等高难度推理榜单表现突出，Agent与代码能力大幅提升，可一次性生成完整微信小程序。来源：腾讯
+
+## [阶跃星辰和千里科技达成全面战略合作](https://mp.weixin.qq.com/s/bJ6jBYFEWMop5D8ib_FPVw?scene=1)
+
+阶跃星辰与千里科技宣布达成全面战略合作，双方将共建「原生智驾基座模型」，从底层训练让AI直接理解复杂物理世界，突破物理AI能力边界。阶跃已在Agent基础大模型和全模态技术上深度布局，推出开源旗舰基座模型[Step 3.5 Flash](https://ai-bot.cn/step-3-5-flash/)，在语音推理、自动驾驶评测等榜单取得领先。来源：阶跃星辰
+
+## [Anthropic估值万亿美元](https://mp.weixin.qq.com/s/7F2IU9Ek7RyXKGn26akTRQ)
+
+据《科创板日报》，AI初创公司Anthropic在Forge Global等未上市股权交易平台的估值飙升至约1万亿美元，超越OpenAI的8800亿美元。因买家竞相抢购Anthropic日益减少的二级市场股票，推动公司估值快速攀升。来源：财联社
+
+4月22·周三
+
+## [马斯克600亿美元收购Cursor](https://mp.weixin.qq.com/s/jSXgl9W1w66t9X5QmXF63w)
+
+马斯克旗下商业航天巨头SpaceX官宣与AI编程独角兽[Cursor](https://ai-bot.cn/sites/906.html)达成深度合作，计划今年晚些时候以600亿美元收购，如果最终不执行收购，可为合作支付100亿美元。双方将结合Cursor的领先产品与SpaceX百万H100等效算力的Colossus超算，共建世界最强编程AI。来源：智东西
+
+## [AI互动内容社区Loopit完成1亿美元融资](https://mp.weixin.qq.com/s/ra0WiQhqV7PIV-Y-xhvPgg)
+
+AI互动内容社区[Loopit](https://ai-bot.cn/loopit/)母公司涌跃智能完成新一轮5000万美元融资，由全球头部手游厂商Garena领投，蓝驰创投等机构跟投，年内累计融资近1亿美元。Loopit由前百川智能联合创始人陈炜鹏创立，上线两月即登上Google Play全球总榜第8、娱乐榜第1，获马斯克点赞。来源：蓝驰创投
+
+## [商汤绝影推出端侧多模态智能体基座大模型Sage](https://mp.weixin.qq.com/s/KaSuIXuwZPCe-wvirfUHMQ)
+
+商汤绝影推出端侧多模态智能体基座大模型[Sage](https://ai-bot.cn/sage/)，采用MoE架构（32B总参数/3B激活），为行业首款车端复杂智能体基座模型。在PinchBench评测中任务完成率达94%，超越Claude-Opus-4.6、GPT-5.4等全球一线云侧大模型。Sage已在英伟达Orin X平台实现部署，将于北京车展推出Sage Box，推动智能座舱向超级智能体进化。来源：绝影智能SenseAuto
+
+4月21·周二
+
+## [月之暗面开源Kimi K2.6，全面精进代码和 Agent 集群能力](https://mp.weixin.qq.com/s/6jfSSCcq7HMg-qXrsc4OVg?scene=1&click_id=193)
+
+月之暗面开源[Kimi K2.6](https://ai-bot.cn/kimi-k2-6/)模型，具备行业领先的代码、长程任务执行与Agent集群能力。模型在Humanity’s Last Exam、SWE-Bench Pro等多项基准测试中成绩持平或优于GPT-5.4、Claude Opus 4.6等闭源模型。K2.6可连续编码13小时、修改超4000行代码，Agent集群支持300个子Agent并行完成4000个协作步骤，支持长达5天的持续自主运行。来源：月之暗面 Kimi
+
+## [腾讯 QClaw 海外版正式开启内测](https://mp.weixin.qq.com/s/t36Wm_EuZ7qawUsWPBOb9w)
+
+腾讯 [QClaw 海外版](https://ai-bot.cn/qclawsg/)正式开启内测，现已开放美国、加拿大、新加坡等多个国家和地区。产品主打零门槛、免部署、下载即用，支持通过 WhatsApp 或 Telegram 远程操控电脑完成报税、健身规划、社媒运营等任务。QClaw 海外版 99% 的代码由 QClaw 自主编写，用时 5 天。来源：腾讯
+
+4月20·周一
+
+## [阿里通义推出端到端语音识别大模型Fun-ASR1.5](https://mp.weixin.qq.com/s/xPEstUiJ4IC3BOFVsdvRLA)
+
+阿里推出端到端语音识别大模型[Fun-ASR 1.5](https://ai-bot.cn/fun-asr1-5/)，单模型覆盖30种语言，支持自动语种切换与跨语言混说。模型覆盖中文七大方言体系，字错误率较上版下降56.2%，新增古诗词专项识别准确率达97%。Fun-ASR 1.5采用MoE架构，支持智能标点预测与数字、日期等文本归一化，现已上线阿里云百炼及魔搭社区。来源：千问大模型
+
+4月17·周五
+
+## [智谱AutoClaw上线自进化机制与Skill商店](https://mp.weixin.qq.com/s/Ny_TEIIzryV16DbrUQzp8g)
+
+智谱AI旗下[AutoClaw](https://ai-bot.cn/sites/73229.html)（澳龙）正式上线自进化机制与Skill商店。自进化功能可自动识别用户纠正、偏好及失败教训，经审批后固化为永久记忆，实现Agent越用越懂用户。平台同步推出GLM Office Skills五件套，基于GLM-5.1支持PPT、Word等细分场景设计、智能自检与格式互转，可一键生成配套办公材料。来源：智谱
+
+4月16·周四
+
+## [全球首个云端沙箱 Hermes：MaxHermes 正式上线](https://mp.weixin.qq.com/s/gTUk7CpQYstYcAMzqClAow)
+
+MiniMax正式推出全球首个云端沙箱Hermes——[MaxHermes](https://ai-bot.cn/sites/75430.html)，基于Hermes Agent构建的云端自我进化AI助手。产品核心创新为学习闭环机制：每完成复杂任务自动提炼可复用的Skills能持续自我迭代，配备持久化记忆与多子代理并行能力。产品零门槛部署，已打通飞书、钉钉、企业微信等IM渠道，支持Token Plan抵扣消耗。来源：MiniMax 稀宇科技
+
+## [腾讯混元3D世界模型2.0发布：无缝对接游戏工作流](https://mp.weixin.qq.com/s/0c_q3nGA3_wXKRKK6cUhhw)
+
+腾讯[混元3D世界模型2.0](https://ai-bot.cn/hyworld-2-0/)（HY-World 2.0）正式发布并开源。模型支持文字、图片、视频等多模态输入，可一键生成、重建和模拟完整3D世界，支持导出Mesh/3DGS/点云等可编辑资产，无缝对接Unity/UE游戏引擎。相比1.0版本，2.0采用WorldMirror 2.0架构，画面精细度与真实感大幅提升，支持角色模式自由探索与物理碰撞。来源：腾讯混元
+
+## [智象未来宣布完成超5亿元新一轮融资](https://mp.weixin.qq.com/s/HqoFkY_k0BoKX6NjBy7rPA)
+
+多模态生成式AI公司智象未来（HiDream.ai）宣布完成超5亿元新一轮融资，资金将用于原生全模态世界模型研发、企业智能体产品及全球市场拓展。公司开源模型[HiDream-I1](https://ai-bot.cn/hidream-i1/)登顶Artificial Analysis榜单，开源下载量超200万次。目前产品覆盖3000万专业用户及4万多家企业客户，已形成商业营销、影视创作、社媒内容三大场景闭环。来源：讯飞创投
+
+## [网易有道推出 AI 知识库工具”有道宝库”](https://mp.weixin.qq.com/s/wiJC_MhW9_fdXiLGnkZMFA)
+
+网易有道正式推出首个AI知识库产品[“有道宝库”](https://ai-bot.cn/baoku-youdao/)。产品定位为”外接超级知识库”，支持文档存储、智能问答及一键生成PPT、播客脚本、研究报告等内容。核心场景包括：30分钟掌握陌生领域知识并生成20页PPT；5分钟自动梳理全年项目文档生成年度总结；上传名人传记可模拟”名人董事会”提供决策建议能生成播客。来源：网易有道
+
+4月15·周三
+
+## [阿里推出AI开发工具秒悟Meoo](https://mp.weixin.qq.com/s/XsIeLXm6zT-BYTctgAgaNg)
+
+阿里ATH事业群推出首款AI开发工具[Meoo](https://ai-bot.cn/sites/75263.html)（秒悟）。产品集成千问、Kimi、GLM、MiniMax四大顶尖模型，内置阿里云数据库、存储等核心服务。用户无需编程基础，通过自然语言描述需求，最快1分钟可自动生成完整前后端代码，支持在阿里云一键部署上线。来源：阿里云
+
+## [Meta与芯片巨头博通宣布合作投入超1GW算力定制AI芯片](https://mp.weixin.qq.com/s/KYmKNXrtFOZwu4nSntmI1w)
+
+Meta宣布与芯片巨头博通签署五年长约（至2029年），初始投入超1GW算力用于定制AI芯片，扎克伯格宣称目标是”为数十亿人提供个人超级智能”。Meta计划两年内推出四代自研MTIA芯片（300/400/450/500），成立超级智能实验室，由Scale AI创始人Alexandr Wang担任首席AI官。来源：新智元
+
+## [面壁智能推出专业级文档智能体工作台 Lantay](https://mp.weixin.qq.com/s/bcsZJN3xRlTZMQmdEiazZA)
+
+面壁智能推出专业级文档智能体工作台[Lantay](https://ai-bot.cn/sites/75337.html)，现已进入公测阶段。产品借鉴Cursor设计理念，通过Vibedocing交互范式实现人机协同创作，采用导航区、工作区、对话区三合一布局。平台支持16种格式文件处理，单次可批量整合200个材料，单文件上限100MB。Lantay主要面向法律、金融、出版等高严谨行业的重度文档工作者。来源：面壁智能
+
+4月14·周二
+
+## [Seedance 2.0全面开放API服务](https://mp.weixin.qq.com/s/2oxw4hYB97LdYt-TtecIAQ)
+
+火山引擎正式上线 [Seedance 2.0](https://ai-bot.cn/seedance-2-0/)API 服务，面向企业和个人开放视频生成能力。模型支持文、图、音、视频四模态输入，具备多模态内容参考与编辑能力，并建立肖像版权安全标准。目前已应用于影视文娱（如贾樟柯导演短片、春晚）、漫短剧、广告营销、AI工具、具身智能、自动驾驶等行业，助力创作效率提升。来源：火山引擎
+
+4月13·周一
+
+## [米哈游蔡浩宇AI公司推出首个AI视频模型LPM 1.0](https://mp.weixin.qq.com/s/gH8nEfvu9d_iii4FfNOk7w)
+
+米哈游创始人蔡浩宇的AI公司Anuttacon推出首个视频模型[LPM 1.0](https://ai-bot.cn/lpm-1-0/)。模型拥有170亿参数，支持实时生成能说话、唱歌、倾听并表达情绪的AI角色视频，可保持长时间身份一致性生成（支持22-48分钟视频）。技术上采用扩散Transformer架构与因果式流生成器，解决表现力、实时性与长视频一致性难题。来源：量子位
+
+4月10·周五
+
+## [阿里通义开源全模态知识库 RAG 框架 VimRAG](https://mp.weixin.qq.com/s/VyE8ayVY2DI5UYzliWp7aA)
+
+阿里通义实验室推出[VimRAG](https://ai-bot.cn/vimrag/)框架，用动态有向无环图（DAG）替代线性上下文拼接，通过分支试错机制、视觉能量分配策略及图引导优化（GGPO），实现跨文本、图像、视频的精准检索与关联推理。实验显示，模型在Qwen3-VL-8B模型上准确率达50.1%，显著优于传统方案。来源：通义实验室
+
+## [即梦推出 AI 原生动态叙事创作工具 Octo](https://ai-bot.cn/octo/)
+
+即梦AI正式推出智能创作助手[Octo](https://ai-bot.cn/octo/)小章鱼，以”Vibe Create”为核心理念，支持无流程束缚、无场景限定的自由创作体验。产品现已上线即梦官网开放内测申请，助力用户打破繁琐流程束缚，让创作回归纯粹自由的对话体验，随时随地轻松落地灵感。来源：AI工具集
+
+4月9·周四
+
+## [Meta 推出原生多模态大模型 Muse Spark](https://mp.weixin.qq.com/s/3e9d8ErFARmaSvW_ehE-GA)
+
+Meta超级智能实验室（MSL）推出首个模型[Muse Spark](https://ai-bot.cn/muse-spark/)，在Artificial Analysis跑分从Llama 4的18分跃升至52分，仅次于GPT-5.4和Gemini 3.1 Pro，推动Meta股价暴涨近10%。模型为原生多模态推理架构，具备视觉思维链、多Agent编排及”沉思模式”，在CharXiv视觉理解和HealthBench健康问答领域表现突出。来源：新智元
+
+## [萌友智能 ropet 完成轮超千万美元融资](https://mp.weixin.qq.com/s/RQrEODEwt0cj74iQZxp7yQ)
+
+AI 陪伴机器人公司萌友智能 ropet 完成 A 轮超千万美元融资，由北京市人工智能产业投资基金、峰瑞资本等投资。ropet 桌面 AI 宠物售价约 2000 元，累计出货近 2 万台，90 天留存率达 80-90%，核心用户日均互动超 2 小时。产品主打”生物性”体验，通过性格养成、轻互动建立情感连接。来源：极客公园
+
+## [字节跳动推出原生全双工语音大模型 Seeduplex](https://mp.weixin.qq.com/s/ymyF-nBO-VT7ehnGO255qg)
+
+字节跳动Seed团队推出全双工语音大模型[Seeduplex](https://ai-bot.cn/seeduplex/)，已在豆包App全量上线。模型基于”边听边说”框架，实现听说同步，具备精准抗干扰和动态判停能力，误回复率和抢话比例分别降低50%和40%，判停延迟减少250ms。评测显示模型对话流畅度提升12%，用户满意度提升8.34%，标志着全双工语音技术首次实现规模化落地。来源：字节跳动Seed
+
+## [MiniMax 推出 MMX-CLI：为 Agent 设计的全模态命令行工具](https://mp.weixin.qq.com/s/d067bWUdhqYwvfehoYKtVw)
+
+MiniMax推出面向AI Agent的命令行工具[MMX-CLI](https://ai-bot.cn/mmx-cli/)，支持在Claude Code、OpenClaw等环境原生调用其编程、视频生成、语音合成、音乐创作等全模态模型，无需适配接口或编写MCP Server。工具针对Agent优化，提供输出隔离、语义化状态码、异步任务控制等功能，可独立跑通”资料搜集-文案生成-语音合成-视频制作”完整自动化工作流，来源：MiniMax 稀宇科技
+
+## [腾讯推出国内首个浏览器“龙虾” QBotClaw](https://mp.weixin.qq.com/s/i_izVwI7TUHOgBn6dfkA4g)
+
+腾讯上线国内首个浏览器AI Agent”龙虾”[QBotClaw](https://ai-bot.cn/qbotclaw/)，集成于QQ浏览器，零门槛免下载即可使用。QBotClaw支持一句话指令完成搜资料、写文案、监控热点、购物比价、整理桌面等复杂任务，可通过微信Clawbot远程操控电脑。QBotClaw具备浏览器上下文”记忆”与高精度网页识别能力，首期上线Mac版，Windows版即将推出。来源：QQ浏览器
+
+4月8·周三
+
+## [智谱开源新一代旗舰模型 GLM-5.1](https://mp.weixin.qq.com/s/F44gMXoPZhILc5nEoJ9p_A)
+
+智谱开源旗舰模型 [GLM-5.1](https://ai-bot.cn/glm-5-1/)，为全球最强开源模型，可独立持续工作超8小时，自主完成复杂工程任务。模型代码能力在SWE-Bench Pro等基准测试中位列全球第三、国产第一，超越GPT-5.4与Claude Opus 4.6。实测可8小时构建完整Linux桌面系统、优化向量数据库性能近7倍、24小时迭代优化ML负载实现3.6倍加速。来源：智谱
+
+4月7·周二
+
+## [Karpathy推出自运行个人知识库 LLM Wiki](https://mp.weixin.qq.com/s/-2H3xFx_R4KIIZ_vDpEYQw)
+
+前OpenAI科学家Andrej Karpathy推出 [LLM Wiki](https://ai-bot.cn/llm-wiki/) 知识库构建方案，引发社区热议。LLM Wiki提出在Agent时代只需分享”想法文件”，由Claude、Codex等Agent自动构建个人知识库。系统分原始数据、Wiki、Schema三层，通过数据摄取、查询、质量检查形成闭环，支持知识持续积累与自我增强，适用于研究、阅读、企业知识管理等场景。来源：机器之心
+
+## [面壁智能完成新一轮数亿元融资](https://mp.weixin.qq.com/s/TEQ5RVdjXfOSP8IH9nI0OQ)
+
+面壁智能完成新一轮数亿元人民币融资，由深创投与汇川产投联合领投，获评2026年中国独角兽企业。公司专注端侧大模型，践行”密度法则”，MiniCPM系列下载量突破2400万，已在长安马自达、吉利银河等汽车及智能手机、智能家居领域规模化落地。来源：面壁智能
+
+## [OpenBMB开源语音合成模型 VoxCPM2](https://ai-bot.cn/voxcpm2/)
+
+OpenBMB开源2B参数语音合成模型[VoxCPM2](https://ai-bot.cn/voxcpm2/)，采用无分词器扩散自回归架构，支持30种语言及中文方言，输出48kHz录音室级音质。模型首创Voice Design功能，可通过文字描述凭空创造声音；支持可控声音克隆与终极克隆模式。模型训练数据达236万小时，实时率低至0.13，采用Apache-2.0协议可商用。来源：AI工具集
+
+4月3·周五
+
+## [谷歌推出 Gemma 4：同等规模下性能最强的开放模型](https://mp.weixin.qq.com/s/9ocQ4g2v8zmKuIMcle3sDA)
+
+Google 推出 [Gemma 4](https://ai-bot.cn/gemma-4/) 系列开放模型，被称为”同等规模下性能最强”。模型包含 E2B、E4B、26B MoE 和 31B Dense 四个版本，专为高级推理和智能体工作流设计。31B 和 26B 模型在 Arena AI 排行榜上分别位列全球开放模型第3和第6位。全系支持多模态、长上下文及140多种语言，采用 Apache 2.0 许可开源。来源：谷歌开发者
+
+## [Xiaomi MiMo Token Plan 全球发布](https://mp.weixin.qq.com/s/Gtv7jJvQLvb9p8dcp6RZbQ?scene=1&click_id=18)
+
+小米推出 Xiaomi MiMo Token Plan 订阅方案，采用统一Credit点数计费，取消5小时token使用限额。Token Plan提供Lite（¥39/月）、Standard（¥99/月）、Pro（¥329/月）、Max（¥659/月）四档套餐。方案适配Claude Code、OpenClaw等主流AI开发工具，用户可按需选择不同档位。来源：Xiaomi MiMo
+
+4月2·周四
+
+## [B 站推出 AI 视频创作工具updream](https://ai-bot.cn/updream/)
+
+B站自研AI创作工具[updream](https://ai-bot.cn/updream/)正式开启内测，面向UP主提供轻量化、智能化创作体验。产品采用定向邀请制，创作者需邀请码获得使用权限。updream具备三大核心能力：灵感生成与内容构思、智能剪辑与高效制作、个性化技能库与项目管理。来源：AI工具集
+
+4月1·周三
+
+## [OpenAI获1220亿美元史上最大单笔融资纪录](https://mp.weixin.qq.com/s/STX1FTMPn_p5B37-ZJ3EhA)
+
+OpenAI完成史上最大单轮融资1220亿美元，投后估值达8520亿美元，由亚马逊、英伟达、软银等领投。同时因日均成本高达100万美元且用户留存低迷，OpenAI关闭了视频生成产品Sora。标志着公司战略从惊艳Demo转向务实商业化，聚焦文本模型、代码生成和企业服务等稳定现金流业务，为IPO铺路，意图成为AI基础设施层。来源：APPSO
+
+## [PixVerse推出三项更新：快应用、团队版与CLI工具](https://mp.weixin.qq.com/s/rCGvSj_8nuVLRpf2TQzGFw)
+
+爱诗科技闪电发布周 Day 2 [PixVerse](https://ai-bot.cn/pixverse-ai-video-generator/) 推出三项更新：快应用、团队版与CLI工具。快应用首批上线”广告大师”，支持商品图一键生成广告视频；团队版支持2-100人协作，提供共享积分池、四级权限及独立空间；CLI工具让开发者通过命令行调用视频生成能力，接入自动化工作流与AI Agent，推动AI视频创作向完整系统升级。来源：爱诗科技 AIsphere
+
+## [昆仑万维推出AI短剧创作平台「天工短剧工作台」](https://mp.weixin.qq.com/s/5crrr_94gmWXiPH7QodZRw)
+
+昆仑万维推出[「天工短剧工作台」](https://ai-bot.cn/skyproduction/) ，基于多智能体协同，融合Seedance、SkyReels、可灵、Vidu四大视频模型。平台提供传统分镜与智能分镜两种模式，支持资产提取、角色多视图推理、一键成片，实现”输入剧本→直达成片”的工业化流程，解决AI短剧创作周期长、成本高、一致性差等痛点。来源：昆仑万维集团
