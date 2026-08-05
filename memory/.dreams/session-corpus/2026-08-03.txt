@@ -62,3 +62,6 @@
 [main/sessions/main/f27f2967-746c-457f-b11d-4565b0c6ec48.jsonl#L15] Assistant: API 被限流了（403 rate limit exceeded）。我尝试通过网页获取当前仓库数据作为备用。
 [main/sessions/main/f27f2967-746c-457f-b11d-4565b0c6ec48.jsonl#L19] Assistant: 追踪完成，但本次 GitHub API 直接调用失败，我做了备用验证，汇总如下： ## 📡 GitHub 仓库追踪报告 — 2026-08-03 16:37 ### ⚠️ 本次执行情况 - **API 调用失败**：`api.github.com` 返回 **403 API rate limit exceeded**（未认证请求达到每小时限额），所以 tracker 脚本未能直接获取仓库数据，`tracking_log.md` 中记录为"API 获取失败"。 - **备用验证**：通过 GitHub 页面/搜索数据确认了仓
 [main/sessions/main/f27f2967-746c-457f-b11d-4565b0c6ec48.jsonl#L19] Assistant: 脚本中配置 `GITHUB_TOKEN`（认证后限额 5000 次/小时），可避免后续再次失败。需要的话我可以帮你在脚本里加上 token 支持。 下次检查约 24h 后（届时限额已重置，可正常拉取精确数据）。
+[main/sessions/main/2a2c5b51-58a8-40a3-a733-85e36362d43d.jsonl.deleted.2026-08-04T16-21-46.826Z#L16] Assistant: 🛡️ 长官，晚间 23:30 规划提醒： 1. 今天已完成的任务 2. 今天遗留/未完成的任务 3. 明天上午优先处理的事项 4. 明天下午的安排 5. 本周剩余目标进展 回复后我会同步更新 daily 日志并做记忆整合。
+[main/sessions/main/4cb75cb6-563f-47fb-89f2-acc62417b77f.jsonl.deleted.2026-08-04T11-09-52.386Z#L8] Assistant: 🫡 心跳巡检完成，无待办事项。今日日志已更新（16:40 记忆巡检补跑），无需打扰长官。
+[main/sessions/main/89627453-1974-4855-bc0c-5daf9417cae2.jsonl.deleted.2026-08-04T11-09-52.379Z#L8] Assistant: 心跳轮询：16:00 无待办任务，今日日志尚未创建，无到期 cron。一切正常，无需打扰长官。🛡️
