@@ -1,11 +1,11 @@
-﻿{
-    "lastConsolidation":  "2026-08-05T23:12:56+08:00",
-    "lastPatrol":  "2026-08-05T16:33:00+08:00",
-    "lastHealthCheck":  "2026-08-05T23:15:33.3893094+08:00",
+{
+    "lastConsolidation":  "2026-08-06T10:40:00+08:00",
+    "lastPatrol":  "2026-08-06T10:41:00+08:00",
+    "lastHealthCheck":  "2026-08-06T10:40:00+08:00",
     "lastCheckResults":  {
-                             "memory_lines":  99,
+                             "memory_lines":  105,
                              "total_pending":  7,
-                             "recent_dailies_7d":  12,
+                             "recent_dailies_7d":  14,
                              "expired_topics_30d":  0,
                              "topics_total":  12,
                              "expired_topics_7d":  10,
@@ -28,7 +28,8 @@
                                                    ],
                              "issues":  [
                                             "10 topic files stale (\u003e7d), consider review",
-                                            "2 overloaded topics (\u003e50 entries), consider splitting"
+                                            "2 overloaded topics (\u003e50 entries), consider splitting",
+                                            "7 cron errors logged-not-fixed, day 10"
                                         ]
                          }
 }
