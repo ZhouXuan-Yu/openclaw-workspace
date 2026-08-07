@@ -50,6 +50,7 @@
 | 安全扫描 | `tools/SkillSpector/` (见 topics/work-tools.md) |
 | 社交内容设计 | `skills/guizang-social-card/` (Codex CLI 生成图片/视频时必用) |
 | 学习 | `topics/learnings.md` |
+| OpenClaw 更新日志 | `topics/openclaw-update-log.md` |
 | 决策 | `topics/decisions.md` |
 | 人物 | `topics/people.md` |
 | 实用工具 | `E:\Obsidian仓库\ZhouXuan私人领域\实用工具收录\` |
