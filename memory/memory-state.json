@@ -1,21 +1,21 @@
-﻿{
-    "lastHealthCheck":  "2026-08-08T02:52:00+08:00",
+{
+    "lastHealthCheck":  "2026-08-08T03:14:00+08:00",
     "lastConsolidation":  "2026-08-08T03:12:00+08:00",
-    "lastPatrol":  "2026-08-08T02:52:00+08:00",
+    "lastPatrol":  "2026-08-08T09:17:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "expired_topics_30d":  0,
                              "lines_warning":  0,
-                             "memory_lines":  105,
+                             "memory_lines":  106,
                              "expired_topics_7d":  10,
                              "overloaded_topics":  [
-                                                       "design-systems-analysis.md (124 list-items, \u003e50)",
-                                                       "learnings.md (98 list-items, \u003e50)"
+                                                       "design-systems-analysis.md (184 list-items, >50)",
+                                                       "learnings.md (134 list-items, >50)",
+                                                       "work-tools.md (152 list-items, >50)"
                                                    ],
                              "issues":  [
-                                            "10 topic files stale (\u003e7d), consider review",
-                                            "2 overloaded topics (\u003e50 entries), consider splitting",
-                                            "CRITICAL: all early-morning cron jobs missing (memory-consolidation 02:00 / memory-health-sync 02:15 / memory-reflection 23:30 / security-check 10:00 / daily-social-content 10:00), only memory-patrol remains"
+                                            "10 topic files stale (>7d), consider review",
+                                            "3 overloaded topics (>50 entries), consider splitting"
                                         ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
@@ -30,6 +30,6 @@
                                                   "work-tools.md (07-26)"
                                               ],
                              "total_pending":  7,
-                             "recent_dailies_7d":  11
+                             "recent_dailies_7d":  12
                          }
 }
