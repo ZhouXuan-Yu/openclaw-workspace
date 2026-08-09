@@ -1,7 +1,7 @@
 {
-    "lastHealthCheck":  "2026-08-08T03:14:00+08:00",
-    "lastConsolidation":  "2026-08-08T03:12:00+08:00",
-    "lastPatrol":  "2026-08-08T09:17:00+08:00",
+    "lastHealthCheck":  "2026-08-09T00:55:00+08:00",
+    "lastConsolidation":  "2026-08-09T11:50:20+08:00",
+    "lastPatrol":  "2026-08-09T11:50:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "expired_topics_30d":  0,
@@ -9,13 +9,13 @@
                              "memory_lines":  106,
                              "expired_topics_7d":  10,
                              "overloaded_topics":  [
-                                                       "design-systems-analysis.md (184 list-items, >50)",
-                                                       "learnings.md (134 list-items, >50)",
-                                                       "work-tools.md (152 list-items, >50)"
+                                                       "design-systems-analysis.md (184 list-items, \u003e50)",
+                                                       "learnings.md (134 list-items, \u003e50)",
+                                                       "work-tools.md (152 list-items, \u003e50)"
                                                    ],
                              "issues":  [
-                                            "10 topic files stale (>7d), consider review",
-                                            "3 overloaded topics (>50 entries), consider splitting"
+                                            "10 topic files stale (\u003e7d), consider review",
+                                            "3 overloaded topics (\u003e50 entries), consider splitting"
                                         ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
