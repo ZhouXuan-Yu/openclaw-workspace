@@ -73,3 +73,52 @@
 - **预发布**: 2026.7.2-beta.x 系列在推进（beta.5 / 2026-07-28），含 supervisor external 模式、`openclaw onboard`、clickclack 通道等，但**未稳定**
 - **结论**: 上次评估（7-20，建议立刻升级）仍待决。本次无新信息改变结论，升级建议维持不变。
 - **状态标记**: ⚠️ 上次评估未决（建议升但用户未执行）
+
+---
+
+## 复查 2026-08-10 11:28
+
+- **当前版本**: 仍 2026.6.10 (aa69b12)
+- **latest stable**: 仍 2026.7.1-2（含 2026.7.1-2 热修复：npm 插件更新兼容 singleton-array metadata，官方插件可安装性）
+- **上次评估未决**: 是（7-20 / 8-03 两次建议升但用户均未执行）
+- **新信号（社区 7-13 发布后反馈）**:
+  - ⚠️ **早期用户报告 autoupdate 与 cron 回归** — 官方与社区均建议：生产环境**分阶段(staged)升级**、**先备份 openclaw.json**、若 Node 迁移卡住则重跑 web installer。
+  - 🔴 **Breaking changes 确认**：新安装默认 messaging-only 工具 profile；**ACP dispatch 默认开启**；**plugin HTTP handler 注册改为显式 route API**。
+  - Node 版本被提升 → 旧版自动更新器可能失效，需重跑 web installer 完成迁移。
+  - 变更规模：3,063 contributions / 532 contributors（大版本，含 Control UI 重写、原生移动端大改、GPT-5.6 / Muse Spark 1.1 / Tencent Hy3 路由、Codex delegation 加重）。
+  - 预发布 2026.7.2-beta.x 仍在推进，但 8-04 的 beta.1 显示 extended-stable 加固方向（SQLite checkpoints、Feishu outbound 修复等）。
+
+### 更新后的风险评估（2026-08-10）
+
+| 领域 | v2026.6.10 → v2026.7.1 变更 | 风险 |
+|------|-------------------------------|------|
+| **记忆系统** | 无 schema/embedding/SQLite 迁移公告；6.11 起有 SQLite checkpoints 加固（正面） | 🟢 低 |
+| **Workspace 布局** | 无布局变更信号 | 🟢 低 |
+| **Hooks 系统** | 未提及 hooks 变更 | 🟢 低 |
+| **Cron 任务** | ⚠️ **早期用户报告 cron 回归** | 🔴 高风险（本地依赖 6 个 cron） |
+| **Config Schema** | **新增默认 messaging-only 工具 profile；ACP dispatch 默认开** — 可能改变工具权限模型 | 🟡 中 |
+| **Channel 插件** | 微信/飞书/企微未在 highlight；6.11 有 Feishu outbound 修复；本地微信通道未明确更新 | 🟡 中 |
+| **Skill Workshop** | 无破坏性变更 | 🟢 低 |
+| **工具系统** | **plugin HTTP handler 改显式 route API**（若本地装了 HTTP handler 插件需适配）；工具默认 profile 变更 | 🟡 中 |
+| **Node 运行时** | **Node 版本提升** — 需重跑 web installer，且旧 autoupdater 失效 | 🟡 中 |
+
+### 本地具体影响
+- `memory/evolution/`、`hooks/hooks.yaml`、`workflows/`：无直接 schema 破坏 ⬜
+- **cron 6 个任务**（memory-*/security-check/daily-social）：⚠️ 需在升级后逐个验证触发；已有回归报告
+- **工具/权限模型**：确认本地 `openclaw.json` 是否受影响（messaging-only profile / ACP dispatch 默认开可能收窄工具权限）
+- **微信通道**：升级后必须全链路自检
+- **升级动作**：因 Node 提升，升级方式非简单 `npm update -g`，需重跑 web installer + 备份 openclaw.json
+
+### 升级建议（2026-08-10 更新）
+
+**🟡 建议：等几天看反馈（暂缓）**
+
+理由：
+1. 与上次“立刻升级”相反 — 新增了 **early-adopter 报告的 cron/autoupdate 回归** 与 **plugin HTTP handler breaking change**，本地重度依赖 cron，风险上升。
+2. 变更规模大（532 贡献者 / Control UI 重写），当前仍处社区反馈期。
+3. 升级路径复杂化（Node 提升需重跑 web installer + 备份），不宜无准备执行。
+4. 可关注 **2026.7.2-beta/extended-stable**（8-04 已显加固方向）转稳定后，作为更稳的升级目标。
+
+**若坚持升**：先 `cp openclaw.json openclaw.json.bak` → 重跑 web installer → `openclaw doctor` 自检 → 逐个验证 cron 与微信通道 → 若无异常再启用。
+
+- **状态标记**: ⚠️ 上次评估未决 + 本次因回归报告下调为**暂缓**（从“立即升”改为“等反馈”）
