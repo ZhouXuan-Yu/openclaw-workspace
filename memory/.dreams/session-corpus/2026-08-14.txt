@@ -1,0 +1,5 @@
+[main/sessions/main/2212bfca-05f6-4998-ab58-864424ac577f.jsonl#L9] Assistant: GitHub 直连被网络策略拦了，换 API 通道试试。
+[main/sessions/main/3a181f7f-f025-4141-a545-30357f5b2cfc.jsonl#L9] Assistant: PowerShell 引号转义问题，改用脚本文件执行：
+[main/sessions/main/3a181f7f-f025-4141-a545-30357f5b2cfc.jsonl#L13] Assistant: PowerShell 进程崩溃，改用 Python 脚本：
+[main/sessions/main/8dac3f76-1482-40fa-9f81-f0a81711f8f1.jsonl#L9] Assistant: Chrome CDP 未运行，先启动 Chrome，同时读取 Obsidian 索引。
+[main/sessions/main/e2495a37-096f-4962-9125-5a047087c0f6.jsonl#L6] Assistant: [assistant turn failed before producing content]
