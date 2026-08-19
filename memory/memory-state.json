@@ -1,22 +1,23 @@
 {
-  "lastHealthCheck": "2026-08-15T07:44:00+08:00",
-  "lastConsolidation": "2026-08-15T23:12:00+08:00",
-  "lastPatrol": "2026-08-10T10:48:00+08:00",
+  "lastHealthCheck": "2026-08-19T21:52:00+08:00",
+  "lastConsolidation": "2026-08-19T21:52:00+08:00",
+  "lastPatrol": "2026-08-19T21:52:00+08:00",
   "lastCheckResults": {
     "topics_total": 12,
     "expired_topics_30d": 0,
     "lines_warning": 0,
     "memory_lines": 106,
-    "expired_topics_7d": 10,
+    "expired_topics_7d": 12,
     "overloaded_topics": [
-      "design-systems-analysis.md (135 list-items, >50)",
-      "learnings.md (135 list-items, >50)",
-      "openspec-analysis.md (51 list-items, >50)",
-      "work-tools.md (101 list-items, >50)"
+      "design-systems-analysis.md (167 list-items, >50)",
+      "learnings.md (108 list-items, >50)",
+      "work-tools.md (82 list-items, >50)",
+      "openclaw-update-log.md (59 list-items, >50)"
     ],
     "issues": [
-      "10 topic files stale (>7d), consider review",
-      "4 overloaded topics (>50 entries), consider splitting"
+      "12 topic files stale (>7d), consider review",
+      "4 overloaded topics (>50 entries), consider splitting",
+      "08-16~08-19 凌晨任务链中断4天（consolidation/health/patrol 未执行，daily 日志缺失）"
     ],
     "stale_topics": [
       "decisions.md (07-21)",
@@ -28,9 +29,11 @@
       "preferences.md (07-21)",
       "projects.md (07-21)",
       "task-calendar.md (07-21)",
-      "work-tools.md (07-26)"
+      "work-tools.md (07-26)",
+      "learnings.md (08-09)",
+      "openclaw-update-log.md (08-10)"
     ],
     "total_pending": 7,
-    "recent_dailies_7d": 11
+    "recent_dailies_7d": 5
   }
 }
