@@ -1,7 +1,7 @@
-﻿{
-    "lastHealthCheck":  "2026-08-19T22:04:28+08:00",
+{
+    "lastHealthCheck":  "2026-08-20T11:35:00+08:00",
     "lastConsolidation":  "2026-08-20T11:35:00+08:00",
-    "lastPatrol":  "2026-08-19T21:52:00+08:00",
+    "lastPatrol":  "2026-08-20T11:35:21+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "lines_warning":  0,
@@ -9,8 +9,8 @@
                              "memory_lines":  106,
                              "expired_topics_7d":  12,
                              "overloaded_topics":  [
-                                                       "design-systems-analysis.md (95 list-items, \u003e50)",
-                                                       "learnings.md (102 list-items, \u003e50)"
+                                                       "design-systems-analysis.md (124 list-items, \u003e50)",
+                                                       "learnings.md (103 list-items, \u003e50)"
                                                    ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
@@ -23,13 +23,12 @@
                                                   "projects.md (07-21)",
                                                   "task-calendar.md (07-21)",
                                                   "work-tools.md (07-26)",
-                                                  "learnings.md (08-09)",
                                                   "openclaw-update-log.md (08-10)"
                                               ],
-                             "total_pending":  4,
+                             "total_pending":  7,
                              "recent_dailies_7d":  7,
                              "issues":  [
-                                            "12 topic files stale (\u003e7d), consider review",
+                                            "11 topic files stale (\u003e7d), consider review",
                                             "2 overloaded topics (\u003e50 list-items), consider splitting"
                                         ]
                          }
