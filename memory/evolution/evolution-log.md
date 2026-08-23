@@ -805,3 +805,27 @@
 - 状态：用户静默第 30 天（整月）；凌晨任务链中断第 5 天（08-16~08-20）状态不变；无新事件/无用户消息
 - 进化触发：无新触发（静默日无失败/纠正/Skill 信号）；FIX 候选继续登记：①调度器漂移 ②凌晨任务链中断 ③记录不修复模式 — 均待用户回归统一处置
 - 写入文件：memory/daily/2026-08-20.md（追加 23:30 反思段）、memory/evolution/.skill-quality.json（计数器更新）
+
+## 2026-08-21 23:45 反射（#61 晚间补充）
+
+**状态**: ✅ 成功
+**阶段**: 每日反射（静默日 x31；调度器恢复观察第 2 周期）
+### 📊 今日数据
+- 任务数: 1 (14:00 心跳巡检 + 23:30 反射准点 + 23:45 补充)
+- 用户交互: 0
+- 静默天数: 31 (07-21 → 08-21)，整月静默延续，刷新历史最长纪录
+### 🔍 观察
+- **调度器恢复信号增强**: 23:30 排程连续第 2 周期准点（08-20 首次、08-21 延续），距 3 周期确认（08-23）差 1 周期；日间链路今日已恢复（task-recovery-check / daily-report-reminder ok）
+- **新错误: my provider API key 失效** — daily-social-content(20:00) 报 401 (api key ****e3be invalid)，修复命令 `openclaw models auth login --provider 'my' --force` 需用户提供新 key，已挂起；fallback 链进一步收窄
+- **08-21 23:30 运行部分截断**: 仅写 daily，遗漏画像/evolution-log/.skill-quality.json，由本次 23:45 补全 — 四文件写入自查截断风险第 4 次出现（08-08/08-10/08-20/08-21），仍需自动化
+- 凌晨链路（02:00/02:15/09:00）中断状态待明日 02:00 consolidation 验证；07-02 遗留 5 项任务（含 P0 邮寄党员档案）超期 51 天
+### 📈 质量变化
+- memory-reflection: totalCalls 60→61, successCalls 59→60
+- qualityScore: 0.975（不变）
+### 🧬 进化触发
+- 无新触发（静默日无失败/纠正/Skill 信号）；FIX 候选继续登记：①调度器漂移（观察中，准点第 2 周期）②凌晨任务链中断 ③记录不修复模式 ④my provider 401 — 均待用户回归统一处置
+### 📁 写入文件
+- memory/daily/2026-08-21.md（追加 23:45 反思段）
+- 人物画像.md（last_updated + current_phase.status + 08-21 复盘段）
+- memory/evolution/.skill-quality.json (61)
+- memory/evolution/evolution-log.md（本记录追加）

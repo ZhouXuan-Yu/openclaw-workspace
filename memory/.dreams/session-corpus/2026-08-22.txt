@@ -1,0 +1,16 @@
+[main/sessions/main/0964d118-aca4-4c13-a762-25e81abb1d62.jsonl#L10] Assistant: 📡 GitHub 仓库追踪汇报（2026-08-22 10:32） **追踪范围**:1 个仓库 **awesome-generative-ai-guide** - ⭐ Stars:28,849（较上次 +1） - 🍴 Forks:5,879（无变化） - 📦 仓库大小:178,092KB **提交**:无新提交 **Star 变化**:+1（小幅增长,趋势正常） **汇总**:本次无新代码提交,Star 数量小幅上升。下次检查约 24 小时后。
+[main/sessions/main/0b74400a-9f6d-46fa-b0dc-a447a6ec8e79.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/271e1f4f-8a63-4c5a-a0ee-7659731c219b.jsonl#L8] Assistant: 🔐 安全检查报告 (2026-08-22 10:10) | 检查项 | 状态 | 详情 | |--------|------|------| | Windows Defender | 🔴 FAIL | 实时保护=关，杀毒=关 | | 0.0.0.0 监听端口 | 🟡 WARN | 74 个端口，含 3306/5432/6379/11434 等外露 | | Ollama 绑定 | 🟡 CHECK | 监听 0.0.0.0:11434（非仅本机） | | 异常进程 | ✅ OK | 无异常（msedgewebview2/d
+[main/sessions/main/2aeb1e82-a36d-4890-997f-3c377d2b735d.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/479fd49e-217c-4736-8ac3-07d4b49b163d.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/54d5c37b-4921-40ae-a979-724de7225fb5.jsonl#L10] Assistant: Chrome CDP 未运行，先启动 Chrome，同时读取今日素材。
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L9] Assistant: web_fetch 被拦截，改用 curl 抓取。
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L11] Assistant: PowerShell 环境，换语法重试。
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L13] Assistant: 抓取成功，解析内容。
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L17] Assistant: 过滤掉 `sponsors/` 广告位，用 GitHub API 补全真实项目数据。
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L25] Assistant: 数据齐全，清理临时文件后输出。
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L27] Assistant: 📊 **GitHub 风口动态** (8/22) **今日 TOP 热点领域** 1. 🤖 Agent 记忆/上下文基础设施 — 最热，多个高星项目同日上榜 2. 📱 端侧微型模型 — 14MB 模型跑手机/机器人 3. 🔀 LLM 路由编排 — NVIDIA 入局 **值得关注的新项目** ⭐ **volcengine/OpenViking** 31.8K (Jan 创建，暴涨中) 火山引擎出品：自进化 Context Database，统一 Agent 记忆 + RAG + Skills。本周双榜常客，是当前记忆
+[main/sessions/main/61601009-f57f-4dfc-b7d1-3cff5a5606c1.jsonl#L27] Assistant: 📈 多模型路由/网关成为企业落地刚需，NVIDIA 亲自下场 **今日热榜常客**：MoneyPrinterTurbo 114K⭐（AI 短视频）、PostHog 38K⭐（AI 可观测性）、Apache Maka（local-first agent workspace，孵化中）。
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L2167] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L447] Assistant: 🔐 安全检查报告 (2026-08-22 10:10) | 检查项 | 状态 | 详情 | |--------|------|------| | Windows Defender | 🔴 FAIL | 实时保护=关，杀毒=关 | | 0.0.0.0 监听端口 | 🟡 WARN | 74 个端口，含 3306/5432/6379/11434 等外露 | | Ollama 绑定 | 🟡 CHECK | 监听 0.0.0.0:11434（非仅本机） | | 异常进程 | ✅ OK | 无异常（msedgewebview2
+[main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L448] Assistant: 📡 GitHub 仓库追踪汇报（2026-08-22 10:32） **追踪范围**:1 个仓库 **awesome-generative-ai-guide** - ⭐ Stars:28,849（较上次 +1） - 🍴 Forks:5,879（无变化） - 📦 仓库大小:178,092KB **提交**:无新提交 **Star 变化**:+1（小幅增长,趋势正常） **汇总**:本次无新代码提交,Star 数量小幅上升。下次检查约 24 小时后。

@@ -1,0 +1,7 @@
+[main/sessions/main/08cabf39-f364-4e09-8eb9-05efe2ed5638.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/1f256429-61c4-4c69-a68e-8f7db1fc94b7.jsonl#L16] Assistant: sync_meetings 报错（JSON 模式不支持渠道同步）。尝试其他入口：
+[main/sessions/main/1f256429-61c4-4c69-a68e-8f7db1fc94b7.jsonl#L22] Assistant: task_list 失败：YouNavi 后端服务启动超时。检查服务状态和日志：
+[main/sessions/main/1f256429-61c4-4c69-a68e-8f7db1fc94b7.jsonl#L24] Assistant: 后端服务日志停在 8/10，疑似未运行。尝试直接调用 CLI（非 JSON 模式）同步渠道：
+[main/sessions/main/7b2b2461-5c70-40f9-9e75-1a3355cb2f7d.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/cf5c145b-7a4d-4e0d-846e-d34c7d9b1b75.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/d188c661-4632-4214-9a86-c1ccf6442b93.jsonl#L6] Assistant: [assistant turn failed before producing content]
