@@ -1,6 +1,6 @@
 ﻿# 学习沉淀
 
-> 最后更新：2026-08-20
+> 最后更新：2026-08-28
 
 ---
 
@@ -42,6 +42,7 @@
 - **信号**: 7 个 cron 持续报错多日未修复（memory-patrol / younavi-meeting-sync / github-repo-tracker / daily-social-content / 每日新闻 / younavi-weekly-research / openclaw-update-check）
 - **升级（08-19 第三次强化）**: 08-16~08-19 consolidation 02:00 / health 02:15 / patrol 09:00 全链中断 4 天，非单任务报错而是调度器整体停摆，无看门狗自动恢复 → 升级为「调度器间歇性停摆」FIX 候选（与 08-14 断流同源）
 - **升级（08-20 第四次强化）**: 中断延续第 5 天（08-16~08-20），反射 23:30 第 4 次漂移到次日中午 → 确认常态化，由「间歇性停摆」升级为「持续失灵」，待用户回归时与 cron 报错同批处置
+- **升级（08-23 第五次强化）**: 08-21 23:30 反射连续第 2 周期准点曾出现恢复信号，但 08-23 morning-task-brief 延迟 ~8h 触发（排程 09:00→17:04）且 08-22 全天日志缺失 → 恢复信号证伪，确认「记录不修复」延续；新增 **my provider API key 401 失效**（08-21 daily-social-content 首次报 `401 Authentication Fails, key ****e3be invalid`，修复命令 `openclaw models auth login --provider 'my' --force`，需用户提供新 key，已挂起）→ fallback 链进一步收窄
 - **背景**: 07-08 提出「发现即修复」机制，始终未落地；07-28 起进化数据（patterns.json 等）全面老化，因静默期无信号触发修复
 - **教训**: 报错发现后应立即记录到 task-calendar 并设修复任务，不能只留在 daily 日志里等用户交互；调度器停摆需看门狗/自愈机制，不能依赖手动补跑
 - **状态**: 待用户交互时统一处理或降级
