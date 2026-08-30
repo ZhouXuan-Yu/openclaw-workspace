@@ -1,17 +1,22 @@
 ﻿{
-    "lastHealthCheck":  "2026-08-29T14:43:00Z",
+    "lastHealthCheck":  "2026-08-29T15:25:09Z",
     "lastConsolidation":  "2026-08-29T23:07:31+08:00",
     "lastPatrol":  "2026-08-29T22:45:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
+                             "expired_topics_30d":  9,
                              "lines_warning":  0,
-                             "expired_topics_30d":  8,
-                             "memory_lines":  112,
+                             "memory_lines":  100,
                              "expired_topics_7d":  10,
                              "overloaded_topics":  [
-                                                       "design-systems-analysis.md (124 list-items, \u003e50)",
-                                                       "learnings.md (104 list-items, \u003e50)"
+                                                       "design-systems-analysis.md (list-items \u003e50)",
+                                                       "learnings.md (list-items \u003e50)",
+                                                       "work-tools.md (330 lines)"
                                                    ],
+                             "issues":  [
+                                            "10 topic files stale (\u003e7d)",
+                                            "3 overloaded topics (\u003e50 list-items)"
+                                        ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
                                                   "design-systems-analysis.md (07-21)",
@@ -22,15 +27,9 @@
                                                   "preferences.md (07-21)",
                                                   "projects.md (07-21)",
                                                   "task-calendar.md (07-21)",
-                                                  "work-tools.md (07-26)",
-                                                  "openclaw-update-log.md (08-10)"
+                                                  "work-tools.md (07-26)"
                                               ],
                              "total_pending":  7,
-                             "recent_dailies_7d":  8,
-                             "issues":  [
-                                            "8 topic 杈?0澶╂湭鏇存柊锛堢敤鎴烽潤榛樼31澶╋紝寰呯‘璁わ級",
-                                            "10 topic files stale (\u003e7d), consider review",
-                                            "2 overloaded topics (\u003e50 list-items), consider splitting"
-                                        ]
+                             "recent_dailies_7d":  6
                          }
 }
