@@ -1,22 +1,18 @@
 ﻿{
-    "lastHealthCheck":  "2026-08-29T15:25:09Z",
-    "lastConsolidation":  "2026-08-29T23:07:31+08:00",
-    "lastPatrol":  "2026-08-29T22:45:00+08:00",
+    "lastHealthCheck":  "2026-08-30T02:20:54Z",
+    "lastConsolidation":  "2026-08-30T23:08:00+08:00",
+    "lastPatrol":  "2026-08-30T10:20:54+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
-                             "expired_topics_30d":  9,
                              "lines_warning":  0,
-                             "memory_lines":  100,
+                             "expired_topics_30d":  10,
+                             "memory_lines":  106,
                              "expired_topics_7d":  10,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (list-items \u003e50)",
                                                        "learnings.md (list-items \u003e50)",
                                                        "work-tools.md (330 lines)"
                                                    ],
-                             "issues":  [
-                                            "10 topic files stale (\u003e7d)",
-                                            "3 overloaded topics (\u003e50 list-items)"
-                                        ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
                                                   "design-systems-analysis.md (07-21)",
@@ -30,6 +26,11 @@
                                                   "work-tools.md (07-26)"
                                               ],
                              "total_pending":  7,
-                             "recent_dailies_7d":  6
+                             "recent_dailies_7d":  4,
+                             "issues":  [
+                                            "10 topic files stale (\u003e7d)",
+                                            "3 overloaded topics (\u003e50 list-items)",
+                                            "08-24~08-27 无 daily 日志（调度器失稳延续）"
+                                        ]
                          }
 }
