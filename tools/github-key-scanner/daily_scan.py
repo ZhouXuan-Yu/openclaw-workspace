@@ -364,8 +364,8 @@ if __name__ == "__main__":
     print("=" * 60)
 
     if not GITHUB_TOKEN:
-        print("❌ no token")
-        sys.exit(1)
+        print("⚠️ 未设置 GITHUB_TOKEN，速率限制较低（10次/分钟）")
+        print("   建议设置 GITHUB_TOKEN 环境变量以提高扫描效率\n")
 
     results = scan()
     h, new_entries = merge(results)

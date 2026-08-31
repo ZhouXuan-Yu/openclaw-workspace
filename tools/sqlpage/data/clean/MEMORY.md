@@ -35,6 +35,9 @@
 | 06-15 | v5进化: Think Tool(Devin)+Mode Router(Kiro)+Self-Verify(Devin), 健康检查89/98(A) |
 | 06-15 | v5.1: Agent Skills(Doubt-Driven+Incremental Impl)融入RULES.md, 反偷懒表
 | 07-07 | ⭐ GitHub 每日推送：每次修改立即 git push，不攒批，优先级最高 |
+| 07-22 | ⭐ 技术文档存放规则：`E:\Obsidian仓库\ZhouXuan私人领域\Agent学习\技术文档\YYYY-MM\`，按月分目录 |
+| 07-26 | ⭐ AgentChat 集成决策：Q1 图片生成首选→网页AI(AgentChat)；废弃 image_generate API；Chrome CDP 开机自启；已固化到社交自动化链路 |
+| 07-26 | ⭐ 社交内容面向群体：中国大陆开发者/技术用户，中文表达，使用国内常见技术栈和平台参考 |
 
 ## 主题索引
 | 主题 | 位置 |
@@ -47,8 +50,10 @@
 | 安全扫描 | `tools/SkillSpector/` (见 topics/work-tools.md) |
 | 社交内容设计 | `skills/guizang-social-card/` (Codex CLI 生成图片/视频时必用) |
 | 学习 | `topics/learnings.md` |
+| OpenClaw 更新日志 | `topics/openclaw-update-log.md` |
 | 决策 | `topics/decisions.md` |
 | 人物 | `topics/people.md` |
+| 实用工具 | `E:\Obsidian仓库\ZhouXuan私人领域\实用工具收录\` |
 | 工具 | `topics/work-tools.md` |
 | 任务日历 | `topics/task-calendar.md` |
 
@@ -56,8 +61,8 @@
 | 变更影响 | `docs/change-impact-checklist.md` |
 | ADR | `docs/adr/` |
 | 智能检索 | `memory/retrieval-strategy.md` + `topics/_graph.json` |
-| OpenSpec 分析 | `topics/openspec-analysis.md` |
-| 架构增强 | `topics/openspec-arch-enhancements.md` |
+| OpenSpec 分析 | `topics/openspec-analysis.md`（已归档）|
+| 架构增强 | `topics/openspec-arch-enhancements.md`（已归档）|
 | GitHub 热门项目 | `topics/github-may-2026-projects.md` |
 | UI设计系统交叉分析 | `topics/design-systems-analysis.md` |
 | 战略思维伙伴 | `knowledge/strategic-thinking-partner.md`（MBB框架集+思维模型）|
@@ -78,6 +83,7 @@
 | knowledge | `knowledge/` 知识索引 |
 | examples | `examples/` few-shot 示例 |
 | 图片处理 | ⚠️ 收到图片→本地OCR→模型推理（见 topics/work-tools.md） |
+| 图片生成 | AgentChat(网页AI) 优先 → Codex CLI → ComfyUI → image_generate API兜底 |
 | Wechatsync | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Wechatsync-CLI使用手册.md` |
 | 社交自动化决策树 | `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\社交自动化决策树.md` |
 | YouNavi CLI | `D:\YouNavi\resources\backend\agent-cli.exe`（见 topics/work-tools.md） |
@@ -98,43 +104,9 @@
 ## Tag 索引
 `#memory-architecture` `#skill-evolution` `#claude-fable5` `#openclaw-skills` `#obsidian-notes` `#openspec` `#opengap` `#security-scan` `#workflows` `#github-trends`
 
-## Promoted From Short-Term Memory (2026-06-21)
+## 短期记忆（2026-07-13 整合）
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:27:28 -->
-- 小红书封号修复: `tools/social-auto-upload/uploader/xiaohongshu_uploader/main.py` — XiaoHongShuNote 类; `tools/social-auto-upload/sau_cli.py` — CLI --draft 参数 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:27-28]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:31:34 -->
-- 01:05 多平台发布结果: 抖音: ✅ 自动发布成功; 快手: ✅ 定时发布 (03:11); B站: ✅ biliup 上传成功; 视频号: ❌ cookie过期，需重新扫码 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:31-34]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:35:35 -->
-- 01:05 多平台发布结果: 小红书: 📝 草稿箱待手动发布（AI声明+微调） [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:35-35]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:37:39 -->
-- 01:05 多平台发布结果: **视频信息**: evolution_v2.mp4, 4.2MB, 4.2min **卡片风格**: Swiss International (guizang-social-card) **配音**: zh-CN-YunyangNeural (沉稳男声) [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:37-39]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:45:45 -->
-- 01:50 GitHub 5月热门项目分析: 分析了逛逛GitHub公众号推荐的10个项目，逐个看README，写入 `topics/github-may-2026-projects.md`。 [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:45-45]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:47:47 -->
-- 01:50 GitHub 5月热门项目分析: **重点学习**: [score=0.807 recalls=0 avg=0.620 source=memory/2026-06-15.md:47-47]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:27:27 -->
-- v5/v5.1 架构进化: Agent Skills: Doubt-Driven Development + Incremental Implementation（源�?Addy Osmani�?- 反偷懒表: Agent 常用借口 + 反驳 [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:27-27]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:33:34 -->
-- System Prompt 收集: **范围**: 20+ 工具�?6 个文�?**工具列表**: Dify, Coze, FastGPT, Cursor, Windsurf, Claude Code, Lovable, Bolt, Replit, Devin, OpenHands, SWE-Agent, Augment Code, GitHub Copilot, Trae, Roo Code, Cline, Kilo Code, Kiro, Aider, Goose, Open Interpreter, Amazon Q Developer, Gemini Code Assist, Tabnine, Qodo, Microsoft Copilot **存储位置**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\` 下按工具名建文件�? [score=0.801 recalls=0 avg=0.620 source=memory/2026-06-16.md:33-34]
-
-## Promoted From Short-Term Memory (2026-06-22)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:37:40 -->
-- Agent Skills 深度解析: **来源**: Addy Osmani (Google Chrome 团队) **内容**: 24 �?Skill 覆盖完整开发生命周�?(DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP) **最值得复用**: doubt-driven-development, incremental-implementation, context-engineering, spec-driven-development, anti-rationalization **文档位置**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\Addy-Osmani-Agent-Skills深度解析.md` [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:37-40]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:44:45 -->
-- AI Agent 未来发展方向报告: **产出**: `E:\Obsidian仓库\ZhouXuan私人领域\开发项目\AI-Agent未来发展方向研究报告.md` **六大方向**: 记忆系统 / Skill驱动工作�?/ 多智能体协作 / 自进�?/ 可信Agent / 具身�?**数据来源**: YouNavi深度研究×2 + Agent Skills分析 + v5/v5.1实战 + 20+工具System Prompt + GitHub热门项目 [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:44-45]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:49:50 -->
-- security-check cron 超时修复: **问题**: timeout 60s 导致大量命令执行失败 **修复**: timeout 60s �?300s，payload 增加 timeout 字段 [score=0.854 recalls=0 avg=0.620 source=memory/2026-06-16.md:49-50]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:24:24 -->
-- v5/v5.1 架构进化: **v5 组件**: [score=0.836 recalls=0 avg=0.620 source=memory/2026-06-16.md:24-24]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-15.md:26:26 -->
-- 小红书封号修复: **修改文件**: [score=0.827 recalls=0 avg=0.620 source=memory/2026-06-15.md:26-26]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:29:29 -->
-- v5/v5.1 架构进化: **健康检�?*: 89/98 (A) [score=0.822 recalls=0 avg=0.620 source=memory/2026-06-16.md:29-29]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:5:5 -->
-- 记忆巡检: **时间**: 09:00 [score=0.816 recalls=0 avg=0.620 source=memory/2026-06-16.md:5-5]
-
-## Promoted From Short-Term Memory (2026-06-23)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:26:26 -->
-- v5/v5.1 架构进化: **v5.1 组件**: [score=0.805 recalls=0 avg=0.620 source=memory/2026-06-16.md:26-26]
+- **子 Agent 蜂群模式**（sessions_spawn）: 适合批量读文件/并行搜索/数据抓取/格式转换（机械任务不需要判断力）；多方向分析（各自分析→汇总）质量中等
+- **限制**: context=isolated 冷启动无背景，context=fork 则 Token 翻倍；子 Agent 间不能通信；依赖模型配额（并发多可能429）
+- **用法**: 单回合 `sessions_spawn` 派多个 → `sessions_yield` 等全部返回
+- **注意**: 每次修改后立即 git push（已入星标）

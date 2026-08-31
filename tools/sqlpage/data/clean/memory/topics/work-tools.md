@@ -1,6 +1,6 @@
 ﻿# 工具使用发现
 
-> 最后更新:2026-07-07
+> 最后更新:2026-07-16
 
 ---
 
@@ -36,6 +36,8 @@
 | cover-gen.py | 本地配图生成(Pillow) | 2026-06-12 |
 | tracker.py | 发布数据追踪 | 2026-06-12 |
 | YouNavi CLI | 对话分析/深度研究/音频转写 | 2026-06-12 |
+| Agent Reach | 全网搜索+多平台内容采集（Skill: agent-reach） | 2026-07-16 |
+| Codex CLI | AI生图（有独立API凭证，OpenAI gpt-5.5） | 2026-07-16 |
 
 ---
 
@@ -139,7 +141,7 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 
 ---
 
-## 社交内容生产完整链路（2026-06-25 v4 更新）
+## 社交内容生产完整链路（2026-07-16 v5 — 自进化版本）
 
 **新增环节**：Q2.5 ComfyUI 精修（可选，使用 skills/comfyui-skill/SKILL.md）
 
@@ -147,20 +149,38 @@ sau xiaohongshu upload-note --account creator --images img1.png --title "标题"
 1. 读 memory/topics/work-tools.md（本文）
 2. 读 skills/guizang-social-card/SKILL.md
 3. 读 skills/hyperframes-video/SKILL.md
-4. 如果使用 ComfyUI：读 skills/comfyui-skill/SKILL.md，先检查 server status
-5. memory_search 确认历史教训
+4. 如果使用 Agent Reach：读 ~/.agents/skills/agent-reach/SKILL.md
+   **Windows 特殊处理**: PowerShell 下 `curl` 是别名，必须用 `curl.exe`；
+   Python Scripts 目录在 `$env:USERPROFILE\AppData\Roaming\Python\Python314\Scripts`
+5. 如果使用 ComfyUI：读 skills/comfyui-skill/SKILL.md，先检查 server status
+6. memory_search 确认历史教训
+7. **健康检查**: 加载 `memory/evolution/pipeline-health.json`（自进化路由表）
 
 **完整流程**：
 ```
-Q0: 内容来源
-├── 首选: YouNavi 深度研究 (yn.research_full)
-└── 备选: 自行生成（memory_search + web_search）
+Q0: 内容来源（双通道）
+├── Track A: Agent Reach 社会监听（热点/舆情/大众讨论）
+│   ├── Skill: agent-reach（~/.agents/skills/agent-reach/SKILL.md）
+│   ├── 用法: 先 `agent-reach doctor --json` 检查可用后端
+│   ├── 场景: 小红书搜话题、推特看讨论、B站找评测、Reddit看海外反应
+│   ├── 产出: 互联网实时讨论/热度/大众情绪
+│   ├── 参考: references/social.md（小红书/推特/B站/V2EX/Reddit）
+│   └── 参考: references/search.md（Exa 网页搜索）
+├── Track B: YouNavi 深度研究（行业/竞品/专业洞察）
+│   ├── 用法: yn.research_full("主题")
+│   └── 产出: 结构化深度报告
+├── 交叉验证: Track A 完成 → 搜一遍互联网确认选题新颖性
+└── 选题提案: 双通道结果汇总 → 你定选题 → 进入Q1
 
 Q1: 图片素材生成（必须步骤）
-├── 工具: image_generate（AI生图）或 ComfyUI Skill（本地生图）
-│   ├── 如果ComfyDesktop已运行 → comfyui-skill --json run <id> --args '{...}'
-│   ├── 否则 → image_generate（cloud API）
-│   └── 注意: ComfyUI生图质量更高、无API费用、可批量
+├── 工具优先级:
+│   1️⃣ AgentChat（网页AI生图）— E:\AgentChat, node index.js "生成一张[描述]"
+│   2️⃣ Codex CLI — codex exec "只用image_generate生成一张[描述]"
+│   3️⃣ ComfyUI（备选本地）
+│   4️⃣ Swiss纯排版（无配图，靠文字+几何元素）
+│   ❌ image_generate API（自带缺额度，最后手段）
+├── AgentChat 生图: 调用网页版 Gemini/ChatGPT 生成，通过 Chrome CDP 控制
+│   └── 命令: cd E:\AgentChat && node skills/AgentChat-OneWeb/index.js "生成一张[描述]的图片"
 ├── Swiss模式: 产品渲染/UI截图/keyshot风格 → AI生成
 ├── Editorial模式: Pexels/Unsplash/Flickr CC → web找图
 ├── 输出: 每张卡片的 hero image → assets/
@@ -203,8 +223,78 @@ Q6: 发布
 ├── 小红书: --draft 草稿模式（AI声明）
 ├── 抖音/快手/B站: 自动发布
 ├── 公众号/知乎/掘金: Wechatsync
-└── 发布前: sau <platform> check 验证登录状态
+├── 发布前: sau <platform> check 验证登录状态
+└── 发布后 → Q7
+
+Q7: 发布后追踪（Agent Reach）
+├── 工具: Agent Reach 监测各平台发文后的讨论/反馈
+├── 场景:
+│   ├── 小红书/推特/B站 搜相关关键词 → 看讨论趋势
+│   ├── Reddit 搜海外反应
+│   └── Exa 网页搜索覆盖全网的转发/引用
+├── 产出: 反馈简报 → 写回 daily log
+└── 参考: Q0 Track A 的引用方式，复用 agent-reach
+
+### Q7 自进化闭环（v5 新增）
+├── 记录: 每次执行结果 → tool成功/失败 → 写入 pipeline-health.json
+├── 读取: 每次 Q0 开始前→读 pipeline-health.json→跳过已知失败的后端
+├── 学习: 连续 3 次失败→标记后端为 bad→自动切换主后端
+├── 恢复: 连续 3 次成功→提升该后端优先级
+└── 告警: 某平台所有后端都 bad→主动提醒用户
+
+### 自进化路由表文件
+
+位置: `memory/evolution/pipeline-health.json`
+
+```json
+{
+  "platforms": {
+    "bilibili": {
+      "backends": [
+        {
+          "name": "B站搜索API",
+          "status": "fail",
+          "last_ok": null,
+          "last_fail": "2026-07-16T14:20:00",
+          "fail_reason": "CDN拦截，空响应",
+          "fail_count": 3
+        },
+        {
+          "name": "bili-cli",
+          "status": "ok",
+          "last_ok": "2026-07-16T14:25:00",
+          "last_fail": null,
+          "fail_count": 0
+        }
+      ],
+      "active_backend": "bili-cli",
+      "learned_at": "2026-07-16T14:25:00"
+    }
+  },
+  "version": 1
+}
 ```
+```
+
+### 自进化健康管理脚本
+
+位置: `scripts/pipeline-health.py`
+
+```powershell
+# 查看当前链路健康状态
+python scripts/pipeline-health.py status
+
+# 重新测试所有平台并自动更新路由
+python scripts/pipeline-health.py learn
+
+# 完整报告
+python scripts/pipeline-health.py report
+```
+
+**每次使用链路前必做**：
+1. 读 `memory/evolution/pipeline-health.json` — 看哪些后端已知失败
+2. 如果有新增的失败或恢复 → 跑 `python scripts/pipeline-health.py learn`
+3. 开始 Q0 双通道调研
 
 **HyperFrames 注意事项**：
 - GSAP 不能在 clip 元素上设 visibility/display（用 CSS opacity:0 代替）

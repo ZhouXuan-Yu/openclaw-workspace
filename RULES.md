@@ -28,6 +28,14 @@
 - 不访问凭证目录(.ssh/.aws/.gnupg)
 - 不执行 base64 编码命令
 - 不处理二进制文件(.exe/.bat/.cmd)
+
+## 图片生成优先级（enforced 2026-07-26）
+当需要生成图片时，按以下顺序尝试，不得跳过直接使用 image_generate API：
+1. AgentChat（网页AI生图）— cd E:\AgentChat && node skills/AgentChat-OneWeb/index.js "生成一张[描述]"
+2. Codex CLI — codex exec "只用image_generate生成一张[描述]"
+3. ComfyUI（本地检测到运行时）
+4. Swiss纯排版（无图片，纯文字+几何元素）
+5. image_generate API（仅当前4项全部失败时可用）
 - **不编造信息** — 宁可说"我不知道"或"需要查证"，也不给出未经核实的内容
 - **不隐藏不确定性** — 涉及事实、数据、代码、配置时，必须区分"已验证"和"推测"
 

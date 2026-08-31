@@ -5,17 +5,17 @@
 ---
 
 ## 总览
-- **累计**: 136 密钥, 108 仓库
-- **最后**: 2026-07-10 14:39
+- **累计**: 164 密钥, 134 仓库
+- **最后**: 2026-08-29 23:12
 
 ### 供应商分布
 
 | 供应商 | 泄露数 |
 |--------|--------|
-| Google Gemini | 95 |
-| OpenAI Proj | 15 |
-| Anthropic | 7 |
-| OpenAI类 | 7 |
+| Google Gemini | 114 |
+| OpenAI Proj | 20 |
+| OpenAI类 | 10 |
+| Anthropic | 8 |
 | MiniMax JWT | 4 |
 | Groq | 3 |
 | Unknown | 2 |
@@ -25,6 +25,144 @@
 
 ---
 ## 历史
+
+### 2026-08-29
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-29
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-28
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-23
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-22
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-21
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-15
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-14
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-13
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-12
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-10
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-09
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-09
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-09
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-09
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-08
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-08
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-06
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-06
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-05
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-04
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-03
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-02
+> 扫描 0 个，**新增 0** 个
+
+### 2026-08-01
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-31
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-30
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-30
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-30
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-29
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-29
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-29
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-28
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-28
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-28
+> 扫描 65 个，**新增 2** 个
+
+| 1 | Google Gemini | QuantumNous/new-api | `relaykit/relayconvert/kitutil/mask.go` | `AIzaSyAA...rV70` | [查看](https://github.com/QuantumNous/new-api/blob/c3db41407dd1a0662ef630c41de4ac0c48c83e3c/relaykit/relayconvert/kitutil/mask.go) |
+| 2 | Google Gemini | diwasatreya/Music-Bot | `config.js` | `AIzaSyBx...rj5s` | [查看](https://github.com/diwasatreya/Music-Bot/blob/e2b6522242c537267dd8b297c98c42224762c403/config.js) |
+
+### 2026-07-23
+> 扫描 0 个，**新增 0** 个
+
+### 2026-07-21
+> 扫描 94 个，**新增 26** 个
+
+| 1 | OpenAI类 | ve1zy/pb | `lab6.py` | `sk-or-v1...bbdf` | [查看](https://github.com/ve1zy/pb/blob/c2fae6cb055b2c310cb4ac95c32920c9a4027c91/lab6.py) |
+| 2 | OpenAI Proj | MoetazAbdalla/Med-pol-report | `tryy.py` | `sk-proj-...FgMA` | [查看](https://github.com/MoetazAbdalla/Med-pol-report/blob/89c08e7ba06d64f53073866b74aca33eeffbf22e/tryy.py) |
+| 3 | OpenAI Proj | uikibaki/gpt-chat-server | `app.py` | `sk-proj-...MDwA` | [查看](https://github.com/uikibaki/gpt-chat-server/blob/4e357a15ac01e3686faa9585c908f40f3bd50ca0/app.py) |
+| 4 | OpenAI Proj | Manas8114/Disastermanagment | `api.py` | `sk-proj-...7WIA` | [查看](https://github.com/Manas8114/Disastermanagment/blob/a98494c2d789609873d07e2d898b9072f4ddd3ca/api.py) |
+| 5 | OpenAI Proj | JaneyRG/Auto_Git_Commit | `acd.py` | `sk-proj-...XiEA` | [查看](https://github.com/JaneyRG/Auto_Git_Commit/blob/15cead3bcd4f79980f33a23fbc0066e62da2dde9/acd.py) |
+| 6 | OpenAI Proj | mrs714/SBC-practica-2 | `key.py` | `sk-proj-...casA` | [查看](https://github.com/mrs714/SBC-practica-2/blob/9a3b5cac1b3d82b55d00c1a629b75c68125969c9/key.py) |
+| 7 | Anthropic | cefothe/hitl-engineering-jprime-2026-workshop | `key.txt` | `sk-ant-a...iwAA` | [查看](https://github.com/cefothe/hitl-engineering-jprime-2026-workshop/blob/2a0b37442a2a659c1a6f6a6f7f2714d4ce161e35/key.txt) |
+| 8 | OpenAI类 | cefothe/hitl-engineering-jprime-2026-workshop | `key.txt` | `sk-ant-a...uwAA` | [查看](https://github.com/cefothe/hitl-engineering-jprime-2026-workshop/blob/2a0b37442a2a659c1a6f6a6f7f2714d4ce161e35/key.txt) |
+| 9 | Google Gemini | SudodevsHQ/drplantnik | `s.py` | `AIzaSyAL...DfmE` | [查看](https://github.com/SudodevsHQ/drplantnik/blob/4c5299da1bc461918bb6c83b13967ca64ca967a6/s.py) |
+| 10 | Google Gemini | Adarshco/Resume-ATS-Tracker | `p1.py` | `AIzaSyCA...fLtI` | [查看](https://github.com/Adarshco/Resume-ATS-Tracker/blob/5e468f9c700996360636466067d77798264e69dc/p1.py) |
+| 11 | Google Gemini | JimKiriakopoulos/JimKiriakopoulos | `8.py` | `AIzaSyC6...q6g4` | [查看](https://github.com/JimKiriakopoulos/JimKiriakopoulos/blob/c5b4df9414fd808169a074fed0a9b75925e79797/8.py) |
+| 12 | Google Gemini | anandrkskd/adhack | `k.py` | `AIzaSyCf...9we8` | [查看](https://github.com/anandrkskd/adhack/blob/3e7f956c1c52ce09c8775a5bd258b4a388a6441b/k.py) |
+| 13 | Google Gemini | aavishkar-trivedi/python_code_generator | `1.py` | `AIzaSyCa...P59A` | [查看](https://github.com/aavishkar-trivedi/python_code_generator/blob/97b8616096a365f2f3886a6b6fd51f4af2e4c87d/1.py) |
+| 14 | Google Gemini | Anjankumar26/vidyAI | `1.py` | `AIzaSyAU...TP_Q` | [查看](https://github.com/Anjankumar26/vidyAI/blob/6debdf8c416dd0a69f11da6720491055cb9eeed7/1.py) |
+| 15 | Google Gemini | ayushcodes3004/GenAI-by-Rohit-Negi | `t.py` | `AIzaSyAU...xj_8` | [查看](https://github.com/ayushcodes3004/GenAI-by-Rohit-Negi/blob/2a9b3edd4120b99a327d7d5c893c357a06c99cf2/t.py) |
+| 16 | Google Gemini | SharmaAnurag944/VidyAI | `1.py` | `AIzaSyAU...TP_Q` | [查看](https://github.com/SharmaAnurag944/VidyAI/blob/ddaa1d1519c9b6699621c54c8bbaa9ca8620647a/1.py) |
+| 17 | Google Gemini | aishwarya-art/FIREBASE-WEB-PUSH-NOTIFICATION | `sw.js` | `AIzaSyDD...yV6s` | [查看](https://github.com/aishwarya-art/FIREBASE-WEB-PUSH-NOTIFICATION/blob/a31e3e2d1f04b20cb9b1947970e6c412ab90b12e/sw.js) |
+| 18 | Google Gemini | neekonsu/lights-dashboard | `db.js` | `AIzaSyDJ...ssuE` | [查看](https://github.com/neekonsu/lights-dashboard/blob/b607e9db757b5c2e74e95743ac6080036644be07/db.js) |
+| 19 | Google Gemini | brandly/harvard-food-trucks-cli | `cli.js` | `AIzaSyBN...AXxs` | [查看](https://github.com/brandly/harvard-food-trucks-cli/blob/6bc53b90fdabeb9fd0f2400be8a2bd4bf77427e2/cli.js) |
+| 20 | Google Gemini | UbaidRaza2006/E-Commerce-Website-DONE | `a.js` | `AIzaSyCb...XEQU` | [查看](https://github.com/UbaidRaza2006/E-Commerce-Website-DONE/blob/2e7d9910b2ad942d170daf2c980f0c1b0111de9a/a.js) |
+| 21 | Google Gemini | Toxic-Whitelgnd/Encryption-decryption-html | `1.js` | `AIzaSyC7...tjII` | [查看](https://github.com/Toxic-Whitelgnd/Encryption-decryption-html/blob/1323b75b44bb825e35445de336537c5cd160d832/1.js) |
+| 22 | Google Gemini | ngzhian/quickview-chrome | `qv.js` | `AIzaSyAJ...SlRw` | [查看](https://github.com/ngzhian/quickview-chrome/blob/7539ee5af42c368bd1f13b8001a71f5f5214136a/qv.js) |
+| 23 | Google Gemini | botuserout/Clinic-Management-System | `r.js` | `AIzaSyB_...Gywo` | [查看](https://github.com/botuserout/Clinic-Management-System/blob/783a201c3fccbc0001120042f86d7a6a2b8f07bd/r.js) |
+| 24 | Google Gemini | AyushAwasthi2384/qoura-Automation-With-AI | `ai.js` | `AIzaSyBt...b0Cg` | [查看](https://github.com/AyushAwasthi2384/qoura-Automation-With-AI/blob/4a326af43298199c88110878da5c2150b1aa305d/ai.js) |
+| 25 | OpenAI类 | shinytsing/QAToolBox | `.env.py` | `sk-c4a84...30fe` | [查看](https://github.com/shinytsing/QAToolBox/blob/6c0f6e294f3f49f6ffde967b51fa0d7645460c68/.env.py) |
+| 26 | Google Gemini | pankilhas2/agente-ia-audio-pank | `.env.local.txt` | `AIzaSyCC...7GuY` | [查看](https://github.com/pankilhas2/agente-ia-audio-pank/blob/2e28d4b2b4b262a277371aa23b46f4ad3d336233/.env.local.txt) |
 
 ### 2026-07-10
 > 扫描 0 个，**新增 0** 个
@@ -223,4 +361,4 @@
 | 1 | 百川智能 | 1Reminding/MediChain-LLM-Agent | `源码及数据库文件/medicine/smart-medicine-main/smart-medicine-main/smart-medicine-main/.env` | `sk-098c3...58e4` | [查看](https://github.com/1Reminding/MediChain-LLM-Agent/blob/ed3c3f795311d5d3dc31909013e5fa699e5d5d22/.../.env) |
 
 ---
-> 更新于 2026-07-10 14:39
+> 更新于 2026-08-29 23:12

@@ -24,7 +24,11 @@
   └── 风格: 真实、有观点、不套话
   ↓
 [Step 3] 生成配图（必须步骤）
-  ├── 工具: image_generate（AI生图）
+  ├── 工具: AgentChat（网页AI生图，首选，零成本）
+  │   ├── 命令: cd E:\AgentChat && node skills/AgentChat-OneWeb/index.js "生成一张[描述]的图片"
+  │   ├── 通过 Chrome CDP 调用 ChatGPT/Gemini 生图
+  │   ├── 自动下载到 E:\AgentChat\
+  │   └── 失败则降级到 Codex CLI → ComfyUI → Swiss兜底
   ├── 为每张卡片生成 hero image
   ├── 保存到 output-daily/assets/
   └── 风格: 瑞士国际风格，简洁几何蓝色调
