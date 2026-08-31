@@ -133,3 +133,47 @@
 - **上次评估未决**: 是（7-20 / 8-03 / 8-10 三次评估均未执行升级，用户未回应）
 - **本次变化**: 无新稳定版本、无新 breaking change/回归报告信号 → 结论与风险评估维持 8-10 不变。
 - **状态标记**: ⚠️ 持续未决 + 维持**暂缓**（等 7.2 稳定或社区反馈趋稳后再升）
+
+---
+
+## 复查 2026-08-31 11:05
+
+- **当前版本**: 仍 2026.6.10 (aa69b12)
+- **latest stable**: **2026.8.1**（新稳定版，beta.2 发布于 8-15，现正式 stable）
+- **版本差**: 6.10 → 8.1（跨越两个 release-line，含 7.x 全部 breaking changes）
+- **上次评估未决**: 是（7-20 / 8-03 / 8-10 / 8-28 四次评估均未执行升级，用户未回应）
+
+### 2026.8.1 主要变更（新增，相对上次复查）
+
+| 领域 | 变更 | 风险 |
+|------|------|------|
+| **记忆系统** | 🔴 大改：fast active-memory recall、personal installs 默认 cross-conversation recall、Claude Code/Codex/Hermes 引导导入、Memory 设置页 (#108043/#110597/#108977/#114037)；Active Memory 落地（lowercase `memory.md` 已废弃，2026.4.10 起） | 🔴 高（记忆检索行为变化 + memory.md 演进，本地 MEMORY.md 需确认） |
+| **Workspace 布局** | 🟡 HEARTBEAT.md 移入 SQLite-backed monitor scratch（revision-safe cron scratch，需用 Doctor 而非手工迁移） | 🟡 中（本地 HEARTBEAT.md/workspace 布局相关） |
+| **Cron 任务** | 🔴 大改：auto-disable repeated failures、DST fold/时区历史 on-time scheduling、zoned cron times、cron-backed heartbeat monitors、heartbeat↔task 转换、`/loop`、per-job dynamic cadence、gated script payloads | 🔴 高（本地依赖 6 个 cron，行为与去重/失败语义变化） |
+| **Skill Workshop** | 🟡 skill/system 持续演进（release 层面有迭代；注意 SKILL.md version 头要求） | 🟡 中 |
+| **Config Schema** | 🔴 结转 7.x breaking：messaging-only 工具 profile 默认、ACP dispatch 默认开、plugin HTTP handler 改显式 route API | 🟡 中–高 |
+| **工具系统** | 🟡 plugin HTTP handler route API | 🟡 中 |
+| **安全** | 🟢 Secret egress host binding、release validation 加固、SQLite snapshot backup/restore、reliability 加固 (#99067/#100910/#102125/#109590/#112406) | 🟢 正面 |
+| **Channel** | 微信/飞书/企微未在 highlight；7.x 有 Feishu outbound 修复 | 🟡 中（本地微信通道需自检） |
+| **文档明确升级要点** | 备份 SOUL.md/MEMORY.md/USER.md/config；升级后重启 gateway，逐个验证 cron jobs 是否静默失活（社区高频踩坑） | — |
+
+### 本地具体影响
+- `memory/evolution/`、MEMORY.md：Active Memory 演进 + cross-conversation recall 新行为 — 升级后需验证记忆检索结果与原有 MEMORY.md 兼容。
+- `cron 6 个任务`：auto-disable 失败重试 + DST 语义变化 — 升级后必须逐个验证触发；已有 7.x 社区回归报告。
+- `HEARTBEAT.md`：若升级，用 `openclaw doctor` 处理迁移，勿手工搬。
+- 工具 profile / ACP dispatch：需核对本地 `openclaw.json` 是否受影响（可能收窄工具权限）。
+- 升级方式：Node 版本提升（7.x 起），非简单 `npm update -g`，需重跑 web installer + 备份。
+
+### 升级建议（2026-08-31 更新）
+
+**🟡 建议：等几天看反馈（暂缓，维持）**
+
+理由：
+1. 版本跨度大（6.10 → 8.1），叠加 7.x breaking changes（工具 profile/ACP/plugin route）+ 8.1 记忆与 cron 大改，本地重度依赖 cron 与记忆系统，一次性跨越风险最高。
+2. 2026.8.1 为全新 stable，社区反馈期刚开始；建议观察 2 周。
+3. 升级路径复杂（Node 提升需 web installer + 备份 + Doctor 迁移 HEARTBEAT.md），不宜无准备执行。
+4. 记忆系统 Active Memory 演进需先确认 lowercase memory.md 情况、并核对 MEMORY.md 兼容性。
+
+**若坚持升**：备份 SOUL/MEMORY/USER/config → 重跑 web installer → `openclaw doctor` → 逐个验证 cron（重点查静默失活）与记忆检索 → 全链路自检微信通道 → 无异常再启用。
+
+- **状态标记**: 🔴 持续未决（累计 5 次评估）+ 因版本跨度大维持**暂缓**；同时记录 2026.8.1 需重点自检 cron/记忆两项。
