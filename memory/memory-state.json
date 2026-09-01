@@ -1,7 +1,7 @@
 {
-    "lastHealthCheck":  "2026-08-31T10:36:00+08:00",
-    "lastConsolidation":  "2026-08-31T23:49:00+08:00",
-    "lastPatrol":  "2026-08-31T10:36:00+08:00",
+    "lastHealthCheck":  "2026-09-01T15:22:00+08:00",
+    "lastConsolidation":  "2026-09-01T15:21:00+08:00",
+    "lastPatrol":  "2026-09-01T15:22:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "lines_warning":  0,
@@ -9,9 +9,9 @@
                              "memory_lines":  106,
                              "expired_topics_7d":  10,
                              "overloaded_topics":  [
-                                                       "design-systems-analysis.md (list-items \u003e50)",
-                                                       "learnings.md (list-items \u003e50)",
-                                                       "work-tools.md (330 lines)"
+                                                       "design-systems-analysis.md (339 lines, list-items 124)",
+                                                       "learnings.md (278 lines, list-items 112)",
+                                                       "work-tools.md (417 lines)"
                                                    ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
@@ -26,12 +26,11 @@
                                                   "work-tools.md (07-26)"
                                               ],
                              "total_pending":  7,
-                             "recent_dailies_7d":  3,
+                             "recent_dailies_7d":  4,
                              "issues":  [
-                                            "10 topic files stale (\u003e7d)",
-                                            "3 overloaded topics (\u003e50 list-items)",
-                                            "08-24~08-27 无 daily 日志（调度器失稳延续）",
-                                            "用户静默第 40 天，无新信号可整合"
+                                            "10 topic files stale (>7d, 均>30d)",
+                                            "3 overloaded topics (list-items >50 或 >400 行)",
+                                            "用户静默第 42 天，无新信号可整合；YouNavi AUTH_REQUIRED 已在 learnings.md 记录，待用户登录恢复"
                                         ]
                          }
 }
