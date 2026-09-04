@@ -1,36 +1,36 @@
-{
-    "lastHealthCheck": "2026-09-02T11:23:30+08:00",
-    "lastConsolidation": "2026-09-02T23:04:00+08:00",
-    "lastPatrol": "2026-09-01T15:22:00+08:00",
-    "lastCheckResults": {
-        "topics_total": 12,
-        "lines_warning": 0,
-        "expired_topics_30d": 10,
-        "memory_lines": 106,
-        "expired_topics_7d": 10,
-        "overloaded_topics": [
-            "design-systems-analysis.md (339 lines, list-items 124)",
-            "learnings.md (278 lines, list-items 112)",
-            "work-tools.md (417 lines)"
-        ],
-        "stale_topics": [
-            "decisions.md (07-21)",
-            "design-systems-analysis.md (07-21)",
-            "github-may-2026-projects.md (07-22)",
-            "openspec-analysis.md (07-21)",
-            "openspec-arch-enhancements.md (07-21)",
-            "people.md (07-21)",
-            "preferences.md (07-21)",
-            "projects.md (07-21)",
-            "task-calendar.md (07-21)",
-            "work-tools.md (07-26)"
-        ],
-        "total_pending": 7,
-        "recent_dailies_7d": 4,
-        "issues": [
-            "10 topic files stale (>7d, 均>30d)",
-            "3 overloaded topics (list-items >50 或 >400 行)",
-            "用户静默第 42 天，无新信号可整合；YouNavi AUTH_REQUIRED 已在 learnings.md 记录，待用户登录恢复"
-        ]
-    }
+﻿{
+    "lastConsolidation":  "2026-09-04T22:59:00+08:00",
+    "lastPatrol":  "2026-09-01T15:22:00+08:00",
+    "lastCheckResults":  {
+                             "topics_total":  12,
+                             "lines_warning":  0,
+                             "expired_topics_30d":  10,
+                             "memory_lines":  106,
+                             "expired_topics_7d":  10,
+                             "overloaded_topics":  [
+                                                       "design-systems-analysis.md (339 lines, list-items 124)",
+                                                       "learnings.md (278 lines, list-items 112)",
+                                                       "work-tools.md (417 lines)"
+                                                   ],
+                             "stale_topics":  [
+                                                  "decisions.md (07-21)",
+                                                  "design-systems-analysis.md (07-21)",
+                                                  "github-may-2026-projects.md (07-22)",
+                                                  "openspec-analysis.md (07-21)",
+                                                  "openspec-arch-enhancements.md (07-21)",
+                                                  "people.md (07-21)",
+                                                  "preferences.md (07-21)",
+                                                  "projects.md (07-21)",
+                                                  "task-calendar.md (07-21)",
+                                                  "work-tools.md (07-26)"
+                                              ],
+                             "total_pending":  7,
+                             "recent_dailies_7d":  4,
+                             "issues":  [
+                                            "10 topic files stale (\u003e7d, 鍧?30d)",
+                                            "3 overloaded topics (list-items \u003e50 鎴?\u003e400 琛?",
+                                            "鐢ㄦ埛闈欓粯绗?42 澶╋紝鏃犳柊淇″彿鍙暣鍚堬紱YouNavi AUTH_REQUIRED 宸插湪 learnings.md 璁板綍锛屽緟鐢ㄦ埛鐧诲綍鎭㈠"
+                                        ]
+                         },
+    "lastHealthCheck":  "2026-09-02T23:15:20+08:00"
 }
