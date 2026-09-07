@@ -61,3 +61,6 @@
 [main/sessions/main/f22bf556-7ccf-4cb7-b1d9-3dfb9f043b09.jsonl#L12] Assistant: 今日日志存在。再看进化日志和能力状态。
 [main/sessions/main/f22bf556-7ccf-4cb7-b1d9-3dfb9f043b09.jsonl#L18] Assistant: 信息齐了，写入 Obsidian 每日更新。
 [main/sessions/main/f22bf556-7ccf-4cb7-b1d9-3dfb9f043b09.jsonl#L22] Assistant: ``` 📅 每日更新 2026-09-05 ├── 写入: E:\Obsidian仓库\ZhouXuan私人领域\每日更新\2026-09-05.md ├── 大小: 2075 bytes ├── 内容: 4 个完成事项 └── 状态: ✅ ``` 内容已按今日日志（cron 静默日）生成：完成事项 4 项、反射 #70 指标、降噪反思与明日计划均已收录。
+[main/sessions/main/3f3d3ce3-faf8-4e85-98ec-87f2b744f66c.jsonl.deleted.2026-09-06T12-29-23.100Z#L8] Assistant: ⏱️ 心跳巡检 20:24 — 今日任务均已执行（10:08 简报、20:12 YouNavi 同步），用户静默 46 天按降频策略不重复推送，无待处理事项。静默待命。
+[main/sessions/main/be29e5f9-baf4-47d4-bf1c-c34465ecbbd7.jsonl.deleted.2026-09-06T15-31-39.368Z#L19] Assistant: (晚间规划提醒本次跳过推送：静默第 46 天，今日晨间简报已推送，深夜降噪。已记入 daily 日志。)
+[main/sessions/main/c34ebace-561f-421d-bb3a-34e0ad35072f.jsonl.deleted.2026-09-06T12-29-23.114Z#L9] Assistant: NO_REPLY — 周六 20:24，无异常：今日简报(10:08)与 YouNavi 同步检查(20:12)均已执行完毕，用户静默期按降频策略不打扰，无待办日程。
