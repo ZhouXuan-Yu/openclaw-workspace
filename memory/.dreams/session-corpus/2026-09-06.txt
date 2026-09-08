@@ -63,3 +63,6 @@
 [main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L485] Assistant: 已保存：`E:\Obsidian仓库\ZhouXuan私人领域\开发项目\周度GitHub趋势报告-2026-09-06.md`（含 5 大信号 + 下周展望，周期合并覆盖 08-24~09-06 空窗）
 [main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L486] Assistant: ✅ 恢复检查完成，一切正常 - 昨日会话记录正常（memory/daily/2026-09-05.md） - 待办任务：0 项 - 待恢复的定时任务：无 - 无异常（仅例行建议：确认模型 API 网络状态）
 [main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L487] Assistant: 同步结果已记录完毕。检查确认今日日志已有 18:00 同步记录（与本次结果一致），无需重复追加。 **同步结果摘要：** - `sync_meetings` → 失败：JSON 模式不支持渠道同步（NOT_SUPPORTED） - `task_list` / `file_list` → 失败：YouNavi 未登录（AUTH_REQUIRED） - 无新会议摘要、无新任务、无新音频 → 无转写/摘要可执行 **通知用户（微信）：** 长官，YouNavi 会议同步连续第 5 天失败——客户端未登录，且 JSON 模式下同步
+[main/sessions/main/bb20856d-caff-438c-8541-c130a7b50a26.jsonl.deleted.2026-09-07T09-33-00.393Z#L6] Assistant: 🫡 心跳正常，无待办任务。长官周日愉快。
+[main/sessions/main/e2b96522-72a6-4690-a4ac-6599ae271322.jsonl.deleted.2026-09-07T15-34-00.425Z#L14] Assistant: 09-05 晚间按降噪策略跳过了完整规划提醒；今日情形相同（静默第 47 天 + 今日 15:29 已推晨间简报 + 深夜 23:31），按既定策略同样跳过推送，仅记录 daily。
+[main/sessions/main/e2b96522-72a6-4690-a4ac-6599ae271322.jsonl.deleted.2026-09-07T15-34-00.425Z#L16] Assistant: 已处理：23:30 晚间规划提醒触发正常。因长官静默第 47 天 + 今日 15:29 已推送晨间简报 + 深夜时段，按降噪策略跳过完整规划提醒，仅记录 daily 日志。无待办变更，明日 09-07 周一晨间简报恢复正常推送。🛡️
