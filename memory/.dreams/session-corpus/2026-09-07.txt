@@ -102,3 +102,7 @@
 [main/sessions/main/ac3f2747-53e6-4c6a-acd9-0c93ffbf5567.jsonl#L60] Assistant: Chrome 已重启。重新跑生图批次：
 [main/sessions/main/ac3f2747-53e6-4c6a-acd9-0c93ffbf5567.jsonl#L64] Assistant: 连续失败，查看完整日志找根因：
 [main/sessions/main/ac3f2747-53e6-4c6a-acd9-0c93ffbf5567.jsonl#L66] Assistant: 日志被过滤掉了细节。终止并直接跑单条看完整错误：
+[main/sessions/main/054f3662-b27a-4111-b786-25fdc406faf6.jsonl.deleted.2026-09-08T07-54-58.057Z#L9] Assistant: 心跳检查：无可汇报事项。今日待办无新增，定时任务均在调度中（个别历史 error 属偶发，下次运行自动重试）。安静待命。
+[main/sessions/main/0e24eb39-f7f5-4b7c-8bc6-1870c563a50d.jsonl.deleted.2026-09-08T15-34-00.572Z#L31] Assistant: 发现画像文件在 Obsidian 仓库。今日为静默日（x48），数据已齐，执行四文件反射写入。
+[main/sessions/main/0e24eb39-f7f5-4b7c-8bc6-1870c563a50d.jsonl.deleted.2026-09-08T15-34-00.572Z#L42] Assistant: 反射 #72 完成，四文件写入自查通过：daily（2026-09-07.md）、人物画像.md（last_updated）、.skill-quality.json（71→72）、evolution-log.md（#72 置顶）。 今日要点：静默 x48；morning-brief 16:26 漂移（第 9 次记录）；YouNavi AUTH_REQUIRED 第 10 天；晚间链路准点。无新进化触发，FIX 候选维持待用户回归。
+[main/sessions/main/3592e861-25b7-48fa-a496-b8fa7bc6e840.jsonl.deleted.2026-09-08T09-32-00.418Z#L8] Assistant: 心跳检查完毕：今日简报已于 16:26 推送，无新任务、无用户输入，YouNavi 登录问题已记录（连读 10 天）。按降噪策略，本条不推送用户消息。无待办动作。
