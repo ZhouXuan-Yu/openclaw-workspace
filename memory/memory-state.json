@@ -1,11 +1,11 @@
 ﻿{
-    "lastConsolidation":  "2026-09-10T16:10:26+08:00",
+    "lastConsolidation":  "2026-09-11T00:49:43+08:00",
     "lastPatrol":  "2026-09-10T16:10:26+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "lines_warning":  0,
                              "expired_topics_30d":  10,
-                             "memory_lines":  100,
+                             "memory_lines":  106,
                              "expired_topics_7d":  10,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (339 lines, list-items 95)",
@@ -24,14 +24,14 @@
                                                   "task-calendar.md (07-21)",
                                                   "work-tools.md (07-26)"
                                               ],
-                             "total_pending":  7,
-                             "recent_dailies_7d":  6,
+                             "total_pending":  4,
+                             "recent_dailies_7d":  7,
                              "issues":  [
                                             "10 topic files stale (\u003e7d)",
-                                            "3 overloaded topics",
-                                            "User silent 50 days (last interaction 07-21); no new signals to consolidate",
-                                            "memory_search unavailable (embedding timeout, ollama not running)"
+                                            "2 overloaded topics (\u003e50 items)",
+                                            "User silent since 07-21; no new signals",
+                                            "memory_search unavailable (embedding timeout)"
                                         ]
                          },
-    "lastHealthCheck":  "2026-09-10T16:10:26+08:00"
+    "lastHealthCheck":  "2026-09-11T00:50:12+08:00"
 }
