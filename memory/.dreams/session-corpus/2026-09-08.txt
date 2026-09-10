@@ -58,3 +58,7 @@
 [main/sessions/main/eb8ac77d-f5f1-4eac-aebf-6e78706a8ee9.jsonl#L8] Assistant: sync_meetings 报错（JSON 模式不支持该操作），检查一下工具支持的子命令和 task_list：
 [main/sessions/main/eb8ac77d-f5f1-4eac-aebf-6e78706a8ee9.jsonl#L14] Assistant: task_list 输出乱码且看起来超时了。修复编码并查看脚本支持的命令：
 [main/sessions/main/eb8ac77d-f5f1-4eac-aebf-6e78706a8ee9.jsonl#L21] Assistant: 命令执行有延迟且输出乱码（GBK/UTF-8 问题），直接读源码了解命令结构：
+[main/sessions/main/40a0d494-6be1-474f-b347-abd5fdd06899.jsonl.deleted.2026-09-10T07-52-22.175Z#L18] Assistant: 23:30 记忆反思 #73 已完成：静默第 49 天，今日 cron 全链路准点（晨间简报回归 09:04，恢复信号第 1 天），无用户交互、无新进化触发；已记入 daily 日志，未推送提醒以免噪音。
+[main/sessions/main/4fd7ee18-d0b5-465f-bd76-0e7890374436.jsonl.deleted.2026-09-09T09-38-00.693Z#L28] Assistant: PowerShell 变量被转义吃掉了，改用脚本文件方式查询。
+[main/sessions/main/4fd7ee18-d0b5-465f-bd76-0e7890374436.jsonl.deleted.2026-09-09T09-38-00.693Z#L37] Assistant: 这是 daily-report-reminder 的 17:30 cron 触发（心跳轮询）。先看昨日处置模式已确认：用户静默 49 天 + 今日 09:04 已推晨间简报。按 09-04/09-05 确立的降噪策略（静默 ≥30 天、同一天已推简报 → 晚间/重复提醒跳过），本次 17:30 汇报提醒应跳过推送、仅记录日志。 先补记今日日志并清理临时文件。
+[main/sessions/main/4fd7ee18-d0b5-465f-bd76-0e7890374436.jsonl.deleted.2026-09-09T09-38-00.693Z#L40] Assistant: ⏸️ daily-report-reminder 17:30 已按降噪策略处理：静默第 49 天 + 今日 09:04 晨间简报已推送（含遗留 P0 与「完成/作废」请求），本次不重复打扰。已记入今日日志。
