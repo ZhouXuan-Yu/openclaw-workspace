@@ -1,16 +1,17 @@
 ﻿{
-    "lastConsolidation":  "2026-09-11T00:49:43+08:00",
-    "lastPatrol":  "2026-09-11T09:17:30+08:00",
+    "lastConsolidation":  "2026-09-13T09:01:26+08:00",
+    "lastPatrol":  "2026-09-13T09:01:26+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
-                             "lines_warning":  0,
-                             "expired_topics_30d":  10,
                              "memory_lines":  106,
+                             "lines_warning":  0,
+                             "total_pending":  7,
+                             "recent_dailies_7d":  13,
                              "expired_topics_7d":  10,
+                             "expired_topics_30d":  10,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (339 lines, list-items 95)",
-                                                       "learnings.md (280 lines, list-items 114)",
-                                                       "work-tools.md (417 lines)"
+                                                       "learnings.md (280 lines, list-items 114)"
                                                    ],
                              "stale_topics":  [
                                                   "decisions.md (07-21)",
@@ -24,8 +25,6 @@
                                                   "task-calendar.md (07-21)",
                                                   "work-tools.md (07-26)"
                                               ],
-                             "total_pending":  4,
-                             "recent_dailies_7d":  7,
                              "issues":  [
                                             "10 topic files stale (\u003e7d)",
                                             "2 overloaded topics (\u003e50 items)",
@@ -33,5 +32,5 @@
                                             "memory_search unavailable (embedding timeout)"
                                         ]
                          },
-    "lastHealthCheck":  "2026-09-11T00:50:12+08:00"
+    "lastHealthCheck":  "2026-09-13T09:01:26+08:00"
 }
