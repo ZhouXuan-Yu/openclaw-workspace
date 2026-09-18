@@ -1,13 +1,13 @@
-﻿{
-    "lastConsolidation":  "2026-09-13T09:01:26+08:00",
-    "lastPatrol":  "2026-09-13T09:01:26+08:00",
+{
+    "lastConsolidation":  "2026-09-18T15:00:00+08:00",
+    "lastPatrol":  "2026-09-18T15:00:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "memory_lines":  106,
                              "lines_warning":  0,
                              "total_pending":  7,
-                             "recent_dailies_7d":  13,
-                             "expired_topics_7d":  10,
+                             "recent_dailies_7d":  6,
+                             "expired_topics_7d":  12,
                              "expired_topics_30d":  10,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (339 lines, list-items 95)",
@@ -23,14 +23,18 @@
                                                   "preferences.md (07-21)",
                                                   "projects.md (07-21)",
                                                   "task-calendar.md (07-21)",
-                                                  "work-tools.md (07-26)"
+                                                  "work-tools.md (07-26)",
+                                                  "learnings.md (09-07)",
+                                                  "openclaw-update-log.md (09-07)"
                                               ],
                              "issues":  [
-                                            "10 topic files stale (\u003e7d)",
-                                            "2 overloaded topics (\u003e50 items)",
-                                            "User silent since 07-21; no new signals",
-                                            "memory_search unavailable (embedding timeout)"
+                                            "12 topic files stale (>7d; 11 also >30d)",
+                                            "2 overloaded topics (>50 items)",
+                                            "User silent since 07-21 (~59d); no new signals",
+                                            "memory_search unavailable (ollama not running, ECONNREFUSED)",
+                                            "lark-cli not bound (config.not_configured); weekday calendar heartbeat unavailable",
+                                            "cron drift observed (morning-task-brief 09-17 fired ~16:42)"
                                         ]
                          },
-    "lastHealthCheck":  "2026-09-13T09:01:26+08:00"
+    "lastHealthCheck":  "2026-09-18T15:00:00+08:00"
 }
