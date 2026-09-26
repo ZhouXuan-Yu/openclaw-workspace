@@ -3,3 +3,26 @@
 [main/sessions/main/6eaff20c-ce17-468c-af9c-e59039191eb5.jsonl#L6] Assistant: [assistant turn failed before producing content]
 [main/sessions/main/89f10400-57a7-4e81-a68a-20046389744c.jsonl#L6] Assistant: [assistant turn failed before producing content]
 [main/sessions/main/9f0473a8-a271-46e6-87f5-41b2aaecdcd4.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/067a774d-9879-4765-8dca-1d616ddebfb6.jsonl#L6] Assistant: I'll run the recovery check script first.
+[main/sessions/main/067a774d-9879-4765-8dca-1d616ddebfb6.jsonl#L9] Assistant: The script exited with code 1, and the JSON looks stale (says 2026-09-16). Let me investigate.
+[main/sessions/main/067a774d-9879-4765-8dca-1d616ddebfb6.jsonl#L12] Assistant: The parallel read caught the pre-run JSON. Let me re-read it plus check the cron/pending state.
+[main/sessions/main/067a774d-9879-4765-8dca-1d616ddebfb6.jsonl#L15] Assistant: Let me check for any cron status/job-failure markers before reporting.
+[main/sessions/main/067a774d-9879-4765-8dca-1d616ddebfb6.jsonl#L19] Assistant: ⚠️ 恢复检查完成，但检测到异常，以下是恢复报告： # 📋 工作恢复检查报告 — 2026-09-17 16:41 ## 1️⃣ 离线检测 ⚠️ - **昨日日志（memory/daily/2026-09-16.md）不存在** → 判定曾经离线/关机未启动。 - 实际最后一个日常日志为 `2026-09-13.md`，即 **09-14、09-15、09-16 连续 3 天没有日常日志**。 - 旁证：`memory/.dreams/session-corpus/2026-09-15.txt`、`2026-09-16.t
+[main/sessions/main/067a774d-9879-4765-8dca-1d616ddebfb6.jsonl#L19] Assistant: |--------|------|------| | P0 | 日常日志缺失 3 天 | 检查 daily 日志生成任务（cron/调度）是否被禁用或失败 | | P1 | 确认常驻定时任务是否需补跑 | 逐一核对每日新闻、社交内容、GitHub 趋势等任务今日是否已执行 | | P1 | 核实 `recovery-status.json` 的 `pending_cron_jobs` | 当前无该字段，建议让 recovery_check.py 写入该字段以恢复可观测性 | | P2 | 确认网络/模型 API | 检查模型
+[main/sessions/main/2b23fa80-2a6f-4dd7-bea7-4b0a3182e8a6.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/3ca6c55f-9a28-47e1-8767-2b6b8a61708a.jsonl#L30] Assistant: 🛡️ 长官，早上好。（注：本简报排程 09:00，实际 16:42 才触发，延迟约 7.7 小时——调度漂移延续，特此说明。） **上午 (09:00-12:00)** - 今日无新排程任务。task-calendar 自 07-02 起未更新，无有效条目可执行。 **下午 (13:00-18:00)** - 同上，无新任务。 **⬅ 离线回顾** - [⚠️] 上次用户交互停留在 **2026-07-21**，静默 **第 58 天**；离线期间无新任务产生。 - [⚠️] 最近一次 daily 日志为 **09-13*
+[main/sessions/main/62af8640-597c-4432-9f86-3a373fdc5d43.jsonl#L6] Assistant: I'll run the recovery check script first.
+[main/sessions/main/62af8640-597c-4432-9f86-3a373fdc5d43.jsonl#L16] Assistant: ⚠️ 恢复检查发现异常，需向你汇报。 📋 **工作恢复检查报告 — 2026-09-17 17:42** **1️⃣ 离线/断档检测：异常** - 昨日日志 `memory/daily/2026-09-16.md` **不存在** → 确认曾离线或调度未运行 - 实际空档：最近 daily 日志为 09-13，**09-14 / 09-15 / 09-16 连续 3 天缺失** - 脚本以非 0 退出码返回（判定为「有需恢复的任务」） **2️⃣ 待办任务：✅ 无** - `pending_tasks.json` 不存在，
+[main/sessions/main/62af8640-597c-4432-9f86-3a373fdc5d43.jsonl#L16] Assistant: API 状态；如需要请授权修复 lark-cli 绑定 报告已写入：`memory/daily/review-2026-09-16.md`、`memory/daily/recovery-status.json` > 注：本次未发送外部消息；以上报告即推送至你的通知渠道。
+[main/sessions/main/6586c608-4847-4640-8377-8fff47f75eb9.jsonl#L23] Assistant: 🛡️ GitHub 风口日报 · 09-17 【今日三大热点领域】 1. **Agent Skills 技能生态爆炸** — 一天内冒出 Claude-Red、agent-skills、ECC、ponytail 等多个 SKILL.md 库，Agent 的"可插拔能力"正成标配 2. **编码代理 × 代码审查/安全** — 大厂 + Cloudflare 同时押注 3. **本地大模型推理** — 消费级硬件跑 MoE 成新方向 【值得关注的 4 个项目】 - **alibaba/open-code-review** ⭐
+[main/sessions/main/6586c608-4847-4640-8377-8fff47f75eb9.jsonl#L23] Assistant: —— 皇家卫士 GGOB 🛡️
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L3001] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L3003] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L3005] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/775ae83f-1cde-438d-bd2c-8178e87dd9d7.jsonl#L3007] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/ae49f493-efeb-41cd-90cb-0dbfa2ab0de1.jsonl#L89] Assistant: 🛡️ 长官，早上好。（注：本简报排程 09:00，实际 16:42 才触发，延迟约 7.7 小时——调度漂移延续，特此说明。） **上午 (09:00-12:00)** - 今日无新排程任务。task-calendar 自 07-02 起未更新，无有效条目可执行。 **下午 (13:00-18:00)** - 同上，无新任务。 **⬅ 离线回顾** - [⚠️] 上次用户交互停留在 **2026-07-21**，静默 **第 58 天**；离线期间无新任务产生。 - [⚠️] 最近一次 daily 日志为 **09-13*
+[main/sessions/main/b9eed060-42f7-4941-a8be-64833b5153aa.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L524] Assistant: 🛡️ GitHub 风口日报 · 09-17 【今日三大热点领域】 1. **Agent Skills 技能生态爆炸** — 一天内冒出 Claude-Red、agent-skills、ECC、ponytail 等多个 SKILL.md 库，Agent 的"可插拔能力"正成标配 2. **编码代理 × 代码审查/安全** — 大厂 + Cloudflare 同时押注 3. **本地大模型推理** — 消费级硬件跑 MoE 成新方向 【值得关注的 4 个项目】 - **alibaba/open-code-review** 
+[main/sessions/main/d5f36139-2b0e-4455-ba63-7ffb6961612b.jsonl#L524] Assistant: —— 皇家卫士 GGOB 🛡️
+[main/sessions/main/e03d54ee-a2ac-42bd-a30c-5969677c6056.jsonl#L6] Assistant: [assistant turn failed before producing content]
+[main/sessions/main/ef14e97c-aa3b-4250-8436-7f189d1c9717.jsonl.deleted.2026-09-18T09-33-00.362Z#L20] Assistant: 🛡️ 觉知报告 · 17:30 心跳 **日历检查失效** — `lark-cli` 未绑定到 openclaw（`config.not_configured`），工作日 09:00–18:00 的心跳日程提醒目前无法执行。 修复需你先确认：绑定为 **bot-only** 还是 **user-default** 身份。确认后我才运行 `lark-cli config bind`（未擅自操作）。 其余：今日 16:42 已推送任务简报，无新增待办。是否处理日
