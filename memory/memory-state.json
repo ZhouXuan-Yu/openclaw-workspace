@@ -1,12 +1,12 @@
-{
+﻿{
     "lastConsolidation":  "2026-09-26T15:53:00+08:00",
-    "lastPatrol":  "2026-09-18T15:00:00+08:00",
+    "lastPatrol":  "2026-09-26T15:54:22+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
-                             "memory_lines":  106,
+                             "memory_lines":  100,
                              "lines_warning":  0,
                              "total_pending":  7,
-                             "recent_dailies_7d":  6,
+                             "recent_dailies_7d":  3,
                              "expired_topics_7d":  12,
                              "expired_topics_30d":  10,
                              "overloaded_topics":  [
@@ -28,13 +28,13 @@
                                                   "openclaw-update-log.md (09-07)"
                                               ],
                              "issues":  [
-                                            "12 topic files stale (>7d; 11 also >30d)",
-                                            "2 overloaded topics (>50 items)",
+                                            "12 topic files stale (\u003e7d; 11 also \u003e30d)",
+                                            "2 overloaded topics (\u003e50 items)",
                                             "User silent since 07-21 (~59d); no new signals",
                                             "memory_search unavailable (ollama not running, ECONNREFUSED)",
                                             "lark-cli not bound (config.not_configured); weekday calendar heartbeat unavailable",
                                             "cron drift observed (morning-task-brief 09-17 fired ~16:42)"
                                         ]
                          },
-    "lastHealthCheck":  "2026-09-18T15:00:00+08:00"
+    "lastHealthCheck":  "2026-09-26T15:54:22+08:00"
 }
