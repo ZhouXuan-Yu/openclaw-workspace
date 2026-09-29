@@ -225,3 +225,49 @@
 **若坚持升**：1) `openclaw.json` + SOUL/MEMORY/USER + `memory/` 全备份 → 2) 重跑 web installer（勿用 `npm update -g`）→ 3) `openclaw doctor --fix` 迁 cron/HEARTBEAT/记忆 → 4) 核对 openclaw.json 工具 visibility 字段 → 5) 逐个验证 cron 触发（查静默失活）与记忆检索 → 6) 全链路自检微信通道 → 7) 留观数天确认无数据异常再常态化。
 
 - **状态标记**: 🔴 持续未决（累计 **6 次**评估）+ 因跨度大 & 2026.9.2 fresh-release 数据风险，维持**不推荐升级（暂缓）**。记录重点自检项：cron Doctor 迁移、记忆 SQLite、工具 visibility 默认放开、微信通道。
+
+---
+
+## 复查 2026-09-28 15:55
+
+- **当前版本**: 仍 2026.6.10 (aa69b12)
+- **latest stable**: **2026.9.6**（2026-09-23 发布，为 2026.9.2 之后第 8 个 release）
+- **版本差**: 6.10 → 9.6（跨越 7.x/8.x/9.x，累计最大跨度）
+- **上次评估未决**: 是（7-20 / 8-03 / 8-10 / 8-28 / 8-31 / 9-07 六次评估均未执行升级，用户未回应）
+
+### 2026.9.6 变更要点（相对上次 9.2 复查）
+
+| 领域 | 变更 | 风险 |
+|------|------|------|
+| **记忆系统** | 生成式 reflection 仍可检索，但**不再与普通记忆争夺长期记忆晋升排名**（既有长期记忆不变）；远端 workspace 可选 `memoryFiles` 适配器（本地索引仍在本机，不自动迁移存储） | 🟡 中（记忆晋升语义变化，需核对 evolution 产物） |
+| **Cron 任务** | 修复 `cron.enabled` 与 `OPENCLAW_SKIP_CRON` 相关 bug；**社区有“2026.9.6 broke all my cron jobs”报告（r/openclaw）**；承接 9.2 的 SQLite state 迁移 + auto-disable 失败语义 | 🔴 高（本地 6 个 cron） |
+| **Code Mode** | 🔴 **Breaking**：Code Mode 仅执行纯 JavaScript，旧 TypeScript cell 失效；需移除 `language`/`typecheck` 参数；启动迁移会移除 `tools.codeMode.languages`，否则跑 `openclaw doctor --fix`（不回写你的代码） | 🟡 中（本地若用 Code Mode 需改 cell） |
+| **路由迁移** | 🔴 承接 breaking：`codex/`、`openai-codex/` 模型引用迁移至 `openai/`（doctor --fix）；捆绑 OpenProse 插件 + `/prose` 命令移除（doctor --fix 清理） | 🟡 中（本地未用 Codex/Prose 则影响小） |
+| **工具/权限** | 承接 7.x/9.2：messaging-only profile、ACP dispatch 默认开、plugin HTTP route API、`tools.sessions.visibility`/`agentToAgent` 默认放开 | 🟡 中–高 |
+| **HEARTBEAT.md** | SQLite-backed monitor scratch，需 Doctor 迁移 | 🟡 中 |
+| **Channel** | 微信/飞书/企微未在 highlight（历史有 Feishu outbound 修复） | 🟡 中（本地微信通道需自检） |
+| **安装/更新** | 安装与更新加固：Windows 安装收紧、失败可回滚 npm 候选、config/secret 保留、内置 triage agent、插件就绪后再重启 | 🟢 正面 |
+| **稳定性** | Gateway 重启用续、Usage 30 天报表、远端 workspace Files/Memory/Skills | 🟢 正面 |
+
+### 本地具体影响
+- `memory/evolution/`：reflection 晋升语义变化 — 升级后核对长期记忆晋升与检索，`memory/` 升级前全备份。
+- **cron 6 任务**：社区明确报告 9.6 破坏 cron；本地升级后必须 `openclaw doctor --fix` 迁移 SQLite state + 逐个验证触发（查静默失活）。
+- Code Mode：若本地用 Code Mode cell，需改写为纯 JS 并跑 doctor --fix。
+- 工具 visibility/ACP：核对本地 `openclaw.json` 是否显式设置，否则升级后跨 agent 权限默认放开。
+- 升级路径同前：Node 已提升，需重跑 web installer（勿简单 `npm update -g`）+ 备份 config/SOUL/MEMORY/USER + Doctor 迁移。
+
+### 升级建议（2026-09-28 更新）
+
+**🔴 建议：当前不推荐升级（维持暂缓）**
+
+理由：
+1. 版本跨度仍为历史最大（6.10 → 9.6），一次性叠加记忆 SQLite 重构 + cron state 迁移 + 工具权限默认放开 + Code Mode TS→JS breaking。
+2. 2026.9.6 发布仅 5 天，**社区已有 cron 破坏报告**，仍处反馈期；承接 9.2 的数据类 bug 风险未完全出清。
+3. 本地重度依赖 cron（6 个）+ 全记忆体系，任何静默失活/检索回归代价高。
+4. 累计 7 次评估用户均未执行升级，无外部压力催跳坑。
+
+**建议路线**：继续驻留 6.10 → 关注 9.x 后续 patch 是否平息 cron/数据类 bug → 待社区反馈趋稳后选成熟 patch 做一次性大跳迁移，迁移前完整备份 + 预留自检窗口。
+
+**若坚持升**：备份全量(openclaw.json + SOUL/MEMORY/USER + `memory/`) → 重跑 web installer → `openclaw doctor --fix`（迁 cron/HEARTBEAT/记忆 + 清理 Code Mode/路由/Prose）→ 核对 openclaw.json 工具 visibility → 逐个验证 cron 与记忆检索 → 自检微信通道 → 留观数天。
+
+- **状态标记**: 🔴 持续未决（累计 **7 次**评估）+ 维持**不推荐升级（暂缓）**。重点自检项：cron Doctor 迁移（已有 9.6 破坏报告）、记忆 reflection 晋升、Code Mode TS→JS、工具 visibility 默认放开、微信通道。
