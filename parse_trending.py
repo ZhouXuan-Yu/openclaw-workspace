@@ -1,34 +1,32 @@
 import re, sys, html
 
 def parse(path):
-    with open(path, encoding='utf-8') as f:
-        t = f.read()
-    # split by article rows
-    rows = re.split(r'<article class="Box-row"', t)[1:]
+    raw = open(path, encoding="utf-8", errors="ignore").read()
+    blocks = re.split(r'<article[^>]*>', raw)[1:]
     out = []
-    for r in rows:
-        # repo name: <h2 ...><a href="/owner/repo" ...>
-        m = re.search(r'<h2[^>]*>\s*<a[^>]*href="/([^"]+)"', r)
-        name = m.group(1) if m else '?'
-        # description
-        d = re.search(r'<p class="col-9[^"]*"[^>]*>(.*?)</p>', r, re.S)
-        desc = html.unescape(re.sub(r'<[^>]+>', '', d.group(1))).strip() if d else ''
-        # stars: total
-        s = re.findall(r'href="/[^"]+/stargazers"[^>]*>(.*?)</a>', r, re.S)
-        stars = ''
-        if s:
-            stars = re.sub(r'<[^>]+>', '', s[0]).strip()
-        # today's stars
-        tdy = re.search(r'([\d,]+)\s*stars?\s*today', r)
-        tdyw = re.search(r'([\d,]+)\s*stars?\s*this week', r)
-        delta = (tdy.group(1) if tdy else (tdyw.group(1) if tdyw else ''))
-        # language
-        lang = re.search(r'<span itemprop="programmingLanguage">([^<]+)</span>', r)
-        lang = lang.group(1) if lang else ''
-        out.append((name, stars, delta, lang, desc[:160]))
+    for b in blocks:
+        m = re.search(r'<h2[^>]*>(.*?)</h2>', b, re.S)
+        if not m:
+            continue
+        h = m.group(1)
+        links = re.findall(r'href="/([^"/]+)/([^"/]+)"', h)
+        repo = "/".join(links[-1]) if links else "?"
+        dm = re.search(r'<p class="[^"]*color-fg-muted[^"]*"[^>]*>\s*(.*?)</p>', b, re.S)
+        desc = re.sub(r'<[^>]+>', '', dm.group(1)).strip() if dm else ""
+        desc = html.unescape(re.sub(r'\s+', ' ', desc))
+        lang = re.search(r'itemprop="programmingLanguage">([^<]+)<', b)
+        total = ""
+        st = re.search(r'href="/%s/stargazers"[^>]*>(.*?)</a>' % re.escape(repo), b, re.S)
+        if st:
+            nums = re.sub(r'<[^>]+>', ' ', st.group(1))
+            tot = re.search(r'([\d,]+)', nums)
+            total = tot.group(1) if tot else ""
+        tm = re.search(r'([\d,]+)\s+stars?\s+(today|this week)', b, re.S)
+        out.append((repo, desc, lang.group(1) if lang else "", total, tm.group(1) if tm else ""))
     return out
 
 for p in sys.argv[1:]:
-    print('==== ' + p)
-    for i, row in enumerate(parse(p), 1):
-        print(f'{i}. {row[0]} | star={row[1]} | delta={row[2]} | {row[3]} | {row[4]}')
+    print("=====", p)
+    for r in parse(p):
+        print("%-45s %-14s total:%-8s recent:%s" % (r[0], r[2], r[3], r[4]))
+        print("    ", r[1][:200])

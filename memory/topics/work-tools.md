@@ -386,6 +386,7 @@ r = yn.daily_briefing()
 - 服务启动超时（agent_manager + api_server 启动后 30s 内未就绪），需先启动 YouNavi.exe 主应用
 - GBK 编码问题可通过 Python bridge 绕过
 - ⚠️ 2026-06-27起持续不稳定（至07-01连续5天失败）：CLI 服务频繁启动超时，agent_manager/api_server 无日志写入，可能依赖/端口/配置问题。Fallback: SQLite 直读数据库 + web_search/web_fetch 替代
+- ⚠️ 2026-10-01 复测：登录态已恢复（auth/task_list/file_list 均正常）。但渠道同步根因变为构建缺失——`channel sync` 报 `同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js`，需 `cd electron && pnpm build` 重新编译。JSON 模式仍报 `NOT_SUPPORTED`。
 
 **Cron 自动化：**
 | 任务 | 时间 | 功能 |
