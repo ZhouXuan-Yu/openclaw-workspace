@@ -1,41 +1,41 @@
 {
-    "lastConsolidation":  "2026-10-01T23:01:00+08:00",
-    "lastPatrol":  "2026-10-01T10:58:37+08:00",
-    "lastCheckResults":  {
-                             "topics_total":  12,
-                             "memory_lines":  106,
-                             "lines_warning":  0,
-                             "total_pending":  9,
-                             "recent_dailies_7d":  4,
-                             "expired_topics_7d":  9,
-                             "expired_topics_30d":  9,
-                             "overloaded_topics":  [
-                                                       "work-tools.md (417 lines, list-items 135)",
-                                                       "design-systems-analysis.md (339 lines, list-items 154)",
-                                                       "learnings.md (280 lines, list-items 128)",
-                                                       "openclaw-update-log.md (191 lines, list-items 120)",
-                                                       "openspec-analysis.md (207 lines, list-items 67)",
-                                                       "openspec-arch-enhancements.md (103 lines, list-items 55)"
-                                                   ],
-                             "stale_topics":  [
-                                                  "decisions.md (07-21)",
-                                                  "design-systems-analysis.md (07-21)",
-                                                  "github-may-2026-projects.md (07-22)",
-                                                  "openspec-analysis.md (07-21)",
-                                                  "openspec-arch-enhancements.md (07-21)",
-                                                  "people.md (07-21)",
-                                                  "preferences.md (07-21)",
-                                                  "projects.md (07-21)",
-                                                  "task-calendar.md (07-21)"
-                                              ],
-                             "issues":  [
-                                            "9 topic files stale (>7d; 9 also >30d)",
-                                            "6 overloaded topics (>50 items)",
-                                            "User silent since 07-21 (~72d); no new signals",
-                                            "memory_search unavailable (ollama not running, ECONNREFUSED)",
-                                            "lark-cli not bound (config.not_configured); weekday calendar heartbeat unavailable",
-                                            "cron drift observed (memory-patrol catch-up at 10:58 vs schedule; midnight chain 02:00/02:15/09:00 not self-healed)"
-                                        ]
-                         },
-    "lastHealthCheck":  "2026-10-01T23:15:00+08:00"
+  "lastConsolidation": "2026-10-02T15:08:00+08:00",
+  "lastPatrol": "2026-10-02T15:08:00+08:00",
+  "lastCheckResults": {
+    "topics_total": 12,
+    "memory_lines": 100,
+    "lines_warning": 0,
+    "total_pending": 10,
+    "recent_dailies_7d": 5,
+    "expired_topics_7d": 8,
+    "expired_topics_30d": 8,
+    "overloaded_topics": [
+      "design-systems-analysis.md (184 items)",
+      "openclaw-update-log.md (152 items)",
+      "work-tools.md (136 items)",
+      "learnings.md (128 items)",
+      "openspec-analysis.md (69 items)",
+      "openspec-arch-enhancements.md (62 items)",
+      "github-may-2026-projects.md (54 items)"
+    ],
+    "stale_topics": [
+      "decisions.md (07-21)",
+      "design-systems-analysis.md (07-21)",
+      "openspec-analysis.md (07-21)",
+      "openspec-arch-enhancements.md (07-21)",
+      "people.md (07-21)",
+      "preferences.md (07-21)",
+      "projects.md (07-21)",
+      "task-calendar.md (07-21)"
+    ],
+    "issues": [
+      "8 topic files stale (>7d; all >70d)",
+      "7 overloaded topics (>50 items)",
+      "User silent since 07-21 (~73d); no new signals",
+      "memory_search unavailable (ollama not running, ECONNREFUSED)",
+      "lark-cli not bound (config.not_configured); weekday calendar heartbeat unavailable",
+      "cron drift observed (memory-patrol catch-up at 15:08 vs schedule; midnight chain 02:00/02:15/09:00 not self-healed, day 4)"
+    ]
+  },
+  "lastHealthCheck": "2026-10-02T15:08:00+08:00"
 }
