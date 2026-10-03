@@ -1,12 +1,12 @@
 {
-  "lastConsolidation": "2026-10-03T09:01:00+08:00",
+  "lastConsolidation": "2026-10-03T23:00:00+08:00",
   "lastPatrol": "2026-10-03T09:01:00+08:00",
-  "lastHealthCheck": "2026-10-03T09:01:00+08:00",
+  "lastHealthCheck": "2026-10-03T23:15:00+08:00",
   "lastCheckResults": {
     "topics_total": 12,
     "memory_lines": 100,
     "lines_warning": 0,
-    "total_pending": 10,
+    "total_pending": 9,
     "recent_dailies_7d": 6,
     "expired_topics_7d": 8,
     "expired_topics_30d": 8,
