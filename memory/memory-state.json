@@ -1,19 +1,20 @@
 {
-  "lastConsolidation": "2026-10-04T09:01:00+08:00",
+  "lastConsolidation": "2026-10-04T23:00:00+08:00",
   "lastPatrol": "2026-10-04T09:01:00+08:00",
-  "lastHealthCheck": "2026-10-04T09:01:00+08:00",
+  "lastHealthCheck": "2026-10-04T23:15:00+08:00",
   "lastCheckResults": {
     "topics_total": 12,
     "memory_lines": 100,
     "lines_warning": 0,
-    "total_pending": 9,
-    "recent_dailies_7d": 6,
+    "total_pending": 10,
+    "recent_dailies_7d": 7,
     "expired_topics_7d": 8,
     "expired_topics_30d": 8,
     "overloaded_topics": [
+      "learnings.md (146 items)",
       "design-systems-analysis.md (124 items)",
-      "learnings.md (114 items)",
-      "openclaw-update-log.md (63 items)"
+      "openclaw-update-log.md (89 items)",
+      "work-tools.md (56 items)"
     ],
     "stale_topics": [
       "decisions.md (07-21)",
@@ -27,13 +28,12 @@
     ],
     "issues": [
       "8 topic files stale (>7d; all ~75d)",
-      "3 overloaded topics (>50 items): design-systems-analysis.md, learnings.md, openclaw-update-log.md",
-      "trust decayed: wechatsync-cli / social-auto-upload-5-platforms / xiaohongshu-draft-mode 0.26->0.23",
+      "4 overloaded topics (>50 items): learnings.md, design-systems-analysis.md, openclaw-update-log.md, work-tools.md",
+      "total_pending=10 (at cleanup threshold)",
       "User silent since 07-21 (~75d); no new signals",
       "memory_search unavailable (ollama not running, ECONNREFUSED)",
       "YouNavi channel sync blocked (electron not built; needs cd electron && pnpm build)",
-      "lark-cli not bound (config.not_configured)",
-      "overnight cron chain not self-healing (day 7); correction: lastConsolidation/lastHealthCheck were 10-03, patched by this patrol"
+      "lark-cli not bound (config.not_configured)"
     ]
   }
 }
