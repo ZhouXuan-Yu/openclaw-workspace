@@ -1,20 +1,19 @@
 {
   "lastConsolidation": "2026-10-05T23:00:00+08:00",
   "lastPatrol": "2026-10-05T09:05:00+08:00",
-  "lastHealthCheck": "2026-10-05T09:05:00+08:00",
+  "lastHealthCheck": "2026-10-05T23:15:00+08:00",
   "lastCheckResults": {
     "topics_total": 12,
     "memory_lines": 100,
     "lines_warning": 0,
     "total_pending": 10,
-    "recent_dailies_7d": 7,
+    "recent_dailies_7d": 8,
     "expired_topics_7d": 8,
     "expired_topics_30d": 8,
     "overloaded_topics": [
-      "learnings.md",
-      "design-systems-analysis.md",
-      "openclaw-update-log.md",
-      "work-tools.md"
+      "design-systems-analysis.md (124)",
+      "learnings.md (114)",
+      "openclaw-update-log.md (75)"
     ],
     "stale_topics": [
       "decisions.md (07-21)",
@@ -27,14 +26,14 @@
       "task-calendar.md (07-21)"
     ],
     "issues": [
-      "8 topic files stale (>7d; all ~76d)",
-      "4 overloaded topics (>50 items): learnings.md, design-systems-analysis.md, openclaw-update-log.md, work-tools.md",
+      "8 topic files stale (>7d; ~76d)",
+      "3 overloaded topics (>50 items): design-systems-analysis.md, learnings.md, openclaw-update-log.md",
       "total_pending=10 (at cleanup threshold)",
-      "User silent since 07-21 (~76d); no new signals",
+      "temp/ clean (only video-audio, video-test)",
+      "tools/ temp scripts: none to remove",
       "memory_search unavailable (ollama not running, ECONNREFUSED)",
-      "YouNavi channel sync blocked (electron not built; needs cd electron && pnpm build)",
-      "lark-cli not bound (config.not_configured)",
-      "Morning cron chain not self-healing (day 8)"
+      "YouNavi channel sync blocked (electron not built)",
+      "lark-cli not bound (config.not_configured)"
     ]
   }
 }
