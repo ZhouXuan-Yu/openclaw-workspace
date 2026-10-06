@@ -1,19 +1,23 @@
 {
-  "lastConsolidation": "2026-10-05T23:00:00+08:00",
-  "lastPatrol": "2026-10-05T09:05:00+08:00",
-  "lastHealthCheck": "2026-10-05T23:15:00+08:00",
+  "lastConsolidation": "2026-10-06T09:01:00+08:00",
+  "lastPatrol": "2026-10-06T09:01:00+08:00",
+  "lastHealthCheck": "2026-10-06T09:01:00+08:00",
   "lastCheckResults": {
     "topics_total": 12,
-    "memory_lines": 100,
+    "memory_lines": 106,
     "lines_warning": 0,
     "total_pending": 10,
-    "recent_dailies_7d": 8,
+    "recent_dailies_7d": 7,
     "expired_topics_7d": 8,
     "expired_topics_30d": 8,
     "overloaded_topics": [
-      "design-systems-analysis.md (124)",
-      "learnings.md (114)",
-      "openclaw-update-log.md (75)"
+      "work-tools.md (418)",
+      "design-systems-analysis.md (339)",
+      "learnings.md (280)",
+      "openclaw-update-log.md (231)",
+      "openspec-analysis.md (207)",
+      "openspec-arch-enhancements.md (103)",
+      "github-may-2026-projects.md (67)"
     ],
     "stale_topics": [
       "decisions.md (07-21)",
@@ -26,14 +30,13 @@
       "task-calendar.md (07-21)"
     ],
     "issues": [
-      "8 topic files stale (>7d; ~76d)",
-      "3 overloaded topics (>50 items): design-systems-analysis.md, learnings.md, openclaw-update-log.md",
+      "8 topic files stale (>7d; ~77d)",
+      "7 topics >50 lines; heaviest: work-tools 418 / design-systems-analysis 339 / learnings 280",
       "total_pending=10 (at cleanup threshold)",
-      "temp/ clean (only video-audio, video-test)",
-      "tools/ temp scripts: none to remove",
       "memory_search unavailable (ollama not running, ECONNREFUSED)",
       "YouNavi channel sync blocked (electron not built)",
-      "lark-cli not bound (config.not_configured)"
+      "lark-cli not bound (config.not_configured)",
+      "dawn cron chain still not self-healing (day 9); catch-up via patrol"
     ]
   }
 }
