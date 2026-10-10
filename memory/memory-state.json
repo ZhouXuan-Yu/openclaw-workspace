@@ -1,20 +1,18 @@
 {
   "lastConsolidation": "2026-10-10T14:28:00+08:00",
   "lastPatrol": "2026-10-07T09:52:46+08:00",
-  "lastHealthCheck": "2026-10-07T09:51:00+08:00",
+  "lastHealthCheck": "2026-10-10T14:30:00+08:00",
   "lastCheckResults": {
     "topics_total": 12,
-    "memory_lines": 106,
+    "memory_lines": 100,
     "lines_warning": 0,
-    "total_pending": 10,
-    "recent_dailies_7d": 4,
+    "total_pending": 6,
+    "recent_dailies_7d": 6,
     "expired_topics_7d": 8,
     "expired_topics_30d": 8,
     "overloaded_topics": [
-      "learnings.md (146 entries / 215 lines)",
-      "design-systems-analysis.md (124 entries / 290 lines)",
-      "openclaw-update-log.md (106 entries / 188 lines)",
-      "work-tools.md (56 entries / 331 lines)"
+      "learnings.md (114 entries / 280 lines)",
+      "design-systems-analysis.md (95 entries / 339 lines)"
     ],
     "stale_topics": [
       "decisions.md (07-21)",
@@ -27,14 +25,10 @@
       "task-calendar.md (07-21)"
     ],
     "issues": [
-      "8 topic files stale (>7d; ~78d)",
-      "4 topics >50 entries; heaviest: learnings 146 / design-systems-analysis 124 / openclaw-update-log 106",
-      "work-tools.md 331 lines (largest by size), split candidate",
-      "total_pending=10 (at cleanup threshold, not yet >10)",
-      "memory_search unavailable (ollama not running, ECONNREFUSED)",
-      "YouNavi channel sync blocked (electron not built)",
-      "lark-cli not bound (config.not_configured)",
-      "dawn cron chain still not self-healing (day 10); catch-up via patrol"
+      "8 topic files stale (>7d; ~81d)",
+      "2 topics >50 entries: learnings 114 / design-systems-analysis 95",
+      "work-tools.md 418 lines (largest by size), split candidate",
+      "total_pending=6 (below cleanup threshold of >10)"
     ],
     "cleanup": {
       "temp_dirs_removed": 0,
@@ -44,7 +38,7 @@
     "git": {
       "committed": true,
       "pushed": true,
-      "head": "63f47eb"
+      "head": "06ecaa7"
     }
   }
 }
