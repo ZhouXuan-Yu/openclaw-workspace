@@ -1,13 +1,18 @@
 # 📡 GitHub 仓库追踪报告
 
-> 2026-10-04 10:00 | 追踪 1 个仓库
+> 2026-10-07 15:03 | 追踪 1 个仓库
 
 ---
 
 ## awesome-generative-ai-guide
-⭐ 29,675 (+12) | 🍴 5,975 | 📦 185,131KB
+⭐ 29,710 (+11) | 🍴 5,982 | 📦 185,157KB
 
-无新提交
+### 5 个新提交
+- [2026-10-06] Remove expired GITHUB15 promotional note
+- [2026-10-06] Remove expired GITHUB15 promotional note
+- [2026-10-06] Remove expired GITHUB15 promotional note
+- [2026-10-06] Remove expired GITHUB15 promotional note
+- [2026-10-06] Remove expired GITHUB15 promotional note
 
 ---
 > 下次检查约 24h 后

@@ -1,32 +1,26 @@
-import sys, re, json
-from bs4 import BeautifulSoup
+import re, sys, html, json
 
 def parse(path):
-    html = open(path, encoding='utf-8').read()
-    soup = BeautifulSoup(html, 'html.parser')
-    rows = soup.select('article.Box-row')
+    s = open(path, encoding='utf-8').read()
+    arts = re.split(r'<article class="Box-row">', s)[1:]
     out = []
-    for r in rows:
-        h2 = r.select_one('h2 a')
-        if not h2:
-            continue
-        name = re.sub(r'\s+', '', h2.get_text())
-        desc_el = r.select_one('p')
-        desc = desc_el.get_text(' ', strip=True) if desc_el else ''
-        # stars total
-        star_link = r.select_one('a[href$="/stargazers"]')
-        stars = star_link.get_text(strip=True) if star_link else ''
-        # today/week stars
-        today = ''
-        for sp in r.select('span.d-inline-block.float-sm-right'):
-            today = sp.get_text(' ', strip=True)
-        lang_el = r.select_one('[itemprop="programmingLanguage"]')
-        lang = lang_el.get_text(strip=True) if lang_el else ''
-        out.append({'name': name, 'desc': desc, 'stars': stars, 'period': today, 'lang': lang})
+    for a in arts:
+        m = re.search(r'href="/([^"/]+/[^"/]+)"\s+data-view-component="true" class="Link"', a)
+        if not m:
+            m = re.search(r'<h2[^>]*>.*?href="/([^"/]+/[^"/]+)"', a, re.S)
+        if not m: continue
+        repo = m.group(1)
+        d = re.search(r'<p class="col-9 color-fg-muted my-1 tmp-pr-4">\s*(.*?)\s*</p>', a, re.S)
+        desc = re.sub(r'<[^>]+>', '', d.group(1)).strip() if d else ''
+        lang = re.search(r'itemprop="programmingLanguage">([^<]+)</span>', a)
+        lang = lang.group(1) if lang else ''
+        stars = re.search(r'/stargazers"[^>]*>.*?</svg>\s*([\d,]+)', a, re.S)
+        total = stars.group(1) if stars else '?'
+        gain = re.search(r'([\d,]+)\s*stars?\s*(today|this week)', a)
+        gain = gain.group(0).replace('\n',' ').strip() if gain else ''
+        out.append({'repo':repo,'desc':html.unescape(desc),'lang':lang,'stars':total,'gain':gain})
     return out
 
-for label, path in [('DAILY', sys.argv[1]), ('WEEKLY', sys.argv[2])]:
-    print('=' * 20, label, '=' * 20)
-    for i, it in enumerate(parse(path), 1):
-        print(f"{i}. {it['name']} | {it['lang']} | total={it['stars']} | period={it['period']}")
-        print(f"   {it['desc'][:200]}")
+if __name__ == '__main__':
+    data = parse(sys.argv[1])
+    print(json.dumps(data, ensure_ascii=False, indent=1))
