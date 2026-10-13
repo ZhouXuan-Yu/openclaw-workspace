@@ -341,3 +341,50 @@
 10) 留观数天确认无数据异常再常规化。
 
 - **状态标记**: 🔴 持续未决（累计 **8 次**评估）+ 因跨度大 & 桥接路径硬约束 & fresh-release 数据风险，维持**不推荐直接升级（暂缓）**。重点自检项：cron 桥接 Doctor 迁移、记忆 SQLite、工具 visibility 默认放开、Code Mode TS→JS、微信通道。
+
+---
+
+## 复查 2026-10-12 10:17
+
+- **当前版本**: **仍 2026.6.10 (aa69b12)**（连续 **9 次**评估未执行升级，用户未回应）
+- **latest 稳定版（npm）**: **2026.10.1**（2026-10-11 发布；3,055 commits / 2,425 PR / 402 contributors）
+- **版本差**: 6.10 → 10.1（跨越 7.x/8.x/9.x/10.x 四条 release-line，跨度进一步扩大）
+- **另有 v2026.10.2 tag**（2026-10-12 02:09 UTC 创建，仅 tag 无 release notes，npm latest 仍指向 10.1 → 属热修/re-tag，暂不视为可升级目标）；预发布 **2026.10.5-beta.1**（2026-10-11）在推进。
+
+### 摘要
+本次无改变结论的新信息。10.1 是 2026.9.8 之后的常规大版本，官方更新文档路径约束**仍有效且更明确**："For installations older than **July 2026**, upgrade to `2026.9.5` first, run its Doctor migrations, then upgrade to `latest`"。本地 6.10 位于该边界内侧，桥接升级硬约束不变。
+
+### 2026.10.1 变更要点（对本地相关领域）
+
+| 领域 | 变更 | 风险 |
+|------|------|------|
+| **记忆系统** | Memory/Search/Dreaming 多语言去重、embedding provider 故障后自动恢复、SQLite 索引后台化、**官方明确披露"older Dreaming/Wiki 安装需升级恢复计划"（Doctor 不再导入 4 个 pre-July Dreaming JSON 日志 + 2 个旧 Wiki JSON 格式；无更新备份的恢复路线仍缺失）** | 🔴 高（数据迁移） |
+| **Cron/自动化** | `runs --all` / `list --query` 检索、run history、Doctor 重存 job owner/delivery、**隔离 cron 结果投递到创建会话**、失败自动请求修复、脚本条件可查 MCP；SQLite state 迁移承接 9.x | 🔴 高（承接迁移） |
+| **Skills** | 已安装 skill 发现、Skill 故障排查命令；**旧 skill/hook 需手动把 `metadata.clawdbot` 重命名为 `metadata.openclaw`**（否则丢 prerequisites/hook events）；`.clawdhub` → `.clawhub` 手动对账 | 🟡 中（本地 hooks 需改） |
+| **工具/权限** | Agent API 原生命令、scheduled job 工具继承会话权限；**node turn 从 Gateway 取当前文件系统/模型/patch-tool 策略** | 🟡 中 |
+| **配置 schema** | 安全审计移除 `models.legacy`/`models.weak_tier` 两个 advisory id；多个 retired config key 需 Doctor 修复；`failureAlert:false` 语义扩展为同时禁用修复请求 | 🟡 中 |
+| **Channel 插件** | 微信未在 highlight；**飞书 webhook 升级激活前完成、飞书 mention/preview 修复**（本地微信通道需自检） | 🟡 中 |
+| **Workspace/更新** | 更新效率、Windows 2026.9.4 自动更新修复、Btrfs/数据库空间回收、large DB 启动优化 | 🟢 正面 |
+| **Skill Workshop** | 未见破坏性变更 | 🟢 低 |
+
+### 本地具体影响
+- **memory/evolution/、workflows/、.snapshots/**：文件本身无 schema 破坏，但记忆重建走 SQLite index + embedding，升级前须全量备份 `memory/`。
+- **hooks/hooks.yaml**：⚠️ 若 hook 文件用了 `metadata.clawdbot`，升级后需改 `metadata.openclaw` 否则 hook events 丢失。
+- **cron 6 任务**：升级须经桥接 Doctor 迁移至 SQLite state，逐项验证静默失活。
+- **openclaw.json**：核对工具 visibility / agentToAgent 默认值，及 `failureAlert:false` 语义变化。
+- **微信通道**：升级后全链路自检。
+
+### 升级建议（2026-10-12）
+
+**🔴 维持：不推荐直接升级；若升级必须走桥接路径**
+
+理由：
+1. 跨度仍为历史最大（6.10 → 10.1，四条 release-line），叠加记忆 SQLite 重构 + cron state 迁移 + hooks `metadata.clawdbot` 改名 + 工具/权限默认变化。
+2. 官方文档桥接硬约束不变（< July 2026 须先 2026.9.5 → Doctor → 2026.9.7 → Doctor → latest）。
+3. 10.1 是 fresh release（2026-10-11，昨发布），仍在反馈期；10.2 仅为热修 tag。
+4. 本地重度依赖 cron（6 个）+ 全记忆体系，任何静默失活/检索回归代价高。
+5. 连续 9 次评估用户均未执行，无外部压力催促跳坑。
+
+**若坚持升**：完整备份（`openclaw.json` + SOUL/MEMORY/USER + 整个 `memory/`）→ `openclaw gateway stop` → 装 **2026.9.5** + `doctor --fix` → **2026.9.7** + `doctor --fix` → **2026.10.1** latest + `doctor --fix` → hooks 文件 `clawdbot`→`openclaw` → 核对配置 → 逐个验证 cron / 记忆检索 / 微信通道 → 留观数天。
+
+- **状态标记**: 🔴 持续未决（累计 **9 次**评估）。结论不变：**暂缓**，升级须走多阶段桥接路径。关键自检项：记忆 Dreaming/Wiki 迁移、cron SQLite 桥接、hooks metadata 改名、工具权限默认、微信通道。
