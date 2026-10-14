@@ -1,44 +1,42 @@
-{
-    "lastConsolidation":  "2026-10-14T09:04:00+08:00",
+﻿{
+    "lastConsolidation":  "2026-10-14T23:00:00+08:00",
     "lastPatrol":  "2026-10-14T09:04:00+08:00",
-    "lastHealthCheck":  "2026-10-14T09:04:00+08:00",
+    "lastHealthCheck":  "2026-10-14T23:15:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
                              "memory_lines":  100,
                              "lines_warning":  0,
-                             "total_pending":  10,
-                             "recent_dailies_7d":  5,
+                             "total_pending":  6,
+                             "recent_dailies_7d":  10,
                              "expired_topics_7d":  11,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (95)",
                                                        "learnings.md (114)"
                                                    ],
                              "stale_topics":  [
-                                                  "decisions.md (07-21)",
-                                                  "design-systems-analysis.md (07-21)",
-                                                  "github-may-2026-projects.md (10-01)",
-                                                  "learnings.md (09-30)",
-                                                  "openspec-analysis.md (07-21)",
-                                                  "openspec-arch-enhancements.md (07-21)",
-                                                  "people.md (07-21)",
-                                                  "preferences.md (07-21)",
-                                                  "projects.md (07-21)",
-                                                  "task-calendar.md (07-21)",
-                                                  "work-tools.md (10-01)"
+                                                  "decisions.md",
+                                                  "design-systems-analysis.md",
+                                                  "github-may-2026-projects.md",
+                                                  "learnings.md",
+                                                  "openspec-analysis.md",
+                                                  "openspec-arch-enhancements.md",
+                                                  "people.md",
+                                                  "preferences.md",
+                                                  "projects.md",
+                                                  "task-calendar.md",
+                                                  "work-tools.md"
                                               ],
                              "issues":  [
-                                            "11 topic files stale (>7d; oldest ~85d, 8 files last touched 07-21)",
-                                            "design-systems-analysis.md 95 entries + learnings.md 114 entries overloaded (>50) - split candidates",
-                                            "MEMORY.md 100 lines (OK, <150)",
-                                            "total_pending=10 (at warn threshold 10)",
-                                            "user silent ~85d (last interaction 2026-07-21); all recent dailies system-only",
-                                            "cron catch-up: 02:00 consolidation + 02:15 health did not run overnight; patched at 09:04"
+                                            "11 topic files stale (\u003e7d; 8 files last touched ~85d ago)",
+                                            "design-systems-analysis.md 95 + learnings.md 114 entries overloaded (\u003e50) - split candidates",
+                                            "MEMORY.md 100 lines (OK, \u003c150)",
+                                            "total_pending=6 (\u003c10, OK)",
+                                            "temp/ clean (only video-audio + video-test kept); no matching tools temp scripts"
                                         ],
                              "cleanup":  {
                                              "temp_dirs_removed":  0,
                                              "tools_scripts_removed":  0,
-                                             "archive":  "daily/2026-09-13.md + review-2026-09-12.md -> memory/archive/daily/ (>30d)",
-                                             "note":  "temp/ only has video-audio + video-test (kept); tmp_yn_* and tools/_* diagnostics left for user review"
+                                             "note":  "temp/ already clean; no check_/explore_/gen_/render_/launch_/open_ scripts found"
                                          },
                              "git":  {
                                          "committed":  true,
