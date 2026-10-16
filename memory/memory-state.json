@@ -1,13 +1,13 @@
-﻿{
+{
     "lastConsolidation":  "2026-10-14T23:00:00+08:00",
     "lastPatrol":  "2026-10-14T09:04:00+08:00",
-    "lastHealthCheck":  "2026-10-14T23:15:00+08:00",
+    "lastHealthCheck":  "2026-10-16T23:15:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
-                             "memory_lines":  100,
+                             "memory_lines":  106,
                              "lines_warning":  0,
                              "total_pending":  6,
-                             "recent_dailies_7d":  10,
+                             "recent_dailies_7d":  12,
                              "expired_topics_7d":  11,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (95)",
@@ -27,10 +27,10 @@
                                                   "work-tools.md"
                                               ],
                              "issues":  [
-                                            "11 topic files stale (\u003e7d; 8 files last touched ~85d ago)",
-                                            "design-systems-analysis.md 95 + learnings.md 114 entries overloaded (\u003e50) - split candidates",
-                                            "MEMORY.md 100 lines (OK, \u003c150)",
-                                            "total_pending=6 (\u003c10, OK)",
+                                            "11 topic files stale (>7d; 8 files last touched 2026-07-21 ~87d ago)",
+                                            "design-systems-analysis.md 95 + learnings.md 114 entries overloaded (>50) - split candidates",
+                                            "MEMORY.md 106 lines (OK, <150)",
+                                            "total_pending=6 (<10, OK)",
                                             "temp/ clean (only video-audio + video-test kept); no matching tools temp scripts"
                                         ],
                              "cleanup":  {
@@ -41,7 +41,7 @@
                              "git":  {
                                          "committed":  true,
                                          "pushed":  true,
-                                         "head":  "c8edf83"
+                                         "head":  "a895997"
                                      }
                          }
 }
