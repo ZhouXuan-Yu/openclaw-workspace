@@ -1,48 +1,49 @@
 {
-    "lastConsolidation":  "2026-10-18T09:00:00+08:00",
-    "lastPatrol":  "2026-10-18T09:00:00+08:00",
-    "lastHealthCheck":  "2026-10-18T09:00:00+08:00",
-    "lastCheckResults":  {
-                             "topics_total":  12,
-                             "memory_lines":  106,
-                             "lines_warning":  0,
-                             "total_pending":  10,
-                             "recent_dailies_7d":  6,
-                             "expired_topics_7d":  11,
-                             "overloaded_topics":  [
-                                                       "design-systems-analysis.md (95)",
-                                                       "learnings.md (114)"
-                                                   ],
-                             "stale_topics":  [
-                                                  "decisions.md",
-                                                  "design-systems-analysis.md",
-                                                  "github-may-2026-projects.md",
-                                                  "learnings.md",
-                                                  "openspec-analysis.md",
-                                                  "openspec-arch-enhancements.md",
-                                                  "people.md",
-                                                  "preferences.md",
-                                                  "projects.md",
-                                                  "task-calendar.md",
-                                                  "work-tools.md"
-                                              ],
-                             "issues":  [
-                                            "catch-up run: 02:00 consolidation + 02:15 health did not fire on 2026-10-18; executed manually at 09:00",
-                                            "no new user signals since 2026-10-17 consolidation (user silent 89d); no topic writes",
-                                            "11 topic files stale (>7d; 8 last touched 2026-07-21 ~89d ago)",
-                                            "design-systems-analysis.md 95 + learnings.md 114 overloaded (>50) - split candidates",
-                                            "total_pending=10 hits warning threshold (>=10)",
-                                            "daily log missing for 2026-10-15",
-                                            "temp accumulation: root tmp_* 22 files + tools/ _*|tmp_*|yn_* 15 files - cleanup pending user approval"
-                                        ],
-                             "cleanup":  {
-                                             "temp_dirs_removed":  0,
-                                             "tools_scripts_removed":  0,
-                                             "note":  "not executed this run; temp file naming (tmp_*/_yn_*/yn_*) still outside cleanup pattern"
-                                         },
-                             "git":  {
-                                         "committed":  true,
-                                         "pushed":  true,
-                                         "head":  "bbd8218"
-                                     }
+    "lastConsolidation": "2026-10-18T23:00:00+08:00",
+    "lastPatrol": "2026-10-18T09:00:00+08:00",
+    "lastHealthCheck": "2026-10-18T09:00:00+08:00",
+    "lastCheckResults": {
+        "topics_total": 12,
+        "memory_lines": 112,
+        "lines_warning": 0,
+        "total_pending": 10,
+        "recent_dailies_7d": 6,
+        "expired_topics_7d": 11,
+        "overloaded_topics": [
+            "design-systems-analysis.md (95)",
+            "learnings.md (114)"
+        ],
+        "stale_topics": [
+            "decisions.md",
+            "design-systems-analysis.md",
+            "github-may-2026-projects.md",
+            "learnings.md",
+            "openspec-analysis.md",
+            "openspec-arch-enhancements.md",
+            "people.md",
+            "preferences.md",
+            "projects.md",
+            "task-calendar.md",
+            "work-tools.md"
+        ],
+        "issues": [
+            "no new user signals since 2026-10-17 consolidation (user silent 89d); no topic writes",
+            "11 topic files stale (>7d; 8 last touched 2026-07-21 ~89d ago)",
+            "design-systems-analysis.md 95 + learnings.md 114 overloaded (>50) - split candidates",
+            "total_pending=10 hits warning threshold (>=10)",
+            "daily log missing for 2026-10-15",
+            "temp accumulation: root tmp_* 22 files + tools/ _*|tmp_*|yn_* 15 files - cleanup pending user approval",
+            "memory-state.json was missing root closing brace (truncated by 09:00 patrol write); repaired 2026-10-18 23:00"
+        ],
+        "cleanup": {
+            "temp_dirs_removed": 0,
+            "tools_scripts_removed": 0,
+            "note": "daily archive: 3 files (>30d) moved to memory/archive/daily"
+        },
+        "git": {
+            "committed": true,
+            "pushed": true,
+            "head": "bbd8218"
+        }
+    }
 }
