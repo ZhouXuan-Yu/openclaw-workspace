@@ -1,13 +1,13 @@
-﻿{
-    "lastConsolidation":  "2026-10-17T23:00:00+08:00",
-    "lastPatrol":  "2026-10-14T09:04:00+08:00",
-    "lastHealthCheck":  "2026-10-17T23:15:27+08:00",
+{
+    "lastConsolidation":  "2026-10-18T09:00:00+08:00",
+    "lastPatrol":  "2026-10-18T09:00:00+08:00",
+    "lastHealthCheck":  "2026-10-18T09:00:00+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
-                             "memory_lines":  100,
+                             "memory_lines":  106,
                              "lines_warning":  0,
-                             "total_pending":  6,
-                             "recent_dailies_7d":  7,
+                             "total_pending":  10,
+                             "recent_dailies_7d":  6,
                              "expired_topics_7d":  11,
                              "overloaded_topics":  [
                                                        "design-systems-analysis.md (95)",
@@ -27,22 +27,22 @@
                                                   "work-tools.md"
                                               ],
                              "issues":  [
-                                            "11 topic files stale (\u003e7d; 8 files last touched 2026-07-21 ~88d ago)",
-                                            "design-systems-analysis.md 95 + learnings.md 114 entries overloaded (\u003e50) - split candidates",
-                                            "MEMORY.md 100 lines (OK, \u003c150)",
-                                            "total_pending=6 (\u003c10, OK)",
+                                            "catch-up run: 02:00 consolidation + 02:15 health did not fire on 2026-10-18; executed manually at 09:00",
+                                            "no new user signals since 2026-10-17 consolidation (user silent 89d); no topic writes",
+                                            "11 topic files stale (>7d; 8 last touched 2026-07-21 ~89d ago)",
+                                            "design-systems-analysis.md 95 + learnings.md 114 overloaded (>50) - split candidates",
+                                            "total_pending=10 hits warning threshold (>=10)",
                                             "daily log missing for 2026-10-15",
-                                            "temp/ clean (only video-audio + video-test kept); no matching tools temp scripts"
+                                            "temp accumulation: root tmp_* 22 files + tools/ _*|tmp_*|yn_* 15 files - cleanup pending user approval"
                                         ],
                              "cleanup":  {
                                              "temp_dirs_removed":  0,
                                              "tools_scripts_removed":  0,
-                                             "note":  "temp/ already clean; no check_/explore_/gen_/render_/launch_/open_ scripts found"
+                                             "note":  "not executed this run; temp file naming (tmp_*/_yn_*/yn_*) still outside cleanup pattern"
                                          },
                              "git":  {
                                          "committed":  true,
                                          "pushed":  true,
-                                         "head":  "f4ad48c"
+                                         "head":  "pending"
                                      }
-                         }
 }
