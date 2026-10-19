@@ -1,390 +1,68 @@
-# OpenClaw 版本更新评估报告
+# OpenClaw 版本更新评估日志
 
-- **检查时间**: 2026-07-20 10:17 (CST)
-- **当前版本**: 2026.6.10 (aa69b12)
-- **最新稳定版**: 2026.7.1-2
-- **版本差**: 1 个次要版本
-- **上次评估未决**: 无（首次评估）
+> 只做评估，不自动升级。最新记录在最上方。
 
 ---
 
-## 变更概要（来自 release notes 及社区讨论）
-
-### 主要变更
-
-| 领域 | 变更内容 | 风险评估 |
-|------|----------|----------|
-| **记忆系统** | release notes 有 "Memory and conversations" 章节，但无架构级 breaking change 信号（无 SQLite schema 迁移、无 embedding 模型切换的公告） | 🟢 低 |
-| **Workspace 布局** | 未提及 workspace 文件布局变更 | 🟢 低 |
-| **Hooks 系统** | 未提及 hooks 变更 | 🟢 低 |
-| **Cron 任务** | 修复了会话/代理相关稳定性问题，cron 接口无 breaking change | 🟢 低 |
-| **Config Schema** | 未提及 openclaw.json 废弃/新增字段 | 🟢 低 |
-| **Channel 插件** | Telegram/Slack/Discord/WhatsApp 均有更新，但微信/飞书/企微未在 release highlight 中提及 | 🟡 中（微信通道需关注） |
-| **Skill Workshop** | GitHub 提及 PR #93773 "scope Skill Workshop proposals to selected agent" — 功能增强非破坏性 | 🟢 低 |
-| **工具系统** | 工具系统无 breaking change 信号 | 🟢 低 |
-| **Codex/编码代理** | 有显著改进（BTW routing、harness 更新），但本地未启用 Codex | 🟢 低 |
-| **Gateway/稳定性** | 会话续传、崩溃恢复、重连改进 | 🟢 正面 |
-
-### 已知修复（来自 GitHub PR 追踪）
-- 会话/代理 compact retries 修复
-- Subagent completion announce 修复
-- Gateway 空 transcript 修复
-- 会话锁 release 修复
-- macOS/RPC 适配修复
-
-### Breaking Changes
-根据社区帖子（2 天前发布）和 release notes — **无明确 breaking changes 公告**。
-
----
-
-## 本地影响评估
-
-| 组件 | 本地状态 | 影响 |
-|------|----------|------|
-| `memory/evolution/` | 自进化引擎 v4/v5 | 记忆系统无 schema 变更 ⬜ |
-| `hooks/hooks.yaml` | Hook 增强配置 | hooks 系统不变 ⬜ |
-| `cron 任务` | memory-*, security-check, daily-social | cron 接口兼容 ⬜ |
-| `workflows/` | 自定义工作流 | 无相关变更 ⬜ |
-| `微信通道` | OpenClaw 微信集成 | 未明确更新，需关注 ⬜ |
-| `.snapshots/` | SOUL.md/AGENTS.md 快照 | 无影响 ⬜ |
-| `openclaw.json` | 调用了 `openclaw config` 可行 | 无 schema 变更 ⬜ |
-
----
-
-## 升级建议
-
-**🟢 建议：立刻升级**
-
-理由：
-1. 版本差仅 1 个次要版本（6.10 → 7.1），非 major 版本
-2. 无 breaking changes 公告
-3. 包含多项目标稳定性修复（会话续传、崩溃恢复、重连）
-4. 社区已发布 2 天，无负面反馈报告
-5. 升级命令：`npm update -g openclaw`
-
-**注意**：升级后仍需验证记忆检索、cron 任务、微信通道功能正常。建议升级后进行一次 `openclaw gateway restart` 触发全链路自检。
-
----
-
-## 复查 2026-08-03 16:36
-
-- **当前版本**: 仍 2026.6.10 (aa69b12)（上次评估后未执行升级，用户未回应）
-- **latest stable**: 仍 2026.7.1-2（无新增稳定版）
-- **预发布**: 2026.7.2-beta.x 系列在推进（beta.5 / 2026-07-28），含 supervisor external 模式、`openclaw onboard`、clickclack 通道等，但**未稳定**
-- **结论**: 上次评估（7-20，建议立刻升级）仍待决。本次无新信息改变结论，升级建议维持不变。
-- **状态标记**: ⚠️ 上次评估未决（建议升但用户未执行）
-
----
-
-## 复查 2026-08-10 11:28
-
-- **当前版本**: 仍 2026.6.10 (aa69b12)
-- **latest stable**: 仍 2026.7.1-2（含 2026.7.1-2 热修复：npm 插件更新兼容 singleton-array metadata，官方插件可安装性）
-- **上次评估未决**: 是（7-20 / 8-03 两次建议升但用户均未执行）
-- **新信号（社区 7-13 发布后反馈）**:
-  - ⚠️ **早期用户报告 autoupdate 与 cron 回归** — 官方与社区均建议：生产环境**分阶段(staged)升级**、**先备份 openclaw.json**、若 Node 迁移卡住则重跑 web installer。
-  - 🔴 **Breaking changes 确认**：新安装默认 messaging-only 工具 profile；**ACP dispatch 默认开启**；**plugin HTTP handler 注册改为显式 route API**。
-  - Node 版本被提升 → 旧版自动更新器可能失效，需重跑 web installer 完成迁移。
-  - 变更规模：3,063 contributions / 532 contributors（大版本，含 Control UI 重写、原生移动端大改、GPT-5.6 / Muse Spark 1.1 / Tencent Hy3 路由、Codex delegation 加重）。
-  - 预发布 2026.7.2-beta.x 仍在推进，但 8-04 的 beta.1 显示 extended-stable 加固方向（SQLite checkpoints、Feishu outbound 修复等）。
-
-### 更新后的风险评估（2026-08-10）
-
-| 领域 | v2026.6.10 → v2026.7.1 变更 | 风险 |
-|------|-------------------------------|------|
-| **记忆系统** | 无 schema/embedding/SQLite 迁移公告；6.11 起有 SQLite checkpoints 加固（正面） | 🟢 低 |
-| **Workspace 布局** | 无布局变更信号 | 🟢 低 |
-| **Hooks 系统** | 未提及 hooks 变更 | 🟢 低 |
-| **Cron 任务** | ⚠️ **早期用户报告 cron 回归** | 🔴 高风险（本地依赖 6 个 cron） |
-| **Config Schema** | **新增默认 messaging-only 工具 profile；ACP dispatch 默认开** — 可能改变工具权限模型 | 🟡 中 |
-| **Channel 插件** | 微信/飞书/企微未在 highlight；6.11 有 Feishu outbound 修复；本地微信通道未明确更新 | 🟡 中 |
-| **Skill Workshop** | 无破坏性变更 | 🟢 低 |
-| **工具系统** | **plugin HTTP handler 改显式 route API**（若本地装了 HTTP handler 插件需适配）；工具默认 profile 变更 | 🟡 中 |
-| **Node 运行时** | **Node 版本提升** — 需重跑 web installer，且旧 autoupdater 失效 | 🟡 中 |
-
-### 本地具体影响
-- `memory/evolution/`、`hooks/hooks.yaml`、`workflows/`：无直接 schema 破坏 ⬜
-- **cron 6 个任务**（memory-*/security-check/daily-social）：⚠️ 需在升级后逐个验证触发；已有回归报告
-- **工具/权限模型**：确认本地 `openclaw.json` 是否受影响（messaging-only profile / ACP dispatch 默认开可能收窄工具权限）
-- **微信通道**：升级后必须全链路自检
-- **升级动作**：因 Node 提升，升级方式非简单 `npm update -g`，需重跑 web installer + 备份 openclaw.json
-
-### 升级建议（2026-08-10 更新）
-
-**🟡 建议：等几天看反馈（暂缓）**
-
-理由：
-1. 与上次“立刻升级”相反 — 新增了 **early-adopter 报告的 cron/autoupdate 回归** 与 **plugin HTTP handler breaking change**，本地重度依赖 cron，风险上升。
-2. 变更规模大（532 贡献者 / Control UI 重写），当前仍处社区反馈期。
-3. 升级路径复杂化（Node 提升需重跑 web installer + 备份），不宜无准备执行。
-4. 可关注 **2026.7.2-beta/extended-stable**（8-04 已显加固方向）转稳定后，作为更稳的升级目标。
-
-**若坚持升**：先 `cp openclaw.json openclaw.json.bak` → 重跑 web installer → `openclaw doctor` 自检 → 逐个验证 cron 与微信通道 → 若无异常再启用。
-
-- **状态标记**: ⚠️ 上次评估未决 + 本次因回归报告下调为**暂缓**（从“立即升”改为“等反馈”）
-
----
-
-## 复查 2026-08-28 10:38
-
-- **当前版本**: 仍 2026.6.10 (aa69b12)
-- **latest stable**: 仍 2026.7.1-2（自 8-10 复查以来无新稳定版发布）
-- **预发布**: 2026.7.2-beta.x 继续推进（未稳定），仍可作为后续更稳升级目标
-- **上次评估未决**: 是（7-20 / 8-03 / 8-10 三次评估均未执行升级，用户未回应）
-- **本次变化**: 无新稳定版本、无新 breaking change/回归报告信号 → 结论与风险评估维持 8-10 不变。
-- **状态标记**: ⚠️ 持续未决 + 维持**暂缓**（等 7.2 稳定或社区反馈趋稳后再升）
-
----
-
-## 复查 2026-08-31 11:05
-
-- **当前版本**: 仍 2026.6.10 (aa69b12)
-- **latest stable**: **2026.8.1**（新稳定版，beta.2 发布于 8-15，现正式 stable）
-- **版本差**: 6.10 → 8.1（跨越两个 release-line，含 7.x 全部 breaking changes）
-- **上次评估未决**: 是（7-20 / 8-03 / 8-10 / 8-28 四次评估均未执行升级，用户未回应）
-
-### 2026.8.1 主要变更（新增，相对上次复查）
-
-| 领域 | 变更 | 风险 |
-|------|------|------|
-| **记忆系统** | 🔴 大改：fast active-memory recall、personal installs 默认 cross-conversation recall、Claude Code/Codex/Hermes 引导导入、Memory 设置页 (#108043/#110597/#108977/#114037)；Active Memory 落地（lowercase `memory.md` 已废弃，2026.4.10 起） | 🔴 高（记忆检索行为变化 + memory.md 演进，本地 MEMORY.md 需确认） |
-| **Workspace 布局** | 🟡 HEARTBEAT.md 移入 SQLite-backed monitor scratch（revision-safe cron scratch，需用 Doctor 而非手工迁移） | 🟡 中（本地 HEARTBEAT.md/workspace 布局相关） |
-| **Cron 任务** | 🔴 大改：auto-disable repeated failures、DST fold/时区历史 on-time scheduling、zoned cron times、cron-backed heartbeat monitors、heartbeat↔task 转换、`/loop`、per-job dynamic cadence、gated script payloads | 🔴 高（本地依赖 6 个 cron，行为与去重/失败语义变化） |
-| **Skill Workshop** | 🟡 skill/system 持续演进（release 层面有迭代；注意 SKILL.md version 头要求） | 🟡 中 |
-| **Config Schema** | 🔴 结转 7.x breaking：messaging-only 工具 profile 默认、ACP dispatch 默认开、plugin HTTP handler 改显式 route API | 🟡 中–高 |
-| **工具系统** | 🟡 plugin HTTP handler route API | 🟡 中 |
-| **安全** | 🟢 Secret egress host binding、release validation 加固、SQLite snapshot backup/restore、reliability 加固 (#99067/#100910/#102125/#109590/#112406) | 🟢 正面 |
-| **Channel** | 微信/飞书/企微未在 highlight；7.x 有 Feishu outbound 修复 | 🟡 中（本地微信通道需自检） |
-| **文档明确升级要点** | 备份 SOUL.md/MEMORY.md/USER.md/config；升级后重启 gateway，逐个验证 cron jobs 是否静默失活（社区高频踩坑） | — |
-
-### 本地具体影响
-- `memory/evolution/`、MEMORY.md：Active Memory 演进 + cross-conversation recall 新行为 — 升级后需验证记忆检索结果与原有 MEMORY.md 兼容。
-- `cron 6 个任务`：auto-disable 失败重试 + DST 语义变化 — 升级后必须逐个验证触发；已有 7.x 社区回归报告。
-- `HEARTBEAT.md`：若升级，用 `openclaw doctor` 处理迁移，勿手工搬。
-- 工具 profile / ACP dispatch：需核对本地 `openclaw.json` 是否受影响（可能收窄工具权限）。
-- 升级方式：Node 版本提升（7.x 起），非简单 `npm update -g`，需重跑 web installer + 备份。
-
-### 升级建议（2026-08-31 更新）
-
-**🟡 建议：等几天看反馈（暂缓，维持）**
-
-理由：
-1. 版本跨度大（6.10 → 8.1），叠加 7.x breaking changes（工具 profile/ACP/plugin route）+ 8.1 记忆与 cron 大改，本地重度依赖 cron 与记忆系统，一次性跨越风险最高。
-2. 2026.8.1 为全新 stable，社区反馈期刚开始；建议观察 2 周。
-3. 升级路径复杂（Node 提升需 web installer + 备份 + Doctor 迁移 HEARTBEAT.md），不宜无准备执行。
-4. 记忆系统 Active Memory 演进需先确认 lowercase memory.md 情况、并核对 MEMORY.md 兼容性。
-
-**若坚持升**：备份 SOUL/MEMORY/USER/config → 重跑 web installer → `openclaw doctor` → 逐个验证 cron（重点查静默失活）与记忆检索 → 全链路自检微信通道 → 无异常再启用。
-
-- **状态标记**: 🔴 持续未决（累计 5 次评估）+ 因版本跨度大维持**暂缓**；同时记录 2026.8.1 需重点自检 cron/记忆两项。
-
----
-
-## 复查 2026-09-07 16:38
-
-- **当前版本**: 仍 2026.6.10 (aa69b12)
-- **latest stable**: **2026.9.2**（新发布，2026-09-05 出版）
-- **版本差**: 6.10 → 9.2（跨越 7.x/8.x/9.x 三条 release-line，含全部累计 breaking changes；为历史最大跨度）
-- **上次评估未决**: 是（7-20 / 8-03 / 8-10 / 8-28 / 8-31 五次评估均未执行升级，用户持续未回应）
-
-### 2026.8.x → 2026.9.2 新增主要变更
-
-| 领域 | 变更 | 风险 |
-|------|------|------|
-| **记忆系统** | 8.x-9.x 延续 **Database-first（SQLite）重构**：per-agent `openclaw-agent.sqlite` 承载 sessions/transcripts/memory indexes/embedding；daily memory 跨 session 连续性、rotated-session 上下文保留、减少重复 search/index 工作；新增磁盘占用可视化 | 🔴 高（记忆检索/embedding/SQLite schema 全面重写 + doctor 迁移） |
-| **Cron 任务** | **state 迁移到 SQLite**：`cron_jobs` 从 75 列精简到 15 列、subagent_runs 59→6 列（schema 12→13，canonical JSON 重排）；旧 `~/.openclaw/cron/jobs.json`/`jobs-state.json`/`jobs-quarantine.json`/`runs/*.jsonl` 需 `openclaw doctor --fix` 导入并归档 `.migrated`；`cron.store` 已退役；repeated-failures auto-disable；失败/交付/DST 语义强化 | 🔴 高（本地 6 个 cron，迁移必须走 doctor，禁手工搬） |
-| **HEARTBEAT.md** | 已移入 SQLite-backed monitor scratch（revision-safe），需用 Doctor 迁移 | 🟡 中（本地 HEARTBEAT.md 逻辑相关） |
-| **工具/权限** | 结转 7.x breaking：messaging-only profile 默认、ACP dispatch 默认开、plugin HTTP handler 改显式 route；9.2 新增 `tools.sessions.visibility` 由 `agent`→`all`、`tools.agentToAgent.enabled` `false`→`true` **为默认省略值**（未显式设置将放开跨 agent 会话访问——需核对本地 openclaw.json） | 🟡 中–高 |
-| **可靠性** | Gateway restart 恢复、config watcher handoff、worker recovery、SQLite snapshot backup/restore 加固 | 🟢 正面 |
-| **Channel** | 微信/飞书/企微未在 highlight；历史有 Feishu outbound 修复 | 🟡 中（本地微信通道需自检） |
-| **Skill Workshop** | 延续演进，无破坏性暴雷 | 🟢 低–🟡 中 |
-
-### 🔴 关键风险信号（2026.9.2 为全新 release）
-- 2026-09-05 刚发布，**fresh release**，社区仍在反馈期。
-- 第三方升级追踪（clawstat.us）点名 **56 个 issue 指向 2026.9.2 本版**，含**无 staged-fix 的数据丢失/数据搁浅级 critical bug**（doctor --session-sqlite import 丢 codex provider 消息、llama.cpp embedding ubatch 回归、reply-run 期间消息被丢等）。即便其具体主张需谨慎对待，**“back up before you update”“等几天下场只会更硬”**的大方向与多次社区踩坑一致。
-
-### 本地具体影响（相对本地 6.10）
-- **cron**（memory-*/security-check/daily-social + task-heartbeat）：升级后必须跑 `openclaw doctor --fix` 迁移到 SQLite；auto-disable 失败语义改变 → 逐个验证是否触发、有无静默失活。
-- **记忆系统**：本地 `MEMORY.md`/`memory/*.md`/`memory/evolution/` 将面对 Active Memory + SQLite index + embedding + cross-conversation recall 新行为；升级后需核对检索结果与记忆完整性，先备份 memory/。
-- **HEARTBEAT.md / workspace 布局**：SQLite-backed，需 Doctor 迁移，勿手工搬。
-- **工具/权限**：需核对本地 `openclaw.json` 是否显式设置了 `tools.sessions.visibility` / `tools.agentToAgent.enabled` —— 若留空，升级后跨 agent 权限自动放开。
-- **升级路径**：Node 版本早已提升（7.x 起非 `npm update -g`），需重跑 web installer + 备份 config/SOUL/MEMORY/USER。
-
-### 升级建议（2026-09-07 更新）
-
-**🔴 建议：当前不推荐升级（维持暂缓，且因 fresh-release 数据风险进一步下调）**
-
-理由：
-1. 版本跨度达**历史最大**（6.10 → 9.2），一次性叠加深记忆 SQLite 重构 + cron state 迁移 + 工具权限默认放开等多项 breaking。
-2. **2026.9.2 为全新 release（3 天）**，社区已报告指向本版的数据丢失类 critical bug 与无 staged-fix 状态 —— 我方累计 5 次评估全未执行，无历史包袱催着立刻跳坑。
-3. 升级需 Doctor 迁移 cron/HEARTBEAT + 重跑 web installer + 全量备份 + 逐项自检，动作复杂、风险集中在数据层。
-4. cron 与记忆是本地运行核心（近 10 个定时任务 + 全记忆体系），任何静默失活/检索回归代价高。
-
-**建议路线**：继续驻留 6.10 稳定运行 → 关注 2026.9.2 后续 hotfix / 9.2.x patch 是否平息数据类 bug → 待社区反馈趋稳后，选一个中间稳定版（如 8.x/9.x 成熟 patch）做**一次性大跳迁移**，迁移前完整备份并预留自检窗口。
-
-**若坚持升**：1) `openclaw.json` + SOUL/MEMORY/USER + `memory/` 全备份 → 2) 重跑 web installer（勿用 `npm update -g`）→ 3) `openclaw doctor --fix` 迁 cron/HEARTBEAT/记忆 → 4) 核对 openclaw.json 工具 visibility 字段 → 5) 逐个验证 cron 触发（查静默失活）与记忆检索 → 6) 全链路自检微信通道 → 7) 留观数天确认无数据异常再常态化。
-
-- **状态标记**: 🔴 持续未决（累计 **6 次**评估）+ 因跨度大 & 2026.9.2 fresh-release 数据风险，维持**不推荐升级（暂缓）**。记录重点自检项：cron Doctor 迁移、记忆 SQLite、工具 visibility 默认放开、微信通道。
-
----
-
-## 复查 2026-09-28 15:55
-
-- **当前版本**: 仍 2026.6.10 (aa69b12)
-- **latest stable**: **2026.9.6**（2026-09-23 发布，为 2026.9.2 之后第 8 个 release）
-- **版本差**: 6.10 → 9.6（跨越 7.x/8.x/9.x，累计最大跨度）
-- **上次评估未决**: 是（7-20 / 8-03 / 8-10 / 8-28 / 8-31 / 9-07 六次评估均未执行升级，用户未回应）
-
-### 2026.9.6 变更要点（相对上次 9.2 复查）
-
-| 领域 | 变更 | 风险 |
-|------|------|------|
-| **记忆系统** | 生成式 reflection 仍可检索，但**不再与普通记忆争夺长期记忆晋升排名**（既有长期记忆不变）；远端 workspace 可选 `memoryFiles` 适配器（本地索引仍在本机，不自动迁移存储） | 🟡 中（记忆晋升语义变化，需核对 evolution 产物） |
-| **Cron 任务** | 修复 `cron.enabled` 与 `OPENCLAW_SKIP_CRON` 相关 bug；**社区有“2026.9.6 broke all my cron jobs”报告（r/openclaw）**；承接 9.2 的 SQLite state 迁移 + auto-disable 失败语义 | 🔴 高（本地 6 个 cron） |
-| **Code Mode** | 🔴 **Breaking**：Code Mode 仅执行纯 JavaScript，旧 TypeScript cell 失效；需移除 `language`/`typecheck` 参数；启动迁移会移除 `tools.codeMode.languages`，否则跑 `openclaw doctor --fix`（不回写你的代码） | 🟡 中（本地若用 Code Mode 需改 cell） |
-| **路由迁移** | 🔴 承接 breaking：`codex/`、`openai-codex/` 模型引用迁移至 `openai/`（doctor --fix）；捆绑 OpenProse 插件 + `/prose` 命令移除（doctor --fix 清理） | 🟡 中（本地未用 Codex/Prose 则影响小） |
-| **工具/权限** | 承接 7.x/9.2：messaging-only profile、ACP dispatch 默认开、plugin HTTP route API、`tools.sessions.visibility`/`agentToAgent` 默认放开 | 🟡 中–高 |
-| **HEARTBEAT.md** | SQLite-backed monitor scratch，需 Doctor 迁移 | 🟡 中 |
-| **Channel** | 微信/飞书/企微未在 highlight（历史有 Feishu outbound 修复） | 🟡 中（本地微信通道需自检） |
-| **安装/更新** | 安装与更新加固：Windows 安装收紧、失败可回滚 npm 候选、config/secret 保留、内置 triage agent、插件就绪后再重启 | 🟢 正面 |
-| **稳定性** | Gateway 重启用续、Usage 30 天报表、远端 workspace Files/Memory/Skills | 🟢 正面 |
-
-### 本地具体影响
-- `memory/evolution/`：reflection 晋升语义变化 — 升级后核对长期记忆晋升与检索，`memory/` 升级前全备份。
-- **cron 6 任务**：社区明确报告 9.6 破坏 cron；本地升级后必须 `openclaw doctor --fix` 迁移 SQLite state + 逐个验证触发（查静默失活）。
-- Code Mode：若本地用 Code Mode cell，需改写为纯 JS 并跑 doctor --fix。
-- 工具 visibility/ACP：核对本地 `openclaw.json` 是否显式设置，否则升级后跨 agent 权限默认放开。
-- 升级路径同前：Node 已提升，需重跑 web installer（勿简单 `npm update -g`）+ 备份 config/SOUL/MEMORY/USER + Doctor 迁移。
-
-### 升级建议（2026-09-28 更新）
-
-**🔴 建议：当前不推荐升级（维持暂缓）**
-
-理由：
-1. 版本跨度仍为历史最大（6.10 → 9.6），一次性叠加记忆 SQLite 重构 + cron state 迁移 + 工具权限默认放开 + Code Mode TS→JS breaking。
-2. 2026.9.6 发布仅 5 天，**社区已有 cron 破坏报告**，仍处反馈期；承接 9.2 的数据类 bug 风险未完全出清。
-3. 本地重度依赖 cron（6 个）+ 全记忆体系，任何静默失活/检索回归代价高。
-4. 累计 7 次评估用户均未执行升级，无外部压力催跳坑。
-
-**建议路线**：继续驻留 6.10 → 关注 9.x 后续 patch 是否平息 cron/数据类 bug → 待社区反馈趋稳后选成熟 patch 做一次性大跳迁移，迁移前完整备份 + 预留自检窗口。
-
-**若坚持升**：备份全量(openclaw.json + SOUL/MEMORY/USER + `memory/`) → 重跑 web installer → `openclaw doctor --fix`（迁 cron/HEARTBEAT/记忆 + 清理 Code Mode/路由/Prose）→ 核对 openclaw.json 工具 visibility → 逐个验证 cron 与记忆检索 → 自检微信通道 → 留观数天。
-
-- **状态标记**: 🔴 持续未决（累计 **7 次**评估）+ 维持**不推荐升级（暂缓）**。重点自检项：cron Doctor 迁移（已有 9.6 破坏报告）、记忆 reflection 晋升、Code Mode TS→JS、工具 visibility 默认放开、微信通道。
-
----
-
-## 复查 2026-10-05 10:02
+## 复检 2026-10-19 14:56
 
 - **当前版本**: 2026.6.10 (aa69b12)
-- **latest stable**: **2026.9.8**（2026-10-03 发布）
-- **版本差**: 6.10 → 9.8（跨越 7.x/8.x/9.x 三条 release-line，累计最大跨度）
-- **上次评估未决**: 是（7-20 / 8-03 / 8-10 / 8-28 / 8-31 / 9-07 / 9-28 七次评估均未执行升级，用户未回应）
+- **latest（npm）**: **2026.10.5**
+- **上次评估**: 2026-10-12（目标 10.1）→ **用户未回应，评估仍未决（累计第 10 次）**
+- **版本差**: 6.10 → 10.5，跨越 7/8/9/10 四条 release line
 
-### 2026.9.6 → 2026.9.8 变更要点
+### 2026.10.5 关键变更（相对 10.1 增量）
 
 | 领域 | 变更 | 风险 |
 |------|------|------|
-| **模型** | 新增 GPT-6.1 Sol（OpenAI provider，需有权限账号） | 🟢 低 |
-| **更新/修复** | 修复升级失败与 Windows 启动问题；delegated results 绑定请求会话；Codex 场景内存占用优化 | 🟢 正面 |
-| **连接策略** | 已接受的工作可在 connection-policy reload 后续跑；客户端重连后再发新请求；撤销权限仍取消工作。改动认证模式/监听设置仍需重启 | 🟡 中 |
-| **测试/验证** | MiniMax 仍在 full validation，间歇性 stable-profile 检查被排除 | 🟢 低 |
-| **记忆系统** | 未在本版 highlight（承接 9.1-9.6 的 SQLite/Database-first 重构 + reflection 语义变化） | 🔴 高（累积） |
-| **Cron** | 未在本版 highlight（承接 9.2/9.6 的 SQLite state 迁移 + auto-disable 语义；9.6 有社区"broke all my cron jobs"报告） | 🔴 高（累积） |
-| **Channel** | 微信/飞书/企微未在 highlight | 🟡 中（本地微信通道需自检） |
-| **Skill Workshop** | 未在 highlight，无破坏性变更 | 🟢 低 |
+| 更新机制 | `openclaw update` 全平台自愈：pnpm 12、Windows 提权、跨文件系统、卡住的 handoff lease / activation journal 自动收敛；`--no-restart` 诚实报错 | 🟢 正面 |
+| Gateway/会话 | 会话/transcript/history 读操作移入 worker 线程，SQLite 每次 turn 负载大减；Gateway 重启后中断的 turn/subagent/deferred task 可续跑；并发写与失败发布不再丢用户输入 | 🟢 正面（对本地长时 cron 会话友好） |
+| Hooks（**破坏性**） | Tool approval hooks：普通 hook 不能再改写已 trusted-inline-approved 的工具参数，改写型插件需单独申请批准，否则**调用被阻断**。迁移见 docs/plugins/hooks/tool-policy.md | 🟠 中（本地 hooks/hooks.yaml 需核对） |
+| Sessions | 允许 directed send 不附带 transcript 访问权限 | 🟢 低 |
+| Channel | 新增 X (Twitter) channel；语音通话能力；微信/飞书/企微未在 highlight | 🟡 中（微信链路自检） |
+| 模型 | 模型选择器以 provider 推荐为先；Gemini 4 Argon / 3.8 Flash；支持未发版即列新模型 | 🟢 低 |
+| ClawHub | Gateway 内可浏览/搜索 ClawHub 插件与 skill | 🟢 低（与 Skill Workshop 无破坏） |
+| 记忆/cron/配置 schema | 本版无新增破坏性条目，**但全部承接 9.x–10.1 的累积**：SQLite 记忆索引重构、Dreaming/Wiki 旧 JSON 不再导入、cron JSON→SQLite state、工具 visibility/agentToAgent 默认放开、`metadata.clawdbot`→`metadata.openclaw` | 🔴 高（累积） |
 
-### 🔴 关键升级路径问题（本次新发现，须重点关注）
+### 升级路径约束（未变）
+官方 docs/install/updating：**早于 2026-07 的安装必须先升 2026.9.5 → `doctor --fix` → 再升 latest**。
+本地 6.10（2026-06）在边界内 → 必须走桥接：
+`6.10 → 2026.9.5 (+doctor --fix) → 2026.9.7 (+doctor --fix) → 2026.10.5 (+doctor --fix)`
 
-官方更新文档（docs.openclaw.ai/install/updating）与 state-migrations 明确：
+### 本地影响
+- **cron 6 任务**：走 Doctor 迁移到 SQLite state，须逐项触发验证（9.6 有社区 cron 全挂报告，10.x 已修部分 cron 与 cleanup 被 update history 写入阻塞的问题）
+- **memory/**：升级前全量备份；Dreaming/Wiki 旧格式与 pre-schema-8 会话布局可能需要 2026.9.7 Doctor 完整拷贝恢复，否则拒绝升级
+- **hooks/hooks.yaml**：10.5 工具参数改写规则收紧 → 若本地有改写型 hook 会直接 block，需迁移
+- **openclaw.json**：核对 `tools.sessions.visibility` / `tools.agentToAgent.enabled`，勿留空
+- **微信通道**：升级后全链路自检
 
-> **For installations older than June 2026, upgrade to `2026.9.5` first, run its Doctor migrations, and then upgrade to `latest`.**
-> Cron JSON job stores (`jobs.json`)、split runtime state (`jobs-state.json`)、per-job `runs/*.jsonl` 由 stable `v2026.5.28` 最后写入；5 月 30 日 SQLite cutover 移除了这些写入器。**Doctor 会先拒绝这些遗留文件**，要求 install `2026.9.7`、run `openclaw doctor --fix`、再升到 latest。
+### 结论（2026-10-19）
 
-**含义**：本地 6.10（2026 年 6 月中）位于"June 2026"边界，极可能需要**桥接版本升级**：
-`6.10 → 2026.9.5 → openclaw doctor --fix → 2026.9.7 doctor --fix → 2026.9.8`
-
-**不能一步 `npm update -g` 到 latest**，否则遗留 JSON 状态文件会被 Doctor 拒绝，cron/记忆可能迁移失败或静默丢活。
-
-### 本地具体影响
-- **cron（6 任务）**：升级必须走 Doctor 迁移至 SQLite state；须逐项验证触发（查静默失活）。9.6 已有社区 cron 破坏报告。
-- **记忆系统**：`MEMORY.md`/`memory/*.md`/`memory/evolution/` 面对 Active Memory + SQLite index + embedding 新行为；升级前全量备份 `memory/`，升级后核对检索与记忆完整性。
-- **HEARTBEAT.md / workspace 布局**：SQLite-backed monitor scratch，需 Doctor 迁移。
-- **工具/权限**：核 `openclaw.json` 是否显式设置 `tools.sessions.visibility`/`tools.agentToAgent.enabled`；若留空升级后跨 agent 权限默认放开。
-- **Code Mode**：🔴 Breaking，仅执行纯 JS，旧 TS cell 需改；启动迁移移除 `tools.codeMode.languages`。
-- **路由迁移**：`codex/`、`openai-codex/` 模型引用迁移至 `openai/`（doctor --fix）；`/prose` 命令移除。
-- **升级路径**：Node 已提升，非 `npm update -g`，需重跑 web installer + 桥接版本 + Doctor 分步。
-
-### 升级建议：2026-10-05 更新
-
-**🔴 建议：当前不推荐直接升级（维持暂缓），且升级必须走桥接路径**
+🔴 **仍不推荐直接升级；若升级必须走桥接多阶段。**
 
 理由：
-1. 版本跨度为历史最大（6.10 → 9.8），一次性叠加记忆 SQLite 重构 + cron state 迁移 + 工具权限默认放开 + Code Mode TS→JS breaking。
-2. **本次新发现桥接路径硬约束**：需先升 2026.9.5 → Doctor → 2026.9.7 → Doctor → 9.8，任一步失败需停 Gateway 重跑；这是多阶段操作，风险集中在数据层。
-3. 2026.9.6 社区有 cron 破坏报告，9.8 虽修 Windows 启动/升级失败，但 fresh release（2026-10-03）仍在反馈期。
-4. 本地重度依赖 cron（6 个）+ 全记忆体系，任何静默失活/检索回归代价高。
-5. 累计 8 次评估用户均未执行升级，无外部压力催促跳坑。
+1. 跨度仍为历史最大，破坏性集中在**数据层**（记忆 SQLite 索引、cron state、会话 schema）。
+2. 10.5 虽修了大量 Windows 更新阻塞与重启续跑问题（对本地有利），但仍为 10-17 前后发布的 fresh release，未过反馈期。
+3. 10.5 新增一条 hooks 破坏性变更，本地 hook 需适配。
+4. 本地重度依赖 cron + 全记忆体系，静默失活代价高。
+5. 连续 10 次评估用户均未回应，不建议在无人工窗口时动数据层。
 
-**建议路线**：继续驻留 6.10 → 关注 9.8 后续 patch 是否平息 cron/数据类 bug → 待社区反馈趋稳后，按桥接路径做一次性大跳迁移，迁移前完整备份 + 预留自检窗口。
+**若长官批准升级（需预留 1–2 小时 + 人工在场）：**
+1. 备份：`openclaw.json`、SOUL/MEMORY/USER、整个 `memory/`、`hooks/`、workspace git commit
+2. `openclaw gateway stop`
+3. 装 **2026.9.5** → `openclaw --version` 确认 → `openclaw doctor --fix`（解决 import 冲突再继续）
+4. 装 **2026.9.7** → `openclaw doctor --fix`（cron JSON→SQLite、HEARTBEAT、记忆索引）
+5. 装 **2026.10.5** → `openclaw doctor --fix`
+6. 核对 `openclaw.json` 工具 visibility / agentToAgent；hooks 参数改写策略
+7. 逐项触发验证 6 个 cron（查静默失活）+ 记忆检索
+8. 微信通道全链路自检
+9. 观察 3–5 天再恢复常规节奏
 
-**若坚持升（走桥接）**：
-1) 备份全量 `openclaw.json` + SOUL/MEMORY/USER + `memory/`；
-2) `openclaw gateway stop`；
-3) 重跑 web installer 装 **2026.9.5**，`openclaw --version` 确认；
-4) `openclaw doctor --fix`（迁移旧 task/flow/plugin/channel state，解决 import 冲突）；
-5) 升 **2026.9.7**，`openclaw doctor --fix`（迁移 cron JSON → SQLite、HEARTBEAT、记忆）；
-6) 升 **2026.9.8** latest，`openclaw doctor --fix`；
-7) 核对 `openclaw.json` 工具 visibility / agentToAgent；
-8) 逐个验证 6 个 cron 触发（查静默失活）与记忆检索；
-9) 自检微信通道全链路；
-10) 留观数天确认无数据异常再常规化。
-
-- **状态标记**: 🔴 持续未决（累计 **8 次**评估）+ 因跨度大 & 桥接路径硬约束 & fresh-release 数据风险，维持**不推荐直接升级（暂缓）**。重点自检项：cron 桥接 Doctor 迁移、记忆 SQLite、工具 visibility 默认放开、Code Mode TS→JS、微信通道。
+- **状态标记**: 🔴 持续未决（累计 **10 次**评估）
 
 ---
 
-## 复查 2026-10-12 10:17
-
-- **当前版本**: **仍 2026.6.10 (aa69b12)**（连续 **9 次**评估未执行升级，用户未回应）
-- **latest 稳定版（npm）**: **2026.10.1**（2026-10-11 发布；3,055 commits / 2,425 PR / 402 contributors）
-- **版本差**: 6.10 → 10.1（跨越 7.x/8.x/9.x/10.x 四条 release-line，跨度进一步扩大）
-- **另有 v2026.10.2 tag**（2026-10-12 02:09 UTC 创建，仅 tag 无 release notes，npm latest 仍指向 10.1 → 属热修/re-tag，暂不视为可升级目标）；预发布 **2026.10.5-beta.1**（2026-10-11）在推进。
-
-### 摘要
-本次无改变结论的新信息。10.1 是 2026.9.8 之后的常规大版本，官方更新文档路径约束**仍有效且更明确**："For installations older than **July 2026**, upgrade to `2026.9.5` first, run its Doctor migrations, then upgrade to `latest`"。本地 6.10 位于该边界内侧，桥接升级硬约束不变。
-
-### 2026.10.1 变更要点（对本地相关领域）
-
-| 领域 | 变更 | 风险 |
-|------|------|------|
-| **记忆系统** | Memory/Search/Dreaming 多语言去重、embedding provider 故障后自动恢复、SQLite 索引后台化、**官方明确披露"older Dreaming/Wiki 安装需升级恢复计划"（Doctor 不再导入 4 个 pre-July Dreaming JSON 日志 + 2 个旧 Wiki JSON 格式；无更新备份的恢复路线仍缺失）** | 🔴 高（数据迁移） |
-| **Cron/自动化** | `runs --all` / `list --query` 检索、run history、Doctor 重存 job owner/delivery、**隔离 cron 结果投递到创建会话**、失败自动请求修复、脚本条件可查 MCP；SQLite state 迁移承接 9.x | 🔴 高（承接迁移） |
-| **Skills** | 已安装 skill 发现、Skill 故障排查命令；**旧 skill/hook 需手动把 `metadata.clawdbot` 重命名为 `metadata.openclaw`**（否则丢 prerequisites/hook events）；`.clawdhub` → `.clawhub` 手动对账 | 🟡 中（本地 hooks 需改） |
-| **工具/权限** | Agent API 原生命令、scheduled job 工具继承会话权限；**node turn 从 Gateway 取当前文件系统/模型/patch-tool 策略** | 🟡 中 |
-| **配置 schema** | 安全审计移除 `models.legacy`/`models.weak_tier` 两个 advisory id；多个 retired config key 需 Doctor 修复；`failureAlert:false` 语义扩展为同时禁用修复请求 | 🟡 中 |
-| **Channel 插件** | 微信未在 highlight；**飞书 webhook 升级激活前完成、飞书 mention/preview 修复**（本地微信通道需自检） | 🟡 中 |
-| **Workspace/更新** | 更新效率、Windows 2026.9.4 自动更新修复、Btrfs/数据库空间回收、large DB 启动优化 | 🟢 正面 |
-| **Skill Workshop** | 未见破坏性变更 | 🟢 低 |
-
-### 本地具体影响
-- **memory/evolution/、workflows/、.snapshots/**：文件本身无 schema 破坏，但记忆重建走 SQLite index + embedding，升级前须全量备份 `memory/`。
-- **hooks/hooks.yaml**：⚠️ 若 hook 文件用了 `metadata.clawdbot`，升级后需改 `metadata.openclaw` 否则 hook events 丢失。
-- **cron 6 任务**：升级须经桥接 Doctor 迁移至 SQLite state，逐项验证静默失活。
-- **openclaw.json**：核对工具 visibility / agentToAgent 默认值，及 `failureAlert:false` 语义变化。
-- **微信通道**：升级后全链路自检。
-
-### 升级建议（2026-10-12）
-
-**🔴 维持：不推荐直接升级；若升级必须走桥接路径**
-
-理由：
-1. 跨度仍为历史最大（6.10 → 10.1，四条 release-line），叠加记忆 SQLite 重构 + cron state 迁移 + hooks `metadata.clawdbot` 改名 + 工具/权限默认变化。
-2. 官方文档桥接硬约束不变（< July 2026 须先 2026.9.5 → Doctor → 2026.9.7 → Doctor → latest）。
-3. 10.1 是 fresh release（2026-10-11，昨发布），仍在反馈期；10.2 仅为热修 tag。
-4. 本地重度依赖 cron（6 个）+ 全记忆体系，任何静默失活/检索回归代价高。
-5. 连续 9 次评估用户均未执行，无外部压力催促跳坑。
-
-**若坚持升**：完整备份（`openclaw.json` + SOUL/MEMORY/USER + 整个 `memory/`）→ `openclaw gateway stop` → 装 **2026.9.5** + `doctor --fix` → **2026.9.7** + `doctor --fix` → **2026.10.1** latest + `doctor --fix` → hooks 文件 `clawdbot`→`openclaw` → 核对配置 → 逐个验证 cron / 记忆检索 / 微信通道 → 留观数天。
-
-- **状态标记**: 🔴 持续未决（累计 **9 次**评估）。结论不变：**暂缓**，升级须走多阶段桥接路径。关键自检项：记忆 Dreaming/Wiki 迁移、cron SQLite 桥接、hooks metadata 改名、工具权限默认、微信通道。
+## 历史记录（摘要）
+- 2026-10-05：latest 2026.9.8 → 首次识别桥接硬约束，不建议升级
+- 2026-10-12：latest 2026.10.1 → 维持暂缓；发现 hooks `metadata.clawdbot` 重命名、工具权限默认放开
+- 2026-10-19：latest 2026.10.5 → 维持暂缓；新增 tool approval hooks 破坏性变更；更新机制/重启续跑大幅改善
