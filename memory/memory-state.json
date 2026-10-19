@@ -1,54 +1,49 @@
-{
-    "lastConsolidation": "2026-10-19T23:00:00+08:00",
-    "lastPatrol": "2026-10-19T14:53:00+08:00",
-    "lastHealthCheck": "2026-10-19T14:36:00+08:00",
-    "lastCheckResults": {
-        "topics_total": 12,
-        "memory_lines": 106,
-        "lines_warning": 0,
-        "total_pending": 10,
-        "recent_dailies_7d": 13,
-        "expired_topics_7d": 12,
-        "overloaded_topics": [
-            "design-systems-analysis.md (339)",
-            "learnings.md (280)",
-            "work-tools.md (418)",
-            "openclaw-update-log.md (260)",
-            "openspec-analysis.md (207)"
-        ],
-        "stale_topics": [
-            "decisions.md",
-            "design-systems-analysis.md",
-            "github-may-2026-projects.md",
-            "learnings.md",
-            "openclaw-update-log.md",
-            "openspec-analysis.md",
-            "openspec-arch-enhancements.md",
-            "people.md",
-            "preferences.md",
-            "projects.md",
-            "task-calendar.md",
-            "work-tools.md"
-        ],
-        "issues": [
-            "catch-up run: 10-19 02:00 consolidation + 02:15 health-check never fired (state stuck at 10-18)",
-            "no new user signals since 10-18 consolidation (user silent 90d) - no topic writes",
-            "12 topic files stale (>7d; 8 last touched 2026-07-21 ~90d ago)",
-            "5 topics overloaded (>200 raw lines): work-tools 418, design-systems-analysis 339, learnings 280, openclaw-update-log 260, openspec-analysis 207",
-            "total_pending=10 hits warning threshold (>=10)",
-            "daily log missing for 2026-10-15 (unrecoverable, noted 10-18 weekly review)",
-            "YouNavi meeting sync broken since 2026-08-09 (fetcherWorker.js missing, needs electron rebuild)",
-            "temp accumulation: root tmp_* 22 files + tools/ _*|tmp_*|yn_* 15 files - cleanup pending user approval"
-        ],
-        "cleanup": {
-            "temp_dirs_removed": 0,
-            "tools_scripts_removed": 0,
-            "note": "no archive/delete this run (no entries crossed 30d threshold since 10-18)"
-        },
-        "git": {
-            "committed": true,
-            "pushed": true,
-            "head": "dbdfc40"
-        }
-    }
+﻿{
+    "lastConsolidation":  "2026-10-19T23:00:00+08:00",
+    "lastPatrol":  "2026-10-19T14:53:00+08:00",
+    "lastHealthCheck":  "2026-10-19T23:15:25+08:00",
+    "lastCheckResults":  {
+                             "topics_total":  12,
+                             "memory_lines":  100,
+                             "lines_warning":  0,
+                             "total_pending":  6,
+                             "recent_dailies_7d":  6,
+                             "expired_topics_7d":  11,
+                             "overloaded_topics":  [
+                                                       "design-systems-analysis.md (121 entries)",
+                                                       "learnings.md (153 entries)",
+                                                       "work-tools.md (53 entries)"
+                                                   ],
+                             "stale_topics":  [
+                                                  "decisions.md",
+                                                  "design-systems-analysis.md",
+                                                  "openspec-analysis.md",
+                                                  "openspec-arch-enhancements.md",
+                                                  "people.md",
+                                                  "preferences.md",
+                                                  "projects.md",
+                                                  "task-calendar.md",
+                                                  "github-may-2026-projects.md",
+                                                  "learnings.md",
+                                                  "work-tools.md"
+                                              ],
+                             "issues":  [
+                                            "11/12 topic files stale (\u003e7d); 8 last touched 2026-07-21 (~90d ago)",
+                                            "3 topics overloaded by entry count: learnings 153, design-systems-analysis 121, work-tools 53 -\u003e consider split",
+                                            "daily log missing for 2026-10-15 (unrecoverable, noted in 10-18 weekly review)",
+                                            "YouNavi meeting sync broken since 2026-08-09 (fetcherWorker.js missing, needs electron rebuild)",
+                                            "user silent ~90d: no new topic writes since 2026-10-01",
+                                            "hooks: memory-health-sync cron fired 23:15 instead of 02:15 slot (catch-up/off-schedule)"
+                                        ],
+                             "cleanup":  {
+                                             "temp_dirs_removed":  0,
+                                             "tools_scripts_removed":  0,
+                                             "note":  "temp/ contains only video-audio + video-test (preserved); no check_/explore_/gen_/render_/launch_/open_ scripts present"
+                                         },
+                             "git":  {
+                                         "committed":  true,
+                                         "pushed":  true,
+                                         "head":  "fd4330c"
+                                     }
+                         }
 }
