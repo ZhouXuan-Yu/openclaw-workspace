@@ -1,0 +1,3 @@
+﻿{"ok": true, "rc": 0, "data": {"success": true, "message": "鑾峰彇鐢ㄦ埛淇℃伅鎴愬姛", "data": {"user_id": 960, "username": "ZhouXuan_", "email": "1241515924@qq.com", "phone": "15978568969", "is_active": true, "is_approved": true, "is_admin": false}}, "stderr": null}
+---CHANNELS---
+{"ok": true, "rc": 0, "data": {"success": true, "message": "鑾峰彇鍒?5 涓敮鎸佺殑娓犻亾", "data": [{"name": "tencent_meeting", "display_name": "鑵捐浼氳", "fetcher_name": "meeting"}, {"name": "feishu_miaoji", "display_name": "椋炰功濡欒", "fetcher_name": "miaoji"}, {"name": "dingding_shanji", "display_name": "閽夐拤鍚", "fetcher_name": "shanji"}, {"name": "plaud", "display_name": "Plaud", "fetcher_name": "plaud"}, {"name": "plaudcn", "display_name": "Plaud CN", "fetcher_name": "plaudcn"}]}, "stderr": null}

@@ -1,0 +1,8 @@
+﻿
+=== 支持的渠道 (5 个) ===
+  1. 腾讯会议 (tencent_meeting)
+  2. 飞书妙记 (feishu_miaoji)
+  3. 钉钉听记 (dingding_shanji)
+  4. Plaud (plaud)
+  5. Plaud CN (plaudcn)
+

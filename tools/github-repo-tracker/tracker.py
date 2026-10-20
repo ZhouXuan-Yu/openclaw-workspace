@@ -1,7 +1,9 @@
 """GitHub 仓库追踪 — 监测目标仓库更新并推送通知"""
-import requests, json, time, sys
+import requests, json, time, sys, os
 from pathlib import Path
 from datetime import datetime
+
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
 
 TRACKED_REPOS = [
     {
@@ -20,12 +22,69 @@ LOG_FILE = Path("tools/github-repo-tracker/tracking_log.md")
 
 def gh_headers():
     h = {"Accept": "application/vnd.github.v3+json", "User-Agent": "Repo-Tracker/1.0"}
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token:
+        h["Authorization"] = f"Bearer {token}"
     return h
+
+def _html_repo_info(repo_full):
+    """无 token 且 API 限流时，从 GitHub 网页内嵌 JSON 兜底读取 stars/forks。"""
+    import re
+    try:
+        r = requests.get(f"https://github.com/{repo_full}", headers={"User-Agent": UA}, timeout=25)
+        if r.status_code != 200:
+            return None
+        t = r.text
+        stars = re.search(r'"stargazerCount":(\d+)', t)
+        forks = re.search(r'"forksCount":(\d+)', t)
+        if not stars:
+            return None
+        return {
+            "stars": int(stars.group(1)),
+            "forks": int(forks.group(1)) if forks else 0,
+            "open_issues": 0,
+            "pushed_at": "",
+            "updated_at": "",
+            "description": "",
+            "size_kb": 0,
+        }
+    except Exception:
+        return None
+
+def _atom_commits(repo_full, per_page=10):
+    """API 限流时从 commits atom feed 兜底读取提交。"""
+    import re, html as _html
+    for branch in ("main", "master"):
+        try:
+            r = requests.get(f"https://github.com/{repo_full}/commits/{branch}.atom",
+                             headers={"User-Agent": UA}, timeout=25)
+            if r.status_code != 200:
+                continue
+            out = []
+            for e in re.findall(r"<entry>(.*?)</entry>", r.text, re.S)[:per_page]:
+                tit = re.search(r"<title>(.*?)</title>", e, re.S)
+                upd = re.search(r"<updated>(.*?)</updated>", e, re.S)
+                link = re.search(r'<link[^>]*href="([^"]+)"', e)
+                auth = re.search(r"<name>(.*?)</name>", e, re.S)
+                url = link.group(1) if link else ""
+                sha = url.rstrip("/").split("/")[-1][:7]
+                out.append({
+                    "sha": sha,
+                    "date": (upd.group(1) if upd else "")[:19],
+                    "author": _html.unescape((auth.group(1) if auth else "")),
+                    "message": _html.unescape((tit.group(1) if tit else "")).strip()[:120],
+                    "url": url,
+                })
+            if out:
+                return out
+        except Exception:
+            continue
+    return []
 
 def get_repo_info(repo_full):
     r = requests.get(f"https://api.github.com/repos/{repo_full}", headers=gh_headers(), timeout=15)
     if r.status_code != 200:
-        return None
+        return _html_repo_info(repo_full)
     d = r.json()
     return {
         "stars": d.get("stargazers_count", 0),
@@ -43,7 +102,7 @@ def get_recent_commits(repo_full, since_iso=None, per_page=10):
         url += f"&since={since_iso}"
     r = requests.get(url, headers=gh_headers(), timeout=15)
     if r.status_code != 200:
-        return []
+        return _atom_commits(repo_full, per_page=per_page)
     commits = r.json()
     if not isinstance(commits, list):
         return []
@@ -121,8 +180,15 @@ def run():
         # Commits since last check
         new_commits = get_recent_commits(repo, since_iso=prev_push, per_page=10)
         
-        # Filter commits we haven't seen
-        unseen = [c for c in new_commits if c["sha"] != prev_sha]
+        # Filter commits we haven't seen: 新于上次记录的那条提交
+        if prev_sha and any(c["sha"] == prev_sha for c in new_commits):
+            idx = next(i for i, c in enumerate(new_commits) if c["sha"] == prev_sha)
+            unseen = new_commits[:idx]
+        elif prev_push:
+            cutoff = prev_push.rstrip("Z")[:19]
+            unseen = [c for c in new_commits if c["date"][:19] > cutoff]
+        else:
+            unseen = new_commits[:5]
         total_new_commits += len(unseen)
 
         # Get file changes if there are new commits
@@ -131,7 +197,7 @@ def run():
         # Update state
         state["repos"][repo] = {
             "last_sha": new_commits[0]["sha"] if new_commits else prev_sha,
-            "last_push": info["pushed_at"],
+            "last_push": info["pushed_at"] or prev_push,
             "last_check": now_iso,
             "stars": info["stars"],
             "forks": info["forks"],

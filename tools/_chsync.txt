@@ -1,0 +1,21 @@
+﻿正在启动服务...
+  Agent Manager 已启动 (pid=209864)
+    日志: C:\Users\ZhouXuan\navi-ai\logs\agent_manager.log
+  API Server 已启动 (pid=198336)
+    日志: C:\Users\ZhouXuan\navi-ai\logs\api_server.log
+  等待服务就绪...
+  服务已就绪
+=== 同步所有渠道 ===
+同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js
+请先编译 electron 项目: cd electron && pnpm build
+同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js
+请先编译 electron 项目: cd electron && pnpm build
+同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js
+请先编译 electron 项目: cd electron && pnpm build
+同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js
+请先编译 electron 项目: cd electron && pnpm build
+同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js
+请先编译 electron 项目: cd electron && pnpm build
+  Agent Manager 已停止
+  API Server 已停止
+
