@@ -32,3 +32,4 @@
 [main/sessions/main/fac00e0e-dc1e-4109-a2e2-27c2a1788532.jsonl#L6] Assistant: 我先运行恢复检查脚本。
 [main/sessions/main/fac00e0e-dc1e-4109-a2e2-27c2a1788532.jsonl#L10] Assistant: ✅ 恢复检查完成，一切正常 - 离线检测：昨日会话日志正常（memory/daily/2026-10-18.md，4775 bytes） - 待办任务：0 项 - Cron 恢复状态：无待恢复的定时任务 - 上次检查：2026-10-19 14:52；本次 17:00，状态一致 （唯一提示为 P2：可顺手确认模型 API/网络是否正常，无需额外处理。）
 [main/sessions/main/fe44c3d2-a73e-4d04-adde-7f93968ea651.jsonl#L38] Assistant: YouNavi 每日同步完成 ⏳ 有 2 个需要您处理的问题。 **1. 渠道同步失败（无会议数据）** `channel sync --all` → `同步脚本不存在: D:\YouNavi\resources\electron\dist\fetcherWorker.js` 安装包里的 electron 产物不完整（bridge 的 `-f json` 模式本身也明确拒绝渠道同步，返回 `NOT_SUPPORTED`）。需要源码机器上 `cd electron && pnpm build` 重新打包才有渠道拉取能力。 **
+[main/sessions/main/0136aedc-5352-430e-8fa4-6a5c7b5f3a75.jsonl.deleted.2026-10-20T15-34-00.417Z#L18] Assistant: 🛡️ 长官，23:30 晚间规划提醒。 请回复以下几点，我会同步写入 daily 日志并做记忆整合： 1) 今天已完成的任务 2) 今天遗留/未完成的任务 3) 明天上午优先处理的事项 4) 明天下午的安排 5) 本周剩余目标进展 如果暂时没有安排，回复“跳过”即可，本轮 23:45 的反思将照常执行。
