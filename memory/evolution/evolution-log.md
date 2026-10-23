@@ -2004,3 +2004,37 @@
 - 人物画像.md（front matter：last_updated + trends + progress + status；追加「10-21 复盘」段）
 - memory/evolution/.skill-quality.json（96→97，lastUpdated 23:45）
 - memory/evolution/evolution-log.md（本记录追加）
+
+---
+
+## 2026-10-23 23:45 — 反射 #98（准点 · 第17周第5日）
+
+- 任务数: 3（23:00 memory-consolidation + 23:15 memory-health-sync + 本反射）；用户交互: 0
+- 成功: 反射 / consolidation / health-sync ｜ 失败: **10-22 反射（模型层 402/401）**
+- 静默天数: 94（07-21 → 10-23）
+- 产出: 无用户级产出（仅 2 次系统 commit：f4bd94b consolidation / a0e72ee health-sync）
+
+### 🔍 观察
+- **★10-22 反射漏跑 → 模型层计费/认证失败（新失效类）**：cron run 记录 `FallbackSummaryError: All models failed (2): xiaoxiao/deepseek-v4-flash 402 Insufficient Balance (billing) | my/deepseek-v4-flash 401 api key ****e3be is invalid (auth)`，durationMs 8761 → 不是"未触发"，是执行层钥匙/余额问题。今日同模型链路正常，反射自愈（未做修复）
+- **★失败归因表扩至四层**：调度层（未触发/漏跑）/ 执行-网关（Connection error · timeout）/ 执行-计费认证（402 余额 · 401 Key）/ 投递层（微信 errcode -14）—— 四类处置手段完全不同，不能再统一记"模型超时"
+- **★"漏跑"与"运行失败"必须分记**：10-22 有 daily、有 cron run 记录，只是执行失败；10-06/10-15 是无运行记录的真空。前者看模型仓库（余额/Key），后者看调度器/看门狗
+- 凌晨链 02:00/02:15/09:00 今日零 git 提交（仅 23:00 + 23:15）→ 『管道恢复≠调度器恢复』第 23 日
+- 记忆健康（23:00 consolidation）：MEMORY.md 106 行 OK / topic 12 引用完整 / 待确认 10 处（9 topic）/ live daily 50 篇（最早 09-26，27d，未超 30d）/ trust 三 fact 贴底 0.10 无变化 / memory-state.json 仍停 2026-07-17
+- 既有阻断：YouNavi 渠道 fetcherWorker.js 缺失 + 任务侧 LLM API 401 / memory_search 不可用（ollama 未运行）/ lark-cli 未绑定 / task-calendar 6 项（3×P0）超期 113 天 / 微信 errcode -14 / temp 堆积待批
+
+### 🧬 质量变化
+- memory-reflection: totalCalls 97→98, successCalls 96→97, failureCalls 1→2（口径：totalCalls 仅计已完成成功周期，失败单列 knownIssues，沿用 09-11~09-25 惯例）
+- qualityScore: 0.99（不变）
+- lastUpdated: 2026-10-23T23:45:00+08:00
+
+### ⚙️ 进化触发
+- 无新 FIX/DERIVED/CAPTURED（静默日无用户信号、无新 Skill 调用）
+- **FIX 候选⑩ 扩项**：cron 错误分类归因 → 四层分类（调度 / 网关 / 计费认证 / 投递），并区分"漏跑 vs 失败"
+- **FIX 候选⑪ 新增**：模型仓库健康预检（余额/Key 主动探测 + 失败告警），当前 402/401 完全无告警（deliveryStatus not-requested），用户无感知
+- 其余候选不变：① 调度器漂移/漏跑 + 看门狗 ② 反射四文件自动化校验 ③ 模型链路超时 ④ ollama 自启 ⑤ lark-cli 绑定 ⑥ 07-02 遗留任务关闭 ⑦ temp 清理规范扩展 ⑧ 状态文件原子写入 ⑨ pending 统计口径统一
+
+### 📝 写入文件
+- memory/daily/2026-10-23.md（追加反思段）
+- 05-个人/人物画像.md（front matter：last_updated + trends + progress + status；追加「10-23 复盘」段）
+- memory/evolution/.skill-quality.json（97→98，lastUpdated 23:45）
+- memory/evolution/evolution-log.md（本记录）
