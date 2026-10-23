@@ -1,10 +1,10 @@
-﻿{
-    "lastConsolidation": "2026-10-22T09:00:41+08:00",
-    "lastPatrol": "2026-10-22T09:00:41+08:00",
+{
+    "lastConsolidation": "2026-10-23T23:00:50+08:00",
+    "lastPatrol": "2026-10-22T09:04:30+08:00",
     "lastHealthCheck": "2026-10-22T09:00:41+08:00",
     "lastCheckResults": {
         "topics_total": 12,
-        "memory_lines": 112,
+        "memory_lines": 106,
         "lines_warning": 0,
         "total_pending": 10,
         "recent_dailies_7d": 6,
@@ -48,5 +48,6 @@
             "head": "37ae394",
             "note": "push failed: TLS unexpected eof (network), 1 retry"
         }
-    }
+    },
+    "lastConsolidationNote": "no new signals; user silent 94d; decay 3 facts at floor; no topic writes"
 }
