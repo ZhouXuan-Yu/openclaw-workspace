@@ -1,5 +1,5 @@
 ﻿{
-    "lastConsolidation":  "2026-10-24T09:00:41+08:00",
+    "lastConsolidation":  "2026-10-24T23:00:33+08:00",
     "lastPatrol":  "2026-10-24T09:00:41+08:00",
     "lastHealthCheck":  "2026-10-24T09:00:41+08:00",
     "lastCheckResults":  {
@@ -45,5 +45,5 @@
                                          "pushed":  true
                                      }
                          },
-    "lastConsolidationNote":  "catch-up patrol 2026-10-24: no signals; user silent 95d; decay 3 facts at floor; no topic writes"
+    "lastConsolidationNote":  "2026-10-24 23:00: no signals; user silent 95d; decay 3 facts at floor; archived 1 stale daily; no topic writes"
 }
