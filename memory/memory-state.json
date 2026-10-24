@@ -1,53 +1,49 @@
-{
-    "lastConsolidation": "2026-10-23T23:00:50+08:00",
-    "lastPatrol": "2026-10-22T09:04:30+08:00",
-    "lastHealthCheck": "2026-10-22T09:00:41+08:00",
-    "lastCheckResults": {
-        "topics_total": 12,
-        "memory_lines": 106,
-        "lines_warning": 0,
-        "total_pending": 10,
-        "recent_dailies_7d": 6,
-        "expired_topics_7d": 11,
-        "overloaded_topics": [
-            "work-tools.md (418 lines, 90 entries)",
-            "design-systems-analysis.md (390 lines, 173 entries >50)",
-            "learnings.md (280 lines, 121 entries >50)",
-            "openspec-analysis.md (240 lines, 45 entries)"
-        ],
-        "stale_topics": [
-            "decisions.md",
-            "design-systems-analysis.md",
-            "openspec-analysis.md",
-            "openspec-arch-enhancements.md",
-            "people.md",
-            "preferences.md",
-            "projects.md",
-            "task-calendar.md",
-            "github-may-2026-projects.md",
-            "learnings.md",
-            "work-tools.md"
-        ],
-        "issues": [
-            "11/12 topic files stale (>7d); 8 last touched 2026-07-21 (~91d ago)",
-            "4 topics overloaded by line count: work-tools 418, design-systems-analysis 339, learnings 280, openspec-analysis 207",
-            "daily log missing for 2026-10-15 (unrecoverable, noted in 10-18 weekly review)",
-            "YouNavi meeting/channel sync broken since 2026-08-09 (fetcherWorker.js missing) + LLM API 401 missing_bearer_token",
-            "nightly cron chain (02:00/02:15) still not firing on schedule; catch-up path works",
-            "user silent 91d: no new topic writes since 2026-10-01",
-            "temp clutter: root tmp_* 22 + tools 15 + 7 tmp_*.py|txt pending user approval"
-        ],
-        "cleanup": {
-            "temp_dirs_removed": 0,
-            "tools_scripts_removed": 0,
-            "note": "no cleanup this run: temp/ holds only video-audio+video-test; root tmp_* still awaiting user approval"
-        },
-        "git": {
-            "committed": true,
-            "pushed": false,
-            "head": "37ae394",
-            "note": "push failed: TLS unexpected eof (network), 1 retry"
-        }
-    },
-    "lastConsolidationNote": "no new signals; user silent 94d; decay 3 facts at floor; no topic writes"
+﻿{
+    "lastConsolidation":  "2026-10-24T09:00:41+08:00",
+    "lastPatrol":  "2026-10-24T09:00:41+08:00",
+    "lastHealthCheck":  "2026-10-24T09:00:41+08:00",
+    "lastCheckResults":  {
+                             "topics_total":  12,
+                             "memory_lines":  106,
+                             "lines_warning":  0,
+                             "total_pending":  10,
+                             "recent_dailies_7d":  7,
+                             "expired_topics_7d":  11,
+                             "overloaded_topics":  [
+                                                       "design-systems-analysis.md (339 lines, 124 entries \u003e50)",
+                                                       "learnings.md (280 lines, 114 entries \u003e50)",
+                                                       "work-tools.md (418 lines, 39 entries)"
+                                                   ],
+                             "stale_topics":  [
+                                                  "decisions.md",
+                                                  "design-systems-analysis.md",
+                                                  "openspec-analysis.md",
+                                                  "openspec-arch-enhancements.md",
+                                                  "people.md",
+                                                  "preferences.md",
+                                                  "projects.md",
+                                                  "task-calendar.md",
+                                                  "github-may-2026-projects.md",
+                                                  "learnings.md",
+                                                  "work-tools.md"
+                                              ],
+                             "issues":  [
+                                            "11/12 topics stale \u003e7d; 8 last touched 2026-07-21 (~95d)",
+                                            "2 topics over 50 entries (design-systems 124, learnings 114)",
+                                            "no new topic writes since 2026-10-01; daily logs healthy (7/7 in 7d)",
+                                            "02:00/02:15 cron chain missed again (day 24), caught up at 09:00",
+                                            "tmp/ holds db_probe.py + younavi_daily_check.py (untracked, awaiting approval)"
+                                        ],
+                             "cleanup":  {
+                                             "temp_dirs_removed":  0,
+                                             "tools_scripts_removed":  0,
+                                             "note":  "nothing to clean: temp/ only video-audio+video-test; no check_/explore_/gen_/render_/launch_/open_ scripts"
+                                         },
+                             "git":  {
+                                         "committed":  true,
+                                         "note":  "patrol catch-up",
+                                         "pushed":  true
+                                     }
+                         },
+    "lastConsolidationNote":  "catch-up patrol 2026-10-24: no signals; user silent 95d; decay 3 facts at floor; no topic writes"
 }
