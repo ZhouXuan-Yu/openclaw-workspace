@@ -2038,3 +2038,74 @@
 - 05-个人/人物画像.md（front matter：last_updated + trends + progress + status；追加「10-23 复盘」段）
 - memory/evolution/.skill-quality.json（97→98，lastUpdated 23:45）
 - memory/evolution/evolution-log.md（本记录）
+
+
+---
+
+## 2026-10-24 23:52 — 反射 #100（超时重试 · 重复写入抑制）
+
+- 性质: 23:45 #99 的 cron 自动重试（#99 在 `tool-execution-started` 超时 123105ms / 限 120s，errorReason=timeout，retryAt=+7min），**非漂移、非双调度源**
+- 用户交互: 0（静默第 95 天）
+- 产物: #99 已完整落盘四文件（内容级校验通过：daily 23:45 反思段 / 画像 last_updated 23:45 / JSON totalCalls=99 / evolution-log #99）→ 本轮不重复写入，仅补诊断
+
+### 观察
+- **★120s 任务超时已偏紧**：近 10 次运行 50~95s（10-16 95411 / 10-17 75854 / 10-18 63846 / 10-19 63446 / 10-20 65150 / 10-21 63336 / 10-23 107341），今日 123105 越界 → 超时是**容量问题而非故障**
+- **★超时层级再细分**：本次超时在 `tool-execution-started`（写入完成后），10-14 在 `model-call-started` → 同为 job-timeout 但阻塞点不同，处置不同（前者靠缩短写路径/合并工具调用，后者靠模型链路余量）
+- **失败归因表扩至六类**：调度层 / 执行-网关(网络超时) / 执行-计费认证(402/401) / **执行-任务超时(job 120s)** / 投递层(errcode -14) / 工具层(Edit 匹配失败)
+- **「lastRunStatus 不可作产物完整性判据」二次印证**：status=error 而四文件 100% 完整；且失败点在写入之后 → 告警必须看文件时间戳+JSON 可解析+条目顺序
+- **重复触发类型新增第 4 种**：漂移提前 / 双调度源 / 冗余投递（09-07 三连）/ **超时重试**（本次）→ 四类应在 daily 首行标注区分，避免历史口径混淆
+- 既有阻断与记忆健康口径沿用 #99，无变化
+
+### 质量变化
+- memory-reflection: totalCalls 维持 99（沿用「同窗口重试不重复计数」惯例，见 10-02 / 09-07 先例）
+- qualityScore 维持 0.99；knownIssues 置顶追加本轮诊断
+
+### 进化触发
+- 无新 FIX/DERIVED/CAPTURED（静默日）
+- **FIX 候选③ 升级**（模型链路超时 → 扩为「cron 任务超时」）：timeoutSeconds 120 → 180~240；四文件写入合并为单次 python 批处理减少工具往返（本次 10+ 次工具调用是耗时主因）
+- **FIX 候选⑭ 新增**：重试前先做内容级判重（读四文件时间戳/计数），产物已完整则只补诊断，禁止重复写画像正文与反思段
+- **FIX 候选⑪/⑫ 证据沿用**，无新增
+
+### 写入文件
+- memory/daily/2026-10-24.md（追加 23:52 重试诊断段）
+- memory/evolution/evolution-log.md（本记录）
+- memory/evolution/.skill-quality.json（knownIssues 置顶 + 计数维持 99）
+- 05-个人/人物画像.md：**无写入**（#99 已更新至 23:45，无新用户信号）
+
+---
+
+## 2026-10-24 23:45 — 反射 #99（准点 · 第17周第6日）
+
+- 任务数: 5（09:00 patrol 补跑 + 23:00 memory-consolidation + 23:15 memory-health-sync + 23:30 evening-plan-reminder + 本反射）；用户交互: 0
+- 成功: patrol / consolidation / health-sync / evening-reminder / 反射 ｜ 失败: 无（本日）
+- 静默天数: 95（07-21 → 10-24）
+- 产出: 无用户级产出（2 次系统 commit：c54cd38 patrol / 330481d consolidation）
+
+### 观察
+- **★10-23 反射 run status=error，但四文件完整 → 失败在工具层**：cron run 记录 `Edit: in ~\.openclaw\workspace\memory\evolution\evolution-log.md failed`，durationMs 107341；而 23:46 commit `64604c7` 已含 daily/画像/JSON/evolution-log 四文件 → 失效层由四类扩至五类：调度层 / 执行-网关 / 执行-计费认证 / 投递层 / **工具层（文件编辑匹配失败）**
+- **★lastRunStatus 不可作产物完整性判据**：status=error 可产物齐全（10-23），status=ok 也曾只写部分文件（08-08/08-20/08-21/09-04 四文件截断）→ 可靠性告警必须校验文件内容（时间戳/JSON 可解析/条目顺序），单看运行状态会同时产生误报与漏报
+- **★PS 5.1 读 UTF-8 JSON 假性解析失败**：`ConvertFrom-Json` 报「应为':'或'}'」，python `json.load` 同一文件通过（24962B / 6 facts）→ 状态与 JSON 文件校验一律用 python，PS 仅做文本预览。10-07「控制台乱码≠文件损坏」的升级版：那次只影响显示，这次险些把完好的 trust-registry.json 误判为损坏
+- **★统计口径第 3 次打架**：同一 MEMORY.md 今日出现三个值 —— 09:00 patrol 106 行 / 23:00 consolidation 112 行 / 23:15 health 100 行，实测 106 行（仅 patrol 正确）；topic 条目数 patrol（learnings 114·design-systems 124·work-tools 39）vs health（153·121·53）互相矛盾 → FIX 候选⑨ 证据 +2，三组件应共用同一出数函数
+- **★gateway cron 注册表仅 1 个 job**（memory-reflection），但 consolidation / health / patrol / evening 今日均正常产出 → 存在第二调度源（外部脚本或独立 scheduler）；其 lastRun 状态在 cron 工具下不可见 = 观测盲区（待确认，不作结论）
+- 凌晨链 02:00/02:15 未按点（第 24 日），由 09:00 patrol 补跑 → 『管道恢复≠调度器恢复』第 24 日
+- 记忆健康：MEMORY.md 106 行 OK / topic 12（9 stale，8 个停 07-21 ≈95d）/ pending 10→6 回落 / live daily 51 篇（archive 33）/ trust 三 fact 贴底 0.10 无变化（135.0d / 135.0d / 133.0d）/ memory-state.json 已正常回写（lastConsolidation 2026-10-24T23:00:33）
+- 既有阻断：YouNavi 渠道 fetcherWorker.js 缺失 + 任务侧 LLM API 401 / memory_search 不可用（ollama 未运行）/ lark-cli 未绑定 / task-calendar 6 项（3×P0）超期 114 天 / 微信 errcode -14 / temp 堆积待批
+
+### 质量变化
+- memory-reflection: totalCalls 98→99, successCalls 97→98, failureCalls 2（不变）
+- qualityScore: 98/99 = 0.99（不变）
+- lastUpdated: 2026-10-24T23:45:00+08:00
+
+### 进化触发
+- 无新 FIX/DERIVED/CAPTURED（静默日无用户信号、无新 Skill 调用）
+- **FIX 候选⑪ 新增**：反射产出自查从「四文件存在性」升级为「内容级校验 + 不信任 lastRunStatus」（时间戳新于本轮、JSON 可解析、条目数与报告一致、日志追加位置正确）
+- **FIX 候选⑫ 新增**：状态/JSON 校验统一走 python（`json.load` + 字段断言），禁止用 PS 5.1 `Get-Content | ConvertFrom-Json` 判定文件健康
+- **FIX 候选⑨ 证据 +2**：MEMORY.md 行数与 topic 条目数三组件三个值（patrol / consolidation / health 各不同，实测仅 patrol 正确）
+- **FIX 候选⑬ 新增**：调度源清点（gateway cron 仅 1 job，其余链路来源不明）→ 静默期修复前必须先画清调度拓扑，否则「补跑成功」会掩盖「调度器未恢复」
+- 其余候选不变：① 调度器漂移/漏跑 + 看门狗 ② 反射四文件自动化校验 ③ 模型链路超时 ④ ollama 自启 ⑤ lark-cli 绑定 ⑥ 07-02 遗留任务关闭 ⑦ temp 清理规范扩展 ⑧ 状态文件原子写入 ⑩ cron 错误四层归因
+
+### 写入文件
+- memory/daily/2026-10-24.md（追加反思段）
+- 05-个人/人物画像.md（front matter：last_updated + trends + progress + status；正文追加「10-24 复盘」段）
+- memory/evolution/.skill-quality.json（98→99，lastUpdated 23:45）
+- memory/evolution/evolution-log.md（本记录）

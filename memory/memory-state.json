@@ -1,18 +1,18 @@
 ﻿{
     "lastConsolidation":  "2026-10-24T23:00:33+08:00",
     "lastPatrol":  "2026-10-24T09:00:41+08:00",
-    "lastHealthCheck":  "2026-10-24T09:00:41+08:00",
+    "lastHealthCheck":  "2026-10-24T23:15:16+08:00",
     "lastCheckResults":  {
                              "topics_total":  12,
-                             "memory_lines":  106,
+                             "memory_lines":  100,
                              "lines_warning":  0,
-                             "total_pending":  10,
+                             "total_pending":  6,
                              "recent_dailies_7d":  7,
-                             "expired_topics_7d":  11,
+                             "expired_topics_7d":  9,
                              "overloaded_topics":  [
-                                                       "design-systems-analysis.md (339 lines, 124 entries \u003e50)",
-                                                       "learnings.md (280 lines, 114 entries \u003e50)",
-                                                       "work-tools.md (418 lines, 39 entries)"
+                                                       "learnings.md (153 entries \u003e50)",
+                                                       "design-systems-analysis.md (121 entries \u003e50)",
+                                                       "work-tools.md (53 entries \u003e50)"
                                                    ],
                              "stale_topics":  [
                                                   "decisions.md",
@@ -22,27 +22,24 @@
                                                   "people.md",
                                                   "preferences.md",
                                                   "projects.md",
-                                                  "task-calendar.md",
-                                                  "github-may-2026-projects.md",
-                                                  "learnings.md",
-                                                  "work-tools.md"
+                                                  "task-calendar.md"
                                               ],
                              "issues":  [
-                                            "11/12 topics stale \u003e7d; 8 last touched 2026-07-21 (~95d)",
-                                            "2 topics over 50 entries (design-systems 124, learnings 114)",
-                                            "no new topic writes since 2026-10-01; daily logs healthy (7/7 in 7d)",
-                                            "02:00/02:15 cron chain missed again (day 24), caught up at 09:00",
-                                            "tmp/ holds db_probe.py + younavi_daily_check.py (untracked, awaiting approval)"
+                                            "9/12 topics stale \u003e7d; 8 last touched 2026-07-21 (~95d)",
+                                            "3 topics over 50 entries (learnings 153, design-systems 121, work-tools 53)",
+                                            "pending markers down to 6 (was 10)",
+                                            "daily logs healthy 7/7 in 7d",
+                                            "git: no changes to commit"
                                         ],
                              "cleanup":  {
                                              "temp_dirs_removed":  0,
                                              "tools_scripts_removed":  0,
-                                             "note":  "nothing to clean: temp/ only video-audio+video-test; no check_/explore_/gen_/render_/launch_/open_ scripts"
+                                             "note":  "nothing to clean: temp/ only video-audio+video-test; no scratch scripts"
                                          },
                              "git":  {
-                                         "committed":  true,
-                                         "note":  "patrol catch-up",
-                                         "pushed":  true
+                                         "committed":  false,
+                                         "note":  "no changes",
+                                         "pushed":  false
                                      }
                          },
     "lastConsolidationNote":  "2026-10-24 23:00: no signals; user silent 95d; decay 3 facts at floor; archived 1 stale daily; no topic writes"
