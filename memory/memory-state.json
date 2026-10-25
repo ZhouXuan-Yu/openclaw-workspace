@@ -1,16 +1,16 @@
 {
     "lastConsolidation": "2026-10-25T23:00:00+08:00",
     "lastPatrol": "2026-10-25T09:00:56+08:00",
-    "lastHealthCheck": "2026-10-25T09:00:56+08:00",
+    "lastHealthCheck": "2026-10-25T23:15:00+08:00",
     "lastCheckResults": {
         "topics_total": 12,
-        "memory_lines": 112,
+        "memory_lines": 103,
         "lines_warning": 0,
-        "total_pending": 10,
+        "total_pending": 6,
         "recent_dailies_7d": 16,
-        "expired_topics_7d": 9,
+        "expired_topics_7d": 8,
         "overloaded_topics": [
-            "design-systems-analysis.md (124 entries >50)",
+            "design-systems-analysis.md (95 entries >50)",
             "learnings.md (114 entries >50)",
             "work-tools.md (39 entries, 418 lines)"
         ],
@@ -25,21 +25,20 @@
             "task-calendar.md"
         ],
         "issues": [
-            "9/12 topics stale >7d; 8 last touched 2026-07-21 (~96d)",
-            "3 topics overloaded (design-systems 124, learnings 114, work-tools 39)",
-            "pending at threshold 10",
-            "daily logs healthy 7/7 days (16 files)",
-            "dawn cron 02:00/02:15 missed day 25; caught up by 09:00 patrol"
+            "8/12 topics stale >7d; 8 last touched 2026-07-21 (~96d)",
+            "2 topics overloaded by entry count (learnings 114, design-systems 95); work-tools 418 lines",
+            "pending down to 6 (was 10) — below threshold",
+            "daily logs healthy 7/7 days (16 files)"
         ],
         "cleanup": {
             "temp_dirs_removed": 0,
             "tools_scripts_removed": 0,
-            "note": "nothing to clean"
+            "note": "nothing to clean; temp/ has only video-audio, video-test + 1 json artifact"
         },
         "git": {
             "committed": true,
             "pushed": true,
-            "note": "patrol catch-up 2026-10-25"
+            "note": "health-check sync 2026-10-25T23:15"
         }
     },
     "lastConsolidationNote": "2026-10-25 23:00: no signals (user silent 96d); 0 topic writes; decay 3 facts at floor 0.10; MEMORY.md dedup (dup index rows + broken table row), 106->103 lines; no daily >30d"
