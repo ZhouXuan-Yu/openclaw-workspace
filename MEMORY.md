@@ -56,7 +56,6 @@
 | 实用工具 | `E:\Obsidian仓库\ZhouXuan私人领域\实用工具收录\` |
 | 工具 | `topics/work-tools.md` |
 | 任务日历 | `topics/task-calendar.md` |
-
 | 变更影响 | `docs/change-impact-checklist.md` |
 | ADR | `docs/adr/` |
 | 智能检索 | `memory/retrieval-strategy.md` + `topics/_graph.json` |
