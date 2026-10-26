@@ -2109,3 +2109,41 @@
 - 05-个人/人物画像.md（front matter：last_updated + trends + progress + status；正文追加「10-24 复盘」段）
 - memory/evolution/.skill-quality.json（98→99，lastUpdated 23:45）
 - memory/evolution/evolution-log.md（本记录）
+
+---
+
+## 2026-10-26 23:45 — 反射 #100（准点 · 第17周收官日）
+
+- 任务数: 3（23:00 memory-consolidation + 23:15 memory-health-sync + 本反射）；09:00 patrol 缺跑；用户交互: 0
+- 成功: consolidation / health-sync / 反射 ｜ 失败: 10-25 反射（billing/auth，非本日）
+- 静默天数: 97（07-21 → 10-26）
+- 产出: 无用户级产出（系统自转）
+
+### 观察
+- **★10-25 反射整轮失败 = 模型层计费/认证双失效**：`FallbackSummaryError: All models failed (2)` — xiaoxiao/deepseek-v4-flash 402 Insufficient Balance + my/deepseek-v4-flash 401 invalid key ****e3be，durationMs 11010，errorReason=billing。与 10-22（8.7s）同型，**4 日内复发 2 次** → 不是偶发抖动，是账户可用性缺陷
+- **★fallback 不产生冗余**：主备模型共用同一账户/密钥生命周期，402 与 401 成对出现。配了 fallback ≠ 有冗余；真冗余要跨账户或跨厂商，或至少做余额/密钥前置探活
+- **★失败—自愈—再失败循环**：10-22 败 → 10-23 愈 → 10-25 败 → 10-26 愈。根因未处理，任何一次「恢复成功」都不能作为稳定性证据（与 08-20/21 准点后证伪同构）
+- **★失败无外发告警**：本 job `delivery.mode=none`，两天失败只落在 cron 记录里。余额耗尽后整条自动化会在无人知晓时停摆 —— 当前最大可靠性缺口，优先级高于任何内容产出
+- **★FIX 未落地即复发**：10-24 FIX③ 提议 timeout 120→180~240，至今仍 120s；本次在预算内完成，余量已耗尽
+- **★09:00 patrol 整段缺跑**：memory-state.lastPatrol 停 2026-10-25T09:00，今日仅 23:00 consolidation + 23:15 health → 『管道恢复≠调度器恢复』第 26 日
+- 记忆健康：MEMORY.md 109 行 OK / topic 12 / live daily 54 篇（archive 34）/ trust 6 facts 中 3 条贴底 0.10 无变化（137.0d / 137.0d / 135.0d）
+- 既有阻断：YouNavi 渠道 fetcherWorker.js 缺失 + 任务侧 LLM API 401 / memory_search 不可用（ollama 未运行）/ lark-cli 未绑定 / task-calendar 6 项（3×P0）超期 116 天 / 微信 errcode -14
+
+### 质量变化
+- memory-reflection: totalCalls 99→100, successCalls 98→99, failureCalls 2（不变；10-25 为模型层失败，沿用失败单列惯例）
+- qualityScore: 99/100 = 0.99（不变）
+- lastUpdated: 2026-10-26T23:45:00+08:00
+
+### 进化触发
+- 无新 FIX/DERIVED/CAPTURED（静默日无用户信号、无新 Skill 调用）
+- **FIX 候选? 新增**：模型链路冗余分级 —— 区分「同账户 fallback（伪冗余）」与「跨账户/跨厂商 fallback（真冗余）」，配置评审按此判定
+- **FIX 候选? 新增**：计费/密钥前置探活 —— cron 运行前检查余额与密钥有效性，失败即告警，不等整轮报错
+- **FIX 候选? 升级**：失败告警（原候选②）证据 +3 —— 10-22/10-23/10-25 三次无外发通知，`delivery.mode=none` 是盲区根因
+- **FIX③ 仍未落地**：timeoutSeconds 120 → 180~240（10-24 提议），今日余量耗尽，建议下次运行前先改配置
+- 其余候选不变：① 调度器漂移/漏跑 + 看门狗（patrol 缺跑第 26 日）④ ollama 自启 ⑤ lark-cli 绑定 ⑥ 07-02 遗留任务关闭 ⑦ temp 清理规范 ⑧ 状态文件原子写入 ⑨ 统计口径统一 ⑩ cron 错误分层归因
+
+### 写入文件
+- memory/daily/2026-10-26.md（追加反思段）
+- 05-个人/人物画像.md（front matter：last_updated / strengths 注记 / trends / progress / status；正文追加「10-26 复盘」段）
+- memory/evolution/.skill-quality.json（99→100，lastUpdated 23:45，knownIssues 置顶）
+- memory/evolution/evolution-log.md（本记录）
